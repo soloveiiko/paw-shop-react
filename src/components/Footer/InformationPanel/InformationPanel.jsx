@@ -1,5 +1,6 @@
 import React from 'react';
-import { facebook, icoEmail, instagram, logoWhite, twitter } from '../../../assets';
+import { facebook, icoEmail, instagram, logoWhite, twitter } from '@static';
+
 const socialNetworkList = [
   { id: 1, name: 'Instagram', image: instagram },
   { id: 2, name: 'Facebook', image: facebook },

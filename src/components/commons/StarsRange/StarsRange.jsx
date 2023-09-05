@@ -1,5 +1,5 @@
 import React from 'react';
-import { icoStars } from '../../../assets';
+import { icoStars } from '@static';
 
 const StarsRange = () => {
   return (

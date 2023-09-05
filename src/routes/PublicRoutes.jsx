@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { MainPage, NotFoundPage } from '../pages';
+import { MainPage, NotFoundPage } from '@pages';
 
 const PublicRoutes = () => {
   return (

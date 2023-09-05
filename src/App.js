@@ -1,7 +1,7 @@
-import { Footer, Header } from './components';
-import './App.css';
-import AppRoutes from './routes/AppRoutes';
 import React from 'react';
+import { Footer, Header } from '@components';
+import AppRoutes from '@routes/AppRoutes';
+import './App.scss';
 
 function App() {
   return (

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Dots, NextArrow, PrevArrow } from '../commons';
-import { bgKarsten } from '../../assets';
 import ReviewsItem from '../ReviewsItem/ReviewsItem';
-import { reviewsList } from '../../utils/data';
+import { Dots, NextArrow, PrevArrow } from '@commons';
+import { bgKarsten } from '@static';
+import { reviewsList } from '@utils/data';
 
 const Reviews = () => {
   return (

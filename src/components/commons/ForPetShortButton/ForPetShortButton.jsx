@@ -1,5 +1,5 @@
 import React from 'react';
-import { icoArrowLeft, icoArrowRight } from '../../../assets';
+import { icoArrowLeft, icoArrowRight } from '@static';
 
 const ForPetShortButton = ({ isCat, isDog }) => {
   return (

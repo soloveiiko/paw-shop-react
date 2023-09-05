@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductItem from '../ProductItem/ProductItem';
-import { popularProducts } from '../../utils/data';
-import ForPetLongButton from '../commons/ForPetLongButton/ForPetLongButton';
+import { popularProducts } from '@utils/data';
+import ForPetLongButton from '@commons/ForPetLongButton/ForPetLongButton';
 
 const PopularProducts = () => {
   return (

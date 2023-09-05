@@ -1,6 +1,6 @@
 import React from 'react';
-import { bgCart, bgSpecialOffer, bgSpecialOfferTablet } from '../../assets';
-import { NextArrow, PrevArrow, Dots } from '../commons';
+import { bgCart, bgSpecialOffer, bgSpecialOfferTablet } from '@static';
+import { NextArrow, PrevArrow, Dots } from '@commons';
 
 const SpecialOffer = ({ isMobile, isTablet }) => {
   return (

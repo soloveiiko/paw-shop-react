@@ -1,6 +1,7 @@
 import React from 'react';
-import { StarsRange } from '../commons';
-import { icoArrowAccent } from '../../assets';
+import { Link } from 'react-router-dom';
+import { StarsRange } from '@commons';
+import { icoArrowAccent } from '@static';
 
 const ReviewsItem = ({ review }) => {
   return (
@@ -19,10 +20,10 @@ const ReviewsItem = ({ review }) => {
         ))}
         <span className="reviews__show-more-image">+2</span>
       </div>
-      <a href="#" className="reviews__link">
+      <Link to="#" className="reviews__link">
         See the product
         <img className="reviews__arrow" src={icoArrowAccent} alt="Arrow" />
-      </a>
+      </Link>
     </div>
   );
 };

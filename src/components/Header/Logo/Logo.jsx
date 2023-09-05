@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { logoDark } from '../../../assets';
+import { logoDark } from '@static';
 
 const Logo = () => {
   return (

@@ -17,10 +17,8 @@ const Footer = () => {
           <Links />
         </div>
         <div className="footer__bottom">
-          <div className="footer__bottom">
-            <Cards />
-            <Copyright />
-          </div>
+          <Cards />
+          <Copyright />
         </div>
       </div>
     </footer>

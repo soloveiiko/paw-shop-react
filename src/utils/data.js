@@ -1,4 +1,4 @@
-import { prToy1, prToy2, prToy3, prToy4, review } from '../assets';
+import { prToy1, prToy2, prToy3, prToy4, review } from '../static';
 
 export const popularProducts = [
   {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AboutUs, Banner, PopularProducts, Reviews, SpecialOffer } from '../../components';
+import { AboutUs, Banner, PopularProducts, Reviews, SpecialOffer } from '@components';
 
 const MainPage = () => {
   const [mobile, setMobile] = useState(false);

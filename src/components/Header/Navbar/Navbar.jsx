@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 const navbarList = [
   { id: 1, name: 'For <b>cat</b>', link: '#' },
   { id: 2, name: 'For <b>dog</b>', link: '#' },

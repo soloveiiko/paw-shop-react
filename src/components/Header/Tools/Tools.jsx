@@ -1,5 +1,5 @@
 import React from 'react';
-import { icoBasket, icoUser } from '../../../assets';
+import { icoBasket, icoUser } from '@static';
 
 const Tools = () => {
   return (

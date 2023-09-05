@@ -1,5 +1,6 @@
 import React from 'react';
-import { icoCheckmark, icoReturn, icoStar, icoSupport } from '../../../assets';
+import { icoCheckmark, icoReturn, icoStar, icoSupport } from '@static';
+
 const benefitsList = [
   { id: 1, name: '<b>Unique </b>products', alt: 'Unique', image: icoStar },
   { id: 2, name: '<b>24/7 </b>support', alt: 'Support', image: icoSupport },

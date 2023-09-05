@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "jsx": "react",
+    "target": "esnext",
+    "module": "es6",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@assets": ["assets"],
+      "@components": ["components/index"],
+      "@commons": ["components/commons/index"],
+      "@pages": ["pages/index"],
+      "@routes": ["routes"],
+      "@static": ["static"],
+      "@utils": ["utils"],
+
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+      "@commons/*": ["components/commons/*"],
+      "@pages/*": ["pages/*"],
+      "@routes/*": ["routes/*"],
+      "@static/*": ["static/*"],
+      "@utils/*": ["utils/*"]
+    }
+  },
+  "exclude": [
+    "build",
+    "node_modules",
+    "public"
+  ]
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { petCat, petDog } from '../../assets';
+import { petCat, petDog } from '@static';
 
 const AboutUs = () => {
   return (

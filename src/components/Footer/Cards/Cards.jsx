@@ -1,5 +1,5 @@
 import React from 'react';
-import { cardCheque, cardFondy, cardLiqpay, cardPayPal, cardWayForPay } from '../../../assets';
+import { cardCheque, cardFondy, cardLiqpay, cardPayPal, cardWayForPay } from '@static';
 const cardsList = [
   { id: 1, name: 'PayPal', image: cardPayPal },
   { id: 2, name: 'Fondy', image: cardFondy },

@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { SlClose } from 'react-icons/sl';
+
 const navbarList = [
   { id: 1, name: 'Home', link: '#' },
   { id: 2, name: 'For <b>cat</b>', link: '#' },

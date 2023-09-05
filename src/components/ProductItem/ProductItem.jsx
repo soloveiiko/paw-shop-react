@@ -1,5 +1,6 @@
 import React from 'react';
-import { StarsRange, InBasketButton } from '../commons';
+import { StarsRange } from '@commons';
+import { icoBasket } from '@static';
 
 const ProductItem = ({ product }) => {
   const perDifference = (prevPrice, currPrice) => {
@@ -32,7 +33,9 @@ const ProductItem = ({ product }) => {
             <div className="products-item__price">${product.price}</div>
           )}
           <div className="products-item__in-basket-container in-basket">
-            <InBasketButton />
+            <button className="in-basket__btn">
+              +<img src={icoBasket} alt="In Basket" />
+            </button>
           </div>
         </div>
       </div>
