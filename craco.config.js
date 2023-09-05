@@ -6,7 +6,6 @@ module.exports = {
   webpack: {
     alias: {
       '@components': resolvePath('./src/components'),
-      '@commons': resolvePath('./src/components/commons'),
       '@assets': resolvePath('./src/assets'),
       '@pages': resolvePath('./src/pages'),
       '@routes': resolvePath('./src/routes'),

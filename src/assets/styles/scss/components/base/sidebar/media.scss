@@ -1,0 +1,12 @@
+@include md {
+  .sidebar {
+    &__list {
+      flex-wrap: wrap;
+      height: 140rem;
+    }
+
+    &__number {
+      display: none;
+    }
+  }
+}

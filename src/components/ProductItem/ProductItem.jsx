@@ -1,6 +1,6 @@
 import React from 'react';
-import { StarsRange } from '@commons';
 import { icoBasket } from '@static';
+import StarsRange from '@components/StarsRange/StarsRange';
 
 const ProductItem = ({ product }) => {
   const perDifference = (prevPrice, currPrice) => {

@@ -1,0 +1,128 @@
+@import "./additional/variables";
+@import "./additional/reset";
+@import "./additional/mixins";
+@import "./components/aboutUs/about-us";
+@import "./components/aboutUs/media";
+@import "./components/arrows/nextArrow/next-arrow";
+@import "./components/arrows/nextArrow/media";
+@import "./components/arrows/prevArrow/prev-arrow";
+@import "./components/arrows/prevArrow/media";
+@import "./components/banner/banner";
+@import "./components/banner/media";
+@import "./components/base/cards/cards";
+@import "./components/base/cards/media";
+@import "./components/base/informationPanel/information-panel";
+@import "./components/base/informationPanel/media";
+@import "./components/base/links/links";
+@import "./components/base/links/media";
+@import "./components/base/logo/logo";
+@import "./components/base/logo/media";
+@import "./components/base/navbar/navbar";
+@import "./components/base/navbar/media";
+@import "./components/base/sidebar/sidebar";
+@import "./components/base/sidebar/media";
+@import "./components/base/subscribe/subscribe";
+@import "./components/base/subscribe/media";
+@import "./components/base/tools/tools";
+@import "./components/base/tools/media";
+@import "./components/base/footer/footer";
+@import "./components/base/footer/media";
+@import "./components/base/header/header";
+@import "./components/base/header/media";
+@import "./components/benefits/benefits";
+@import "./components/benefits/media";
+@import "./components/buttons/forPetLongBtn/for-pet-long-btn";
+@import "./components/buttons/forPetLongBtn/media";
+@import "./components/buttons/forPetShortBtn/for-pet-short-btn";
+@import "./components/buttons/forPetShortBtn/media";
+@import "./components/popularProducts/popular-products";
+@import "./components/popularProducts/media";
+@import "./components/productItem/product-item";
+@import "./components/productItem/media";
+@import "./components/reviews/reviews";
+@import "./components/reviews/media";
+@import "./components/reviewsItem/reviews-item";
+@import "./components/reviewsItem/media";
+@import "./components/specialOffer/special-offer";
+@import "./components/specialOffer/media";
+@import "./components/specialOfferItem/special-offer-item";
+@import "./components/specialOfferItem/media";
+@import "./components/starsRange/stars-range";
+@import "./components/starsRange/media";
+@import "./pages/main/main";
+@import "./pages/main/media";
+
+h1 {
+  @include h1-title-mobile;
+}
+
+h2 {
+  @include h2-title-mobile;
+}
+
+h3 {
+  @include h3-title-mobile;
+}
+
+.container {
+  max-width: 1300rem;
+  margin: 0 auto;
+  padding-right: 15rem;
+  padding-left: 15rem;
+}
+
+.popular-products, .about-us {
+  padding-top: 53rem;
+}
+
+.cat, .dog {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.cat {
+  color: $cat;
+}
+
+.dog {
+  color: $dog;
+}
+
+.headline {
+  text-align: center;
+}
+
+@include md {
+  html,
+  body {
+    font-size: $text-size-tablet;
+  }
+
+  * {
+    font-size: $simple-text-size;
+  }
+
+  .popular-products, .about-us {
+    padding-top: 80rem;
+  }
+
+  h1 {
+    @include h1-title;
+  }
+  h2 {
+    @include h2-title;
+  }
+  h3 {
+    @include h3-title;
+  }
+}
+
+@include lg {
+  html,
+  body {
+    font-size: $text-size-desktop;
+  }
+  .popular-products, .about-us {
+    padding-top: 141rem;
+  }
+}

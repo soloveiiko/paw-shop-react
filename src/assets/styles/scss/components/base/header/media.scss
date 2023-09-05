@@ -1,0 +1,19 @@
+@include md {
+  .header {
+    &__container {
+      padding: 8rem 17rem;
+    }
+
+    &__number {
+      display: block;
+    }
+  }
+}
+
+@include lg {
+  .header {
+    &__number {
+      margin: 0 51rem 0 auto;
+    }
+  }
+}

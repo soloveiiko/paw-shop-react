@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { StarsRange } from '@commons';
 import { icoArrowAccent } from '@static';
+import StarsRange from '@components/StarsRange/StarsRange';
 
 const ReviewsItem = ({ review }) => {
   return (

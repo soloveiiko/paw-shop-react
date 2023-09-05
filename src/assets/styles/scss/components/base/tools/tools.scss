@@ -1,0 +1,70 @@
+.tools {
+  gap: 33rem;
+
+  &__profile {
+  }
+
+  &__basket {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+  }
+
+  &__basket-img {
+    padding: 11rem 13.5rem;
+    border-radius: 50rem;
+    background-color: $accent;
+  }
+
+  &__basket-counter {
+    font-size: 14rem;
+    position: absolute;
+    right: -1rem;
+    bottom: -4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22rem;
+    height: 22rem;
+    color: $white;
+    border-radius: 50rem;
+    background: $gradient;
+  }
+
+  &__basket-price {
+    display: none;
+  }
+
+  &__btn-container {
+      width: 33rem;
+      height: 18.207rem;
+  }
+
+  &__open-sidebar-btn {
+      font-size: 0;
+      position: relative;
+      width: 100%;
+      margin: 0;
+      padding: 1rem 16rem;
+      cursor: pointer;
+      border: none;
+      background-color: $black;
+
+      &::before, &::after {
+        position: absolute;
+        left: 0;
+        padding: 1rem 16.5rem;
+        content: '';
+        background-color: $black;
+      }
+
+      &::before {
+        top: -11rem;
+      }
+
+      &::after {
+        top: 11rem;
+      }
+  }
+}

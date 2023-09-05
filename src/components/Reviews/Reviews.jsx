@@ -1,8 +1,10 @@
 import React from 'react';
-import ReviewsItem from '../ReviewsItem/ReviewsItem';
-import { Dots, NextArrow, PrevArrow } from '@commons';
 import { bgKarsten } from '@static';
 import { reviewsList } from '@utils/data';
+import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
+import NextArrow from '@components/Arrows/NextArrow/NextArrow';
+import PrevArrow from '@components/Arrows/PrevArrow/PrevArrow';
+import Dots from '@components/Dots/Dots';
 
 const Reviews = () => {
   return (

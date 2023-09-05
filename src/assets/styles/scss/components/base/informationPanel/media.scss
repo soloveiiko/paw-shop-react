@@ -1,0 +1,45 @@
+@include md {
+  .information-panel {
+    gap: 28rem;
+
+    &__number-wrapper, &__social-network {
+      width: fit-content;
+    }
+
+    .logo {
+      gap: 21rem;
+
+      &__image {
+        width: 55rem;
+        height: 72rem;
+      }
+    }
+
+    &__number-wrapper {
+      gap: 7rem;
+    }
+
+    &__number {
+      font-size: 20rem;
+    }
+
+    .social-network__list {
+      gap: 16rem;
+    }
+  }
+}
+
+@include lg {
+  .information-panel {
+    gap: 27rem;
+
+    &__number-wrapper {
+      gap: 15rem;
+    }
+
+    .social-network__list {
+      gap: 18rem;
+    }
+  }
+
+}

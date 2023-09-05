@@ -1,0 +1,24 @@
+.benefits {
+  z-index: 1;
+  position: relative;
+  padding: 31rem 16rem;
+  background-color: $white;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20rem;
+    font-size: 15rem;
+
+    b {
+      font-weight: 500;
+    }
+  }
+}

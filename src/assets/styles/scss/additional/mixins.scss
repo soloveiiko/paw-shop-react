@@ -1,0 +1,84 @@
+@mixin button {
+  font-family: 'Montserrat Alternates', sans-serif;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15rem;
+  border-radius: $border-radius;
+  cursor: pointer;
+}
+
+@mixin button-mobile {
+  font-size: $simple-text-size-mobile;
+}
+
+@mixin button-md {
+  font-size: $simple-text-size;
+}
+
+@mixin pet-button {
+  @include button;
+  height: 60rem;
+  padding: 20rem 25rem;
+  background-color: $transparent-white;
+}
+
+@mixin pet-button-hover {
+  background-color: $white;
+  box-shadow: 0 5rem 10rem 0 rgba(0, 0, 0, 0.10);
+}
+
+@mixin arrow {
+  width: 59rem;
+  height: 59rem;
+}
+
+@mixin h1-title-mobile {
+  font-size: $h1-size-mobile;
+  font-weight: 900;
+  line-height: 117%;
+}
+
+@mixin h1-title {
+  font-size: $h1-size;
+  font-weight: 900;
+  line-height: 110%;
+}
+
+@mixin h2-title-mobile {
+  font-size: $h2-size-mobile;
+  font-weight: 700;
+}
+
+@mixin h2-title {
+  font-size: $h2-size;
+  font-weight: 700;
+}
+
+@mixin h3-title-mobile {
+  font-size: $h3-size-mobile;
+  font-weight: 400;
+}
+
+@mixin h3-title {
+  font-size: $h3-size;
+  font-weight: 400;
+}
+
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}

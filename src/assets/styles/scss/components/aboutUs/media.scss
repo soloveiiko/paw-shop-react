@@ -1,0 +1,86 @@
+@include md {
+  .about-us {
+    padding-bottom: 40rem;
+
+    &__list {
+      margin: 32rem 0;
+    }
+
+    &__item {
+      &_dog, &_cat {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        gap: 24rem;
+      }
+
+      &_cat {
+        .about-us__img-container {
+          justify-content: flex-start;
+          margin-top: 25rem;
+        }
+      }
+    }
+
+    &__img-container, &__text-wrapper {
+      width: calc(50% - 15rem);
+    }
+
+    &__text-wrapper {
+      margin-top: 25rem;
+    }
+
+    &__img-container {
+      overflow: visible;
+      justify-content: flex-end;
+    }
+
+    &__image {
+      width: auto;
+      height: 100%;
+      scale: 1;
+    }
+
+    &__title {
+      font-size: 20rem;
+
+      b {
+        font-size: 20rem;
+      }
+    }
+  }
+}
+
+@include lg {
+  .about-us {
+    padding-bottom: 89rem;
+
+    &__list {
+      gap: 20rem;
+    }
+
+    &__item {
+      &_dog, &_cat {
+        gap: 6rem;
+      }
+
+      &_cat {
+        .about-us__img-container {
+          margin-top: 0;
+          margin-left: 45rem;
+        }
+      }
+    }
+
+    &__img-container {
+      width: 49%;
+    }
+
+    &__text-wrapper {
+      width: 43%;
+      margin-top: 76rem;
+      margin-left: 50rem;
+      gap: 15rem;
+    }
+  }
+}

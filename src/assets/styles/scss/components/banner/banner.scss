@@ -1,0 +1,141 @@
+.banner {
+  position: relative;
+  background: linear-gradient(179deg, #E9A904 0%, #FFC805 100%);
+
+  &__main-background {
+    position: absolute;
+    top: 60rem;
+    right: 0;
+    bottom: 60rem;
+    left: 0;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+      object-fit: cover;
+    }
+  }
+
+  &__container {
+    position: relative;
+    padding-top: 86rem;
+    text-align: center;
+  }
+
+  .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  &__img {
+    &_top, &_bottom {
+      position: absolute;
+      display: flex;
+    }
+
+    &_top, &_bottom {
+      justify-content: center;
+      width: 100%;
+    }
+
+    &_top {
+      z-index: 2;
+      top: 46rem;
+      left: 21rem;
+      height: 270rem;
+    }
+
+    &_bottom {
+      bottom: 256rem;
+      left: 0;
+      align-items: end;
+    }
+  }
+
+  &__img-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  &__image {
+    &_bone, &_ball, &_cat, &_dog {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    &_ball {
+      width: 140rem;
+      height: 70%;
+      margin: 0 auto 0 14rem;
+      transform: rotate(-105deg);
+    }
+
+    &_bone {
+      width: 220rem;
+      margin: 36rem 44rem 0 auto;
+    }
+
+    &_cat {
+      width: 153%;
+      max-height: 370rem;
+      margin-left: -10rem;
+      transform: rotate(355deg);
+    }
+
+    &_dog {
+      width: 190%;
+      max-height: 420rem;
+      margin-bottom: -16rem;
+      margin-left: -90rem;
+      transform: rotate(7deg);
+    }
+  }
+
+  &__title, &__for-pets {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    position: relative;
+    margin: 112rem 13% 34rem;
+    letter-spacing: 0.5rem;
+    color: $accent;
+
+    &_duplicate {
+      font-size: $h1-size-mobile;
+      position: absolute;
+      z-index: -1;
+      top: 4rem;
+      left: 1rem;
+      color: $dark;
+    }
+  }
+
+  &__for-pets {
+    display: grid;
+    justify-content: center;
+    margin: 0 13%;
+    padding-bottom: 86rem;
+    gap: 116rem 20rem;
+  }
+
+  &__for-pets-btn {
+    @include pet-button;
+  }
+
+  &__btn-text {
+    white-space: nowrap;
+  }
+
+  &__text {
+    margin: 0 30rem;
+    grid-column: 1/3;
+    grid-row: 1/2;
+  }
+}

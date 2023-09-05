@@ -1,7 +1,7 @@
 import React from 'react';
-import Benefits from './Benefits/Benefits';
 import { bgBall, bgBone, bgCat, bgDog, bgPattern } from '@static';
-import { ForPetShortButton } from '@commons';
+import ForPetShortButton from '@components/Buttons/ForPetShortButton/ForPetShortButton';
+import Benefits from '@components/Banner/Benefits/Benefits';
 
 const Banner = () => {
   return (

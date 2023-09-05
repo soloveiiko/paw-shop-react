@@ -1,0 +1,40 @@
+@include md {
+  .tools {
+    gap: 29rem;
+
+    &__basket {
+      padding: 8rem 9.5rem;
+    }
+
+    &__basket-img {
+      padding: 8rem 11.5rem;
+    }
+
+    &__basket-counter {
+      bottom: 4rem;
+      left: 40rem;
+    }
+
+    &__basket-price {
+      font-weight: 500;
+      display: block;
+    }
+  }
+}
+
+@include lg {
+  .tools {
+    gap: 51rem;
+
+    &__basket {
+      padding: 8rem 0;
+    }
+
+    &__basket-counter {
+      left: 33rem;
+    }
+    &__btn-container {
+      display: none;
+    }
+  }
+}
