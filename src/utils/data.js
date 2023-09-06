@@ -1,4 +1,4 @@
-import { prToy1, prToy2, prToy3, prToy4, review } from '../static';
+import { spCart, prToy1, prToy2, prToy3, prToy4, review } from '@static';
 
 export const popularProducts = [
   {
@@ -94,5 +94,29 @@ export const reviewsList = [
       "and it's belly squeaks. It's perfect for fetch and tug of war. He also " +
       'loves to just carry it around, squeak and shake It. Will definitely buy more toys.',
     images: [review, review, review],
+  },
+];
+
+export const specialOffer = [
+  {
+    id: 1,
+    image: spCart,
+    title1: 'free',
+    title2: 'shipping',
+    title3: 'Go to your shopping cart and use promocode',
+  },
+  {
+    id: 2,
+    image: spCart,
+    title1: 'free',
+    title2: 'shipping',
+    title3: 'Go to your shopping cart and use promocode',
+  },
+  {
+    id: 3,
+    image: spCart,
+    title1: 'free',
+    title2: 'shipping',
+    title3: 'Go to your shopping cart and use promocode',
   },
 ];

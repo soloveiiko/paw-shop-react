@@ -10,7 +10,6 @@ import bgDog from './images/background/dog.png';
 import bgKarsten from './images/background/karsten.png';
 import bgPaws from './images/background/paws.png';
 import bgPattern from './images/background/pattern.png';
-import bgCart from './images/background/cart.png';
 import bgSpecialOfferTablet from './images/background/special-offer-tablet.png';
 import bgSpecialOffer from './images/background/special-offer.png';
 // Icons
@@ -48,6 +47,8 @@ import prToy3 from './images/products/toy3.jpg';
 import prToy4 from './images/products/toy4.jpg';
 // Reviews
 import review from './images/reviews/review.jpg';
+// Special offers
+import spCart from './images/special-offers/cart.png';
 export {
   logoDark,
   logoWhite,
@@ -59,7 +60,7 @@ export {
   bgKarsten,
   bgPaws,
   bgPattern,
-  bgCart,
+  spCart,
   bgSpecialOffer,
   bgSpecialOfferTablet,
   icoArrowAccent,

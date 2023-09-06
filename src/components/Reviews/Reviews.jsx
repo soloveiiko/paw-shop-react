@@ -2,9 +2,7 @@ import React from 'react';
 import { bgKarsten } from '@static';
 import { reviewsList } from '@utils/data';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
-import NextArrow from '@components/Arrows/NextArrow/NextArrow';
-import PrevArrow from '@components/Arrows/PrevArrow/PrevArrow';
-import Dots from '@components/Dots/Dots';
+// import Dots from '@components/Dots/Dots';
 
 const Reviews = () => {
   return (
@@ -19,9 +17,9 @@ const Reviews = () => {
             <ReviewsItem review={review} />
           ))}
         </div>
-        <NextArrow />
-        <PrevArrow />
-        <Dots />
+        {/*<NextArrow />*/}
+        {/*<PrevArrow />*/}
+        {/*<Dots />*/}
       </div>
     </section>
   );

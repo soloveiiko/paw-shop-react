@@ -1,37 +1,78 @@
-import React from 'react';
-import { bgCart, bgSpecialOffer, bgSpecialOfferTablet } from '@static';
-import PrevArrow from '@components/Arrows/PrevArrow/PrevArrow';
-import NextArrow from '@components/Arrows/NextArrow/NextArrow';
-import Dots from '@components/Dots/Dots';
+import React, { useEffect, useRef } from 'react';
+import { register } from 'swiper/element/bundle';
+import { specialOffer } from '@utils/data';
+import SpecialOfferItem from '@components/SpecialOfferItem/SpecialOfferItem';
 
-const SpecialOffer = ({ isMobile, isTablet }) => {
+register();
+
+const SpecialOffer = () => {
+  const swiperElRef = useRef(null);
+
+  useEffect(() => {
+    const swiperContainer = swiperElRef.current;
+    const params = {
+      navigation: true,
+      pagination: true,
+      injectStyles: [
+        `
+          .swiper-button-next,
+          .swiper-button-prev {
+           top: 50%;
+           transform: translateY(-50%);
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           position: absolute;
+           border-radius: 50rem;
+           width: 59rem;
+           height: 59rem;
+           background-color: white;
+           cursor: pointer;
+           z-index: 10;
+          }
+          .swiper-button-next svg,
+          .swiper-button-prev svg {
+            width: 8px;
+            height: auto;
+            color: black;
+          }
+          .swiper-pagination-bullets.swiper-pagination-horizontal {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30rem;
+            top: auto;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+          .swiper-pagination-bullet {
+            width: 16rem;
+            height: 16rem;
+            border-radius: 50rem;
+            background-color: rgba(255, 255, 255, 0.30);
+            cursor: pointer;
+          }
+          .swiper-pagination-bullet-active {
+            background-color: white;
+          }
+      `,
+      ],
+    };
+
+    Object.assign(swiperContainer, params);
+    swiperContainer.initialize();
+  }, []);
+
   return (
     <section className="main-page__special-offer special-offer">
       <div className="special-offer__container container">
-        <div className="special-offer__slider">
-          <div className="special-offer__slide">
-            {isMobile && <img className="special-offer__img" src={bgSpecialOffer} alt="Slide" />}
-            {isTablet ? (
-              <img className="special-offer__img" src={bgSpecialOfferTablet} alt="Slide" />
-            ) : (
-              <img className="special-offer__img" src={bgCart} alt="Special Offer" />
-            )}
-            <div className="special-offer__information">
-              <h2 className="special-offer__title">
-                <span className="special-offer__title-item">
-                  <span className="special-offer__marker">FREE </span>SHIPPING
-                </span>
-                <span className="special-offer__duplicate-title">FREE SHIPPING</span>
-              </h2>
-              <h3 className="special-offer__text">
-                Go to your shopping cart and use promocode <span>FREESHIPPING</span>
-              </h3>
-            </div>
-          </div>
-        </div>
-        <PrevArrow />
-        <NextArrow />
-        <Dots />
+        <swiper-container slides-per-view="1" ref={swiperElRef} init="false" loop="true">
+          {specialOffer.map((slide) => (
+            <SpecialOfferItem slide={slide} />
+          ))}
+        </swiper-container>
       </div>
     </section>
   );

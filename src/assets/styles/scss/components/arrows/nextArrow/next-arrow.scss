@@ -1,0 +1,28 @@
+.prev-arrow, .next-arrow {
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 50rem;
+  width: 59rem;
+  height: 59rem;
+  background-color: $white;
+  cursor: pointer;
+  z-index: 10;
+}
+.prev-arrow {
+  left: 0;
+}
+.next-arrow {
+  right: 0;
+}
+@include lg {
+  .prev-arrow, .next-arrow {
+    &:hover {
+      width: 60rem;
+      height: 60rem;
+    }
+  }
+}

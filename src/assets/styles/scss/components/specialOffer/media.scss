@@ -1,0 +1,19 @@
+@include md {
+  .special-offer {
+
+    .container {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+@include lg {
+  .special-offer {
+
+    .container {
+      padding-right: 15rem;
+      padding-left: 15rem;
+    }
+  }
+}

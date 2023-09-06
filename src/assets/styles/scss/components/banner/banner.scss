@@ -125,14 +125,6 @@
     gap: 116rem 20rem;
   }
 
-  &__for-pets-btn {
-    @include pet-button;
-  }
-
-  &__btn-text {
-    white-space: nowrap;
-  }
-
   &__text {
     margin: 0 30rem;
     grid-column: 1/3;

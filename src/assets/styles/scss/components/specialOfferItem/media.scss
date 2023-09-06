@@ -1,0 +1,66 @@
+@include md {
+  .special-offer {
+
+    &__slide {
+      display: flex;
+      align-items: center;
+      height: auto;
+      padding: 0;
+      gap: 70rem;
+    }
+  }
+}
+
+@include lg {
+  .special-offer {
+
+    &__slide {
+      display: flex;
+      justify-content: flex-end;
+      max-width: 1168rem;
+      height: 480rem;
+      margin: 0 auto;
+      padding: 54rem 0 0;
+      gap: 70rem;
+    }
+
+    &__title-item, &__marker, &__duplicate-title {
+      @include h1-title;
+    }
+
+    &__title {
+      font-size: $h1-size;
+    }
+
+    &__duplicate-title {
+      text-align: end;
+    }
+
+    &__title-item {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+    }
+
+    &__img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: block;
+    }
+
+    &__information {
+      margin-top: -88rem;
+      gap: 4rem;
+    }
+
+    &__text {
+      font-size: $h3-size;
+      max-width: 342rem;
+
+      span {
+        font-size: 19rem;
+      }
+    }
+  }
+}

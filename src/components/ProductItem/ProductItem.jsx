@@ -25,9 +25,9 @@ const ProductItem = ({ product }) => {
         </div>
         <div className="products-item__price-container">
           {product.discount.isDiscount ? (
-            <div className="popular-products__price-wrapper">
-              <div className="popular-products__curr-price">${product.discount.currPrice}</div>
-              <div className="popular-products__prev-price">${product.price}</div>
+            <div className="products-item__price-wrapper">
+              <div className="products-item__curr-price">${product.discount.currPrice}</div>
+              <div className="products-item__prev-price">${product.price}</div>
             </div>
           ) : (
             <div className="products-item__price">${product.price}</div>

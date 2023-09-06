@@ -1,0 +1,17 @@
+.product-for-pets {
+  display: flex;
+  gap: 15rem;
+  justify-content: center;
+  &__btn {
+    @include pet-button;
+    gap: 12rem;
+    padding: 32rem 15rem;
+  }
+  .cat-btn {
+    border: 1rem solid $cat;
+  }
+
+  .dog-btn {
+    border: 1rem solid $dog;
+  }
+}

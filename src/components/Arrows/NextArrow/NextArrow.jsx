@@ -1,9 +1,9 @@
 import React from 'react';
 import { SlArrowRight } from 'react-icons/sl';
 
-const NextArrow = () => {
+const NextArrow = ({ ref }) => {
   return (
-    <div className="special-offer__next-arrow next-arrow">
+    <div ref={ref} className="special-offer__next-arrow next-arrow">
       <SlArrowRight />
     </div>
   );

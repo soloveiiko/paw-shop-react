@@ -1,0 +1,26 @@
+@include md {
+  .popular-products {
+    padding-bottom: 80rem;
+
+    &__list {
+      display: flex;
+      flex-wrap: nowrap;
+      margin: 40rem 0 49rem;
+    }
+  }
+}
+
+@include lg {
+  .popular-products {
+    padding-bottom: 130rem;
+
+    &__list {
+      margin: 40rem 0 54rem;
+      gap: 30rem;
+    }
+
+    &__for-pets {
+      gap: 30rem;
+    }
+  }
+}

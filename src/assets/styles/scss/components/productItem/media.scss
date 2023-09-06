@@ -1,0 +1,91 @@
+@include md {
+  .products-item {
+    flex-shrink: 0;
+    width: calc(32.7% - 5rem);
+    padding: 32rem 17rem 22rem;
+    gap: 22rem;
+
+    &__additions {
+      top: 16rem;
+      left: 20.5rem;
+    }
+
+    &__discount, &__new {
+      padding: 8rem 11rem;
+    }
+
+    &__information {
+      gap: 24rem;
+    }
+
+    &__name {
+      font-size: $simple-text-size;
+      height: 56rem;
+      width: 100%;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+
+    &__stars-container {
+      margin-top: 10rem;
+    }
+
+    .stars-range__list {
+      gap: 6rem;
+    }
+
+    &__price-container {
+      margin-top: -7rem;
+    }
+
+    &__price, &__curr-price {
+      font-size: 22rem;
+    }
+
+    &__prev-price {
+      font-size: 16rem;
+    }
+  }
+  .in-basket {
+    &__btn {
+      font-size: 22rem;
+      padding: 10rem 16rem;
+      gap: 17rem;
+    }
+  }
+}
+
+@include lg {
+  .products-item {
+    flex-shrink: 1;
+    padding: 19rem 17rem;
+    gap: 8rem;
+
+
+    &__information {
+      gap: 8rem;
+    }
+
+    &__stars-container {
+      margin-top: 25rem;
+    }
+
+    &__price-container {
+      margin-top: 12rem;
+    }
+  }
+
+  .in-basket {
+    &__btn {
+      padding: 8rem 22rem;
+
+      &:hover {
+        background-color: $dark;
+      }
+    }
+  }
+}

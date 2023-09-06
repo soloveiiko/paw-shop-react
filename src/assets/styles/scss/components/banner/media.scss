@@ -27,10 +27,6 @@
       margin: 0;
     }
 
-    &__for-pets-btn {
-      padding: 20rem 30rem;
-    }
-
     &__img {
 
       &_top {
@@ -101,22 +97,6 @@
       max-width: 100%;
       padding-bottom: 117rem;
       gap: 116rem;
-    }
-
-    &__for-pets-btn:hover {
-      background-color: $white;
-    }
-
-    .cat-btn:hover, .cat-btn.hover {
-      .banner__arrow {
-        transform: rotate(315deg);
-      }
-    }
-
-    .dog-btn:hover, .dog-btn.hover {
-      .banner__arrow {
-        transform: rotate(44deg);
-      }
     }
 
     &__title {
