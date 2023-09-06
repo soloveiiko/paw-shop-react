@@ -95,6 +95,28 @@ export const reviewsList = [
       'loves to just carry it around, squeak and shake It. Will definitely buy more toys.',
     images: [review, review, review],
   },
+  {
+    id: 5,
+    date: '19.07.2022',
+    username: 'Richard',
+    body:
+      'Our 6 month old German Shepherd puppy loves this dragon! It has quickly ' +
+      "become a favorite in just a few days. The dragon's wings make a crinkle noise " +
+      "and it's belly squeaks. It's perfect for fetch and tug of war. He also " +
+      'loves to just carry it around, squeak and shake It. Will definitely buy more toys.',
+    images: [review, review, review],
+  },
+  {
+    id: 6,
+    date: '19.07.2022',
+    username: 'Richard',
+    body:
+      'Our 6 month old German Shepherd puppy loves this dragon! It has quickly ' +
+      "become a favorite in just a few days. The dragon's wings make a crinkle noise " +
+      "and it's belly squeaks. It's perfect for fetch and tug of war. He also " +
+      'loves to just carry it around, squeak and shake It. Will definitely buy more toys.',
+    images: [review, review, review],
+  },
 ];
 
 export const specialOffer = [

@@ -3,20 +3,42 @@ import { register } from 'swiper/element/bundle';
 import { bgKarsten } from '@static';
 import { reviewsList } from '@utils/data';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
-
 register();
-
 const Reviews = () => {
   const swiperElRef = useRef(null);
-
   useEffect(() => {
     const swiperContainer = swiperElRef.current;
+    Object.assign(swiperContainer, {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      spaceBetween: 10,
+      breakpoints: {
+        385: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+          spaceBetween: 30,
+        },
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 30,
+        },
+        1000: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          spaceBetween: 50,
+        },
+      },
+    });
     const params = {
+      loop: true,
       navigation: true,
-      pagination: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
       injectStyles: [
         `
-        
           .swiper {
             padding: 0 0 30px 0;
            }
@@ -65,7 +87,6 @@ const Reviews = () => {
       `,
       ],
     };
-
     Object.assign(swiperContainer, params);
     swiperContainer.initialize();
   }, []);
@@ -76,9 +97,11 @@ const Reviews = () => {
       </div>
       <div className="reviews__container container">
         <h2 className="reviews__headline headline">Reviews</h2>
-        <swiper-container slides-per-view="3" ref={swiperElRef} init="false" loop="true">
+        <swiper-container ref={swiperElRef}>
           {reviewsList.map((review) => (
-            <ReviewsItem review={review} />
+            <swiper-slide key={review.id}>
+              <ReviewsItem review={review} />
+            </swiper-slide>
           ))}
         </swiper-container>
       </div>
