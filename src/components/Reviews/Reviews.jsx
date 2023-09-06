@@ -1,10 +1,74 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { register } from 'swiper/element/bundle';
 import { bgKarsten } from '@static';
 import { reviewsList } from '@utils/data';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
-// import Dots from '@components/Dots/Dots';
+
+register();
 
 const Reviews = () => {
+  const swiperElRef = useRef(null);
+
+  useEffect(() => {
+    const swiperContainer = swiperElRef.current;
+    const params = {
+      navigation: true,
+      pagination: true,
+      injectStyles: [
+        `
+        
+          .swiper {
+            padding: 0 0 30px 0;
+           }
+          .swiper-button-next,
+          .swiper-button-prev {
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            border-radius: 50rem;
+            width: 59rem;
+            height: 59rem;
+            background-color: white;
+            cursor: pointer;
+            z-index: 10;
+          }
+          .swiper-button-next svg,
+          .swiper-button-prev svg {
+            width: 8px;
+            height: auto;
+            color: black;
+          }
+          .swiper-pagination-bullets.swiper-pagination-horizontal {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30rem;
+            top: auto;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+          .swiper-pagination-bullet {
+            width: 16rem;
+            height: 16rem;
+            border-radius: 50rem;
+            background-color: rgba(255, 255, 255, 0.30);
+            cursor: pointer;
+          }
+          .swiper-pagination-bullet-active {
+            background-color: white;
+          }
+      `,
+      ],
+    };
+
+    Object.assign(swiperContainer, params);
+    swiperContainer.initialize();
+  }, []);
   return (
     <section className="main-page__reviews reviews">
       <div className="reviews__background">
@@ -12,14 +76,11 @@ const Reviews = () => {
       </div>
       <div className="reviews__container container">
         <h2 className="reviews__headline headline">Reviews</h2>
-        <div className="reviews__list">
+        <swiper-container slides-per-view="3" ref={swiperElRef} init="false" loop="true">
           {reviewsList.map((review) => (
             <ReviewsItem review={review} />
           ))}
-        </div>
-        {/*<NextArrow />*/}
-        {/*<PrevArrow />*/}
-        {/*<Dots />*/}
+        </swiper-container>
       </div>
     </section>
   );

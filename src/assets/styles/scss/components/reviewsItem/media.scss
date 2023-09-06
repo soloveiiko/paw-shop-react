@@ -1,0 +1,23 @@
+@include md {
+  .reviews {
+    padding-top: 89rem;
+    padding-bottom: 127rem;
+
+    &__item {
+      padding: 41rem;
+      gap: 17rem;
+    }
+  }
+}
+
+@include lg {
+  .reviews {
+    padding-top: 139rem;
+    padding-bottom: 115rem;
+
+    &__item {
+      padding: 42rem;
+      gap: 17rem;
+    }
+  }
+}

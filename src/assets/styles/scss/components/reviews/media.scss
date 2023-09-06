@@ -1,0 +1,22 @@
+@include md {
+  .reviews {
+    padding-top: 89rem;
+    padding-bottom: 127rem;
+
+    &__background-img {
+      margin-top: 22rem;
+      margin-left: -365rem;
+    }
+  }
+}
+
+@include lg {
+  .reviews {
+    padding-top: 139rem;
+    padding-bottom: 115rem;
+
+    &__background-img {
+      margin: 0;
+    }
+  }
+}
