@@ -5,20 +5,32 @@
     overflow: hidden;
     justify-content: flex-end;
     width: 100%;
-    height: 326rem;
-    padding: 26rem 0;
+    height: 295rem;
+    padding: 31rem 0 0;
     gap: 70rem;
+  }
+
+  &__img-container {
+    display: flex;
+    align-items: end;
+    position: absolute;
+    bottom: -6px;
+    left: -14px;
+    width: 323rem;
+    height: 100%;
   }
 
   &__title-item, &__marker, &__duplicate-title {
     font-size: 39rem;
+    font-weight: 900;
   }
 
   &__img {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     display: block;
+    width: 100%;
+    object-fit: cover;
+    //scale: 0.58;
+    transform: rotate(3deg);
   }
 
   &__information {
@@ -27,7 +39,7 @@
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    gap: 6rem;
+    gap: 12rem;
   }
 
   &__title {

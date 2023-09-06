@@ -11,8 +11,32 @@ const SpecialOffer = () => {
   useEffect(() => {
     const swiperContainer = swiperElRef.current;
     const params = {
-      navigation: true,
-      pagination: true,
+      slidesPerView: 1,
+      navigation: {
+        enabled: true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      loop: true,
+      breakpoints: {
+        385: {
+          navigation: {
+            enabled: false,
+          },
+        },
+        768: {
+          navigation: {
+            enabled: true,
+          },
+        },
+        1000: {
+          navigation: {
+            enabled: true,
+          },
+        },
+      },
       injectStyles: [
         `
           .swiper-button-next,
@@ -30,6 +54,10 @@ const SpecialOffer = () => {
            cursor: pointer;
            z-index: 10;
           }
+          .swiper-button-next:hover svg,
+          .swiper-button-prev:hover svg{
+            width: 9px;
+          }
           .swiper-button-next svg,
           .swiper-button-prev svg {
             width: 8px;
@@ -41,9 +69,9 @@ const SpecialOffer = () => {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 30rem;
+            gap: 10rem;
             top: auto;
-            bottom: 100px;
+            bottom: 33px;
             left: 50%;
             transform: translateX(-50%);
           }
@@ -68,9 +96,11 @@ const SpecialOffer = () => {
   return (
     <section className="main-page__special-offer special-offer">
       <div className="special-offer__container container">
-        <swiper-container slides-per-view="1" ref={swiperElRef} init="false" loop="true">
+        <swiper-container ref={swiperElRef} init="false">
           {specialOffer.map((slide) => (
-            <SpecialOfferItem slide={slide} />
+            <swiper-slide key={slide.id}>
+              <SpecialOfferItem slide={slide} />
+            </swiper-slide>
           ))}
         </swiper-container>
       </div>

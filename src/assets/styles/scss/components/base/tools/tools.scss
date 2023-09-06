@@ -1,5 +1,5 @@
 .tools {
-  gap: 33rem;
+  gap: 31rem;
 
   &__profile {
   }
@@ -12,7 +12,7 @@
   }
 
   &__basket-img {
-    padding: 11rem 13.5rem;
+    padding: 13rem 13.5rem;
     border-radius: 50rem;
     background-color: $accent;
   }
@@ -37,34 +37,36 @@
   }
 
   &__btn-container {
-      width: 33rem;
-      height: 18.207rem;
+    display: flex;
+    align-items: center;
+    width: 36rem;
+    height: 23.207rem;
   }
 
   &__open-sidebar-btn {
-      font-size: 0;
-      position: relative;
-      width: 100%;
-      margin: 0;
-      padding: 1rem 16rem;
-      cursor: pointer;
-      border: none;
+    font-size: 0;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 18rem;
+    cursor: pointer;
+    border: none;
+    background-color: $black;
+
+    &::before, &::after {
+      position: absolute;
+      left: 0;
+      padding: 1rem 18rem;
+      content: '';
       background-color: $black;
+    }
 
-      &::before, &::after {
-        position: absolute;
-        left: 0;
-        padding: 1rem 16.5rem;
-        content: '';
-        background-color: $black;
-      }
+    &::before {
+      top: -9rem;
+    }
 
-      &::before {
-        top: -11rem;
-      }
-
-      &::after {
-        top: 11rem;
-      }
+    &::after {
+      top: 11rem;
+    }
   }
 }

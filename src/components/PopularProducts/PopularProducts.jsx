@@ -9,7 +9,7 @@ const PopularProducts = () => {
       <h2 className="popular-products__headline headline">Popular products</h2>
       <div className="popular-products__list">
         {popularProducts.map((product) => (
-          <ProductItem product={product} />
+          <ProductItem key={product.id} product={product} />
         ))}
       </div>
       <div className="popular-products__for-pets">

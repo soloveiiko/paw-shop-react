@@ -1,6 +1,9 @@
 @include md {
   .banner {
-
+    &::before {
+      top: 50rem;
+      bottom: 50rem;
+    }
     &__main-background {
       bottom: 250rem;
     }
@@ -19,6 +22,26 @@
 
       &_duplicate {
         font-size: $h1-size;
+      }
+      &::before, &::after {
+        position: absolute;
+        content: '';
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+
+      &::before {
+        top: -121rem;
+        left: -94rem;
+        width: 193rem;
+        transform: none;
+      }
+
+      &::after {
+        top: -217rem;
+        right: -83rem;
+        width: 318rem;
+        transform: rotate(354deg);
       }
     }
 

@@ -8,10 +8,14 @@ const Reviews = () => {
   const swiperElRef = useRef(null);
   useEffect(() => {
     const swiperContainer = swiperElRef.current;
-    Object.assign(swiperContainer, {
-      slidesPerView: 3,
-      slidesPerGroup: 3,
-      spaceBetween: 10,
+    Object.assign(swiperContainer, {});
+    const params = {
+      loop: true,
+      navigation: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
       breakpoints: {
         385: {
           slidesPerView: 1,
@@ -28,14 +32,6 @@ const Reviews = () => {
           slidesPerGroup: 3,
           spaceBetween: 50,
         },
-      },
-    });
-    const params = {
-      loop: true,
-      navigation: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
       },
       injectStyles: [
         `
@@ -56,6 +52,10 @@ const Reviews = () => {
             background-color: white;
             cursor: pointer;
             z-index: 10;
+          }
+          .swiper-button-next:hover svg,
+          .swiper-button-prev:hover svg{
+            width: 9px;
           }
           .swiper-button-next svg,
           .swiper-button-prev svg {
@@ -97,7 +97,7 @@ const Reviews = () => {
       </div>
       <div className="reviews__container container">
         <h2 className="reviews__headline headline">Reviews</h2>
-        <swiper-container ref={swiperElRef}>
+        <swiper-container ref={swiperElRef} init="false">
           {reviewsList.map((review) => (
             <swiper-slide key={review.id}>
               <ReviewsItem review={review} />
