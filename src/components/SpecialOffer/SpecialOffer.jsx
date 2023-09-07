@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { register } from 'swiper/element/bundle';
 import { specialOffer } from '@utils/data';
 import SpecialOfferItem from '@components/SpecialOfferItem/SpecialOfferItem';
+import NextArrow from '@components/Arrows/NextArrow/NextArrow';
+import PrevArrow from '@components/Arrows/PrevArrow/PrevArrow';
 
 register();
 
@@ -13,65 +15,23 @@ const SpecialOffer = () => {
     const params = {
       slidesPerView: 1,
       navigation: {
-        enabled: true,
+        nextEl: '.next-arrow',
+        prevEl: '.prev-arrow',
       },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
       },
       loop: true,
-      breakpoints: {
-        385: {
-          navigation: {
-            enabled: false,
-          },
-        },
-        768: {
-          navigation: {
-            enabled: true,
-          },
-        },
-        1000: {
-          navigation: {
-            enabled: true,
-          },
-        },
-      },
       injectStyles: [
         `
-          .swiper-button-next,
-          .swiper-button-prev {
-           top: 50%;
-           transform: translateY(-50%);
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           position: absolute;
-           border-radius: 50rem;
-           width: 59rem;
-           height: 59rem;
-           background-color: white;
-           cursor: pointer;
-           z-index: 10;
-          }
-          .swiper-button-next:hover svg,
-          .swiper-button-prev:hover svg{
-            width: 9px;
-          }
-          .swiper-button-next svg,
-          .swiper-button-prev svg {
-            width: 8px;
-            height: auto;
-            color: black;
-          }
           .swiper-pagination-bullets.swiper-pagination-horizontal {
             position: absolute;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10rem;
+            gap: 24rem;
             top: auto;
-            bottom: 33px;
             left: 50%;
             transform: translateX(-50%);
           }
@@ -103,6 +63,8 @@ const SpecialOffer = () => {
             </swiper-slide>
           ))}
         </swiper-container>
+        <PrevArrow onClick={() => swiperElRef.current?.slideNext()} />
+        <NextArrow onClick={() => swiperElRef.current?.slidePrev()} />
       </div>
     </section>
   );

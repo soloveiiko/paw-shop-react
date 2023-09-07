@@ -4,9 +4,9 @@
     background-color: $white;
     border-radius: $border-radius;
     max-width: 310rem;
-    padding: 35rem 33rem 39rem 35rem;
+    padding: 35rem 33rem 39rem;
     flex-direction: column;
-    gap: 20rem;
+    gap: 19rem;
     flex-shrink: 0;
     height: 100%;
     box-shadow: 0 5rem 20rem 0 rgba(0, 0, 0, 0.25);
@@ -23,7 +23,9 @@
   }
 
   &__username {
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    font-size: 16rem;
   }
 
   &__body {
@@ -68,110 +70,117 @@
     font-size: 15rem;
     margin-top: 2rem;
   }
-}
-@include md {
-  .reviews {
-    padding-top: 89rem;
-    padding-bottom: 127rem;
-
-    &__background-img {
-      margin-top: 22rem;
-      margin-left: -365rem;
-    }
-
-    &__slider {
-      margin: 43rem 0 114rem;
-    }
-
-    &__slide {
-      width: calc(50% - 9rem);
-      max-width: 100%;
-      padding: 41rem;
-      gap: 17rem;
-    }
-
-    &__stars {
-      gap: 7rem;
-    }
-
-    .prev-arrow, .next-arrow {
-      display: flex;
-    }
-
-    &__prev-arrow, &__next-arrow {
-      bottom: -150rem;
-    }
-
-    &__prev-arrow {
-      transform: rotate(180deg);
-      left: 18.5%;
-    }
-
-    &__next-arrow {
-      right: 18.3%;
+  .stars-range__list {
+    display: flex;
+    gap: 6px;
+    img  {
+      width: 22px;
     }
   }
 }
-
-@include lg {
-  .reviews {
-    padding-top: 139rem;
-    padding-bottom: 115rem;
-
-    &__background-img {
-      margin: 0;
-    }
-
-    &__slider {
-      margin: 40rem auto 80rem;
-      gap: 30rem;
-      width: 85%;
-    }
-
-    &__slide {
-      width: calc(33% - 17rem);
-      max-width: 100%;
-      padding: 42rem;
-      gap: 17rem;
-    }
-
-    &__prev-arrow, &__next-arrow {
-      top: 53.5%;
-      bottom: auto;
-    }
-
-    &__prev-arrow {
-      left: 15rem;
-    }
-
-    &__next-arrow {
-      right: 15rem;
-    }
-
-    &__link:hover {
-      font-weight: 500;
-
-      .reviews__arrow {
-        transform: rotate(44deg);
-      }
-    }
-  }
-}
-
-
-@media (min-width: #{1500px}) {
-  .reviews {
-
-    &__slider {
-      width: 92.5%;
-    }
-
-    &__prev-arrow {
-      left: -73rem;
-    }
-
-    &__next-arrow {
-      right: -73rem;
-    }
-  }
-}
+//@include md {
+//  .reviews {
+//    padding-top: 89rem;
+//    padding-bottom: 127rem;
+//
+//    &__background-img {
+//      margin-top: 22rem;
+//      margin-left: -365rem;
+//    }
+//
+//    &__slider {
+//      margin: 43rem 0 114rem;
+//    }
+//
+//    &__slide {
+//      width: calc(50% - 9rem);
+//      max-width: 100%;
+//      padding: 41rem;
+//      gap: 17rem;
+//    }
+//
+//    &__stars {
+//      gap: 7rem;
+//    }
+//
+//    .prev-arrow, .next-arrow {
+//      display: flex;
+//    }
+//
+//    &__prev-arrow, &__next-arrow {
+//      bottom: -150rem;
+//    }
+//
+//    &__prev-arrow {
+//      transform: rotate(180deg);
+//      left: 18.5%;
+//    }
+//
+//    &__next-arrow {
+//      right: 18.3%;
+//    }
+//  }
+//}
+//
+//@include lg {
+//  .reviews {
+//    padding-top: 139rem;
+//    padding-bottom: 115rem;
+//
+//    &__background-img {
+//      margin: 0;
+//    }
+//
+//    &__slider {
+//      margin: 40rem auto 80rem;
+//      gap: 30rem;
+//      width: 85%;
+//    }
+//
+//    &__slide {
+//      width: calc(33% - 17rem);
+//      max-width: 100%;
+//      padding: 42rem;
+//      gap: 17rem;
+//    }
+//
+//    &__prev-arrow, &__next-arrow {
+//      top: 53.5%;
+//      bottom: auto;
+//    }
+//
+//    &__prev-arrow {
+//      left: 15rem;
+//    }
+//
+//    &__next-arrow {
+//      right: 15rem;
+//    }
+//
+//    &__link:hover {
+//      font-weight: 500;
+//
+//      .reviews__arrow {
+//        transform: rotate(44deg);
+//      }
+//    }
+//  }
+//}
+//
+//
+//@media (min-width: #{1500px}) {
+//  .reviews {
+//
+//    &__slider {
+//      width: 92.5%;
+//    }
+//
+//    &__prev-arrow {
+//      left: -73rem;
+//    }
+//
+//    &__next-arrow {
+//      right: -73rem;
+//    }
+//  }
+//}

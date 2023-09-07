@@ -3,6 +3,9 @@ import { register } from 'swiper/element/bundle';
 import { bgKarsten } from '@static';
 import { reviewsList } from '@utils/data';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
+import PrevArrow from '@components/Arrows/PrevArrow/PrevArrow';
+import NextArrow from '@components/Arrows/NextArrow/NextArrow';
+
 register();
 const Reviews = () => {
   const swiperElRef = useRef(null);
@@ -11,21 +14,24 @@ const Reviews = () => {
     Object.assign(swiperContainer, {});
     const params = {
       loop: true,
-      navigation: true,
+      navigation: {
+        nextEl: '.next-arrow',
+        prevEl: '.prev-arrow',
+      },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
       },
       breakpoints: {
         385: {
-          slidesPerView: 1,
+          slidesPerView: 1.183,
           slidesPerGroup: 1,
-          spaceBetween: 30,
+          spaceBetween: 16,
         },
         768: {
           slidesPerView: 2,
           slidesPerGroup: 2,
-          spaceBetween: 30,
+          spaceBetween: 18,
         },
         1000: {
           slidesPerView: 3,
@@ -35,9 +41,10 @@ const Reviews = () => {
       },
       injectStyles: [
         `
-          .swiper {
-            padding: 0 0 30px 0;
-           }
+        .swiper {
+          overflow: visible;
+          overflow-x: clip;
+        }
           .swiper-button-next,
           .swiper-button-prev {
             top: 50%;
@@ -70,7 +77,6 @@ const Reviews = () => {
             justify-content: center;
             gap: 30rem;
             top: auto;
-            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
           }
@@ -103,6 +109,8 @@ const Reviews = () => {
               <ReviewsItem review={review} />
             </swiper-slide>
           ))}
+          <PrevArrow onClick={() => swiperElRef.current?.slideNext()} />
+          <NextArrow onClick={() => swiperElRef.current?.slidePrev()} />
         </swiper-container>
       </div>
     </section>

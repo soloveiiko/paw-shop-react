@@ -1,11 +1,21 @@
 @include md {
   .reviews {
-    padding-top: 89rem;
-    padding-bottom: 127rem;
 
     &__item {
-      padding: 41rem;
-      gap: 17rem;
+      padding: 41rem 37px 47rem 42rem;
+      gap: 15rem;
+    }
+
+    &__date {
+      font-size: 13rem;
+    }
+
+    .stars-range__list {
+      display: flex;
+      gap: 5px;
+      img  {
+        width: 22px;
+      }
     }
   }
 }

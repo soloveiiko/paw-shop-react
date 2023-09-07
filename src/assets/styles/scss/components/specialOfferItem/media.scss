@@ -4,9 +4,42 @@
     &__slide {
       display: flex;
       align-items: center;
-      height: auto;
+      height: 272rem;
       padding: 0;
       gap: 70rem;
+    }
+
+    &__img-container {
+      left: 45rem;
+      bottom: -5rem;
+      width: 360rem;
+    }
+
+    &__information {
+      margin-right: 104rem;
+      margin-top: -28rem;
+      gap: 3rem;
+    }
+    &__title-item, &__marker, &__duplicate-title {
+      font-size: 50rem;
+      line-height: 57rem;
+      letter-spacing: 0.5rem;
+    }
+
+    &__title-item {
+      margin-top: 6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    &__duplicate-title {
+      top: 8rem;
+    }
+
+    &__text {
+      font-size: 11rem;
+      max-width: 200rem;
     }
   }
 }

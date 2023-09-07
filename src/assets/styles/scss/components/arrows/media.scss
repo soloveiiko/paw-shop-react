@@ -1,0 +1,8 @@
+@include lg {
+  .prev-arrow, .next-arrow {
+    &:hover {
+      width: 60rem;
+      height: 60rem;
+    }
+  }
+}

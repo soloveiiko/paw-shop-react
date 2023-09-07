@@ -10,7 +10,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 29rem;
+    gap: 28rem;
   }
 
   &__img-container {
@@ -60,9 +60,10 @@
       outline: none;
       background-color: $white;
       box-shadow: 0 5rem 30rem 0 rgba(0, 0, 0, 0.20);
+      font-size: 14px;
 
       &::placeholder {
-        font-size: 16rem;
+        font-size: 13rem;
       }
     }
   }

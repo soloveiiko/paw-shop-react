@@ -1,11 +1,12 @@
 @include md {
   .popular-products {
-    padding-bottom: 80rem;
+    padding-bottom: 81rem;
 
     &__list {
       display: flex;
       flex-wrap: nowrap;
       margin: 40rem 0 49rem;
+      gap: 14rem 15rem;
     }
   }
 }

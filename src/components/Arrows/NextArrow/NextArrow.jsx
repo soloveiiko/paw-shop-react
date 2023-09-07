@@ -3,7 +3,7 @@ import { SlArrowRight } from 'react-icons/sl';
 
 const NextArrow = ({ ref }) => {
   return (
-    <div ref={ref} className="special-offer__next-arrow next-arrow">
+    <div ref={ref} className="next-arrow">
       <SlArrowRight />
     </div>
   );

@@ -11,14 +11,14 @@
     &__for-pets {
       max-width: 550rem;
       margin: 0 auto;
-      padding-bottom: 127rem;
-      gap: 52rem 118rem;
+      padding-bottom: 128rem;
+      gap: 52rem 131rem;
     }
 
     &__title {
       width: 100%;
       max-width: 583rem;
-      margin: 174rem auto 55rem;
+      margin: 174rem auto 59rem;
 
       &_duplicate {
         font-size: $h1-size;
@@ -31,16 +31,16 @@
       }
 
       &::before {
-        top: -121rem;
-        left: -94rem;
-        width: 193rem;
-        transform: none;
+        top: -160rem;
+        left: -67rem;
+        width: 191rem;
+        transform: rotate(246deg);
       }
 
       &::after {
-        top: -217rem;
-        right: -83rem;
-        width: 318rem;
+        top: -220rem;
+        right: -90rem;
+        width: 347rem;
         transform: rotate(354deg);
       }
     }
@@ -51,47 +51,23 @@
     }
 
     &__img {
-
-      &_top {
-        top: 100rem;
-        left: 50%;
-        width: 100%;
-        max-width: 770rem;
-        transform: translateX(-50%);
-      }
-
-      &_bottom {
-        bottom: 41rem;
-        align-items: center;
-      }
+      bottom: 16%;
     }
 
     &__image {
 
-      &_bone {
-        width: 351rem;
-        margin: 0 5rem 0 auto;
-        transform: rotate(354deg);
-      }
-
-      &_ball {
-        width: 180rem;
-        height: 70%;
-        margin: 0 auto 0 -3rem;
-      }
-
       &_cat {
-        width: 130%;
+        width: 240%;
         max-height: 100%;
-        margin-top: 40rem;
-        margin-left: 5rem;
-        transform: rotate(351deg);
+        margin-bottom: -224px;
+        margin-right: -224px;
       }
 
       &_dog {
         width: 200%;
         max-height: 100%;
-        margin-left: -225rem;
+        margin-right: -75rem;
+        margin-bottom: -145rem;
         transform: rotate(7deg);
       }
     }

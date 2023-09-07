@@ -1,11 +1,35 @@
 @include md {
   .reviews {
     padding-top: 89rem;
-    padding-bottom: 127rem;
+    padding-bottom: 236rem;
+
+    .container {
+      padding-right: 15rem;
+      padding-left: 15rem;
+    }
 
     &__background-img {
       margin-top: 22rem;
       margin-left: -365rem;
+    }
+
+    &__headline {
+      margin-bottom: 44rem;
+      margin-left: 0;
+    }
+    .prev-arrow, .next-arrow {
+      display: flex;
+      top: auto;
+      bottom: -176rem;
+    }
+    .prev-arrow {
+      left: 17%;
+    }
+    .next-arrow {
+      right: 17%;
+    }
+    swiper-container::part(pagination) {
+      bottom: -126px;
     }
   }
 }

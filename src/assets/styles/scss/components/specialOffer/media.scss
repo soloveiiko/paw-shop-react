@@ -1,9 +1,17 @@
 @include md {
   .special-offer {
 
-    .container {
-      padding-right: 0;
-      padding-left: 0;
+    .prev-arrow, .next-arrow {
+      display: flex;
+    }
+    .prev-arrow {
+      left: 16rem;
+    }
+    .next-arrow {
+      right: 17rem;
+    }
+    swiper-container::part(pagination) {
+      bottom: 21px;
     }
   }
 }

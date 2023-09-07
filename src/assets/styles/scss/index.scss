@@ -4,10 +4,8 @@
 @import "./additional/mixins";
 @import "./components/aboutUs/about-us";
 @import "./components/aboutUs/media";
-@import "./components/arrows/nextArrow/next-arrow";
-@import "./components/arrows/nextArrow/media";
-@import "./components/arrows/prevArrow/prev-arrow";
-@import "./components/arrows/prevArrow/media";
+@import "components/arrows/arrow";
+@import "components/arrows/media";
 @import "./components/banner/banner";
 @import "./components/banner/media";
 @import "./components/base/cards/cards";
@@ -53,6 +51,7 @@
 @import "./pages/main/main";
 @import "./pages/main/media";
 
+
 h1 {
   @include h1-title-mobile;
 }
@@ -64,6 +63,7 @@ h2 {
 h3 {
   @include h3-title-mobile;
 }
+
 
 .container {
   max-width: 1300rem;
@@ -112,10 +112,12 @@ h3 {
   }
   h2 {
     @include h2-title;
+    letter-spacing: -0.5px;
   }
   h3 {
     @include h3-title;
   }
+
 }
 
 @include lg {

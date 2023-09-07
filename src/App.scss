@@ -1,1 +1,18 @@
 @import "./assets/styles/scss/index";
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 30px !important;
+}
+
+.swiper-pagination {
+  bottom: 30px !important;
+
+}
+
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom: 30px !important;
+
+}
+.swiper {
+  display: none;
+}

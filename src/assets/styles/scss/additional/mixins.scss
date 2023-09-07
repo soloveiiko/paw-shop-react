@@ -18,8 +18,7 @@
 
 @mixin pet-button {
   @include button;
-  height: 60rem;
-  padding: 20rem 25rem;
+  padding: 22rem 25rem;
   background-color: $transparent-white;
 }
 

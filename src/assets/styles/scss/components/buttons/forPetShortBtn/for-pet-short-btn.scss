@@ -1,44 +1,11 @@
-.for-pets-btn-container {
-}
 .for-pets {
   &__btn {
     @include pet-button;
+    width: 100%;
   }
 
   &__text {
     white-space: nowrap;
     font-size: 14px;
-  }
-
-  &__marker {
-  }
-
-  &__btn-text {
-  }
-}
-@include md {
-  .for-pets {
-    &__btn {
-      padding: 20rem 30rem;
-    }
-  }
-}
-
-@include lg {
-  .for-pets {
-    &__btn:hover {
-      background-color: $white;
-    }
-    .cat-btn:hover, {
-      .for-pets__arrow {
-        transform: rotate(315deg);
-      }
-    }
-
-    .dog-btn:hover, {
-      .for-pets__arrow {
-        transform: rotate(44deg);
-      }
-    }
   }
 }
