@@ -2,14 +2,14 @@
   .footer {
 
     &__body {
-      padding: 45rem 18rem 40rem;
+      padding: 43rem 18rem 40rem;
       gap: 38rem;
     }
 
     &__top {
       flex-direction: row;
+      padding-bottom: 60rem;
       gap: 183rem;
-      padding-bottom: 62rem;
     }
 
     &__bottom {
@@ -29,6 +29,7 @@
 
     &__body {
       padding: 45rem 18rem 69rem;
+      gap: 34rem;
     }
 
     &__bottom, &__top {

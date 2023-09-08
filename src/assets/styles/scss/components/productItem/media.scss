@@ -70,25 +70,25 @@
   .products-item {
     flex-shrink: 1;
     padding: 19rem 17rem;
-    gap: 8rem;
+    gap: 3rem;
 
 
     &__information {
-      gap: 8rem;
+      gap: 17.5rem;
     }
 
     &__stars-container {
-      margin-top: 25rem;
+      margin-top: 0;
     }
 
     &__price-container {
-      margin-top: 12rem;
+      margin-top: 0;
     }
   }
 
   .in-basket {
     &__btn {
-      padding: 8rem 22rem;
+      padding: 10rem 20rem;
 
       &:hover {
         background-color: $dark;

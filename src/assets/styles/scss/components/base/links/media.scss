@@ -3,7 +3,7 @@
     width: fit-content;
 
     &__list {
-      height: 200rem;
+      height: 205rem;
       padding: 8rem 0;
       gap: 23rem 107rem;
     }
@@ -16,6 +16,8 @@
 
     &__list {
       align-content: flex-end;
+      gap: 22rem 107rem;
+
     }
   }
 }

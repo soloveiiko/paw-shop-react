@@ -7,6 +7,23 @@
 
     &__container {
       gap: 34rem;
+      &::before, &::after {
+        width: 100%;
+        height: 100%;
+      }
+
+      &::before {
+        top: 0;
+        left: 21rem;
+        background-size: 50%;
+      }
+
+      &::after {
+        right: -22rem;
+        bottom: -70rem;
+        background-size: 44%;
+        background-position-y: center;
+      }
     }
 
     &__img-container {
@@ -57,6 +74,16 @@
       max-width: 1300rem;
       margin: 0 auto;
       gap: 28rem;
+      &::before {
+        left: 16rem;
+        background-size: 30%;
+      }
+      &::after {
+        background-position: top right;
+        background-size: 29%;
+        right: -61rem;
+        bottom: 3rem;
+      }
     }
 
     &__title {

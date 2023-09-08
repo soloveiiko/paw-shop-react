@@ -36,7 +36,7 @@ const Reviews = () => {
         1000: {
           slidesPerView: 3,
           slidesPerGroup: 3,
-          spaceBetween: 50,
+          spaceBetween: 30,
         },
       },
       injectStyles: [
@@ -45,31 +45,6 @@ const Reviews = () => {
           overflow: visible;
           overflow-x: clip;
         }
-          .swiper-button-next,
-          .swiper-button-prev {
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            border-radius: 50rem;
-            width: 59rem;
-            height: 59rem;
-            background-color: white;
-            cursor: pointer;
-            z-index: 10;
-          }
-          .swiper-button-next:hover svg,
-          .swiper-button-prev:hover svg{
-            width: 9px;
-          }
-          .swiper-button-next svg,
-          .swiper-button-prev svg {
-            width: 8px;
-            height: auto;
-            color: black;
-          }
           .swiper-pagination-bullets.swiper-pagination-horizontal {
             position: absolute;
             display: flex;
@@ -109,9 +84,9 @@ const Reviews = () => {
               <ReviewsItem review={review} />
             </swiper-slide>
           ))}
-          <PrevArrow onClick={() => swiperElRef.current?.slideNext()} />
-          <NextArrow onClick={() => swiperElRef.current?.slidePrev()} />
         </swiper-container>
+        <PrevArrow onClick={() => swiperElRef.current?.slideNext()} />
+        <NextArrow onClick={() => swiperElRef.current?.slidePrev()} />
       </div>
     </section>
   );

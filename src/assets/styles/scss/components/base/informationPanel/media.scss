@@ -1,6 +1,6 @@
 @include md {
   .information-panel {
-    gap: 28rem;
+    gap: 27rem;
 
     &__number-wrapper, &__social-network {
       width: fit-content;
@@ -23,8 +23,14 @@
       font-size: 20rem;
     }
 
-    .social-network__list {
-      gap: 16rem;
+    .social-network {
+      &__list {
+        gap: 16rem;
+      }
+      &__item {
+        width: 34rem;
+        height: 34rem;
+      }
     }
   }
 }

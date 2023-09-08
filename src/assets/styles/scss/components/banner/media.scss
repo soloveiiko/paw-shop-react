@@ -4,6 +4,7 @@
       top: 50rem;
       bottom: 50rem;
     }
+
     &__main-background {
       bottom: 250rem;
     }
@@ -23,6 +24,7 @@
       &_duplicate {
         font-size: $h1-size;
       }
+
       &::before, &::after {
         position: absolute;
         content: '';
@@ -59,8 +61,8 @@
       &_cat {
         width: 240%;
         max-height: 100%;
-        margin-bottom: -224px;
         margin-right: -224px;
+        margin-bottom: -224px;
       }
 
       &_dog {
@@ -82,7 +84,7 @@
     }
 
     &__container {
-      padding: 86rem 0 60rem;
+      padding: 86rem 0 58rem;
     }
 
     .container {
@@ -94,12 +96,18 @@
       display: flex;
       align-items: center;
       max-width: 100%;
-      padding-bottom: 117rem;
-      gap: 116rem;
+      padding-bottom: 114rem;
+      gap: 150rem;
     }
 
     &__title {
       margin: 152rem auto 55rem;
+
+      &::after {
+        top: -222rem;
+        right: -86rem;
+        width: 327rem;
+      }
     }
 
     &__img-container {
@@ -123,7 +131,9 @@
       }
 
       &_cat {
-        margin-left: -162rem;
+        margin-right: -299rem;
+        margin-bottom: -357rem;
+        margin-left: 0;
 
         &:hover {
           scale: 1.1;
@@ -131,24 +141,19 @@
       }
 
       &_dog {
-        margin-bottom: 87rem;
-        margin-left: -112rem;
-        scale: 1.2;
+        margin-right: 11rem;
+        margin-bottom: 49rem;
+        margin-left: 0;
+        scale: 1.3;
 
         &:hover {
-          scale: 1.3;
+          scale: 1.4;
         }
       }
     }
 
     &__img {
-      &_top {
-        top: 75rem;
-      }
-
-      &_bottom {
-        bottom: -43rem;
-      }
+      bottom: 0;
     }
 
     &__text {
