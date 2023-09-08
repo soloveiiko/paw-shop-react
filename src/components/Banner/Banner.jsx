@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ForPetShortButton from '@components/Buttons/ForPetShortButton/ForPetShortButton';
 import Benefits from '@components/Banner/Benefits/Benefits';
 import { bgCat, bgDog } from '@static';
 
 const Banner = () => {
+  const [isCatHovered, setIsCatHovered] = useState(false);
+  const [isDogHovered, setIsDogHovered] = useState(false);
+
+  const handleMouseEnter = (setHover) => {
+    setHover(true);
+  };
+
+  const handleMouseLeave = (setHover) => {
+    setHover(false);
+  };
+
   return (
     <section className="main-page__banner banner">
       <div className="banner__container container">
@@ -12,16 +23,24 @@ const Banner = () => {
           <span className="banner__title_duplicate">Make your pet’s life better</span>
         </h1>
         <div className="banner__for-pets">
-          <ForPetShortButton isCat={true} />
+          <ForPetShortButton isCat={true} className={isCatHovered ? 'hover' : ''} />
           <h3 className="banner__text">Toys and accessories that your pet will like</h3>
-          <ForPetShortButton isDog={true} />
+          <ForPetShortButton isDog={true} className={isDogHovered ? 'hover' : ''} />
         </div>
         <Benefits />
         <div className="banner__img">
-          <div className="banner__img-container">
+          <div
+            className="banner__img-container"
+            onMouseEnter={() => handleMouseEnter(setIsCatHovered)}
+            onMouseLeave={() => handleMouseLeave(setIsCatHovered)}
+          >
             <img className="banner__image_cat" src={bgCat} alt="Cat" />
           </div>
-          <div className="banner__img-container">
+          <div
+            className="banner__img-container"
+            onMouseEnter={() => handleMouseEnter(setIsDogHovered)}
+            onMouseLeave={() => handleMouseLeave(setIsDogHovered)}
+          >
             <img className="banner__image_dog" src={bgDog} alt="Dog" />
           </div>
         </div>

@@ -111,6 +111,10 @@
       justify-content: flex-start;
     }
 
+    &__img-container {
+      overflow-y: clip;
+    }
+
     &__image {
 
       &_cat {
@@ -136,6 +140,14 @@
 
     &__text {
       margin-bottom: 7rem;
+    }
+
+    .cat-btn, .dog-btn {
+      &.hover {
+        .for-pets__arrow {
+          transform: rotate(44deg);
+        }
+      }
     }
   }
 }

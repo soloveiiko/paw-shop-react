@@ -105,6 +105,9 @@
       right: 14rem;
       width: 171rem;
       height: 61rem;
+      &:hover {
+        background-color: $dark;
+      }
     }
   }
 }
