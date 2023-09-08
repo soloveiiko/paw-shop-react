@@ -1,5 +1,6 @@
 .banner {
   position: relative;
+  overflow: hidden;
   background: $discount;
 
   &::before {
@@ -32,9 +33,11 @@
     bottom: 25%;
     left: 0;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
     width: 100%;
+    height: 100%;
+    max-height: 800rem;
   }
 
   &__img-container {
@@ -46,22 +49,23 @@
 
   &__image {
     &_cat, &_dog {
-      max-height: 420rem;
       object-fit: cover;
     }
 
     &_cat {
-      width: 300%;
-      margin-right: -126rem;
-      margin-bottom: -62rem;
+      width: 250%;
+      margin-right: -113rem;
+      margin-bottom: -51rem;
       transform: scaleX(-1);
+      scale: 1.1;
     }
 
     &_dog {
-      width: 200%;
-      margin-right: -50rem;
-      margin-bottom: -14rem;
-      transform: rotate(7deg);
+      width: 220%;
+      margin-right: -115rem;
+      margin-bottom: -103rem;
+      transform: rotate(342deg) scaleX(-1);
+      scale: 1.1;
     }
   }
 

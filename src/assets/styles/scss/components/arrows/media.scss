@@ -1,8 +1,12 @@
 @include lg {
   .prev-arrow, .next-arrow {
     &:hover {
-      width: 60rem;
-      height: 60rem;
+      svg {
+        font-size: 17rem;
+      }
+    }
+    svg {
+      font-size: 15rem;
     }
   }
 }

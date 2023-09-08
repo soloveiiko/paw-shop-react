@@ -59,18 +59,14 @@
     &__image {
 
       &_cat {
-        width: 240%;
-        max-height: 100%;
-        margin-right: -224px;
-        margin-bottom: -224px;
+        width: 230%;
+        margin-right: -206rem;
+        margin-bottom: -218rem;
       }
 
       &_dog {
-        width: 200%;
-        max-height: 100%;
-        margin-right: -75rem;
-        margin-bottom: -145rem;
-        transform: rotate(7deg);
+        margin-right: -214rem;
+        margin-bottom: -321rem;
       }
     }
   }
@@ -110,50 +106,32 @@
       }
     }
 
-    &__img-container {
-      &_cat, &_dog {
-        top: auto;
-        bottom: 0;
-        display: flex;
-      }
+    &__img {
+      bottom: 0;
+      justify-content: flex-start;
     }
 
     &__image {
 
-      &_ball {
-        width: 192rem;
-        transform: rotate(358deg);
-      }
-
-      &_bone {
-        width: 330rem;
-        margin: -13rem 7rem 0 auto;
-      }
-
       &_cat {
-        margin-right: -299rem;
-        margin-bottom: -357rem;
-        margin-left: 0;
+        width: 210%;
+        margin-right: -203rem;
+        margin-bottom: -273rem;
 
         &:hover {
-          scale: 1.1;
+          scale: 1.2;
         }
       }
 
       &_dog {
-        margin-right: 11rem;
-        margin-bottom: 49rem;
-        margin-left: 0;
-        scale: 1.3;
+        width: 170%;
+        margin-right: -282rem;
+        margin-bottom: -299rem;
 
         &:hover {
-          scale: 1.4;
+          scale: 1.2;
         }
       }
-    }
-
-    &__img {
-      bottom: 0;
     }
 
     &__text {

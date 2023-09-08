@@ -1,22 +1,23 @@
 .popular-products {
-  padding-right: 15rem;
-  padding-left: 15rem;
+  overflow: hidden;
   max-width: 1198rem;
   margin: 0 auto;
-  overflow: hidden;
+  padding-right: 15rem;
   padding-bottom: 55rem;
+  padding-left: 15rem;
 
   &__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 14rem 12rem;
-    margin: 33rem 0 44rem;
     justify-content: space-between;
+    margin: 33rem 0 44rem;
+    gap: 14rem 12rem;
   }
+
   &__for-pets {
     display: flex;
-    gap: 15rem;
     justify-content: center;
+    gap: 15rem;
   }
 }
 

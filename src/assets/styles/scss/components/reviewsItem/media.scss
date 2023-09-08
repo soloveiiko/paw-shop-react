@@ -2,7 +2,7 @@
   .reviews {
 
     &__item {
-      padding: 41rem 37px 47rem 42rem;
+      padding: 41rem 37rem 47rem 42rem;
       gap: 15rem;
     }
 
@@ -12,9 +12,10 @@
 
     .stars-range__list {
       display: flex;
-      gap: 5px;
-      img  {
-        width: 22px;
+      gap: 5rem;
+
+      img {
+        width: 22rem;
       }
     }
   }
@@ -26,6 +27,13 @@
     &__item {
       padding: 42rem;
       gap: 17rem;
+    }
+
+    &__link:hover {
+      font-weight: 500;
+      .reviews__arrow {
+        transform: rotate(45deg);
+      }
     }
   }
 }

@@ -1,8 +1,8 @@
 .reviews {
-  padding-top: 54rem;
-  padding-bottom: 125rem;
   position: relative;
   overflow: hidden;
+  padding-top: 54rem;
+  padding-bottom: 125rem;
   background: linear-gradient(46deg, #964BFF 0%, #722AD8 100%);
 
   .container {
@@ -20,9 +20,9 @@
 
   &__background-img {
     height: 100%;
-    object-fit: contain;
     margin-top: 184rem;
     margin-left: -431rem;
+    object-fit: contain;
   }
 
   &__container {
@@ -31,14 +31,16 @@
   }
 
   &__headline {
-    color: $white;
     margin-bottom: 25rem;
     margin-left: -17rem;
+    color: $white;
   }
+
   .prev-arrow, .next-arrow {
     display: none;
   }
+
   swiper-container::part(pagination) {
-    bottom: -71px;
+    bottom: -71rem;
   }
 }

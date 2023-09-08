@@ -4,14 +4,17 @@
     .prev-arrow, .next-arrow {
       display: flex;
     }
+
     .prev-arrow {
       left: 16rem;
     }
+
     .next-arrow {
       right: 17rem;
     }
+
     swiper-container::part(pagination) {
-      bottom: 21px;
+      bottom: 21rem;
     }
   }
 }

@@ -53,35 +53,50 @@
 
 @include lg {
   .about-us {
-    padding-bottom: 89rem;
+    padding-bottom: 94rem;
+
+    .container {
+      max-width: 1366rem;
+      padding-right: 6rem;
+    }
 
     &__list {
-      gap: 20rem;
-      margin: 30rem 0;
+      margin: 51rem 0;
+      gap: 71rem;
     }
 
     &__item {
       &_dog, &_cat {
-        gap: 6rem;
+        gap: 45rem;
       }
 
       &_cat {
         .about-us__img-container {
           margin-top: 0;
-          margin-left: 45rem;
+          margin-left: 9rem;
+        }
+
+        .about-us__text-wrapper {
+          margin-top: 47rem;
+          margin-left: 83rem;
         }
       }
     }
 
     &__img-container {
-      width: 49%;
+      width: 46%;
+    }
+
+    &__image {
+      width: 100%;
+      scale: 1.1;
     }
 
     &__text-wrapper {
       width: 43%;
-      margin-top: 76rem;
+      margin-top: 56rem;
       margin-left: 50rem;
-      gap: 15rem;
+      gap: 20rem;
     }
   }
 }

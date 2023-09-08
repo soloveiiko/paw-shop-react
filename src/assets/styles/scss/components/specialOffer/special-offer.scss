@@ -15,10 +15,7 @@
     display: none;
   }
 
-  .swiper-pagination {
-    bottom: 33px;
-  }
   swiper-container::part(pagination) {
-    bottom: 33px;
+    bottom: 33rem;
   }
 }
