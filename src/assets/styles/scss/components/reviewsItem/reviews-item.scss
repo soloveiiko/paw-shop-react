@@ -34,8 +34,9 @@
   }
 
   &__images {
-    display: flex;
-    gap: 12rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10rem 0;
   }
 
   &__img-container {
@@ -55,12 +56,12 @@
     align-items: center;
     justify-content: center;
     width: 67rem;
-    height: 71rem;
     cursor: pointer;
     color: $accent;
     border: 1rem solid $accent;
     border-radius: 10rem;
     text-decoration-line: underline;
+    padding: 0;
   }
 
   &__link {

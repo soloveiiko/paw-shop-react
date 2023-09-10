@@ -142,7 +142,15 @@
       margin-bottom: 7rem;
     }
 
-    .cat-btn, .dog-btn {
+    .cat-btn {
+      &.hover {
+        .for-pets__arrow {
+          transform: rotate(-44deg);
+        }
+      }
+    }
+
+    .dog-btn {
       &.hover {
         .for-pets__arrow {
           transform: rotate(44deg);

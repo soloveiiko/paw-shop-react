@@ -2,7 +2,7 @@
   .reviews {
 
     &__item {
-      padding: 41rem 37rem 47rem 42rem;
+      padding: 41rem 28rem 47rem 42rem;
       gap: 15rem;
     }
 
@@ -10,9 +10,15 @@
       font-size: 13rem;
     }
 
+    &__images {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10rem 4rem;
+    }
+
     .stars-range__list {
       display: flex;
       gap: 5rem;
+      margin-right: 9px;
 
       img {
         width: 22rem;
@@ -31,6 +37,7 @@
 
     &__link:hover {
       font-weight: 500;
+
       .reviews__arrow {
         transform: rotate(45deg);
       }

@@ -58,7 +58,7 @@ export const reviewsList = [
       'shaking went on for an hour straight. Removed it from her mouth and ' +
       'all goes back to good. Might have been a one off, but be watchful. ' +
       'Would buy again. ',
-    images: [review, review, review],
+    images: [review, review, review, review, review, review],
   },
   {
     id: 2,
