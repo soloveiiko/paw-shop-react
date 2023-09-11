@@ -11,11 +11,11 @@ const InformationPanel = () => {
   return (
     <div className="footer__information information-panel">
       <div className="information-panel__logo logo">
-        <img className="logo__image" src={logoWhite} alt="Logo" />
+        <img className="logo__image" src={logoWhite} width="54" height="63.514" alt="Logo" />
         PawShop
       </div>
       <div className="information-panel__number-wrapper">
-        <img src={icoEmail} alt="Number" />
+        <img src={icoEmail} width="25" height="17.817" alt="Number" />
         <a className="information-panel__number" href="tel:1-800-055-5566">
           1-800-055-5566
         </a>
@@ -25,7 +25,7 @@ const InformationPanel = () => {
           {socialNetworkList.map((el) => (
             <li key={el.id} className="social-network__item">
               <Link className="social-network__link" to={el.link}>
-                <img src={el.image} alt={el.name} />
+                <img src={el.image} width="20" height="20" alt={el.name} />
               </Link>
             </li>
           ))}

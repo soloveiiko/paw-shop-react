@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { SlClose } from 'react-icons/sl';
+import { TfiClose } from 'react-icons/tfi';
 
 const navbarList = [
   { id: 1, name: 'Home', link: '#' },
@@ -9,13 +9,13 @@ const navbarList = [
   { id: 4, name: 'Contacts', link: '#' },
   { id: 5, name: 'Tracking', link: '#' },
 ];
-const Sidebar = () => {
+const Sidebar = ({ toggleSidebar }) => {
   return (
     <div className="header__sidebar sidebar">
       <div className="sidebar__top">
         <div className="sidebar__logo">Menu</div>
-        <button className="sidebar__close-btn">
-          <SlClose />
+        <button onClick={toggleSidebar} className="sidebar__close-btn">
+          <TfiClose />
         </button>
       </div>
       <nav className="sidebar__container">

@@ -14,7 +14,7 @@ const Cards = () => {
       <ul className="cards__list">
         {cardsList.map((card) => (
           <li key={card.id} className="cards__item">
-            <img className="cards__image" src={card.image} alt={card.name} />
+            <img className="cards__image" src={card.image} width="62" height="35" alt={card.name} />
           </li>
         ))}
       </ul>

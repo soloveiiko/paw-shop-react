@@ -1,9 +1,6 @@
 .tools {
   gap: 31rem;
 
-  &__profile {
-  }
-
   &__basket {
     position: relative;
     display: flex;
@@ -66,7 +63,7 @@
     }
 
     &::after {
-      top: 11rem;
+      top: 9rem;
     }
   }
 }

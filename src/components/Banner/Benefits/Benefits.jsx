@@ -13,7 +13,7 @@ const Benefits = () => {
       <ul className="benefits__list">
         {benefitsList.map((el) => (
           <li key={el.id} className="benefits__item">
-            <img src={el.image} alt={el.alt} />
+            <img src={el.image} width="30" height="30" alt={el.alt} />
             <span className="benefits__text" dangerouslySetInnerHTML={{ __html: el.name }} />
           </li>
         ))}

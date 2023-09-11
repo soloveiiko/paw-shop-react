@@ -7,7 +7,7 @@ const ForPetShortButton = ({ isCat, isDog, className }) => {
     <div className="for-pets-btn-container for-pets">
       {isCat && (
         <Link to="#" className={`for-pets__btn cat-btn ${className}`}>
-          <img className="for-pets__arrow" src={icoArrowLeft} alt="arrow" />
+          <img className="for-pets__arrow" src={icoArrowLeft} width="9.5" height="9.5" alt="arrow" />
           <span className="for-pets__text">
             For <b className="for-pets__marker cat">cat</b>
           </span>
@@ -18,7 +18,7 @@ const ForPetShortButton = ({ isCat, isDog, className }) => {
           <span className="for-pets__text">
             For <b className="for-pets__marker dog">dog</b>
           </span>
-          <img className="for-pets__arrow" src={icoArrowRight} alt="arrow" />
+          <img className="for-pets__arrow" src={icoArrowRight} width="9.5" height="9.5" alt="arrow" />
         </Link>
       )}
     </div>

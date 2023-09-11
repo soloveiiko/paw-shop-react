@@ -42,6 +42,12 @@
   .reviews {
     padding-top: 139rem;
     padding-bottom: 195rem;
+    &::before {
+      top: 0;
+      left: -25rem;
+      background-size: 80%;
+      background-position: initial;
+    }
 
     .container {
       max-width: 1200rem;

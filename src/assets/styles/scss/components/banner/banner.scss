@@ -12,7 +12,7 @@
     width: 100%;
     content: '';
     opacity: 0.3;
-    background-image: url("./../../../../../static/images/background/pattern.png");
+    background-image: url("./../../../../../static/images/background/pattern.webp");
     background-repeat: repeat-x;
     background-size: auto 100%;
   }
@@ -43,29 +43,30 @@
   &__img-container {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     width: 100%;
   }
 
   &__image {
     &_cat, &_dog {
       object-fit: cover;
+      scale: 1;
+      height: 100%;
+      width: 100%;
     }
 
     &_cat {
-      width: 250%;
-      margin-right: -113rem;
-      margin-bottom: -51rem;
+      margin-right: 52rem;
+      margin-bottom: -49rem;
       transform: scaleX(-1);
       scale: 1.1;
     }
 
     &_dog {
-      width: 220%;
-      margin-right: -115rem;
-      margin-bottom: -103rem;
+      margin-right: -5rem;
+      margin-bottom: -49rem;
       transform: rotate(342deg) scaleX(-1);
-      scale: 1.1;
+      scale: 1.6;
     }
   }
 
@@ -101,7 +102,7 @@
       width: 136rem;
       height: 250rem;
       transform: rotate(256deg);
-      background-image: url("./../../../../../static/images/background/ball.png");
+      background-image: url("./../../../../../static/images/background/ball.webp");
     }
 
     &::after {
@@ -110,7 +111,7 @@
       width: 230rem;
       height: 357rem;
       transform: rotate(1deg);
-      background-image: url("./../../../../../static/images/background/bone.png");
+      background-image: url("./../../../../../static/images/background/bone.webp");
     }
   }
 

@@ -2,16 +2,14 @@
 import logoDark from './images/logo/logo-dark.svg';
 import logoWhite from './images/logo/logo-white.svg';
 // Background
-import bgBall from './images/background/ball.png';
-import bgBone from './images/background/bone.png';
-import bgToy from './images/background/toy.png';
-import bgCat from './images/background/cat.png';
-import bgDog from './images/background/dog.png';
-import bgKarsten from './images/background/karsten.png';
-import bgPaws from './images/background/paws.png';
-import bgPattern from './images/background/pattern.png';
-import bgSpecialOfferTablet from './images/background/special-offer-tablet.png';
-import bgSpecialOffer from './images/background/special-offer.png';
+import bgBall from './images/background/ball.webp';
+import bgBone from './images/background/bone.webp';
+import bgToy from './images/background/toy.webp';
+import bgCat from './images/background/cat.webp';
+import bgDog from './images/background/dog.webp';
+import bgKarsten from './images/background/karsten.webp';
+import bgPaws from './images/background/paws.webp';
+import bgPattern from './images/background/pattern.webp';
 // Icons
 import icoArrowAccent from './images/icons/arrow-accent.svg';
 import icoArrowRight from './images/icons/arrow-right.svg';
@@ -32,23 +30,23 @@ import facebook from './images/social-networks/facebook.svg';
 import twitter from './images/social-networks/twitter.svg';
 import instagram from './images/social-networks/instagram.svg';
 // Cards
-import cardPayPal from './images/cards/paypal.jpg';
-import cardFondy from './images/cards/fondy.jpg';
-import cardCheque from './images/cards/cheque.jpg';
-import cardLiqpay from './images/cards/liqpay.jpg';
-import cardWayForPay from './images/cards/wayforpay.jpg';
+import cardPayPal from './images/cards/paypal.webp';
+import cardFondy from './images/cards/fondy.webp';
+import cardCheque from './images/cards/cheque.webp';
+import cardLiqpay from './images/cards/liqpay.webp';
+import cardWayForPay from './images/cards/wayforpay.webp';
 // Pets
-import petCat from './images/pets/cat.jpg';
-import petDog from './images/pets/dog.jpg';
+import petCat from './images/pets/cat.webp';
+import petDog from './images/pets/dog.webp';
 // Products
-import prToy1 from './images/products/toy1.jpg';
-import prToy2 from './images/products/toy2.jpg';
-import prToy3 from './images/products/toy3.jpg';
-import prToy4 from './images/products/toy4.jpg';
+import prToy1 from './images/products/toy1.webp';
+import prToy2 from './images/products/toy2.webp';
+import prToy3 from './images/products/toy3.webp';
+import prToy4 from './images/products/toy4.webp';
 // Reviews
-import review from './images/reviews/review.jpg';
+import review from './images/reviews/review.webp';
 // Special offers
-import spCart from './images/special-offers/cart.png';
+import spCart from './images/special-offers/cart.webp';
 export {
   logoDark,
   logoWhite,
@@ -61,8 +59,6 @@ export {
   bgPaws,
   bgPattern,
   spCart,
-  bgSpecialOffer,
-  bgSpecialOfferTablet,
   icoArrowAccent,
   icoCat,
   icoDog,

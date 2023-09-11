@@ -10,8 +10,8 @@ const ForPetLongButton = ({ isCat, isDog }) => {
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker cat">cat</b>
           </span>
-          <img className="product-for-pets__icon" src={icoCat} alt="Cat" />
-          <img className="product-for-pets__arrow" src={icoArrowRight} alt="Arrow" />
+          <img className="product-for-pets__icon" src={icoCat} width="30" height="30" alt="Cat" />
+          <img className="product-for-pets__arrow" src={icoArrowRight} width="9.5" height="9.5" alt="Arrow" />
         </Link>
       )}
       {isDog && (
@@ -19,8 +19,8 @@ const ForPetLongButton = ({ isCat, isDog }) => {
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker dog">dog</b>
           </span>
-          <img className="product-for-pets__icon" src={icoDog} alt="Dog" />
-          <img className="product-for-pets__arrow" src={icoArrowRight} alt="Arrow" />
+          <img className="product-for-pets__icon" src={icoDog} width="30" height="30" alt="Dog" />
+          <img className="product-for-pets__arrow" src={icoArrowRight} width="9.5" height="9.5" alt="Arrow" />
         </Link>
       )}
     </div>

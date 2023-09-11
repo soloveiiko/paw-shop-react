@@ -15,12 +15,12 @@ const ProductItem = ({ product }) => {
         )}
       </div>
       <div className="products-item__img-container">
-        <img className="products-item__image" width="100" height="100" src={product.image} alt="Product" />
+        <img className="products-item__image" width="300" height="194" src={product.image} alt="Product" />
       </div>
       <div className="products-item__information">
         <div className="products-item__name">{product.name}</div>
         <div className="products-item__stars-container stars-range">
-          <StarsRange />
+          <StarsRange item={product.stars} />
           <div className="products-item__reviews">{product.reviews}</div>
         </div>
         <div className="products-item__price-container">
@@ -34,7 +34,7 @@ const ProductItem = ({ product }) => {
           )}
           <div className="products-item__in-basket-container in-basket">
             <button className="in-basket__btn">
-              +<img src={icoBasket} alt="In Basket" />
+              +<img src={icoBasket} width="20" height="20" alt="In Basket" />
             </button>
           </div>
         </div>

@@ -59,14 +59,14 @@
     &__image {
 
       &_cat {
-        width: 230%;
-        margin-right: -206rem;
-        margin-bottom: -218rem;
+        margin-right: 73rem;
+        margin-bottom: -232rem;
+        scale: 1;
       }
 
       &_dog {
-        margin-right: -214rem;
-        margin-bottom: -321rem;
+        margin-right: 26rem;
+        margin-bottom: -213rem;
       }
     }
   }
@@ -92,12 +92,13 @@
       display: flex;
       align-items: center;
       max-width: 100%;
-      padding-bottom: 114rem;
       gap: 150rem;
+      margin-bottom: 118rem;
+      padding: 0;
     }
 
     &__title {
-      margin: 152rem auto 55rem;
+      margin: 152rem auto 51rem;
 
       &::after {
         top: -222rem;
@@ -113,27 +114,28 @@
 
     &__img-container {
       overflow-y: clip;
+      height: 100%;
     }
 
     &__image {
 
       &_cat {
-        width: 210%;
-        margin-right: -203rem;
-        margin-bottom: -273rem;
+        margin-right: 273rem;
+        margin-bottom: -477rem;
+        scale: 1.3;
 
         &:hover {
-          scale: 1.2;
+          scale: 1.4;
         }
       }
 
       &_dog {
-        width: 170%;
-        margin-right: -282rem;
-        margin-bottom: -299rem;
+        margin-right: -122rem;
+        margin-bottom: -443rem;
+        scale: 1.2;
 
         &:hover {
-          scale: 1.2;
+          scale: 1.3;
         }
       }
     }
@@ -144,6 +146,8 @@
 
     .cat-btn {
       &.hover {
+        background-color: $white;
+
         .for-pets__arrow {
           transform: rotate(-44deg);
         }
@@ -152,6 +156,8 @@
 
     .dog-btn {
       &.hover {
+        background-color: $white;
+
         .for-pets__arrow {
           transform: rotate(44deg);
         }
