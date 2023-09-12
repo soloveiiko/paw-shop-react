@@ -17,6 +17,7 @@
     }
 
     &__title {
+      @include h1-title;
       line-height: 112%;
       width: 100%;
       max-width: 583rem;

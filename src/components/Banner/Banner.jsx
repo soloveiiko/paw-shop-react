@@ -18,10 +18,10 @@ const Banner = () => {
   return (
     <section className="main-page__banner banner">
       <div className="banner__container container">
-        <h1 className="banner__title">
+        <h2 className="banner__title">
           Make your pet’s life better
           <span className="banner__title_duplicate">Make your pet’s life better</span>
-        </h1>
+        </h2>
         <div className="banner__for-pets">
           <ForPetShortButton isCat={true} className={isCatHovered ? 'hover' : ''} />
           <h3 className="banner__text">Toys and accessories that your pet will like</h3>

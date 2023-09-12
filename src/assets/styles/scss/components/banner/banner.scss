@@ -75,6 +75,7 @@
   }
 
   &__title {
+    @include h1-title-mobile;
     margin: 117rem 13% 34rem;
     letter-spacing: 0.5rem;
     line-height: 115%;
