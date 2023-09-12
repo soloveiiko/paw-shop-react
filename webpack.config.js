@@ -6,24 +6,6 @@ module.exports = {
       {
         test: /\.(png|jpe?g|webp|tiff?|svg)$/i,
         type: 'asset',
-        oneOf: [
-          {
-            resourceQuery: /srcset/,
-            use: [
-              {
-                loader: 'webpack-image-srcset-loader',
-                options: {
-                  sizes: ['480w', '1024w', '1920w', '2560w', 'original'],
-                },
-              },
-              'file-loader',
-              'webpack-image-resize-loader',
-            ],
-          },
-          {
-            use: 'file-loader',
-          },
-        ],
       },
     ],
   },
@@ -39,6 +21,7 @@ module.exports = {
               },
               webp: {
                 lossless: true,
+                quality: 90,
               },
               avif: {
                 lossless: true,
