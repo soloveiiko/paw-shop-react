@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { register } from 'swiper/element/bundle';
 import { specialOffer } from '@utils/data';
 import SpecialOfferItem from '@components/SpecialOfferItem/SpecialOfferItem';
-import NextArrow from '@components/Arrows/NextArrow/NextArrow';
-import PrevArrow from '@components/Arrows/PrevArrow/PrevArrow';
+import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
+import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
 
 register();
 

@@ -1,0 +1,17 @@
+.modal-layout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  &_top {
+  }
+
+  &_bottom {
+  }
+
+  &__title {
+  }
+
+  &__close-btn {
+  }
+}

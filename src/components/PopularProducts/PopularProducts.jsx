@@ -1,6 +1,6 @@
 import React from 'react';
 import { popularProducts } from '@utils/data';
-import ForPetLongButton from '@components/Buttons/ForPetLongButton/ForPetLongButton';
+import ForPetLongButton from '@components/Base/Buttons/ForPetLongButton/ForPetLongButton';
 import ProductItem from '@components/ProductItem/ProductItem';
 
 const PopularProducts = () => {

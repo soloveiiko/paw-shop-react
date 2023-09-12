@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { register } from 'swiper/element/bundle';
 import { reviewsList } from '@utils/data';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
-import PrevArrow from '@components/Arrows/PrevArrow/PrevArrow';
-import NextArrow from '@components/Arrows/NextArrow/NextArrow';
+import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
+import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
 
 register();
 const Reviews = () => {
