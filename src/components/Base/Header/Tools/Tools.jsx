@@ -5,11 +5,11 @@ const Tools = ({ toggleSidebar }) => {
   return (
     <div className="header__tools tools">
       <div className="tools__profile">
-        <img src={icoUser} width="26" height="26" alt="Profile" />
+        <img src={icoUser} width="26" height="26" loading="lazy" alt="Profile" />
       </div>
       <div className="tools__basket">
         <div className="tools__basket-img">
-          <img src={icoBasket} width="26" height="26" alt="Basket" />
+          <img src={icoBasket} width="26" height="26" loading="lazy" alt="Basket" />
         </div>
         <div className="tools__basket-counter">2</div>
         <div className="tools__basket-price">$8</div>

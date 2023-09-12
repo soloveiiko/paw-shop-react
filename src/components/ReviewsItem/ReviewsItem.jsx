@@ -41,7 +41,7 @@ const ReviewsItem = ({ review }) => {
       <div className="reviews__images">
         {displayedImages.map((img, index) => (
           <div key={index} className="reviews__img-container">
-            <img className="reviews__image" src={img} width="64" height="66" alt="Review" />
+            <img className="reviews__image" src={img} width="64" height="66" loading="lazy" alt="Review" />
           </div>
         ))}
         {review.images.length > maxVisibleImages && displayedImages.length < review.images.length && (
@@ -52,7 +52,7 @@ const ReviewsItem = ({ review }) => {
       </div>
       <Link to="#" className="reviews__link">
         See the product
-        <img className="reviews__arrow" src={icoArrowAccent} width="9.5" height="9.5" alt="Arrow" />
+        <img className="reviews__arrow" src={icoArrowAccent} width="9.5" height="9.5" loading="lazy" alt="Arrow" />
       </Link>
     </div>
   );

@@ -15,6 +15,7 @@
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
     "redux-devtools-extension": "^2.13.9",
+    "responsive-loader": "^3.1.2",
     "sass": "^1.66.1",
     "swiper": "^10.2.0"
   },
@@ -52,6 +53,9 @@
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^10.0.1",
     "imagemin-webp": "^8.0.0",
-    "sharp": "^0.32.5"
+    "sharp": "^0.32.5",
+    "svgo": "^3.0.2",
+    "webpack-image-resize-loader": "^5.0.0",
+    "webpack-image-srcset-loader": "^5.0.4"
   }
 }

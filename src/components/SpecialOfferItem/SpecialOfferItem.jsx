@@ -4,7 +4,7 @@ const SpecialOfferItem = ({ slide }) => {
   return (
     <div className="special-offer__slide">
       <div className="special-offer__img-container">
-        <img className="special-offer__img" src={slide.image} width="567" height="425" alt="Slide" />
+        <img className="special-offer__img" src={slide.image} width="567" height="425" loading="lazy" alt="Slide" />
       </div>
       <div className="special-offer__information">
         <h2 className="special-offer__title">

@@ -15,7 +15,14 @@ const ProductItem = ({ product }) => {
         )}
       </div>
       <div className="products-item__img-container">
-        <img className="products-item__image" width="300" height="194" src={product.image} alt="Product" />
+        <img
+          className="products-item__image"
+          width="300"
+          height="194"
+          src={product.image}
+          loading="lazy"
+          alt="Product"
+        />
       </div>
       <div className="products-item__information">
         <div className="products-item__name">{product.name}</div>
@@ -34,7 +41,7 @@ const ProductItem = ({ product }) => {
           )}
           <div className="products-item__in-basket-container in-basket">
             <button className="in-basket__btn">
-              +<img src={icoBasket} width="20" height="20" alt="In Basket" />
+              +<img src={icoBasket} width="20" height="20" loading="lazy" alt="In Basket" />
             </button>
           </div>
         </div>

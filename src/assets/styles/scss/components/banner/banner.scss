@@ -58,14 +58,13 @@
     &_cat {
       margin-right: 52rem;
       margin-bottom: -49rem;
-      transform: scaleX(-1);
       scale: 1.1;
     }
 
     &_dog {
       margin-right: -5rem;
       margin-bottom: -49rem;
-      transform: rotate(342deg) scaleX(-1);
+      transform: rotate(342deg);
       scale: 1.6;
     }
   }
