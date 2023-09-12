@@ -1,9 +1,9 @@
 import React from 'react';
 import { SlArrowLeft } from 'react-icons/sl';
 
-const PrevArrow = ({ ref }) => {
+const PrevArrow = ({ innerRef }) => {
   return (
-    <div ref={ref} className="prev-arrow">
+    <div ref={innerRef} className="prev-arrow" aria-hidden="true">
       <SlArrowLeft />
     </div>
   );

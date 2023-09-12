@@ -15,7 +15,7 @@ const Tools = ({ toggleSidebar }) => {
         <div className="tools__basket-price">$8</div>
       </div>
       <div className="tools__btn-container" onClick={toggleSidebar}>
-        <button className="tools__open-sidebar-btn"></button>
+        <button className="tools__open-sidebar-btn" title="Open"></button>
       </div>
     </div>
   );
