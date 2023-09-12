@@ -37,7 +37,7 @@
 
 @include lg {
   .information-panel {
-    gap: 27rem;
+    gap: 30rem;
 
     &__number-wrapper {
       gap: 15rem;
@@ -45,6 +45,13 @@
 
     .social-network__list {
       gap: 18rem;
+    }
+    .logo {
+
+      &__image {
+        width: 57rem;
+        height: 63rem;
+      }
     }
   }
 

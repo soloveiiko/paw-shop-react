@@ -5,14 +5,14 @@
     overflow: hidden;
     justify-content: flex-end;
     width: 100%;
-    height: 295rem;
+    height: 294rem;
     padding: 31rem 0 0;
     gap: 70rem;
   }
 
   &__img-container {
     position: absolute;
-    bottom: -6rem;
+    bottom: -3rem;
     left: -14rem;
     display: flex;
     align-items: flex-end;
@@ -30,6 +30,7 @@
     width: 100%;
     transform: rotate(3deg);
     object-fit: cover;
+    height: auto;
   }
 
   &__information {

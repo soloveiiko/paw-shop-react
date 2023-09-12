@@ -17,9 +17,10 @@
     }
 
     &__title {
+      line-height: 112%;
       width: 100%;
       max-width: 583rem;
-      margin: 174rem auto 59rem;
+      margin: 174rem auto 53rem;
 
       &_duplicate {
         font-size: $h1-size;
@@ -49,7 +50,7 @@
 
     &__text {
       max-width: fit-content;
-      margin: 0;
+      margin: 0 auto;
     }
 
     &__img {
@@ -65,7 +66,7 @@
       }
 
       &_dog {
-        margin-right: 26rem;
+        margin-right: 48rem;
         margin-bottom: -213rem;
       }
     }
@@ -92,9 +93,9 @@
       display: flex;
       align-items: center;
       max-width: 100%;
-      gap: 150rem;
-      margin-bottom: 118rem;
+      margin-bottom: 113rem;
       padding: 0;
+      gap: 150rem;
     }
 
     &__title {
@@ -130,7 +131,7 @@
       }
 
       &_dog {
-        margin-right: -122rem;
+        margin-right: -100rem;
         margin-bottom: -443rem;
         scale: 1.2;
 
@@ -141,7 +142,7 @@
     }
 
     &__text {
-      margin-bottom: 7rem;
+      margin: 0 0 7rem 0;
     }
 
     .cat-btn {

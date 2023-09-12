@@ -26,8 +26,14 @@
   .tools {
     gap: 51rem;
 
+    &__profile-img {
+      width: 30rem;
+      height: 30rem;
+    }
+
     &__basket {
       padding: 8rem 0;
+      gap: 13rem;
     }
 
     &__basket-counter {
@@ -36,6 +42,11 @@
     }
     &__btn-container {
       display: none;
+    }
+
+    &__image {
+      width: 26rem;
+      height: 26rem;
     }
   }
 }

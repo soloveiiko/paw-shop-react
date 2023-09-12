@@ -35,8 +35,8 @@
 
   &__images {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10rem 0;
+    grid-template-columns: repeat(3, 68rem);
+    gap: 10rem;
   }
 
   &__img-container {
@@ -70,6 +70,11 @@
     margin-top: 2rem;
     color: $accent;
     gap: 15rem;
+  }
+
+  &__arrow {
+    width: 12rem;
+    height: 19rem;
   }
 
   .stars-range__list {

@@ -1,7 +1,7 @@
 .benefits {
   z-index: 1;
   position: relative;
-  padding: 31rem 16rem;
+  padding: 32rem 16rem;
   background-color: $white;
 
   &__list {
@@ -20,5 +20,10 @@
     b {
       font-weight: 500;
     }
+  }
+
+  &__image {
+    width: 35rem;
+    height: 30rem;
   }
 }

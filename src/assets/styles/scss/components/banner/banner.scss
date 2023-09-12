@@ -62,7 +62,7 @@
     }
 
     &_dog {
-      margin-right: -5rem;
+      margin-right: 6rem;
       margin-bottom: -49rem;
       transform: rotate(342deg);
       scale: 1.6;
@@ -75,8 +75,9 @@
   }
 
   &__title {
-    margin: 117rem 13% 31rem;
+    margin: 117rem 13% 34rem;
     letter-spacing: 0.5rem;
+    line-height: 115%;
     color: $accent;
 
     &_duplicate {

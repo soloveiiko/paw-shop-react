@@ -15,7 +15,14 @@ const InformationPanel = () => {
         PawShop
       </div>
       <div className="information-panel__number-wrapper">
-        <img src={icoEmail} width="25" height="17.817" loading="lazy" alt="Number" />
+        <img
+          className="information-panel__number-image"
+          src={icoEmail}
+          width="25"
+          height="17.817"
+          loading="lazy"
+          alt="Number"
+        />
         <a className="information-panel__number" href="tel:1-800-055-5566">
           1-800-055-5566
         </a>
