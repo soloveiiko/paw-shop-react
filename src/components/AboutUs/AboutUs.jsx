@@ -9,7 +9,7 @@ const AboutUs = () => {
         <div className="about-us__list">
           <div className="about-us__item_dog">
             <div className="about-us__img-container">
-              <img className="about-us__image" src={petDog} width="685" height="525" loading="lazy" alt="Dog" />
+              <img className="about-us__image" src={petDog} width="685" height="525" alt="Dog" />
             </div>
             <div className="about-us__text-wrapper">
               <h3 className="about-us__title">
@@ -58,7 +58,7 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="about-us__img-container">
-              <img className="about-us__image" src={petCat} width="685" height="525" loading="lazy" alt="Cat" />
+              <img className="about-us__image" src={petCat} width="685" height="525" alt="Cat" />
             </div>
           </div>
         </div>

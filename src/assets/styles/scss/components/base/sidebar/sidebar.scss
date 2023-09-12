@@ -6,12 +6,14 @@
   border-radius: 0 0 20rem 20rem;
   background-color: $white;
   position: fixed;
-  top: -100%;
+  top: 0;
+  transform: translateY(-100%);
   width: 100%;
-  transition: top 1s ease-in-out;
+  transition: all 1s ease-in-out;
   z-index: 1000;
   &.open {
     top: 0;
+    transform: translateY(0);
   }
 
   &__top {

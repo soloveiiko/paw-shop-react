@@ -16,6 +16,7 @@
     }
 
     &__basket-price {
+      font-size: 15rem;
       font-weight: 500;
       display: block;
     }
@@ -37,9 +38,13 @@
     }
 
     &__basket-counter {
-      left: auto;
-      right: 30rem;
+      left: 32rem;
     }
+
+    &__basket-img {
+      padding: 11rem 11.5rem;
+    }
+
     &__btn-container {
       display: none;
     }
