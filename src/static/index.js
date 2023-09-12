@@ -2,14 +2,8 @@
 import logoDark from './images/logo/logo-dark.svg';
 import logoWhite from './images/logo/logo-white.svg';
 // Background
-import bgBall from './images/background/ball.webp';
-import bgBone from './images/background/bone.webp';
-import bgToy from './images/background/toy.webp';
-import bgCat from './images/background/png/cat.png?as=webp';
+import bgCat from './images/background/cat.webp';
 import bgDog from './images/background/dog.webp';
-import bgKarsten from './images/background/karsten.webp';
-import bgPaws from './images/background/paws.webp';
-import bgPattern from './images/background/pattern.webp';
 // Icons
 import icoArrowAccent from './images/icons/arrow-accent.svg';
 import icoArrowRight from './images/icons/arrow-right.svg';
@@ -50,14 +44,8 @@ import spCart from './images/special-offers/cart.webp';
 export {
   logoDark,
   logoWhite,
-  bgBall,
-  bgBone,
-  bgToy,
   bgCat,
   bgDog,
-  bgKarsten,
-  bgPaws,
-  bgPattern,
   spCart,
   icoArrowAccent,
   icoCat,
