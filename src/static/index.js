@@ -5,7 +5,7 @@ import logoWhite from './images/logo/logo-white.svg';
 import bgBall from './images/background/ball.webp';
 import bgBone from './images/background/bone.webp';
 import bgToy from './images/background/toy.webp';
-import bgCat from './images/background/cat.webp';
+import bgCat from './images/background/png/cat.png?as=webp';
 import bgDog from './images/background/dog.webp';
 import bgKarsten from './images/background/karsten.webp';
 import bgPaws from './images/background/paws.webp';
