@@ -41,7 +41,7 @@ const Banner = () => {
             onMouseEnter={() => handleMouseEnter(setIsDogHovered)}
             onMouseLeave={() => handleMouseLeave(setIsDogHovered)}
           >
-            <img className="banner__image_dog" src={bgDog} width="100" height="100" loading="lazy" alt="Dog" />
+            <img className="banner__image_dog" src={bgDog} width="100" height="100" alt="Dog" />
           </div>
         </div>
       </div>
