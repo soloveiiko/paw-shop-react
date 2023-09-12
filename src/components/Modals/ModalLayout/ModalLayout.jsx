@@ -6,7 +6,7 @@ const ModalLayout = ({ title, children }) => {
     <div className="modal-layout">
       <div className="modal-layout_top">
         <h3 className="modal-layout__title">{title}</h3>
-        <button onClick={toggleSidebar} className="modal-layout__close-btn">
+        <button className="modal-layout__close-btn">
           <TfiClose />
         </button>
       </div>

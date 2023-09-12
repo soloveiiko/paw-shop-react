@@ -1,5 +1,6 @@
 import React from 'react';
 import { Footer, Header } from '@components';
+import SignIn from '@components/Modals/SignIn/SignIn';
 
 const Layout = ({ children }) => {
   return (
@@ -7,6 +8,7 @@ const Layout = ({ children }) => {
       <Header />
       <main className="content">{children}</main>
       <Footer />
+      <SignIn />
     </div>
   );
 };
