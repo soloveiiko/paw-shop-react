@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '@components/Base/Header/Logo/Logo';
 import Navbar from '@components/Base/Header/Navbar/Navbar';
@@ -7,7 +7,17 @@ import Sidebar from '@components/Base/Header/Sidebar/Sidebar';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const windowWidth = window.innerWidth;
+  const [tablet, setTablet] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setTablet(window.innerWidth < 1000);
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -20,7 +30,7 @@ const Header = () => {
           1-800-055-5566
         </Link>
         <Tools toggleSidebar={toggleSidebar} />
-        {isOpen && windowWidth < 1000 && <Sidebar toggleSidebar={toggleSidebar} />}
+        {tablet && <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />}
       </div>
     </header>
   );

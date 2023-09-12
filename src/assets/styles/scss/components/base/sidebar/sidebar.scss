@@ -1,14 +1,19 @@
 .sidebar {
-  position: absolute;
-  z-index: 10;
-  top: 0;
   right: 0;
   left: 0;
-  display: block;
   align-items: center;
   padding: 0 0 50rem;
   border-radius: 0 0 20rem 20rem;
   background-color: $white;
+  position: fixed;
+  top: -100%;
+  width: 100%;
+  transition: top 1s ease-in-out;
+  z-index: 1000;
+  &.open {
+    top: 0;
+    transition: top 1s ease-in-out;
+  }
 
   &__top {
     display: flex;

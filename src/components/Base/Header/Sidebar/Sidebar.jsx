@@ -9,9 +9,9 @@ const navbarList = [
   { id: 4, name: 'Contacts', link: '#' },
   { id: 5, name: 'Tracking', link: '#' },
 ];
-const Sidebar = ({ toggleSidebar }) => {
+const Sidebar = ({ toggleSidebar, isOpen }) => {
   return (
-    <div className="header__sidebar sidebar">
+    <div className={`header__sidebar sidebar${isOpen ? ' open' : ''}`}>
       <div className="sidebar__top">
         <div className="sidebar__logo">Menu</div>
         <button onClick={toggleSidebar} className="sidebar__close-btn">

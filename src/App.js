@@ -1,17 +1,15 @@
 import React from 'react';
-import { Footer, Header } from '@components';
 import AppRoutes from '@routes/AppRoutes';
 import './App.scss';
+import Layout from './layout/Layout';
 
 function App() {
   return (
-    <div className="paw-shop">
-      <Header />
-      <div className="content">
+    <>
+      <Layout>
         <AppRoutes />
-      </div>
-      <Footer />
-    </div>
+      </Layout>
+    </>
   );
 }
 

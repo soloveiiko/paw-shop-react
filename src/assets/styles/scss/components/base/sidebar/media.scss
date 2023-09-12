@@ -1,5 +1,11 @@
 @include md {
   .sidebar {
+    top: 0;
+    left: -100%;
+    transition: left .8s ease-in-out;
+    &.open {
+      left: 0;
+    }
     &__list {
       flex-wrap: wrap;
       height: 140rem;

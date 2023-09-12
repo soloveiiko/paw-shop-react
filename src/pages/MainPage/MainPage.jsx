@@ -16,7 +16,7 @@ const MainPage = () => {
     };
   }, []);
   return (
-    <div className="paw-shop__main-page main-page page">
+    <div className="main-page page">
       <Banner />
       <SpecialOffer isMobile={mobile} isTablet={tablet} />
       <PopularProducts />
