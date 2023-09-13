@@ -5,7 +5,7 @@ import Navbar from '@components/Base/Header/Navbar/Navbar';
 import Tools from '@components/Base/Header/Tools/Tools';
 import Sidebar from '@components/Base/Header/Sidebar/Sidebar';
 
-const Header = () => {
+const Header = ({ handleAuth }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [tablet, setTablet] = useState(false);
   useEffect(() => {
@@ -29,7 +29,7 @@ const Header = () => {
         <Link to="#" className="header__number" href="tel:1-800-055-5566">
           1-800-055-5566
         </Link>
-        <Tools toggleSidebar={toggleSidebar} />
+        <Tools toggleSidebar={toggleSidebar} handleAuth={handleAuth} />
         {tablet && <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />}
       </div>
     </header>

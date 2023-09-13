@@ -27,6 +27,27 @@
   box-shadow: 0 5rem 10rem 0 rgba(0, 0, 0, 0.10);
 }
 
+@mixin accent-btn {
+  @include button;
+  padding: 10rem 15rem;
+  color: $white;
+  background-color: $accent;
+}
+
+@mixin close-btn {
+  font-size: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32rem;
+  height: 32rem;
+  cursor: pointer;
+  color: #8936FF;
+  border: 1rem solid #8936FF;
+  border-radius: 50rem;
+  background-color: $white;
+}
+
 @mixin arrow {
   width: 59rem;
   height: 59rem;

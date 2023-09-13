@@ -5,6 +5,7 @@
   &_top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 15rem;
     border-bottom: 1rem solid $light-gray;
   }
@@ -19,5 +20,6 @@
   }
 
   &__close-btn {
+    @include close-btn;
   }
 }

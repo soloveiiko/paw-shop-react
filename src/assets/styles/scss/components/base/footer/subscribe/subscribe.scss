@@ -94,20 +94,12 @@
   }
 
   &__btn {
-    font-size: 16rem;
+    @include accent-btn;
     position: absolute;
+    font-size: 16rem;
     top: 8rem;
     right: 8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 103rem;
     height: 54rem;
-    padding: 10rem 15rem;
-    color: $white;
-    border: none;
-    border-radius: $border-radius;
-    background-color: $accent;
-    cursor: pointer;
   }
 }

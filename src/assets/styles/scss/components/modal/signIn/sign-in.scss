@@ -1,10 +1,18 @@
 .sign-in {
   position: absolute;
+  z-index: 1000;
   top: 50%;
   left: 50%;
   transform: translate(-50%);
-  z-index: 1000;
+
+  &__reset-password, &__remember-me-title, &__error {
+    font-size: 14rem;
+  }
+
   &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20rem;
   }
 
   &__container {
@@ -22,22 +30,28 @@
   }
 
   &__input {
-    padding: 15rem 25rem;
-    width: 100%;
     font-size: 14rem;
-    align-items: center;
-    gap: 10px;
     display: flex;
-    border-radius: 20px;
+    align-items: center;
+    width: 100%;
+    padding: 15rem 25rem;
     border: 1px solid $input;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
     outline: none;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
+    gap: 10px;
   }
 
   &__error {
+    margin-top: 10rem;
+    color: $error;
   }
 
   &__addition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .sign-in__remember-me {
@@ -45,14 +59,14 @@
   }
 
   .sign-in__remember-me + label::before {
-    content: "";
     display: inline-block;
     width: 18px;
     height: 18px;
-    border-radius: 50%;
-    border: 1px solid $input;
     margin-right: 5px;
+    content: "";
     vertical-align: middle;
+    border: 1px solid $input;
+    border-radius: 50%;
   }
 
   .sign-in__remember-me:checked + label::before {
@@ -63,16 +77,38 @@
     vertical-align: middle;
   }
 
-
   &__remember-me-title {
   }
 
   &__reset-password {
+    color: $accent;
+  }
+
+  &__submit-btn {
+    @include accent-btn;
+    font-size: 13rem;
+  }
+
+  &__registration-btn {
+    @include button;
+    padding: 10rem 15rem;
+    border: 1rem solid $accent;
+  }
+
+  &__registration-btn-text {
+    font-size: 13rem;
+    white-space: nowrap;
+    color: $accent;
   }
 }
 
 .social-auth {
+  display: flex;
+  gap: 14rem;
+
   &__title {
+    font-size: 16px;
+    font-weight: 500;
   }
 
   &__btn {
@@ -87,5 +123,7 @@
   }
 
   &__text {
+    font-size: 14rem;
+    display: none;
   }
 }

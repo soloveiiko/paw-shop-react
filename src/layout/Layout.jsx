@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Footer, Header } from '@components';
 import SignIn from '@components/Modals/Auth/SignIn/SignIn';
 
 const Layout = ({ children }) => {
+  const [isOpenAuth, setIsOpenAuth] = useState(false);
+  const handleAuth = () => {
+    setIsOpenAuth(!isOpenAuth);
+    console.log('toggle');
+  };
   return (
     <div className="paw-shop">
-      <Header />
+      <Header handleAuth={handleAuth} />
       <main className="content">{children}</main>
       <Footer />
-      <SignIn />
+      <SignIn isOpenAuth={isOpenAuth} handleAuth={handleAuth} />
     </div>
   );
 };

@@ -1,16 +1,17 @@
 .sidebar {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
   right: 0;
   left: 0;
   align-items: center;
+  width: 100%;
   padding: 0 0 50rem;
+  transition: all 1s ease-in-out;
+  transform: translateY(-100%);
   border-radius: 0 0 20rem 20rem;
   background-color: $white;
-  position: fixed;
-  top: 0;
-  transform: translateY(-100%);
-  width: 100%;
-  transition: all 1s ease-in-out;
-  z-index: 1000;
+
   &.open {
     top: 0;
     transform: translateY(0);
@@ -30,17 +31,7 @@
   }
 
   &__close-btn {
-    font-size: 20rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32rem;
-    height: 32rem;
-    cursor: pointer;
-    color: #8936FF;
-    border: 1rem solid #8936FF;
-    border-radius: 50rem;
-    background-color: $white;
+    @include close-btn;
   }
 
   &__container {
@@ -64,7 +55,7 @@
     white-space: nowrap;
   }
 
-  svg>* {
+  svg > * {
     color: $accent;
   }
 }

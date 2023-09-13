@@ -1,6 +1,10 @@
 .tools {
   gap: 31rem;
 
+  &__profile {
+    background-color: transparent;
+  }
+
   &__basket {
     position: relative;
     display: flex;
