@@ -1,6 +1,6 @@
 import React from 'react';
 import { Footer, Header } from '@components';
-import SignIn from '@components/Modals/SignIn/SignIn';
+import SignIn from '@components/Modals/Auth/SignIn/SignIn';
 
 const Layout = ({ children }) => {
   return (

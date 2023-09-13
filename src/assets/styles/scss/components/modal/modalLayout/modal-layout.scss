@@ -1,0 +1,23 @@
+.modal-layout {
+  border-radius: 20rem;
+  background: #FFF;
+  box-shadow: 0 4rem 30rem 0 rgba(0, 0, 0, 0.25);
+  &_top {
+    display: flex;
+    justify-content: space-between;
+    padding: 15rem;
+    border-bottom: 1rem solid $light-gray;
+  }
+
+  &_bottom {
+    padding: 15rem;
+  }
+
+  &__title {
+    font-size: 24rem;
+    font-weight: 700;
+  }
+
+  &__close-btn {
+  }
+}

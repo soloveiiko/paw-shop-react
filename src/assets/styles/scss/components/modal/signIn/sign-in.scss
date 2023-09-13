@@ -1,0 +1,91 @@
+.sign-in {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 1000;
+  &__form {
+  }
+
+  &__container {
+    &_left {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    &_right {
+    }
+  }
+
+  &__input-wrapper {
+  }
+
+  &__input {
+    padding: 15rem 25rem;
+    width: 100%;
+    font-size: 14rem;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+    border-radius: 20px;
+    border: 1px solid $input;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
+    outline: none;
+  }
+
+  &__error {
+  }
+
+  &__addition {
+  }
+
+  .sign-in__remember-me {
+    display: none;
+  }
+
+  .sign-in__remember-me + label::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid $input;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  .sign-in__remember-me:checked + label::before {
+    background-color: $black
+  }
+
+  .sign-in__remember-me-title {
+    vertical-align: middle;
+  }
+
+
+  &__remember-me-title {
+  }
+
+  &__reset-password {
+  }
+}
+
+.social-auth {
+  &__title {
+  }
+
+  &__btn {
+    &_google {
+    }
+
+    &_facebook {
+    }
+  }
+
+  &__image {
+  }
+
+  &__text {
+  }
+}

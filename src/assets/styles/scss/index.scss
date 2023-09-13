@@ -46,8 +46,9 @@
 @import "components/specialOffer/media";
 @import "components/specialOfferItem/special-offer-item";
 @import "components/specialOfferItem/media";
-@import "components/modalPopup/modal-popup";
-@import "components/modalPopup/media";
+@import "components/modal/modalLayout/modal-layout";
+@import "components/modal/modalLayout/modal-layout";
+@import "components/modal/signIn/sign-in";
 @import "pages/main/main";
 @import "pages/main/media";
 
@@ -97,6 +98,7 @@ h3 {
   html,
   body {
     font-size: $text-size-tablet;
+
   }
 
   * {
