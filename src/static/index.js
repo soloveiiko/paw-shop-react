@@ -19,6 +19,8 @@ import icoStar from './images/icons/star.svg';
 import icoSupport from './images/icons/support.svg';
 import icoReturn from './images/icons/return.svg';
 import icoCheckmark from './images/icons/checkmark.svg';
+import icoFacebook from './images/icons/facebook.svg';
+import icoGoogle from './images/icons/google.svg';
 // Social networks
 import facebook from './images/social-networks/facebook.svg';
 import twitter from './images/social-networks/twitter.svg';
@@ -76,4 +78,6 @@ export {
   facebook,
   twitter,
   instagram,
+  icoFacebook,
+  icoGoogle,
 };

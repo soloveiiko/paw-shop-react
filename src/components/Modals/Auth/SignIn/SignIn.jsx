@@ -2,6 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
 import InputField from '@components/Modals/Auth/SignIn/InputField/InputField';
+import { icoArrowAccent } from '@static';
 
 const SignIn = ({ setSignIn, setResetPassword }) => {
   const validationSchema = Yup.object().shape({
@@ -44,7 +45,7 @@ const SignIn = ({ setSignIn, setResetPassword }) => {
           </button>
           <button className="sign-in__registration-btn" type="button" onClick={() => setSignIn(false)}>
             <span className="sign-in__registration-btn-text"> I’m a new customer</span>
-            <img src="./../../../../static/images/icons/arrow-accent.svg" alt="Register" />
+            <img src={icoArrowAccent} alt="Register" />
           </button>
         </Form>
       )}

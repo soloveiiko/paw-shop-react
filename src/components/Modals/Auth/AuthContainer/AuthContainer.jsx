@@ -10,9 +10,12 @@ const AuthContainer = ({ handleAuth }) => {
   const [isResetPassword, setResetPassword] = useState(false);
   return (
     <div className="auth-container">
-      <ModalLayout handleAuth={handleAuth} title="Sign in">
+      <ModalLayout
+        handleAuth={handleAuth}
+        title={isResetPassword ? 'Reset password' : isSignIn ? 'Sign in' : 'Register'}
+      >
         {isResetPassword ? (
-          <ResetPassword />
+          <ResetPassword setResetPassword={setResetPassword} />
         ) : isSignIn ? (
           <SignIn setSignIn={setSignIn} setResetPassword={setResetPassword} />
         ) : (

@@ -60,11 +60,11 @@
     width: 100%;
   }
 
-  .sign-in__remember-me {
+  &__remember-me {
     display: none;
   }
 
-  .sign-in__remember-me + label::before {
+  &__remember-me + label::before {
     display: inline-block;
     width: 18px;
     height: 18px;
@@ -75,11 +75,11 @@
     border-radius: 50%;
   }
 
-  .sign-in__remember-me:checked + label::before {
+  &__remember-me:checked + label::before {
     background-color: $black
   }
 
-  .sign-in__remember-me-title {
+  &__remember-me-title {
     display: flex;
     align-items: center;
   }
