@@ -25,7 +25,7 @@ const SignUp = ({ setSignIn }) => {
           resetForm({ values: '' });
         }}
       >
-        {({}) => (
+        {() => (
           <Form className="sign-in__form">
             <div className="sign-in__container_left">
               <div className="sign-in__input-wrapper">

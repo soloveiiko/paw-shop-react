@@ -11,29 +11,30 @@ module.exports = {
       '@routes': resolvePath('./src/routes'),
       '@static': resolvePath('./src/static'),
       '@utils': resolvePath('./src/utils'),
+      '@redux': resolvePath('./src/redux'),
     },
-    configure: (webpackConfig) => {
-      webpackConfig.optimization.minimize = true;
-      webpackConfig.optimization.minimizer.push(
-        new ImageMinimizerPlugin({
-          minimizer: {
-            implementation: ImageMinimizerPlugin.imageminMinify,
-            options: {
-              plugins: [['mozjpeg', { quality: 85 }]],
-            },
-          },
-          generator: [
-            {
-              preset: 'webp',
-              implementation: ImageMinimizerPlugin.imageminGenerate,
-              options: {
-                plugins: ['imagemin-webp'],
-              },
-            },
-          ],
-        })
-      );
-      return webpackConfig;
-    },
+    // configure: (webpackConfig) => {
+    //   webpackConfig.optimization.minimize = true;
+    //   webpackConfig.optimization.minimizer.push(
+    //     new ImageMinimizerPlugin({
+    //       minimizer: {
+    //         implementation: ImageMinimizerPlugin.imageminMinify,
+    //         options: {
+    //           plugins: [['mozjpeg', { quality: 85 }]],
+    //         },
+    //       },
+    //       generator: [
+    //         {
+    //           preset: 'webp',
+    //           implementation: ImageMinimizerPlugin.imageminGenerate,
+    //           options: {
+    //             plugins: ['imagemin-webp'],
+    //           },
+    //         },
+    //       ],
+    //     })
+    //   );
+    //   return webpackConfig;
+    // },
   },
 };
