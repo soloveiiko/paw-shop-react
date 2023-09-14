@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Footer, Header } from '@components';
-import SignIn from '@components/Modals/Auth/SignIn/SignIn';
+import AuthContainer from '@components/Modals/Auth/AuthContainer/AuthContainer';
 
 const Layout = ({ children }) => {
   const [isOpenAuth, setIsOpenAuth] = useState(false);
@@ -13,7 +13,8 @@ const Layout = ({ children }) => {
       <Header handleAuth={handleAuth} />
       <main className="content">{children}</main>
       <Footer />
-      <SignIn isOpenAuth={isOpenAuth} handleAuth={handleAuth} />
+      <AuthContainer isOpenAuth={isOpenAuth} handleAuth={handleAuth} />
+      <div className="black-background"></div>
     </div>
   );
 };

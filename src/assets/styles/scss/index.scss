@@ -94,6 +94,17 @@ h3 {
   text-align: center;
 }
 
+.black-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $transparent-white;
+  z-index: 1000;
+  display: none;
+}
+
 @include md {
   html,
   body {
