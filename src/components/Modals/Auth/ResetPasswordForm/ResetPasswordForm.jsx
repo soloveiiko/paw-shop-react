@@ -1,10 +1,10 @@
 import React from 'react';
 import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
-import InputField from '@components/Modals/Auth/InputField';
+import InputField from '@components/Modals/Auth/InputField/InputField';
 import { icoArrowAccent } from '@static';
 
-const ResetPassword = ({ setResetPassword }) => {
+const ResetPasswordForm = ({ setResetPassword }) => {
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .required('Required')
@@ -39,4 +39,4 @@ const ResetPassword = ({ setResetPassword }) => {
   );
 };
 
-export default ResetPassword;
+export default ResetPasswordForm;

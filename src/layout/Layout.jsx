@@ -2,8 +2,8 @@ import React from 'react';
 import { Footer, Header } from '@components';
 import AuthContainer from '@components/Modals/Auth/AuthContainer/AuthContainer';
 import { useDispatch, useSelector } from 'react-redux';
-import { openAuthModal } from '../redux/auth/action';
-import { openCartModal } from '../redux/cart/action';
+import { openAuthModal } from '../redux/authForm/action';
+import { openCartModal } from '../redux/cartForm/action';
 import Cart from '@components/Modals/Cart/Cart';
 
 const Layout = ({ children }) => {

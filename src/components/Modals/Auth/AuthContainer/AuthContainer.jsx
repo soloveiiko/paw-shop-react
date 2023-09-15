@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import ModalLayout from '@components/Modals/ModalLayout/ModalLayout';
-import SignIn from '@components/Modals/Auth/SignIn/SignIn';
+import SignInForm from '@components/Modals/Auth/SignInForm/SignInForm';
 import Social from '@components/Modals/Auth/Social/Social';
-import SignUp from '@components/Modals/Auth/SignUp/SignUp';
-import ResetPassword from '@components/Modals/Auth/ResetPassword/ResetPassword';
+import SignUpForm from '@components/Modals/Auth/SignUpForm/SignUpForm';
+import ResetPasswordForm from '@components/Modals/Auth/ResetPasswordForm/ResetPasswordForm';
 
 const AuthContainer = ({ handleAuth }) => {
   const [isSignIn, setSignIn] = useState(true);
@@ -15,11 +15,11 @@ const AuthContainer = ({ handleAuth }) => {
         title={isResetPassword ? 'Reset password' : isSignIn ? 'Sign in' : 'Register'}
       >
         {isResetPassword ? (
-          <ResetPassword setResetPassword={setResetPassword} />
+          <ResetPasswordForm setResetPassword={setResetPassword} />
         ) : isSignIn ? (
-          <SignIn setSignIn={setSignIn} setResetPassword={setResetPassword} />
+          <SignInForm setSignIn={setSignIn} setResetPassword={setResetPassword} />
         ) : (
-          <SignUp setSignIn={setSignIn} />
+          <SignUpForm setSignIn={setSignIn} />
         )}
         <Social />
       </ModalLayout>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Form, Formik } from 'formik';
-import InputField from '@components/Modals/Auth/InputField';
+import InputField from '@components/Modals/Auth/InputField/InputField';
 import * as Yup from 'yup';
 import { icoArrowAccent } from '@static';
 
-const SignUp = ({ setSignIn }) => {
+const SignUpForm = ({ setSignIn }) => {
   const validationSchema = Yup.object().shape({
     fullName: Yup.string().required('Required').min(8, 'Too Short!').max(16, 'Too Long!'),
     email: Yup.string()
@@ -54,4 +54,4 @@ const SignUp = ({ setSignIn }) => {
   );
 };
 
-export default SignUp;
+export default SignUpForm;

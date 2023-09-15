@@ -1,5 +1,6 @@
 import React from 'react';
 import { icoCheckmark, icoReturn, icoStar, icoSupport } from '@static';
+import Image from '@components/Base/Image/Image';
 
 const benefitsList = [
   { id: 1, name: '<b>Unique </b>products', alt: 'Unique', image: icoStar },
@@ -13,7 +14,7 @@ const Benefits = () => {
       <ul className="benefits__list">
         {benefitsList.map((el) => (
           <li key={el.id} className="benefits__item">
-            <img className="benefits__image" src={el.image} width="30" height="30" loading="lazy" alt={el.alt} />
+            <Image className="benefits__image" src={el.image} width="30" height="30" loading="lazy" alt={el.alt} />
             <span className="benefits__text" dangerouslySetInnerHTML={{ __html: el.name }} />
           </li>
         ))}
