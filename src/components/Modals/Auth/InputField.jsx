@@ -1,6 +1,6 @@
 import { ErrorMessage, Field } from 'formik';
 
-const InputField = ({ className, name, placeholder, error }) => {
+const InputField = ({ className, name, placeholder }) => {
   return (
     <>
       <Field className={`${className}__input`} placeholder={placeholder} name={name} />
