@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TfiClose } from 'react-icons/tfi';
 import CartItem from '@components/Modals/Cart/CatrItem/CartItem';
 import { icoCart } from '@static';
@@ -8,10 +8,14 @@ const cartList = [
   { id: 2, name: 'Interactive Stress Relief Dog Toy', image: '', price: 3, number: 1 },
 ];
 
-const Cart = ({ handleCart }) => {
-  console.log('cartList', cartList);
+const Cart = ({ handleCart, isOpenCart }) => {
+  const [cart, setCartList] = useState(cartList);
+  const handleDelete = (itemId) => {
+    const updatedCartList = cart.filter((item) => item.id !== itemId);
+    setCartList(updatedCartList);
+  };
   return (
-    <div className="cart-layout">
+    <div className={`cart-layout${isOpenCart ? ' open' : ''}`}>
       <div className="cart-layout_top">
         <h3 className="cart-layout__title-wrapper">
           <img className="cart-layout__title-image" src={icoCart} alt="Cart" />
@@ -22,9 +26,15 @@ const Cart = ({ handleCart }) => {
         </button>
       </div>
       <div className="cart-layout_center">
-        {cartList.map((item) => (
-          <CartItem product={item} />
-        ))}
+        {cart.length > 0 ? (
+          <>
+            {cart.map((item) => (
+              <CartItem key={item.id} product={item} handleDelete={handleDelete} />
+            ))}
+          </>
+        ) : (
+          <div className="cart-layout__empty">Empty...</div>
+        )}
       </div>
       <div className="cart-layout_bottom">
         <div className="cart-layout__subtotal">

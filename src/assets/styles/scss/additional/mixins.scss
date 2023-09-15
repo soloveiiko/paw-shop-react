@@ -34,6 +34,14 @@
   background-color: $accent;
 }
 
+@mixin transparent-btn {
+  @include button;
+  padding: 10rem 15rem;
+  color: $accent;
+  background-color: $white;
+  border: 1rem solid $accent;
+}
+
 @mixin close-btn {
   font-size: 20rem;
   display: flex;
@@ -46,7 +54,7 @@
   border: 1rem solid #8936FF;
   border-radius: 50rem;
   background-color: $white;
-  svg>* {
+  svg > * {
     color: $accent;
   }
 }

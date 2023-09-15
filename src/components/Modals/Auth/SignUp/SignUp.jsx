@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Formik } from 'formik';
-import InputField from '@components/Modals/Auth/SignIn/InputField/InputField';
+import InputField from '@components/Modals/Auth/InputField';
 import * as Yup from 'yup';
 import { icoArrowAccent } from '@static';
 
@@ -26,27 +26,27 @@ const SignUp = ({ setSignIn }) => {
       }}
     >
       {() => (
-        <Form className="sign-in__form">
-          <div className="sign-in__container_left">
-            <div className="sign-in__input-wrapper">
-              <InputField className="sign-in" type="text" name="fullName" placeholder="Full name" />
+        <Form className="auth__form">
+          <div className="auth__container_left">
+            <div className="auth__input-wrapper">
+              <InputField className="auth" type="text" name="fullName" placeholder="Full name" />
             </div>
-            <div className="sign-in__input-wrapper">
-              <InputField className="sign-in" type="email" name="email" placeholder="Email" validateOnChange={true} />
+            <div className="auth__input-wrapper">
+              <InputField className="auth" type="email" name="email" placeholder="Email" validateOnChange={true} />
             </div>
-            <div className="sign-in__input-wrapper">
-              <InputField className="sign-in" type="password" name="password" placeholder="Password" />
+            <div className="auth__input-wrapper">
+              <InputField className="auth" type="password" name="password" placeholder="Password" />
             </div>
-            <div className="sign-in__input-wrapper">
-              <InputField className="sign-in" type="password" name="confirmPassword" placeholder="Confirm Password" />
+            <div className="auth__input-wrapper">
+              <InputField className="auth" type="password" name="confirmPassword" placeholder="Confirm Password" />
             </div>
           </div>
-          <button className="sign-in__submit-btn" type="submit">
+          <button className="auth__submit-btn" type="submit">
             Register
           </button>
-          <button className="sign-in__registration-btn" type="button" onClick={() => setSignIn(true)}>
-            <span className="sign-in__registration-btn-text">I have account</span>
-            <img src={icoArrowAccent} alt="Sign in" />
+          <button className="auth__registration-btn" type="button" onClick={() => setSignIn(true)}>
+            <span className="auth__registration-btn-text">I have account</span>
+            <img className="auth__btn-image" src={icoArrowAccent} alt="Sign in" />
           </button>
         </Form>
       )}

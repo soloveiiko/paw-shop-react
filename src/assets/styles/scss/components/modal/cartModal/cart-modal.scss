@@ -1,7 +1,21 @@
 .cart-layout {
-  @include center;
-  border-radius: 20rem 0 0 20rem;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  padding-bottom: 20rem;
+  transition: transform 1s ease-in-out;
+  transform: translateX(100%);
   background-color: $white;
+
+  &.open {
+    transform: translateX(0);
+  }
 
   &_top, &__title-wrapper {
     display: flex;
@@ -10,24 +24,29 @@
 
   &_top {
     justify-content: space-between;
-    gap: 30rem;
     padding: 15rem;
     border-bottom: 1rem solid $light-gray;
+    gap: 30rem;
+  }
+
+  &_center {
+    flex-grow: 1;
+    overflow-y: scroll;
   }
 
   &_center, &_bottom {
     display: flex;
     flex-direction: column;
-  }
-
-  &_center {
-    gap: 15rem;
     padding: 15rem;
+    gap: 15rem;
   }
 
   &_bottom {
-    padding: 15rem;
     border-top: 1rem solid $light-gray;
+  }
+
+  &__empty {
+    font-size: 16rem;
   }
 
   &__title-wrapper {
@@ -40,7 +59,7 @@
   }
 
   &__title {
-    font-size: 24px;
+    font-size: 24rem;
     font-weight: 700;
   }
 
@@ -48,15 +67,12 @@
     @include close-btn;
   }
 
-  &__subtotal {
-  }
-
   &__subtotal-title {
     font-size: 16rem;
   }
 
   &__subtotal-price {
-    font-size: 20px;
+    font-size: 20rem;
     font-weight: 500;
   }
 
@@ -66,10 +82,14 @@
   }
 
   &__shopping-btn, &__buy-btn {
-    @include button;
     @include button-mobile;
-    padding: 10px 15px;
     width: 100%;
+    height: 46rem;
+    padding: 10rem 15rem;
+  }
+
+  &__shopping-btn {
+    @include transparent-btn;
   }
 
   &__buy-btn {

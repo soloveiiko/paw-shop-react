@@ -12,13 +12,9 @@ const Layout = ({ children }) => {
   const dispatch = useDispatch();
   const handleAuth = () => {
     dispatch(openAuthModal(!isOpenAuth));
-    console.log('toggle');
-    console.log(isOpenAuth);
   };
   const handleCart = () => {
     dispatch(openCartModal(!isOpenCart));
-    console.log('toggle');
-    console.log(isOpenCart);
   };
   return (
     <div className="paw-shop">
@@ -26,7 +22,7 @@ const Layout = ({ children }) => {
       <main className="content">{children}</main>
       <Footer />
       {isOpenAuth && <AuthContainer isOpenAuth={isOpenAuth} handleAuth={handleAuth} />}
-      {isOpenCart && <Cart handleCart={handleCart} />}
+      <Cart isOpenCart={isOpenCart} handleCart={handleCart} />
       <div className="black-background"></div>
     </div>
   );

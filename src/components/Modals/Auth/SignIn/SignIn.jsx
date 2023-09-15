@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
-import InputField from '@components/Modals/Auth/SignIn/InputField/InputField';
+import InputField from '@components/Modals/Auth/InputField';
 import { icoArrowAccent } from '@static';
 
 const SignIn = ({ setSignIn, setResetPassword }) => {
@@ -22,31 +22,33 @@ const SignIn = ({ setSignIn, setResetPassword }) => {
       }}
     >
       {({ errors }) => (
-        <Form className="sign-in__form">
-          <div className="sign-in__container_left">
-            <div className="sign-in__input-wrapper">
-              <InputField className="sign-in" type="email" name="email" placeholder="Email" errors={errors} />
+        <Form className="auth__form">
+          <div className="auth__container_left">
+            <div className="auth__input-wrapper">
+              <InputField className="auth" type="email" name="email" placeholder="Email" errors={errors} />
             </div>
-            <div className="sign-in__input-wrapper">
-              <InputField className="sign-in" type="password" name="password" placeholder="Password" errors={errors} />
+            <div className="auth__input-wrapper">
+              <InputField className="auth" type="password" name="password" placeholder="Password" errors={errors} />
             </div>
           </div>
-          <div className="sign-in__addition">
-            <input className="sign-in__remember-me" type="checkbox" id="remember-me-checkbox" />
-            <label className="sign-in__remember-me-title" htmlFor="remember-me-checkbox">
+          <div className="auth__addition">
+            <input className="auth__remember-me" type="checkbox" id="remember-me-checkbox" />
+            <label className="auth__remember-me-title" htmlFor="remember-me-checkbox">
               Remember me
             </label>
-            <button className="sign-in__reset-password" onClick={() => setResetPassword(true)}>
+            <button className="auth__reset-password" onClick={() => setResetPassword(true)}>
               I forgot password
             </button>
           </div>
-          <button className="sign-in__submit-btn" type="submit">
-            Sing in
-          </button>
-          <button className="sign-in__registration-btn" type="button" onClick={() => setSignIn(false)}>
-            <span className="sign-in__registration-btn-text"> I’m a new customer</span>
-            <img src={icoArrowAccent} alt="Register" />
-          </button>
+          <div className="auth__btn-container">
+            <button className="auth__submit-btn" type="submit">
+              Sing in
+            </button>
+            <button className="auth__registration-btn" type="button" onClick={() => setSignIn(false)}>
+              <span className="auth__registration-btn-text"> I’m a new customer</span>
+              <img className="auth__btn-image" src={icoArrowAccent} alt="Register" />
+            </button>
+          </div>
         </Form>
       )}
     </Formik>

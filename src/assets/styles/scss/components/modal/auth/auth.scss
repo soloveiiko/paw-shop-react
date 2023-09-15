@@ -2,18 +2,19 @@
   @include center;
 }
 
-.sign-in {
+.auth {
   display: flex;
   flex-direction: column;
   gap: 20rem;
 
-  &__reset-password, &__remember-me-title, &__error {
-    font-size: 14rem;
-  }
 
   &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15rem;
+
     pre {
-      font-size: 20px;
+      font-size: 20rem;
     }
   }
 
@@ -21,14 +22,8 @@
     &_left {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 15rem;
     }
-
-    &_right {
-    }
-  }
-
-  &__input-wrapper {
   }
 
   &__input {
@@ -37,15 +32,17 @@
     align-items: center;
     width: 100%;
     padding: 15rem 25rem;
-    border: 1px solid $input;
-    border-radius: 20px;
+    border: 1rem solid $input;
+    border-radius: 20rem;
     outline: none;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.05);
-    gap: 10px;
+    box-shadow: 0 4rem 10rem 0 rgba(0, 0, 0, 0.05);
+    gap: 10rem;
+    min-width: 287rem;
   }
 
   &__error {
-    margin-top: 10rem;
+    font-size: 13rem;
+    margin: 10rem 0 0 5rem;
     color: $error;
   }
 
@@ -54,6 +51,11 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    gap: 30rem;
+  }
+
+  &__remember-me-title, &__reset-password {
+    white-space: nowrap;
   }
 
   &__remember-me {
@@ -62,12 +64,12 @@
 
   &__remember-me + label::before {
     display: inline-block;
-    width: 18px;
-    height: 18px;
-    margin-right: 5px;
+    width: 18rem;
+    height: 18rem;
+    margin-right: 5rem;
     content: "";
     vertical-align: middle;
-    border: 1px solid $input;
+    border: 1rem solid $input;
     border-radius: 50%;
   }
 
@@ -76,15 +78,25 @@
   }
 
   &__remember-me-title {
+    font-size: 13rem;
+    font-weight: 300;
     display: flex;
     align-items: center;
   }
 
-  &__remember-me-title {
+  &__reset-password {
+    font-size: 14rem;
+    color: $accent;
   }
 
-  &__reset-password {
-    color: $accent;
+  &__btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+  }
+
+  &__registration-btn, &__submit-btn {
+    height: 50rem;
   }
 
   &__submit-btn {
@@ -103,26 +115,35 @@
     white-space: nowrap;
     color: $accent;
   }
+
+  &__btn-image {
+    width: 11.5rem;
+    height: 11.5rem;
+  }
 }
 
 .social-auth {
   display: flex;
+  align-items: center;
   gap: 14rem;
 
   &__title {
-    font-size: 16px;
+    font-size: 16rem;
     font-weight: 500;
+    white-space: nowrap;
   }
 
   &__btn {
-    &_google {
-    }
-
-    &_facebook {
+    &_google, &_facebook {
+      border-radius: 50rem;
+      background-color: #F5F5F5;
+      padding: 10rem;
     }
   }
 
   &__image {
+    width: 24rem;
+    height: 24rem;
   }
 
   &__text {

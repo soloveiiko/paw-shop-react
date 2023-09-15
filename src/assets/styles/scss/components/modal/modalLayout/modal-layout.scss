@@ -6,12 +6,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15rem;
+    padding: 20rem;
     border-bottom: 1rem solid $light-gray;
+    gap: 30rem;
   }
 
   &_bottom {
-    padding: 15rem;
+    padding: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20rem;
   }
 
   &__title {
