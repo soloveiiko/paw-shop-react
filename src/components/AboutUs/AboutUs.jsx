@@ -1,5 +1,6 @@
 import React from 'react';
 import { petCat, petDog } from '@static';
+import Image from '@components/Base/Image/Image';
 
 const AboutUs = () => {
   return (
@@ -9,7 +10,7 @@ const AboutUs = () => {
         <div className="about-us__list">
           <div className="about-us__item_dog">
             <div className="about-us__img-container">
-              <img className="about-us__image" src={petDog} width="685" height="525" alt="Dog" />
+              <Image className="about-us__image" src={petDog} width="685" height="525" alt="Dog" />
             </div>
             <div className="about-us__text-wrapper">
               <h3 className="about-us__title">
@@ -58,7 +59,7 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="about-us__img-container">
-              <img className="about-us__image" src={petCat} width="685" height="525" alt="Cat" />
+              <Image className="about-us__image" src={petCat} width="685" height="525" alt="Cat" />
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { icoArrowAccent } from '@static';
 import StarsRange from '@components/StarsRange/StarsRange';
+import Image from '@components/Base/Image/Image';
 
 const ReviewsItem = ({ review }) => {
   const [maxVisibleImages, setMaxVisibleImages] = useState(2);
@@ -41,7 +42,7 @@ const ReviewsItem = ({ review }) => {
       <div className="reviews__images">
         {displayedImages.map((img, index) => (
           <div key={index} className="reviews__img-container">
-            <img className="reviews__image" src={img} width="64" height="66" loading="lazy" alt="Review" />
+            <Image className="reviews__image" src={img} width="64" height="66" loading="lazy" alt="Review" />
           </div>
         ))}
         {review.images.length > maxVisibleImages && displayedImages.length < review.images.length && (

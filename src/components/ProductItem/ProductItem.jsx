@@ -1,6 +1,7 @@
 import React from 'react';
 import { icoBasket } from '@static';
 import StarsRange from '@components/StarsRange/StarsRange';
+import Image from '@components/Base/Image/Image';
 
 const ProductItem = ({ product }) => {
   const perDifference = (prevPrice, currPrice) => {
@@ -15,7 +16,15 @@ const ProductItem = ({ product }) => {
         )}
       </div>
       <div className="products-item__img-container">
-        <img
+        {/*<img*/}
+        {/*  className="products-item__image"*/}
+        {/*  width="300"*/}
+        {/*  height="194"*/}
+        {/*  src={product.image}*/}
+        {/*  loading="lazy"*/}
+        {/*  alt="Product"*/}
+        {/*/>*/}
+        <Image
           className="products-item__image"
           width="300"
           height="194"

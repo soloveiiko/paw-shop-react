@@ -13,6 +13,7 @@ import icoCat from './images/icons/cat.svg';
 import icoDog from './images/icons/dog.svg';
 import icoUser from './images/icons/user.svg';
 import icoBasket from './images/icons/basket.svg';
+import icoCart from './images/icons/cart-popoup.svg';
 import icoEmail from './images/icons/email.svg';
 import icoStars from './images/icons/stars.svg';
 import icoStar from './images/icons/star.svg';
@@ -43,6 +44,9 @@ import prToy4 from './images/products/toy4.webp';
 import review from './images/reviews/review.webp';
 // Special offers
 import spCart from './images/special-offers/cart.webp';
+// Default
+import defaultImage from './images/default.webp';
+
 export {
   logoDark,
   logoWhite,
@@ -60,6 +64,7 @@ export {
   icoUser,
   icoArrowSlider,
   icoBasket,
+  icoCart,
   icoCheckmark,
   icoReturn,
   icoSupport,
@@ -80,4 +85,5 @@ export {
   instagram,
   icoFacebook,
   icoGoogle,
+  defaultImage,
 };

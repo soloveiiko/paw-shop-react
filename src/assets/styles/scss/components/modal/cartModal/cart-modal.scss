@@ -1,0 +1,78 @@
+.cart-layout {
+  @include center;
+  border-radius: 20rem 0 0 20rem;
+  background-color: $white;
+
+  &_top, &__title-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &_top {
+    justify-content: space-between;
+    gap: 30rem;
+    padding: 15rem;
+    border-bottom: 1rem solid $light-gray;
+  }
+
+  &_center, &_bottom {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_center {
+    gap: 15rem;
+    padding: 15rem;
+  }
+
+  &_bottom {
+    padding: 15rem;
+    border-top: 1rem solid $light-gray;
+  }
+
+  &__title-wrapper {
+    gap: 10rem;
+  }
+
+  &__title-image {
+    width: 32rem;
+    height: 32rem;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__close-btn {
+    @include close-btn;
+  }
+
+  &__subtotal {
+  }
+
+  &__subtotal-title {
+    font-size: 16rem;
+  }
+
+  &__subtotal-price {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  &__btn-container {
+    display: flex;
+    gap: 13rem;
+  }
+
+  &__shopping-btn, &__buy-btn {
+    @include button;
+    @include button-mobile;
+    padding: 10px 15px;
+    width: 100%;
+  }
+
+  &__buy-btn {
+    @include accent-btn;
+  }
+}

@@ -111,7 +111,7 @@
 .in-basket {
   &__btn {
     @include button;
-    font-size: 15rem;
+    font-size: $simple-text-size;
     padding: 12rem 10rem;
     color: $white;
     background-color: $accent;
