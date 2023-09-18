@@ -8,7 +8,7 @@ const ProductItem = ({ product }) => {
     return Math.floor(((prevPrice - currPrice) * 100) / prevPrice);
   };
   return (
-    <div className="popular-products__item products-item">
+    <div className="products-item">
       <div className="products-item__additions">
         {product.isNew && <div className="products-item__new">New</div>}
         {product.discount.isDiscount && (

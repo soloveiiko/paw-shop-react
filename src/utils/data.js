@@ -50,6 +50,18 @@ export const popularProducts = [
       isDiscount: false,
     },
   },
+  {
+    id: 4,
+    image: prToy4,
+    name: 'Frisco Bird Teaser with Feathers Cat Toy',
+    reviews: 10,
+    isNew: false,
+    price: 3.42,
+    stars: 5,
+    discount: {
+      isDiscount: false,
+    },
+  },
 ];
 export const reviewsList = [
   {
