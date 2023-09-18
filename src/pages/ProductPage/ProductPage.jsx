@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import Breadcrumbs from '@components/Base/Breadcrumbs/Breadcrumbs';
+import { Breadcrumbs } from '@components';
 
 const ProductPage = () => {
   const { id } = useParams();

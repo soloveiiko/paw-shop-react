@@ -1,0 +1,38 @@
+.sort-by {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__title {
+  }
+
+  &__selected-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__options {
+    position: absolute;
+    top: 30rem;
+    right: 0;
+    display: none;
+    padding: 15rem;
+    border-radius: $border-radius;
+    background-color: $white;
+    box-shadow: 0 5rem 20rem 0 rgba(0, 0, 0, 0.25);
+    gap: 10rem;
+  }
+
+  &.open {
+    display: flex;
+
+    .sort-by__options {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__option {
+  }
+}
