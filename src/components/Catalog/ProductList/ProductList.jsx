@@ -1,5 +1,4 @@
 import React from 'react';
-import Pagination from '@components/Base/Pagination/Pagination';
 import { popularProducts } from '@utils/data';
 import ProductItem from '@components/ProductItem/ProductItem';
 
