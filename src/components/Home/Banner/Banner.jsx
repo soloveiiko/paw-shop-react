@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ForPetShortButton from '@components/Base/Buttons/ForPetShortButton/ForPetShortButton';
-import Benefits from '@components/Banner/Benefits/Benefits';
+import Benefits from '@components/Home/Banner/Benefits/Benefits';
 import { bgCat, bgDog } from '@static';
 
 const Banner = () => {

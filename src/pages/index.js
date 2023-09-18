@@ -1,5 +1,5 @@
 import NotFoundPage from './ErrorPages/NotFoundPage';
-import MainPage from './MainPage/MainPage';
+import HomePage from '@pages/HomePage/HomePage';
 import CatalogPage from './CatalogPage/CatalogPage';
 import ProductPage from './ProductPage/ProductPage';
-export { NotFoundPage, MainPage, CatalogPage, ProductPage };
+export { NotFoundPage, HomePage, CatalogPage, ProductPage };

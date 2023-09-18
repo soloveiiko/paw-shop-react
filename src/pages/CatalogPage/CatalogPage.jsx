@@ -3,9 +3,9 @@ import Breadcrumbs from '@components/Base/Breadcrumbs/Breadcrumbs';
 
 const CatalogPage = () => {
   return (
-    <div>
+    <div className="page catalog-page">
       <Breadcrumbs />
-      CatalogPage
+      <h2>Catalog</h2>
     </div>
   );
 };

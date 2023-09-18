@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AboutUs, Banner, PopularProducts, Reviews, SpecialOffer } from '@components';
 
-const MainPage = () => {
+const HomePage = () => {
   const [mobile, setMobile] = useState(false);
   const [tablet, setTablet] = useState(false);
   useEffect(() => {
@@ -16,7 +16,7 @@ const MainPage = () => {
     };
   }, []);
   return (
-    <div className="main-page page">
+    <div className="page main-page">
       <Banner />
       <SpecialOffer isMobile={mobile} isTablet={tablet} />
       <PopularProducts />
@@ -26,4 +26,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default HomePage;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
-import { CatalogPage, MainPage, NotFoundPage, ProductPage } from '@pages';
+import { CatalogPage, HomePage, NotFoundPage, ProductPage } from '@pages';
 import Layout from '../layout/Layout';
 
 const PublicRoutes = () => {
@@ -13,7 +13,7 @@ const PublicRoutes = () => {
           crumb: () => ({ name: 'Home', path: '/' }),
         }}
       >
-        <Route index element={<MainPage />} />
+        <Route index element={<HomePage />} />
         <Route
           path="catalog"
           element={<CatalogPage />}

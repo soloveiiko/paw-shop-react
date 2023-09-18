@@ -1,19 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 import { register } from 'swiper/element/bundle';
-import { specialOffer } from '@utils/data';
-import SpecialOfferItem from '@components/SpecialOfferItem/SpecialOfferItem';
-import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
+import { reviewsList } from '@utils/data';
+import ReviewsItem from '@components/Home/Reviews/ReviewsItem/ReviewsItem';
 import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
+import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
 
 register();
-
-const SpecialOffer = () => {
+const Reviews = () => {
   const swiperElRef = useRef(null);
-
   useEffect(() => {
     const swiperContainer = swiperElRef.current;
+    Object.assign(swiperContainer, {});
     const params = {
-      slidesPerView: 1,
+      loop: true,
       navigation: {
         nextEl: '.next-arrow',
         prevEl: '.prev-arrow',
@@ -22,15 +21,35 @@ const SpecialOffer = () => {
         el: '.swiper-pagination',
         clickable: true,
       },
-      loop: true,
+      breakpoints: {
+        385: {
+          slidesPerView: 1.183,
+          slidesPerGroup: 1,
+          spaceBetween: 16,
+        },
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 18,
+        },
+        1000: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+          spaceBetween: 30,
+        },
+      },
       injectStyles: [
         `
+        .swiper {
+          overflow: visible;
+          overflow-x: clip;
+        }
           .swiper-pagination-bullets.swiper-pagination-horizontal {
             position: absolute;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 24rem;
+            gap: 30rem;
             top: auto;
             left: 50%;
             transform: translateX(-50%);
@@ -48,18 +67,17 @@ const SpecialOffer = () => {
       `,
       ],
     };
-
     Object.assign(swiperContainer, params);
     swiperContainer.initialize();
   }, []);
-
   return (
-    <section className="main-page__special-offer special-offer">
-      <div className="special-offer__container container">
+    <section className="main-page__reviews reviews">
+      <div className="reviews__container container">
+        <h2 className="reviews__headline headline">Reviews</h2>
         <swiper-container ref={swiperElRef} init="false">
-          {specialOffer.map((slide) => (
-            <swiper-slide key={slide.id}>
-              <SpecialOfferItem slide={slide} />
+          {reviewsList.map((review) => (
+            <swiper-slide key={review.id}>
+              <ReviewsItem review={review} />
             </swiper-slide>
           ))}
         </swiper-container>
@@ -70,4 +88,4 @@ const SpecialOffer = () => {
   );
 };
 
-export default SpecialOffer;
+export default Reviews;

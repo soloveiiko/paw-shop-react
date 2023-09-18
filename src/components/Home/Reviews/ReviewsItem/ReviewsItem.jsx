@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { icoArrowAccent } from '@static';
-import StarsRange from '@components/StarsRange/StarsRange';
+import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Image from '@components/Base/Image/Image';
 
 const ReviewsItem = ({ review }) => {

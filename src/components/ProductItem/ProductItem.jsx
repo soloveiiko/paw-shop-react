@@ -1,6 +1,6 @@
 import React from 'react';
 import { icoBasket } from '@static';
-import StarsRange from '@components/StarsRange/StarsRange';
+import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Image from '@components/Base/Image/Image';
 
 const ProductItem = ({ product }) => {
