@@ -16,14 +16,6 @@ const ProductItem = ({ product }) => {
         )}
       </div>
       <div className="products-item__img-container">
-        {/*<img*/}
-        {/*  className="products-item__image"*/}
-        {/*  width="300"*/}
-        {/*  height="194"*/}
-        {/*  src={product.image}*/}
-        {/*  loading="lazy"*/}
-        {/*  alt="Product"*/}
-        {/*/>*/}
         <Image
           className="products-item__image"
           width="300"

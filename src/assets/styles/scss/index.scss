@@ -57,6 +57,17 @@
 @import "pages/main/main";
 @import "pages/main/media";
 
+.paw-shop {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+.content {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
 
 h1 {
   @include h1-title-mobile;

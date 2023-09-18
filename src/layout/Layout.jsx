@@ -2,11 +2,12 @@ import React from 'react';
 import { Footer, Header } from '@components';
 import AuthContainer from '@components/Modals/Auth/AuthContainer/AuthContainer';
 import { useDispatch, useSelector } from 'react-redux';
-import { openAuthModal } from '../redux/authForm/action';
-import { openCartModal } from '../redux/cartForm/action';
+import { openAuthModal } from '../redux/modals/authForm/action';
+import { openCartModal } from '../redux/modals/cartForm/action';
 import Cart from '@components/Modals/Cart/Cart';
+import { Outlet } from 'react-router-dom';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const isOpenAuth = useSelector((state) => state.auth.isOpen);
   const isOpenCart = useSelector((state) => state.cart.isOpen);
   const dispatch = useDispatch();
@@ -16,10 +17,13 @@ const Layout = ({ children }) => {
   const handleCart = () => {
     dispatch(openCartModal(!isOpenCart));
   };
+
   return (
     <div className="paw-shop">
       <Header handleAuth={handleAuth} handleCart={handleCart} />
-      <main className="content">{children}</main>
+      <main className="content">
+        <Outlet />
+      </main>
       <Footer />
       {isOpenAuth && <AuthContainer isOpenAuth={isOpenAuth} handleAuth={handleAuth} />}
       <Cart isOpenCart={isOpenCart} handleCart={handleCart} />

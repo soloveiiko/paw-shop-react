@@ -1,14 +1,40 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { MainPage, NotFoundPage } from '@pages';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import { CatalogPage, MainPage, NotFoundPage, ProductPage } from '@pages';
+import Layout from '../layout/Layout';
 
 const PublicRoutes = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route
+        path="/"
+        element={<Layout />}
+        handle={{
+          crumb: () => ({ name: 'Home', path: '/' }),
+        }}
+      >
+        <Route index element={<MainPage />} />
+        <Route
+          path="catalog"
+          element={<CatalogPage />}
+          handle={{
+            crumb: () => ({ name: 'Catalog', path: '/catalog' }),
+          }}
+        >
+          <Route
+            path="product"
+            element={<ProductPage />}
+            handle={{
+              crumb: () => ({ name: 'Product', path: '/product' }),
+            }}
+          />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    )
   );
+
+  return <RouterProvider router={router} />;
 };
 
 export default PublicRoutes;
