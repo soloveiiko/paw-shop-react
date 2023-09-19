@@ -1,71 +1,77 @@
-@import "additional/variables";
-@import "additional/fonts";
-@import "additional/reset";
-@import "additional/mixins";
-@import "components/home/aboutUs/about-us";
-@import "components/home/aboutUs/media";
-@import "components/base/arrows/arrow";
-@import "components/base/arrows/media";
-@import "components/home/banner/banner";
-@import "components/home/banner/media";
-@import "components/base/footer/cards/cards";
-@import "components/base/footer/cards/media";
-@import "components/base/footer/informationPanel/information-panel";
-@import "components/base/footer/informationPanel/media";
-@import "components/base/footer/links/links";
-@import "components/base/footer/links/media";
-@import "components/base/header/logo/logo";
-@import "components/base/header/logo/media";
-@import "components/base/header/navbar/navbar";
-@import "components/base/header/navbar/media";
-@import "components/base/header/sidebar/sidebar";
-@import "components/base/header/sidebar/media";
-@import "components/base/footer/subscribe/subscribe";
-@import "components/base/footer/subscribe/media";
-@import "components/base/header/tools/tools";
-@import "components/base/header/tools/media";
+// Default styles
+@import "default/variables";
+@import "default/fonts";
+@import "default/reset";
+@import "default/mixins";
+
+// Mobile styles for components
+@import "components/base/buttons/for-pet-long-btn";
+@import "components/base/buttons/for-pet-short-btn";
+@import "components/base/footer/cards";
 @import "components/base/footer/footer";
-@import "components/base/footer/media";
+@import "components/base/footer/information-panel";
+@import "components/base/footer/links";
+@import "components/base/footer/subscribe";
 @import "components/base/header/header";
-@import "components/base/header/media";
-@import "components/home/benefits/benefits";
-@import "components/home/benefits/media";
-@import "components/base/buttons/forPetLongBtn/for-pet-long-btn";
-@import "components/base/buttons/forPetLongBtn/media";
-@import "components/base/buttons/forPetShortBtn/for-pet-short-btn";
-@import "components/base/buttons/forPetShortBtn/media";
-@import "components/home/popularProducts/popular-products";
-@import "components/home/popularProducts/media";
-@import "components/productItem/product-item";
-@import "components/productItem/media";
-@import "components/home/reviews/reviews";
-@import "components/home/reviews/media";
-@import "components/home/reviewsItem/reviews-item";
-@import "components/home/reviewsItem/media";
-@import "components/home/specialOffer/special-offer";
-@import "components/home/specialOffer/media";
-@import "components/home/specialOfferItem/special-offer-item";
-@import "components/home/specialOfferItem/media";
-@import "components/modal/modalLayout/modal-layout";
-@import "components/modal/modalLayout/media";
-@import "components/modal/auth/auth";
-@import "components/modal/auth/media";
-@import "components/modal/cartModal/cart-modal";
-@import "components/modal/cartModal/media";
-@import "components/modal/cartModal/cartItem/cart-item";
-@import "components/modal/cartModal/cartItem/media";
-@import "components/catalog/categoryFilter/category-filter";
-@import "components/catalog/categoryFilter/media";
-@import "components/catalog/petsFilter/pets-filter";
-@import "components/catalog/petsFilter/media";
-@import "components/catalog/productList/product-list";
-@import "components/catalog/productList/media";
-@import "components/catalog/sortBy/sort-by";
-@import "components/catalog/sortBy/media";
-@import "pages/homePage/home-page";
-@import "pages/homePage/media";
-@import "pages/catalogPage/catalog-page";
-@import "pages/catalogPage/media";
+@import "components/base/header/logo";
+@import "components/base/header/navbar";
+@import "components/base/header/sidebar";
+@import "components/base/header/tools";
+@import "components/base/arrow";
+@import "components/base/preloader";
+@import "components/catalog/category-filter";
+@import "components/catalog/pets-filter";
+@import "components/catalog/product-list";
+@import "components/catalog/sort-by";
+@import "components/home/about-us";
+@import "components/home/banner";
+@import "components/home/benefits";
+@import "components/home/popular-products";
+@import "components/home/reviews";
+@import "components/home/reviews-item";
+@import "components/home/special-offer";
+@import "components/home/special-offer-item";
+@import "components/modal/auth";
+@import "components/modal/cart-item";
+@import "components/modal/cart-modal";
+@import "components/modal/modal-layout";
+@import "components/product-item";
+
+// Mobile styles for pages
+@import "pages/home-page";
+@import "pages/catalog-page";
+
+// Media for tablet and desktop
+@import "media/base/buttons/for-pet-long-btn-media";
+@import "media/base/buttons/for-pet-short-btn-media";
+@import "media/base/footer/cards-media";
+@import "media/base/footer/footer-media";
+@import "media/base/footer/information-panel-media";
+@import "media/base/footer/links-media";
+@import "media/base/footer/subscribe-media";
+@import "media/base/header/header-media";
+@import "media/base/header/logo-media";
+@import "media/base/header/navbar-media";
+@import "media/base/header/sidebar-media";
+@import "media/base/header/tools-media";
+@import "media/base/arrow-media";
+@import "media/catalog/category-filter-media";
+@import "media/catalog/pets-filter-media";
+@import "media/catalog/product-list-media";
+@import "media/catalog/sort-by-media";
+@import "media/home/about-us-media";
+@import "media/home/banner-media";
+@import "media/home/benefits-media ";
+@import "media/home/popular-products-media";
+@import "media/home/reviews-item-media";
+@import "media/home/reviews-media";
+@import "media/home/special-offer-item-media";
+@import "media/home/special-offer-media";
+@import "media/modal/auth-media";
+@import "media/modal/cart-item-media";
+@import "media/modal/cart-modal-media";
+@import "media/modal/modal-layout-media";
+@import "media/product-item-media";
 
 .paw-shop {
   display: grid;
@@ -122,13 +128,13 @@ h3 {
 
 .black-background {
   position: absolute;
+  z-index: 1000;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  background-color: $transparent-white;
-  z-index: 1000;
   display: none;
+  background-color: $transparent-white;
 }
 
 @include md {
