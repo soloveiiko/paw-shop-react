@@ -10,6 +10,9 @@ import CategoryFilter from '@components/Catalog/CategoryFilter/CategoryFilter';
 import PetsFilter from '@components/Catalog/PetsFilter/PetsFilter';
 import ProductList from '@components/Catalog/ProductList/ProductList';
 import SortBy from '@components/Catalog/SortBy/SortBy';
+import ProductBody from '@components/Product/ProductBody/ProductBody';
+import SimilarProducts from '@components/Product/SimilarProducts/SimilarProducts';
+import Switch from '@components/Product/Switch/Switch';
 export {
   AboutUs,
   Banner,
@@ -23,4 +26,7 @@ export {
   ProductList,
   SortBy,
   PetsFilter,
+  ProductBody,
+  SimilarProducts,
+  Switch,
 };

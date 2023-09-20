@@ -7,8 +7,8 @@ const CatalogPage = () => {
       <Breadcrumbs />
       <h2>Catalog</h2>
       <div className="catalog-page__filters">
-        <div className="catalog-page__filters-container">
-          <PetsFilter />
+        <PetsFilter />
+        <div className="catalog-page__filters-container container">
           <CategoryFilter />
           <SortBy />
         </div>

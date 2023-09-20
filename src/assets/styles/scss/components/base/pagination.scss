@@ -1,0 +1,42 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 15rem;
+
+  &__prev-arrow, &__next-arrow {
+    &.disabled a {
+      background-color: $light-purple;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 41rem;
+      height: 41rem;
+      border-radius: 50rem;
+      background-color: $accent;
+
+      svg {
+        font-size: 20rem;
+
+        & > * {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 15rem 25rem;
+    border: 1rem solid $light-gray;
+    border-radius: $border-radius;
+    background-color: $transparent-white;
+    &.selected {
+      border: 1rem solid $accent;
+      background-color: $light-purple;
+    }
+  }
+}

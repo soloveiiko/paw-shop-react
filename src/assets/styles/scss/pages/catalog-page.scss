@@ -3,20 +3,24 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding-top: 100rem;
+  margin-bottom: 90rem;
   gap: 40rem;
 
   &__filters {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    border-bottom: 1rem solid $dark-gray;
+    .container {
+      margin-top: 30rem;
+    }
   }
 
   &__filters-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
+    width: 100%;
+    gap: 50rem;
   }
 
   &__product-container {

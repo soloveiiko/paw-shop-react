@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SlArrowDown } from 'react-icons/sl';
+import { IoIosArrowDown } from 'react-icons/io';
 export const sortByList = [
   { id: '1', name: 'Default', code: 'default' },
   { id: '2', name: 'Popularity', code: 'popularity' },
@@ -17,11 +18,11 @@ const SortBy = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className={`sort-by  ${isOpen ? 'open' : ''}`} tabIndex="0">
+    <div className={`sort-by${isOpen ? ' open' : ''}`} tabIndex="0">
       <h3 className="sort-by__title">Sort by: </h3>
       <span className="sort-by__selected-item" onClick={toggleIsOpen}>
         {sortByList.find((el) => el.id === selectedSort)?.name}
-        <SlArrowDown />
+        <IoIosArrowDown />
       </span>
       <ul className="sort-by__options">
         {sortByList.map((el) => (

@@ -6,7 +6,7 @@ import Pagination from '@components/Base/Pagination/Pagination';
 const ProductList = () => {
   const [itemOffset, setItemOffset] = useState(0);
 
-  const itemsPerPage = 2;
+  const itemsPerPage = 3;
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = popularProducts.slice(itemOffset, endOffset);
 

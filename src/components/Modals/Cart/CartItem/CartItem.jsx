@@ -1,22 +1,12 @@
 import React, { useState } from 'react';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import Image from '@components/Base/Image/Image';
+import Amount from '@components/Base/Amount/Amount';
 
 const CartItem = ({ product, handleDelete }) => {
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(product.price);
 
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-    setTotalPrice((quantity + 1) * product.price);
-  };
-
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-      setTotalPrice((quantity - 1) * product.price);
-    }
-  };
   return (
     <div className="cart-item">
       <div className="cart-item__img-container">
@@ -25,13 +15,7 @@ const CartItem = ({ product, handleDelete }) => {
       <div className="cart-item__body">
         <h4 className="cart-item__title">{product.name}</h4>
         <div className="cart-item__range">
-          <button className="cart-item__minus" onClick={handleDecrement}>
-            -
-          </button>
-          <div className="cart-item__curr-quantity">{quantity}</div>
-          <button className="cart-item__plus" onClick={handleIncrement}>
-            +
-          </button>
+          <Amount product={product} quantity={quantity} setQuantity={setQuantity} setTotalPrice={setTotalPrice} />
           <div className="cart-item__curr-price">${totalPrice}</div>
         </div>
       </div>

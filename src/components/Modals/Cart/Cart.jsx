@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TfiClose } from 'react-icons/tfi';
-import CartItem from '@components/Modals/Cart/CatrItem/CartItem';
+import CartItem from '@components/Modals/Cart/CartItem/CartItem';
 import { icoCart } from '@static';
 
 const cartList = [

@@ -16,7 +16,7 @@ const HomePage = () => {
     };
   }, []);
   return (
-    <div className="page main-page">
+    <div className="main-page">
       <Banner />
       <SpecialOffer isMobile={mobile} isTablet={tablet} />
       <PopularProducts />

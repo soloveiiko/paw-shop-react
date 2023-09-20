@@ -1,15 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Breadcrumbs } from '@components';
+import { Breadcrumbs, ProductBody, SimilarProducts, Switch } from '@components';
 
 const ProductPage = () => {
   const { id } = useParams();
   const productId = id;
 
   return (
-    <div>
+    <div className="page product-page">
       <Breadcrumbs />
-      ProductPage
+      <ProductBody />
+      <Switch />
+      <SimilarProducts />
     </div>
   );
 };

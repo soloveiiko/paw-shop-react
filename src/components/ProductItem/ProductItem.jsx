@@ -2,6 +2,7 @@ import React from 'react';
 import { icoBasket } from '@static';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Image from '@components/Base/Image/Image';
+import { Link } from 'react-router-dom';
 
 const ProductItem = ({ product }) => {
   const perDifference = (prevPrice, currPrice) => {
@@ -15,18 +16,22 @@ const ProductItem = ({ product }) => {
           <div className="products-item__discount">-{perDifference(product.price, product.discount.currPrice)}%</div>
         )}
       </div>
-      <div className="products-item__img-container">
-        <Image
-          className="products-item__image"
-          width="300"
-          height="194"
-          src={product.image}
-          loading="lazy"
-          alt="Product"
-        />
-      </div>
+      <Link to="/catalog/product/1">
+        <div className="products-item__img-container">
+          <Image
+            className="products-item__image"
+            width="300"
+            height="194"
+            src={product.image}
+            loading="lazy"
+            alt="Product"
+          />
+        </div>
+      </Link>
       <div className="products-item__information">
-        <div className="products-item__name">{product.name}</div>
+        <Link to="/catalog/product/1" className="products-item__name">
+          {product.name}
+        </Link>
         <div className="products-item__stars-container stars-range">
           <StarsRange item={product.stars} />
           <div className="products-item__reviews">{product.reviews}</div>

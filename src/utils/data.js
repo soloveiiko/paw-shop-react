@@ -1,5 +1,43 @@
 import { spCart, prToy1, prToy2, prToy3, prToy4, review } from '@static';
 
+export const products = [
+  {
+    id: 1,
+    name: 'Ball for a dog «Denta Fun» d=5 см (rubber)',
+    scu: '1541428774',
+    stars: 5,
+    reviews: 2,
+    images: [prToy1, prToy1, prToy1, prToy1],
+    sizes: ['Small (Ø 2 inch)', 'Large (Ø 3 inch)'],
+    colors: [prToy1, prToy1],
+    price: 4,
+    quantity: 1,
+    discount: {
+      isDiscount: false,
+      price: 2,
+    },
+    image: prToy1,
+    isNew: false,
+    type: 'Ball',
+    animal: 'Dog',
+    material: 'Polymer',
+    size: 'Ø 2 inch',
+    color: 'Red',
+    country: 'China',
+    details:
+      'The KONG Squeezz Ball has a recessed squeaker that ' +
+      'gives the safest and funnest squeak of any toy out there. ' +
+      'Great for games of fetch, the erratic bounce and squeak ' +
+      'guarantee tons of fun for you and your dog.',
+    features: [
+      "Perfect for games of fetch because it's easy and fun to squeak",
+      'Recessed, hidden squeakers keep the squeak going even when punctured',
+      'Fun, erratic bounce keeps your dog engaged',
+      'Ideal for play indoors and out',
+    ],
+  },
+];
+
 export const popularProducts = [
   {
     id: 1,

@@ -26,6 +26,9 @@ import icoGoogle from './images/icons/google.svg';
 import facebook from './images/social-networks/facebook.svg';
 import twitter from './images/social-networks/twitter.svg';
 import instagram from './images/social-networks/instagram.svg';
+import facebookBlue from './images/social-networks/facebook-blue.svg';
+import twitterBlue from './images/social-networks/twitter-blue.svg';
+import telegramBlue from './images/social-networks/telegram-blue.svg';
 // Cards
 import cardPayPal from './images/cards/paypal.webp';
 import cardFondy from './images/cards/fondy.webp';
@@ -86,4 +89,7 @@ export {
   icoFacebook,
   icoGoogle,
   defaultImage,
+  facebookBlue,
+  twitterBlue,
+  telegramBlue,
 };

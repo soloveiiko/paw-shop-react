@@ -18,6 +18,7 @@
 @import "components/base/header/sidebar";
 @import "components/base/header/tools";
 @import "components/base/arrow";
+@import "components/base/pagination";
 @import "components/base/preloader";
 @import "components/catalog/category-filter";
 @import "components/catalog/pets-filter";
@@ -61,7 +62,7 @@
 @import "media/catalog/sort-by-media";
 @import "media/home/about-us-media";
 @import "media/home/banner-media";
-@import "media/home/benefits-media ";
+@import "media/home/benefits-media";
 @import "media/home/popular-products-media";
 @import "media/home/reviews-item-media";
 @import "media/home/reviews-media";
@@ -97,6 +98,9 @@ h3 {
   @include h3-title-mobile;
 }
 
+.page {
+  margin-top: 100rem;
+}
 
 .container {
   max-width: 1300rem;

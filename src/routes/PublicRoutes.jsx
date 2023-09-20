@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from 'react-router-dom';
 import { CatalogPage, HomePage, NotFoundPage, ProductPage } from '@pages';
 import Layout from '../layout/Layout';
 
@@ -16,13 +16,14 @@ const PublicRoutes = () => {
         <Route index element={<HomePage />} />
         <Route
           path="catalog"
-          element={<CatalogPage />}
+          element={<Outlet />}
           handle={{
             crumb: () => ({ name: 'Catalog', path: '/catalog' }),
           }}
         >
+          <Route index element={<CatalogPage />} />
           <Route
-            path="product"
+            path="product/:id"
             element={<ProductPage />}
             handle={{
               crumb: () => ({ name: 'Product', path: '/product' }),
