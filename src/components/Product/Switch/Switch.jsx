@@ -1,6 +1,4 @@
 import React from 'react';
-import ProductReview from '@components/Product/ProductReview/ProductReview';
-import ProductCharacteristics from '@components/Product/ProductCharacteristics/ProductCharacteristics';
 import AddReview from '@components/Product/AddReview/AddReview';
 
 const Switch = () => {
