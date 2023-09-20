@@ -32,28 +32,28 @@ const ReviewsItem = ({ review }) => {
   const displayedImages = showAllImages ? review.images : review.images.slice(0, maxVisibleImages);
 
   return (
-    <div className="reviews__item">
-      <div className="reviews__date">{review.date}</div>
-      <div className="reviews__user">
-        <div className="reviews__username">{review.username}</div>
+    <div className="reviews-item">
+      <div className="reviews-item__date">{review.date}</div>
+      <div className="reviews-item__user">
+        <div className="reviews-item__username">{review.username}</div>
         <StarsRange item={review.stars} />
       </div>
-      <div className="reviews__body">{review.body}</div>
-      <div className="reviews__images">
+      <div className="reviews-item__body">{review.body}</div>
+      <div className="reviews-item__images">
         {displayedImages.map((img, index) => (
-          <div key={index} className="reviews__img-container">
-            <Image className="reviews__image" src={img} width="64" height="66" loading="lazy" alt="Review" />
+          <div key={index} className="reviews-item__img-container">
+            <Image className="reviews-item__image" src={img} width="64" height="66" loading="lazy" alt="Review" />
           </div>
         ))}
         {review.images.length > maxVisibleImages && displayedImages.length < review.images.length && (
-          <button className="reviews__show-more-image" onClick={toggleImageDisplay}>
+          <button className="reviews-item__show-more-image" onClick={toggleImageDisplay}>
             {`+${review.images.length - displayedImages.length}`}
           </button>
         )}
       </div>
-      <Link to="#" className="reviews__link">
+      <Link to="#" className="reviews-item__link">
         See the product
-        <img className="reviews__arrow" src={icoArrowAccent} width="9.5" height="9.5" loading="lazy" alt="Arrow" />
+        <img className="reviews-item__arrow" src={icoArrowAccent} width="9.5" height="9.5" loading="lazy" alt="Arrow" />
       </Link>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { register } from 'swiper/element/bundle';
 import { reviewsList } from '@utils/data';
-import ReviewsItem from '@components/Home/Reviews/ReviewsItem/ReviewsItem';
+import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
 import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
 import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
 

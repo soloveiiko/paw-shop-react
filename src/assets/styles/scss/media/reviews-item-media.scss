@@ -1,17 +1,14 @@
 @include md {
-  .reviews {
-
-    &__item {
-      padding: 41rem 28rem 47rem 42rem;
-      gap: 15rem;
-    }
+  .reviews-item {
+    padding: 41rem 28rem 47rem 42rem;
+    gap: 15rem;
 
     &__date {
       font-size: 13rem;
     }
 
     &__images {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, 70rem);
       gap: 10rem 4rem;
     }
 
@@ -28,17 +25,14 @@
 }
 
 @include lg {
-  .reviews {
-
-    &__item {
-      padding: 42rem;
-      gap: 16rem;
-    }
+  .reviews-item {
+    padding: 42rem;
+    gap: 16rem;
 
     &__link:hover {
       font-weight: 500;
 
-      .reviews__arrow {
+      .reviews-item__arrow {
         transform: rotate(45deg);
       }
     }

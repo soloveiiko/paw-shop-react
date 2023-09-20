@@ -30,7 +30,7 @@
 @import "components/home/benefits";
 @import "components/home/popular-products";
 @import "components/home/reviews";
-@import "components/home/reviews-item";
+@import "components/reviews-item";
 @import "components/home/special-offer";
 @import "components/home/special-offer-item";
 @import "components/modal/auth";
@@ -38,6 +38,8 @@
 @import "components/modal/cart-modal";
 @import "components/modal/modal-layout";
 @import "components/product/product-body";
+@import "components/product/switch";
+@import "components/product/product-review";
 @import "components/product-item";
 
 // Mobile styles for pages
@@ -66,7 +68,7 @@
 @import "media/home/banner-media";
 @import "media/home/benefits-media";
 @import "media/home/popular-products-media";
-@import "media/home/reviews-item-media";
+@import "media/reviews-item-media";
 @import "media/home/reviews-media";
 @import "media/home/special-offer-item-media";
 @import "media/home/special-offer-media";
