@@ -21,26 +21,10 @@
     gap: 13rem;
   }
 
-  &__minus, &__plus, &__range {
+  &__range {
     display: flex;
     align-items: center;
-  }
-
-  &__range {
     gap: 10rem;
-  }
-
-  &__minus, &__plus {
-    font-size: 15rem;
-    justify-content: center;
-    width: 27rem;
-    height: 27rem;
-    border: 1rem solid $accent;
-    border-radius: 50rem;
-  }
-
-  &__curr-quantity {
-    font-size: 16rem;
   }
 
   &__curr-price {

@@ -17,6 +17,7 @@
 @import "components/base/header/navbar";
 @import "components/base/header/sidebar";
 @import "components/base/header/tools";
+@import "components/base/amount";
 @import "components/base/arrow";
 @import "components/base/pagination";
 @import "components/base/preloader";
@@ -36,6 +37,7 @@
 @import "components/modal/cart-item";
 @import "components/modal/cart-modal";
 @import "components/modal/modal-layout";
+@import "components/product/product-body";
 @import "components/product-item";
 
 // Mobile styles for pages

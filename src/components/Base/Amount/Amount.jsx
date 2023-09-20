@@ -14,11 +14,11 @@ const Amount = ({ setQuantity, quantity, product, setTotalPrice }) => {
   };
   return (
     <div className="amount">
-      <button className="cart-item__minus" onClick={handleDecrement}>
+      <button className="amount__minus" onClick={handleDecrement}>
         -
       </button>
-      <div className="cart-item__curr-quantity">{product.quantity}</div>
-      <button className="cart-item__plus" onClick={handleIncrement}>
+      <div className="amount__curr-quantity">{quantity}</div>
+      <button className="amount__plus" onClick={handleIncrement}>
         +
       </button>
     </div>

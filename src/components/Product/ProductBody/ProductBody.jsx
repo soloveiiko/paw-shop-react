@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { facebookBlue, icoReturn, telegramBlue, twitterBlue } from '@static';
-import StarsRange from '@components/Base/StarsRange/StarsRange';
 import { products } from '@utils/data';
+import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Amount from '@components/Base/Amount/Amount';
+import Image from '@components/Base/Image/Image';
 
 const ProductBody = () => {
   const product = products[0];
-  const [quantity, setQuantity] = useState(product.quantity);
   const [totalPrice, setTotalPrice] = useState(product.price);
+  const [quantity, setQuantity] = useState(product.quantity);
 
   return (
     <div className="product-body">
-      <div className="product-body__container container">
+      <div className="container product-body__container">
         <div className="product-body__top">
           <h2>{product.name}</h2>
           <div className="product-body__stars-range">
@@ -21,15 +22,30 @@ const ProductBody = () => {
           <div className="product-body__scu">SKU: {product.scu}</div>
         </div>
         <div className="product-body__images">
-          {product.images.map((img, index) => (
-            <div key={index} className="product-body__img-container">
-              <img src={img} alt="Product" />
-            </div>
-          ))}
+          <swiper-container class="product-body__slider" thumbs-swiper=".product-body__slider-trumbs">
+            {product.images.map((img, index) => (
+              <swiper-slide key={index} className="product-body__slider-item">
+                <Image className="product-body__slider-img" src={img} alt="Product" width="471" height="471" />
+              </swiper-slide>
+            ))}
+          </swiper-container>
+          <swiper-container
+            class="product-body__slider-trumbs"
+            direction="vertical"
+            slides-per-view="4"
+            free-mode="true"
+            watch-slides-progress="true"
+          >
+            {product.images.map((img, index) => (
+              <swiper-slide key={index} className="product-body__trumbs-item">
+                <Image className="product-body__trumbs-img" src={img} alt="Product" width="83" height="83" />
+              </swiper-slide>
+            ))}
+          </swiper-container>
         </div>
         <div className="product-body__description">
           <div className="product-body__size">
-            Size:
+            <span className="product-body__subtitle">Size:</span>
             {product.sizes.map((size, index) => (
               <button key={index} className="product-body__size-item">
                 {size}
@@ -37,15 +53,15 @@ const ProductBody = () => {
             ))}
           </div>
           <div className="product-body__color">
-            Color:
+            <span className="product-body__subtitle">Color:</span>
             {product.colors.map((color, index) => (
               <button key={index} className="product-body__color-item">
-                <img src={color} alt="Color" />
+                <img className="product-body__color-image" src={color} alt="Color" width="60" height="60" />
               </button>
             ))}
           </div>
           <div className="product-body__quantity">
-            Quantity:
+            <span className="product-body__subtitle">Quantity:</span>
             <Amount product={product} quantity={quantity} setQuantity={setQuantity} setTotalPrice={setTotalPrice} />
           </div>
           <div className="product-body__buy">
@@ -65,19 +81,20 @@ const ProductBody = () => {
             </div>
           </div>
           <div className="product-body__return">
-            <img className="product-body__return-img" src={icoReturn} alt="return" />
+            <img className="product-body__return-img" src={icoReturn} alt="return" width="30" height="30" />
             <span className="product-body__return-text">Free return within 15 days</span>
           </div>
           <div className="product-body__share share">
+            <span className="share__subtitle">Share:</span>
             <div className="share__list">
-              <div className="share__item">
-                <img src={telegramBlue} alt="Telegram" />
+              <div className="share__item_telegram">
+                <img className="share__image" src={telegramBlue} alt="Telegram" width="18" height="15" />
               </div>
-              <div className="share__item">
-                <img src={facebookBlue} alt="Facebook" />
+              <div className="share__item_facebook">
+                <img className="share__image" src={facebookBlue} alt="Facebook" width="10" height="20" />
               </div>
-              <div className="share__item">
-                <img src={twitterBlue} alt="Twitter" />
+              <div className="share__item_twitter">
+                <img className="share__image" src={twitterBlue} alt="Twitter" width="20" height="17" />
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { SlArrowDown } from 'react-icons/sl';
 import { IoIosArrowDown } from 'react-icons/io';
+
 export const sortByList = [
   { id: '1', name: 'Default', code: 'default' },
   { id: '2', name: 'Popularity', code: 'popularity' },
