@@ -1,8 +1,13 @@
 import { spCart, prToy1, prToy2, prToy3, prToy4, review } from '@static';
 
+export const catalogList = [
+  { id: '1', name: 'For cat', code: 'forCat' },
+  { id: '2', name: 'For dog', code: 'forDog' },
+];
+
 export const products = [
   {
-    id: 1,
+    id: '1',
     name: 'Ball for a dog «Denta Fun» d=5 см (rubber)',
     scu: '1541428774',
     stars: 5,
@@ -35,6 +40,7 @@ export const products = [
       'Fun, erratic bounce keeps your dog engaged',
       'Ideal for play indoors and out',
     ],
+    catalog: 'forCat',
   },
 ];
 
@@ -50,6 +56,7 @@ export const popularProducts = [
     discount: {
       isDiscount: false,
     },
+    catalog: 'forCat',
   },
   {
     id: 2,
@@ -63,6 +70,7 @@ export const popularProducts = [
       isDiscount: true,
       currPrice: 5,
     },
+    catalog: 'forCat',
   },
   {
     id: 3,
@@ -75,6 +83,7 @@ export const popularProducts = [
     discount: {
       isDiscount: false,
     },
+    catalog: 'forCat',
   },
   {
     id: 4,
@@ -87,9 +96,36 @@ export const popularProducts = [
     discount: {
       isDiscount: false,
     },
+    catalog: 'forCat',
   },
   {
-    id: 4,
+    id: 5,
+    image: prToy4,
+    name: 'Frisco Bird Teaser with Feathers Cat Toy',
+    reviews: 10,
+    isNew: false,
+    price: 3.42,
+    stars: 5,
+    discount: {
+      isDiscount: false,
+    },
+    catalog: 'forDog',
+  },
+  {
+    id: 6,
+    image: prToy4,
+    name: 'Frisco Bird Teaser with Feathers Cat Toy',
+    reviews: 10,
+    isNew: false,
+    price: 3.42,
+    stars: 5,
+    discount: {
+      isDiscount: false,
+    },
+    catalog: 'forDog',
+  },
+  {
+    id: 7,
     image: prToy4,
     name: 'Frisco Bird Teaser with Feathers Cat Toy',
     reviews: 10,

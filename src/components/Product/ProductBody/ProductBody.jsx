@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { facebookBlue, icoReturn, telegramBlue, twitterBlue } from '@static';
-import { products } from '@utils/data';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Amount from '@components/Base/Amount/Amount';
 import Image from '@components/Base/Image/Image';
 
-const ProductBody = () => {
-  const product = products[0];
+const ProductBody = ({ product }) => {
   const [totalPrice, setTotalPrice] = useState(product.price);
   const [quantity, setQuantity] = useState(product.quantity);
 
