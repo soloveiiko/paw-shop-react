@@ -11,8 +11,8 @@ const ProductList = ({ products }) => {
   return (
     <div className="product-list">
       <div className="product-list__wrapper">
-        {currentItems.map((product) => (
-          <ProductItem product={product} />
+        {currentItems.map((product, index) => (
+          <ProductItem key={index} product={product} />
         ))}
       </div>
       {products.length > 4 && (

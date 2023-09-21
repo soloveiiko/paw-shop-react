@@ -18,7 +18,7 @@ const PublicRoutes = () => {
           path="catalog/:id"
           element={<Outlet />}
           handle={{
-            crumb: () => ({ name: 'Catalog', path: '/catalog' }),
+            crumb: (data) => ({ name: 'Catalog', path: `/catalog/${data?.path}` }),
           }}
         >
           <Route index element={<CatalogPage />} />
@@ -26,7 +26,7 @@ const PublicRoutes = () => {
             path="product/:id"
             element={<ProductPage />}
             handle={{
-              crumb: () => ({ name: 'Product', path: '/product' }),
+              crumb: (data) => ({ name: data?.name, path: `/product/${data?.path}` }),
             }}
           />
         </Route>

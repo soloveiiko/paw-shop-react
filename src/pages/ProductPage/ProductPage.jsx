@@ -8,10 +8,9 @@ const ProductPage = () => {
   const productId = id;
   const product = products.find((product) => product.id === productId);
   // const selectedCatalog = catalogList.find((catalog) => catalog.code === product.catalog);
-  console.log(product, 'product');
   return (
     <div className="page product-page">
-      <Breadcrumbs />
+      <Breadcrumbs item={product} />
       <ProductBody product={product} />
       <Switch />
       <SimilarProducts />

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, useMatches } from 'react-router-dom';
 
-const Breadcrumbs = () => {
+const Breadcrumbs = ({ item }) => {
   let matches = useMatches();
-  let crumbs = matches.filter((match) => Boolean(match.handle?.crumb)).map((match) => match.handle.crumb(match.data));
-
+  let crumbs = matches
+    .filter((match) => Boolean(match.handle?.crumb))
+    .map((match) => match.handle.crumb({ path: item?.id, name: item?.name }));
   return (
     <div className="breadcrumbs">
       {crumbs.map((crumb, index) => (

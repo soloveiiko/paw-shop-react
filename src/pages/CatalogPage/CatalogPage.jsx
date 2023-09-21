@@ -10,7 +10,7 @@ const CatalogPage = () => {
   const catalogProducts = popularProducts.filter((product) => product.catalog === selectedCatalog.code);
   return (
     <div className="page catalog-page">
-      <Breadcrumbs />
+      <Breadcrumbs item={selectedCatalog} />
       <h2>Catalog</h2>
       <div className="catalog-page__filters">
         <PetsFilter />
