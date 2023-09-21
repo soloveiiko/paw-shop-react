@@ -22,6 +22,7 @@ import icoReturn from './images/icons/return.svg';
 import icoCheckmark from './images/icons/checkmark.svg';
 import icoFacebook from './images/icons/facebook.svg';
 import icoGoogle from './images/icons/google.svg';
+import icoAddImage from './images/icons/add-img.svg';
 // Social networks
 import facebook from './images/social-networks/facebook.svg';
 import twitter from './images/social-networks/twitter.svg';
@@ -92,4 +93,5 @@ export {
   facebookBlue,
   twitterBlue,
   telegramBlue,
+  icoAddImage,
 };

@@ -17,13 +17,15 @@
   &__description, &__reviews, &__add-review {
     font-size: 20px;
     padding: 10rem 10rem 30rem;
+    &.selected {
+      font-weight: 500;
+    }
   }
 
   &__description, &__reviews {
     color: $dark-gray;
 
     &.selected {
-      font-weight: 500;
       color: $black;
       border-bottom: 2rem solid $accent;
     }
