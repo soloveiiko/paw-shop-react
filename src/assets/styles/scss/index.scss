@@ -79,6 +79,26 @@
 @import "media/modal/modal-layout-media";
 @import "media/product-item-media";
 
+html,
+body {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: $text-size-mobile;
+  font-weight: 400;
+  position: relative;
+  overflow-x: hidden;
+  height: 100%;
+  color: $black;
+  background-color: $white;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
 .paw-shop {
   display: grid;
   min-height: 100vh;
@@ -103,11 +123,15 @@ h3 {
   @include h3-title-mobile;
 }
 
+a {
+  color: $black;
+}
+
 .page {
   margin-top: 100rem;
 }
 
-.container {
+.container, .breadcrumbs {
   max-width: 1300rem;
   margin: 0 auto;
   padding-right: 15rem;
