@@ -16,7 +16,7 @@ const ProductItem = ({ product }) => {
           <div className="products-item__discount">-{perDifference(product.price, product.discount.currPrice)}%</div>
         )}
       </div>
-      <Link to="/catalog/1/product/1">
+      <Link to="/catalog/2/product/3">
         <div className="products-item__img-container">
           <Image
             className="products-item__image"
