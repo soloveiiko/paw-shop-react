@@ -9,7 +9,7 @@ const ProductBody = ({ product }) => {
   const [quantity, setQuantity] = useState(product.quantity);
 
   return (
-    <div className="product-body">
+    <section className="product-body">
       <div className="container product-body__container">
         <div className="product-body__top">
           <h2>{product.name}</h2>
@@ -98,7 +98,7 @@ const ProductBody = ({ product }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

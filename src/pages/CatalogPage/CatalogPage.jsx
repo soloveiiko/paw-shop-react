@@ -12,16 +12,16 @@ const CatalogPage = () => {
     <div className="page catalog-page">
       <Breadcrumbs item={selectedCatalog} />
       <h2>Catalog</h2>
-      <div className="catalog-page__filters">
+      <section className="catalog-page__filters">
         <PetsFilter />
         <div className="container catalog-page__filters-container">
           <CategoryFilter />
           <SortBy />
         </div>
-      </div>
-      <div className="container catalog-page__product-container">
+      </section>
+      <section className="container catalog-page__product-container">
         <ProductList products={catalogProducts} />
-      </div>
+      </section>
     </div>
   );
 };

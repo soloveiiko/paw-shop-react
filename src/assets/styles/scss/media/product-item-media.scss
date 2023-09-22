@@ -70,6 +70,7 @@
 @include lg {
   .products-item {
     flex-shrink: 1;
+    width: calc(25% - 23rem);
     padding: 19rem 17rem;
     gap: 3rem;
 

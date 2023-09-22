@@ -18,6 +18,7 @@
 @import "components/base/header/sidebar";
 @import "components/base/header/tools";
 @import "components/base/amount";
+@import "components/base/product-container";
 @import "components/base/arrow";
 @import "components/base/pagination";
 @import "components/base/preloader";
@@ -41,6 +42,7 @@
 @import "components/product/add-review";
 @import "components/product/switch";
 @import "components/product/product-review";
+@import "components/product/similar-products";
 @import "components/product-item";
 
 // Mobile styles for pages

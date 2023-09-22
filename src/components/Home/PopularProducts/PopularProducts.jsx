@@ -1,17 +1,13 @@
 import React from 'react';
 import { popularProducts } from '@utils/data';
 import ForPetLongButton from '@components/Base/Buttons/ForPetLongButton/ForPetLongButton';
-import ProductItem from '@components/ProductItem/ProductItem';
+import ProductContainer from '@components/Base/ProductContainer/ProductContainer';
 
 const PopularProducts = () => {
   return (
     <section className="main-page__popular-products popular-products">
       <h2 className="popular-products__headline headline">Popular products</h2>
-      <div className="popular-products__list">
-        {popularProducts.map((product) => (
-          <ProductItem key={product.id} product={product} />
-        ))}
-      </div>
+      <ProductContainer products={popularProducts} />
       <div className="popular-products__for-pets">
         <ForPetLongButton isCat={true} />
         <ForPetLongButton isDog={true} />

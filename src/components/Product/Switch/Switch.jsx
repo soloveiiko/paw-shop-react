@@ -11,7 +11,7 @@ const Switch = () => {
   };
 
   return (
-    <div className="switch">
+    <section className="switch">
       <div className="switch__tabs tabs">
         <button
           className={`tabs__description ${activeTab === 'description' ? 'selected' : ''}`}
@@ -37,7 +37,7 @@ const Switch = () => {
         {activeTab === 'reviews' && <ProductReview />}
         {activeTab === 'addReview' && <AddReview />}
       </div>
-    </div>
+    </section>
   );
 };
 
