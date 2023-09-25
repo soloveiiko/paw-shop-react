@@ -4,12 +4,10 @@ import AuthContainer from '@components/Modals/Auth/AuthContainer/AuthContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import Cart from '@components/Modals/Cart/Cart';
 import { Outlet } from 'react-router-dom';
-import { openAuthModal } from '../redux/modals/authForm/reducer';
-import { openCartModal } from '../redux/modals/cartForm/reducer';
-
+import { openAuthModal, openCartModal } from '../redux/modals/modalsSlice';
 const Layout = () => {
-  const isOpenAuth = useSelector((state) => state.authModal.isOpen);
-  const isOpenCart = useSelector((state) => state.cartModal.isOpen);
+  const isOpenAuth = useSelector((state) => state.modals.authModal);
+  const isOpenCart = useSelector((state) => state.modals.cartModal);
   const dispatch = useDispatch();
   const handleAuth = () => {
     dispatch(openAuthModal(!isOpenAuth));
