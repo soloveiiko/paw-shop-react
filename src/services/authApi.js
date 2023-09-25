@@ -1,5 +1,4 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { userApi } from './userApi';
 import { baseQuery } from './configApi';
 
 export const authApi = createApi({
@@ -22,14 +21,7 @@ export const authApi = createApi({
           url: 'login',
           method: 'POST',
           body: data,
-          credentials: 'include',
         };
-      },
-      async onQueryStarted(args, { dispatch, queryFulfilled }) {
-        try {
-          await queryFulfilled;
-          await dispatch(userApi.endpoints.getMe.initiate(null));
-        } catch (error) {}
       },
     }),
     verifyEmail: builder.mutation({
@@ -44,7 +36,6 @@ export const authApi = createApi({
       query() {
         return {
           url: 'logout',
-          credentials: 'include',
         };
       },
     }),

@@ -7,6 +7,8 @@ export const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   prepareHeaders: (headers, { getState }) => {
     headers.set('sHost', 'paw.shop');
+    headers.set('Accept', 'application/json');
+    headers.set('Cache-Control', 'no-cache');
     const access_token = getState().auth.access_token;
     const token = Cookies.get('access_token');
     if (access_token) {

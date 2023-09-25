@@ -1,6 +1,6 @@
 .header {
   position: absolute;
-  z-index: 20;
+  z-index: 1001;
   top: 0;
   right: 0;
   left: 0;
@@ -16,6 +16,7 @@
     position: relative;
     justify-content: space-between;
     padding: 13rem 17rem;
+    z-index: 1001;
   }
 
   &__number {

@@ -1,5 +1,6 @@
 .auth-container {
   @include center;
+  z-index: 1002;
 }
 
 .auth {

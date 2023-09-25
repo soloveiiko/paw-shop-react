@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   authModal: false,
   cartModal: false,
+  sidebar: false,
 };
 
 export const modalsSlice = createSlice({
@@ -15,9 +16,12 @@ export const modalsSlice = createSlice({
     openCartModal: (state, action) => {
       state.cartModal = action.payload;
     },
+    openSidebar: (state, action) => {
+      state.sidebar = action.payload;
+    },
   },
 });
 
-export const { openAuthModal, openCartModal } = modalsSlice.actions;
+export const { openAuthModal, openCartModal, openSidebar } = modalsSlice.actions;
 
 export default modalsSlice.reducer;

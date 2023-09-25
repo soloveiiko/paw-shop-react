@@ -8,6 +8,7 @@ import { openAuthModal, openCartModal } from '../redux/modals/modalsSlice';
 const Layout = () => {
   const isOpenAuth = useSelector((state) => state.modals.authModal);
   const isOpenCart = useSelector((state) => state.modals.cartModal);
+  const isOpenSidebar = useSelector((state) => state.modals.sidebar);
   const dispatch = useDispatch();
   const handleAuth = () => {
     dispatch(openAuthModal(!isOpenAuth));
@@ -25,7 +26,8 @@ const Layout = () => {
       <Footer />
       {isOpenAuth && <AuthContainer isOpenAuth={isOpenAuth} handleAuth={handleAuth} />}
       <Cart isOpenCart={isOpenCart} handleCart={handleCart} />
-      <div className="black-background"></div>
+      {isOpenAuth || (isOpenCart && <div className={`overlayModal ${isOpenAuth || isOpenCart ? 'show' : ''}`}></div>)}
+      {isOpenSidebar && <div className={`overlay ${isOpenSidebar ? 'show' : ''}`}></div>}
     </div>
   );
 };

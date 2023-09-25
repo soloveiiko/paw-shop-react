@@ -113,6 +113,32 @@ html {
   grid-row: 2/3;
 }
 
+.error {
+  font-size: 14rem;
+  border: 1rem solid $error;
+  padding: 8rem 13rem;
+  color: $error;
+}
+
+.overlay {
+  z-index: 1000;
+}
+.overlayModal {
+  z-index: 1001;
+}
+.overlay, .overlayModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  &.show {
+    display: block;
+  }
+}
+
 h1 {
   @include h1-title-mobile;
 }

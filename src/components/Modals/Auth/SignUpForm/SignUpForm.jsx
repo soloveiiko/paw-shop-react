@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Form, Formik } from 'formik';
 import InputField from '@components/Modals/Auth/InputField/InputField';
 import * as Yup from 'yup';
 import { icoArrowAccent } from '@static';
+import Cookies from 'js-cookie';
 import { useRegisterUserMutation } from '../../../../services/authApi';
+import Preloader from '@components/Base/Preloader/Preloader';
+import { openAuthModal } from '../../../../redux/modals/modalsSlice';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 const SignUpForm = ({ setSignIn }) => {
+  const navigate = useNavigate();
+  const isOpenAuth = useSelector((state) => state.modals.authModal);
+  const dispatch = useDispatch();
+  const [registerUser, { isLoading, isSuccess, error, isError }] = useRegisterUserMutation();
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate('/');
+      dispatch(openAuthModal(!isOpenAuth));
+    }
+  }, [isLoading]);
+
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Required').min(8, 'Too Short!').max(16, 'Too Long!'),
     email: Yup.string()
@@ -16,12 +33,16 @@ const SignUpForm = ({ setSignIn }) => {
       .required('Required')
       .oneOf([Yup.ref('password'), null], 'Passwords must match'),
   });
+  const onSubmitHandler = async (values, { resetForm }) => {
+    const result = await registerUser(values);
 
-  const [registerUser, { isLoading, isSuccess, error, isError }] = useRegisterUserMutation();
-  const onSubmitHandler = (values) => {
-    registerUser(values);
-    console.log('register values', values);
-    debugger;
+    if (result.data) {
+      Cookies.set('user', JSON.stringify(result), { expires: 1 });
+      console.log('register values', result);
+      resetForm({ values: { name: '', email: '', password: '', password_confirmation: '' } });
+      return result;
+    }
+    return null;
   };
 
   return (
@@ -32,6 +53,8 @@ const SignUpForm = ({ setSignIn }) => {
     >
       {() => (
         <Form className="auth__form">
+          {isLoading && <Preloader />}
+          {isError && <div className="error">{error.data.message}</div>}
           <div className="auth__container_left">
             <div className="auth__input-wrapper">
               <InputField className="auth" type="text" name="name" placeholder="Full name" />
