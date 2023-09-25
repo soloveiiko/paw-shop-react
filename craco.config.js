@@ -1,17 +1,19 @@
 const path = require('path');
 const resolvePath = (p) => path.resolve(__dirname, p);
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+// const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   webpack: {
     alias: {
-      '@components': resolvePath('./src/components'),
       '@assets': resolvePath('./src/assets'),
+      '@components': resolvePath('./src/components'),
+      '@layout': resolvePath('./src/layout'),
       '@pages': resolvePath('./src/pages'),
+      '@redux': resolvePath('./src/redux'),
       '@routes': resolvePath('./src/routes'),
+      '@services': resolvePath('./src/services'),
       '@static': resolvePath('./src/static'),
       '@utils': resolvePath('./src/utils'),
-      '@redux': resolvePath('./src/redux'),
     },
     // configure: (webpackConfig) => {
     //   webpackConfig.optimization.minimize = true;

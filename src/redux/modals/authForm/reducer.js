@@ -1,20 +1,17 @@
-import { OPEN_AUTH_MODAL } from './action';
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  isOpen: false,
-};
+const authModalSlice = createSlice({
+  name: 'authModal',
+  initialState: {
+    isOpen: false,
+  },
+  reducers: {
+    openAuthModal: (state, action) => {
+      state.isOpen = action.payload;
+    },
+  },
+});
 
-const openAuthReducer = (state = initialState, action) => {
-  const { type, payload } = action;
-  switch (type) {
-    case OPEN_AUTH_MODAL:
-      return {
-        ...state,
-        isOpen: payload,
-      };
-    default:
-      return state;
-  }
-};
+export const { openAuthModal } = authModalSlice.actions;
 
-export default openAuthReducer;
+export default authModalSlice.reducer;

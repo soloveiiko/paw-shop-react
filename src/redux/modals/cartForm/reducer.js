@@ -1,20 +1,16 @@
-import { OPEN_CART_MODAL } from './action';
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  isOpen: false,
-};
+const cartModalSlice = createSlice({
+  name: 'cartModal',
+  initialState: {
+    isOpen: false,
+  },
+  reducers: {
+    openCartModal: (state, action) => {
+      state.isOpen = action.payload;
+    },
+  },
+});
 
-const openCartReducer = (state = initialState, action) => {
-  const { type, payload } = action;
-  switch (type) {
-    case OPEN_CART_MODAL:
-      return {
-        ...state,
-        isOpen: payload,
-      };
-    default:
-      return state;
-  }
-};
-
-export default openCartReducer;
+export const { openCartModal } = cartModalSlice.actions;
+export default cartModalSlice.reducer;
