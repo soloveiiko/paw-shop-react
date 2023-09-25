@@ -1,15 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { pawShopApi } from '../services/config';
-import modalsReducer from './modals/modalsSlice';
+import { userApi } from '../services/userApi';
+import { authApi } from '../services/authApi';
+import authSlice from './auth/authSlice';
+import modalsSlice from './modals/modalsSlice';
 
 export const store = configureStore({
   reducer: {
-    [pawShopApi.reducerPath]: pawShopApi.reducer,
-    modals: modalsReducer,
+    [authApi.reducerPath]: authApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
+    modals: modalsSlice,
+    auth: authSlice,
   },
-
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(pawShopApi.middleware),
+  devTools: process.env.NODE_ENV === 'development',
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([authApi.middleware, userApi.middleware]),
 });
 
 setupListeners(store.dispatch);

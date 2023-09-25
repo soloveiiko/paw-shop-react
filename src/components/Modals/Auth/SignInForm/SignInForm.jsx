@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
 import InputField from '@components/Modals/Auth/InputField/InputField';
 import { icoArrowAccent } from '@static';
+import { useLoginUserMutation } from '../../../../services/authApi';
 
 const SignInForm = ({ setSignIn, setResetPassword }) => {
   const validationSchema = Yup.object().shape({
@@ -11,16 +12,14 @@ const SignInForm = ({ setSignIn, setResetPassword }) => {
       .matches(/@[^.]*\./, 'Not valid!'),
     password: Yup.string().required('Password is required!').min(8, 'Too Short!').max(16, 'Too Long!'),
   });
+  const [loginUser, { isLoading, isError, error, isSuccess }] = useLoginUserMutation();
+  const onSubmitHandler = (values) => {
+    loginUser(values);
+    console.log('login values', values);
+  };
 
   return (
-    <Formik
-      initialValues={{ email: '', password: '' }}
-      validationSchema={validationSchema}
-      onSubmit={(values, { resetForm }) => {
-        console.log(values);
-        resetForm({ values: '' });
-      }}
-    >
+    <Formik initialValues={{ email: '', password: '' }} validationSchema={validationSchema} onSubmit={onSubmitHandler}>
       {({ errors }) => (
         <Form className="auth__form">
           <div className="auth__container_left">

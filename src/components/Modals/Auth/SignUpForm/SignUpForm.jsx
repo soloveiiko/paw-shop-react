@@ -3,33 +3,38 @@ import { Form, Formik } from 'formik';
 import InputField from '@components/Modals/Auth/InputField/InputField';
 import * as Yup from 'yup';
 import { icoArrowAccent } from '@static';
+import { useRegisterUserMutation } from '../../../../services/authApi';
 
 const SignUpForm = ({ setSignIn }) => {
   const validationSchema = Yup.object().shape({
-    fullName: Yup.string().required('Required').min(8, 'Too Short!').max(16, 'Too Long!'),
+    name: Yup.string().required('Required').min(8, 'Too Short!').max(16, 'Too Long!'),
     email: Yup.string()
       .required('Required')
       .matches(/@[^.]*\./),
     password: Yup.string().required('Password is required!').min(8, 'Too Short!').max(16, 'Too Long!'),
-    confirmPassword: Yup.string()
+    password_confirmation: Yup.string()
       .required('Required')
       .oneOf([Yup.ref('password'), null], 'Passwords must match'),
   });
 
+  const [registerUser, { isLoading, isSuccess, error, isError }] = useRegisterUserMutation();
+  const onSubmitHandler = (values) => {
+    registerUser(values);
+    console.log('register values', values);
+    debugger;
+  };
+
   return (
     <Formik
-      initialValues={{ fullName: '', email: '', password: '', confirmPassword: '' }}
+      initialValues={{ name: '', email: '', password: '', password_confirmation: '' }}
       validationSchema={validationSchema}
-      onSubmit={(values, { resetForm }) => {
-        console.log(values);
-        resetForm({ values: '' });
-      }}
+      onSubmit={onSubmitHandler}
     >
       {() => (
         <Form className="auth__form">
           <div className="auth__container_left">
             <div className="auth__input-wrapper">
-              <InputField className="auth" type="text" name="fullName" placeholder="Full name" />
+              <InputField className="auth" type="text" name="name" placeholder="Full name" />
             </div>
             <div className="auth__input-wrapper">
               <InputField className="auth" type="email" name="email" placeholder="Email" validateOnChange={true} />
@@ -38,7 +43,12 @@ const SignUpForm = ({ setSignIn }) => {
               <InputField className="auth" type="password" name="password" placeholder="Password" />
             </div>
             <div className="auth__input-wrapper">
-              <InputField className="auth" type="password" name="confirmPassword" placeholder="Confirm Password" />
+              <InputField
+                className="auth"
+                type="password"
+                name="password_confirmation"
+                placeholder="Confirm Password"
+              />
             </div>
           </div>
           <button className="auth__submit-btn" type="submit">
