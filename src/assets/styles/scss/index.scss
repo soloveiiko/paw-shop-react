@@ -139,6 +139,10 @@ html {
   }
 }
 
+.input-error {
+  border-color: $error;
+}
+
 h1 {
   @include h1-title-mobile;
 }

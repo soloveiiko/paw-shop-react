@@ -54,13 +54,27 @@ const SignUpForm = ({ setSignIn }) => {
       {() => (
         <Form className="auth__form">
           {isLoading && <Preloader />}
-          {isError && <div className="error">{error.data.message}</div>}
           <div className="auth__container_left">
             <div className="auth__input-wrapper">
-              <InputField className="auth" type="text" name="name" placeholder="Full name" />
+              <InputField
+                className="auth"
+                type="text"
+                name="name"
+                placeholder="Full name"
+                isErrorFromServer={isError}
+                errorFromServer={error?.data.errors.name}
+              />
             </div>
             <div className="auth__input-wrapper">
-              <InputField className="auth" type="email" name="email" placeholder="Email" validateOnChange={true} />
+              <InputField
+                className="auth"
+                type="email"
+                name="email"
+                placeholder="Email"
+                validateOnChange={true}
+                isErrorFromServer={isError}
+                errorFromServer={error?.data.errors.email}
+              />
             </div>
             <div className="auth__input-wrapper">
               <InputField className="auth" type="password" name="password" placeholder="Password" />
@@ -71,6 +85,8 @@ const SignUpForm = ({ setSignIn }) => {
                 type="password"
                 name="password_confirmation"
                 placeholder="Confirm Password"
+                isErrorFromServer={isError}
+                errorFromServer={error?.data.errors.password}
               />
             </div>
           </div>

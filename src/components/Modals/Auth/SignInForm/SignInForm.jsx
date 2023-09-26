@@ -15,7 +15,7 @@ const SignInForm = ({ setSignIn, setResetPassword }) => {
   const isOpenAuth = useSelector((state) => state.modals.authModal);
   const dispatch = useDispatch();
   const [loginUser, { isLoading, isError, error, isSuccess }] = useLoginUserMutation();
-
+  console.log(error?.data.errors.email[0]);
   useEffect(() => {
     if (isSuccess) {
       navigate('/');
@@ -46,10 +46,17 @@ const SignInForm = ({ setSignIn, setResetPassword }) => {
       {({ errors }) => (
         <Form className="auth__form">
           {isLoading && <Preloader />}
-          {isError && <div className="error">{error.data.message}</div>}
           <div className="auth__container_left">
             <div className="auth__input-wrapper">
-              <InputField className="auth" type="email" name="email" placeholder="Email" errors={errors} />
+              <InputField
+                className="auth"
+                type="email"
+                name="email"
+                placeholder="Email"
+                errors={errors}
+                isErrorFromServer={isError}
+                errorFromServer={error?.data.errors.email}
+              />
             </div>
             <div className="auth__input-wrapper">
               <InputField className="auth" type="password" name="password" placeholder="Password" errors={errors} />

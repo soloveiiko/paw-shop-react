@@ -18,11 +18,13 @@ const Subscribe = () => {
   });
   const onSubmitHandler = async (values, { resetForm }) => {
     const result = await subscribe(values);
-
+    values.type = 'newsletter';
     if (result.data) {
       console.log('subscribe values', result);
       resetForm({ values: { email: '' } });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
       return result;
     }
     return null;
