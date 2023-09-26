@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, useFormikContext } from 'formik';
 
 const InputField = ({ className, name, placeholder }) => {
-  const { errors, touched } = useFormikContext(); // Отримуємо помилки та дотик поля з контексту Formik
+  const { errors, touched } = useFormikContext();
 
   return (
     <>

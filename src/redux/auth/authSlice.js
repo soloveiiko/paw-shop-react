@@ -28,15 +28,6 @@ export const authSlice = createSlice({
       state.isAuth = action.payload;
     },
   },
-  /* extraReducers: (builder) => {
-      builder.addMatcher(
-        authApi.endpoints.user.matchFulfilled,
-        (state, { payload }) => {
-          state.userInfo = payload;
-          state.isAuth = true;
-        }
-      );
-    }, */
 });
 
 export const { setTokens, setAccessToken, removeTokens, setIsAuth } = authSlice.actions;
