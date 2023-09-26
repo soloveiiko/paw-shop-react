@@ -21,6 +21,7 @@ const Header = ({ handleAuth, handleCart }) => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
   const toggleSidebar = () => {
     dispatch(openSidebar(!isOpenSidebar));
   };
