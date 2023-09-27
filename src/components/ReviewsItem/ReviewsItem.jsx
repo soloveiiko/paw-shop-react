@@ -4,7 +4,7 @@ import { icoArrowAccent } from '@static';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Image from '@components/Base/Image/Image';
 
-const ReviewsItem = ({ review }) => {
+const ReviewsItem = (props) => {
   const [maxVisibleImages, setMaxVisibleImages] = useState(2);
   const [showAllImages, setShowAllImages] = useState(false);
   useEffect(() => {
@@ -27,27 +27,27 @@ const ReviewsItem = ({ review }) => {
 
   const toggleImageDisplay = () => {
     setShowAllImages(true);
-    setMaxVisibleImages(review.images.length);
+    setMaxVisibleImages(props.images.length);
   };
-  const displayedImages = showAllImages ? review.images : review.images.slice(0, maxVisibleImages);
+  const displayedImages = showAllImages ? props.images : props.images.slice(0, maxVisibleImages);
 
   return (
     <div className="reviews-item">
-      <div className="reviews-item__date">{review.date}</div>
+      <div className="reviews-item__date">{props.date}</div>
       <div className="reviews-item__user">
-        <div className="reviews-item__username">{review.username}</div>
-        <StarsRange item={review.stars} />
+        <div className="reviews-item__username">{props.username}</div>
+        {/*<StarsRange item={props.rating} />*/}
       </div>
-      <div className="reviews-item__body">{review.body}</div>
+      <div className="reviews-item__body">{props.body}</div>
       <div className="reviews-item__images">
         {displayedImages.map((img, index) => (
           <div key={index} className="reviews-item__img-container">
             <Image className="reviews-item__image" src={img} width="64" height="66" loading="lazy" alt="Review" />
           </div>
         ))}
-        {review.images.length > maxVisibleImages && displayedImages.length < review.images.length && (
+        {props.images.length > maxVisibleImages && displayedImages.length < props.images.length && (
           <button className="reviews-item__show-more-image" onClick={toggleImageDisplay}>
-            {`+${review.images.length - displayedImages.length}`}
+            {`+${props.images.length - displayedImages.length}`}
           </button>
         )}
       </div>

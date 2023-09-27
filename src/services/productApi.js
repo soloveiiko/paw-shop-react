@@ -16,7 +16,6 @@ export const productApi = createApi({
     }),
     products: builder.query({
       query(body) {
-        console.log('popular product data', body);
         return {
           url: `variations`,
           method: 'GET',

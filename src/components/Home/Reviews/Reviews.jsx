@@ -1,15 +1,26 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { register } from 'swiper/element/bundle';
 import { reviewsList } from '@utils/data';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
 import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
 import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
+import { useReviewQuery } from '../../../services/reviewApi';
+import Preloader from '@components/Base/Preloader/Preloader';
 
 register();
 const Reviews = () => {
-  const swiperElRef = useRef(null);
+  const swiperReviewRef = useRef(null);
+  const [randomReviews, setRandomReviews] = useState([]);
+  const { data } = useReviewQuery({ limit: 10 });
+  console.log('data', randomReviews);
+
   useEffect(() => {
-    const swiperContainer = swiperElRef.current;
+    if (data) {
+      setRandomReviews(data.data);
+    }
+  }, [data]);
+  useEffect(() => {
+    const swiperContainer = swiperReviewRef.current;
     Object.assign(swiperContainer, {});
     const params = {
       loop: true,
@@ -74,15 +85,28 @@ const Reviews = () => {
     <section className="main-page__reviews reviews">
       <div className="reviews__container container">
         <h2 className="reviews__headline headline">Reviews</h2>
-        <swiper-container ref={swiperElRef} init="false">
+        <swiper-container ref={swiperReviewRef} init="false">
           {reviewsList.map((review) => (
             <swiper-slide key={review.id}>
-              <ReviewsItem review={review} />
+              {randomReviews.length > 0 ? (
+                <>
+                  <ReviewsItem
+                    review={review}
+                    date={review.created_at}
+                    username={review.name}
+                    rating={review.rating}
+                    body={review.body}
+                    images={review.images}
+                  />
+                </>
+              ) : (
+                <Preloader />
+              )}
             </swiper-slide>
           ))}
         </swiper-container>
-        <PrevArrow onClick={() => swiperElRef.current?.slideNext()} />
-        <NextArrow onClick={() => swiperElRef.current?.slidePrev()} />
+        <PrevArrow onClick={() => swiperReviewRef.current?.slideNext()} />
+        <NextArrow onClick={() => swiperReviewRef.current?.slidePrev()} />
       </div>
     </section>
   );
