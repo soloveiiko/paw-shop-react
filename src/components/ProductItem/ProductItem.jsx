@@ -4,17 +4,12 @@ import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Image from '@components/Base/Image/Image';
 import { Link } from 'react-router-dom';
 
-const ProductItem = ({ product }) => {
-  const perDifference = (prevPrice, currPrice) => {
-    return Math.floor(((prevPrice - currPrice) * 100) / prevPrice);
-  };
+const ProductItem = (props) => {
   return (
     <div className="products-item">
       <div className="products-item__additions">
-        {product.isNew && <div className="products-item__new">New</div>}
-        {product.discount.isDiscount && (
-          <div className="products-item__discount">-{perDifference(product.price, product.discount.currPrice)}%</div>
-        )}
+        {/*{product.isNew && <div className="products-item__new">New</div>}*/}
+        {props.isDiscount === 1 && <div className="products-item__discount">-{props.discountPercent}%</div>}
       </div>
       <Link to="/catalog/2/product/3">
         <div className="products-item__img-container">
@@ -22,7 +17,7 @@ const ProductItem = ({ product }) => {
             className="products-item__image"
             width="300"
             height="194"
-            src={product.image}
+            src={props.image}
             loading="lazy"
             alt="Product"
           />
@@ -30,20 +25,20 @@ const ProductItem = ({ product }) => {
       </Link>
       <div className="products-item__information">
         <Link to="/catalog/product/1" className="products-item__name">
-          {product.name}
+          {props.name}
         </Link>
         <div className="products-item__stars-container stars-range">
-          <StarsRange item={product.stars} />
-          <div className="products-item__reviews">{product.reviews}</div>
+          <StarsRange item={props.rating} />
+          <div className="products-item__reviews">{props.rating}</div>
         </div>
         <div className="products-item__price-container">
-          {product.discount.isDiscount ? (
+          {props.isDiscount === 1 ? (
             <div className="products-item__price-wrapper">
-              <div className="products-item__curr-price">${product.discount.currPrice}</div>
-              <div className="products-item__prev-price">${product.price}</div>
+              <div className="products-item__curr-price">{props.currPrice} UAH</div>
+              <div className="products-item__prev-price">{props.oldPrice} UAH</div>
             </div>
           ) : (
-            <div className="products-item__price">${product.price}</div>
+            <div className="products-item__price">{props.currPrice} UAH</div>
           )}
           <div className="products-item__in-basket-container in-basket">
             <button className="in-basket__btn">

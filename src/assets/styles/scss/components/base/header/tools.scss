@@ -2,8 +2,11 @@
   gap: 31rem;
 
   &__profile {
-    background-color: transparent;
+    font-size: 25rem;
+    display: flex;
+    align-items: center;
     cursor: pointer;
+    background-color: transparent;
   }
 
   &__basket {

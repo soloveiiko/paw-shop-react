@@ -9,13 +9,14 @@ import Preloader from '@components/Base/Preloader/Preloader';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { openAuthModal } from '../../../../redux/modals/modalsSlice';
+import { setUser } from '../../../../redux/auth/authSlice';
 
 const SignInForm = ({ setSignIn, setResetPassword }) => {
   const navigate = useNavigate();
   const isOpenAuth = useSelector((state) => state.modals.authModal);
   const dispatch = useDispatch();
   const [loginUser, { isLoading, isError, error, isSuccess }] = useLoginUserMutation();
-  console.log(error?.data.errors.email[0]);
+
   useEffect(() => {
     if (isSuccess) {
       navigate('/');
@@ -33,8 +34,8 @@ const SignInForm = ({ setSignIn, setResetPassword }) => {
     const result = await loginUser(values);
 
     if (result.data) {
-      Cookies.set('user', JSON.stringify(result), { expires: 1 });
-      console.log('login values', result);
+      dispatch(setUser(result.data.data));
+      Cookies.set('access_token', JSON.stringify(result.data.data.access_token));
       resetForm({ values: { email: '', password: '' } });
       return result;
     }

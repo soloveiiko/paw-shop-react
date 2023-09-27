@@ -1,7 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 import { baseQuery } from './configApi';
 
-export const catalogApi = createApi({
+export const productApi = createApi({
   reducerPath: 'catalogApi',
   baseQuery: baseQuery,
   endpoints: (builder) => ({
@@ -11,10 +11,19 @@ export const catalogApi = createApi({
         return {
           url: `variations`,
           method: 'GET',
-          body: data,
+        };
+      },
+    }),
+    products: builder.query({
+      query(body) {
+        console.log('popular product data', body);
+        return {
+          url: `variations`,
+          method: 'GET',
+          params: body,
         };
       },
     }),
   }),
 });
-export const { useCatalogMutation } = catalogApi;
+export const { useCatalogQuery, useProductsQuery } = productApi;

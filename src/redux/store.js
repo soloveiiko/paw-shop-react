@@ -3,7 +3,7 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { userApi } from '../services/userApi';
 import { authApi } from '../services/authApi';
 import { subscribeApi } from '../services/subscribeApi';
-import { catalogApi } from '../services/catalogApi';
+import { productApi } from '../services/productApi';
 import authSlice from './auth/authSlice';
 import modalsSlice from './modals/modalsSlice';
 import subscribeSlice from './subscribe/subscribeSlice';
@@ -14,7 +14,7 @@ export const store = configureStore({
     [authApi.reducerPath]: authApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
     [subscribeApi.reducerPath]: subscribeApi.reducer,
-    [catalogApi.reducerPath]: catalogApi.reducer,
+    [productApi.reducerPath]: productApi.reducer,
     modals: modalsSlice,
     auth: authSlice,
     subscribe: subscribeSlice,
@@ -26,7 +26,7 @@ export const store = configureStore({
       authApi.middleware,
       userApi.middleware,
       subscribeApi.middleware,
-      catalogApi.middleware,
+      productApi.middleware,
     ]),
 });
 

@@ -6,7 +6,17 @@ const ProductContainer = ({ products }) => {
   return (
     <div className="products-container">
       {lastFourProducts.map((product) => (
-        <ProductItem key={product.id} product={product} />
+        <ProductItem
+          product={product}
+          key={product.product.id}
+          isDiscount={product.prices.discount}
+          discountPercent={product.discount_percent}
+          image={product.images[0].url}
+          name={product.product.name}
+          rating={product.product.rating}
+          currPrice={product.prices.now}
+          oldPrice={product.prices.old}
+        />
       ))}
     </div>
   );

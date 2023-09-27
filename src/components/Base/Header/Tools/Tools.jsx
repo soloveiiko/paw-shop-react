@@ -1,11 +1,41 @@
 import React from 'react';
 import { icoBasket, icoUser } from '@static';
+import { RiLogoutBoxRLine } from 'react-icons/ri';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeUser } from '../../../../redux/auth/authSlice';
+import { useLogoutUserMutation } from '../../../../services/authApi';
+import Cookies from 'js-cookie';
 
 const Tools = ({ toggleSidebar, handleAuth, handleCart }) => {
+  const isAuth = useSelector((state) => state.auth.isAuth);
+  const dispatch = useDispatch();
+  const [logoutUser] = useLogoutUserMutation();
+  const onLogoutHandler = async () => {
+    const result = await logoutUser();
+    if (result.data) {
+      Cookies.remove('access_token', {
+        path: '/',
+        secure: true,
+      });
+      dispatch(removeUser());
+    }
+  };
   return (
     <div className="header__tools tools">
-      <button className="tools__profile" onClick={handleAuth}>
-        <img className="tools__profile-img" src={icoUser} width="26" height="26" loading="lazy" alt="Profile" />
+      <button className="tools__profile">
+        {isAuth ? (
+          <RiLogoutBoxRLine onClick={onLogoutHandler} />
+        ) : (
+          <img
+            className="tools__profile-img"
+            src={icoUser}
+            width="26"
+            height="26"
+            loading="lazy"
+            alt="Profile"
+            onClick={handleAuth}
+          />
+        )}
       </button>
       <div className="tools__basket">
         <button className="tools__basket-img" onClick={handleCart}>

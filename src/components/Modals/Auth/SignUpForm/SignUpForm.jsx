@@ -9,6 +9,7 @@ import Preloader from '@components/Base/Preloader/Preloader';
 import { openAuthModal } from '../../../../redux/modals/modalsSlice';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { setUser } from '../../../../redux/auth/authSlice';
 
 const SignUpForm = ({ setSignIn }) => {
   const navigate = useNavigate();
@@ -37,8 +38,8 @@ const SignUpForm = ({ setSignIn }) => {
     const result = await registerUser(values);
 
     if (result.data) {
-      Cookies.set('user', JSON.stringify(result), { expires: 1 });
-      console.log('register values', result);
+      dispatch(setUser(result.data.data));
+      Cookies.set('access_token', JSON.stringify(result.data.data.access_token));
       resetForm({ values: { name: '', email: '', password: '', password_confirmation: '' } });
       return result;
     }
