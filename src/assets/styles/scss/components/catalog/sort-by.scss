@@ -46,6 +46,7 @@
     font-size: 14rem;
     padding: 10rem 20rem;
     cursor: pointer;
+    white-space: nowrap;
 
     &.selected {
       background-color: $light-purple;

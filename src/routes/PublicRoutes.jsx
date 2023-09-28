@@ -15,7 +15,7 @@ const PublicRoutes = () => {
       >
         <Route index element={<HomePage />} />
         <Route
-          path="catalog/:id"
+          path="catalog/:slug"
           element={<Outlet />}
           handle={{
             crumb: (data) => ({ name: 'Catalog', path: data?.path }),
