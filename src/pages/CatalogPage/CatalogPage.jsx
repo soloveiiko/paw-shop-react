@@ -1,25 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Breadcrumbs, CategoryFilter, PetsFilter, ProductList, SortBy } from '@components';
-import { catalogList, popularProducts } from '@utils/data';
+import { catalogList } from '@utils/data';
 import { useParams } from 'react-router-dom';
-import { productApi } from '../../services/productApi';
+import { useProductsQuery } from '../../services/productApi';
 
 const CatalogPage = () => {
   // const [selectedCatalog, setSelectedCatalog] = useState(null);
   // const [catalog, { isLoading, isSuccess }] = useCatalogMutation();
   const { id } = useParams();
   const catalogId = id;
+  const [randomProducts, setRandomProducts] = useState([]);
+  const { data } = useProductsQuery({ per_page: 4 });
+  useEffect(() => {
+    if (data) {
+      setRandomProducts(data.data);
+    }
+  }, [data]);
+  console.log('randomProducts', randomProducts);
   const selectedCatalog = catalogList.find((catalog) => catalog.id === catalogId);
-  const catalogProducts = popularProducts.filter((product) => product.catalog === selectedCatalog.code);
-  useEffect(() => {}, []);
-  const handleSubmit = async (data) => {
-    const result = await productApi.mutateAsync(data);
-    // Обробка результату
-  };
-  // console.log('catalog', catalog);
-  // const catalogProducts = selectedCatalog
-  //   ? popularProducts.filter((product) => product.catalog === selectedCatalog.code)
-  //   : [];
+  const catalogProducts = randomProducts.filter((product) => product.product.category.slug === selectedCatalog.id);
+
   return (
     <div className="page catalog-page">
       <Breadcrumbs item={selectedCatalog} />

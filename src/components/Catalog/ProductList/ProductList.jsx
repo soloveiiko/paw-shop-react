@@ -11,8 +11,18 @@ const ProductList = ({ products }) => {
   return (
     <div className="product-list">
       <div className="product-list__wrapper">
-        {currentItems.map((product, index) => (
-          <ProductItem key={index} product={product} />
+        {currentItems.map((product) => (
+          <ProductItem
+            product={product}
+            key={product.product.id}
+            isDiscount={product.prices.discount}
+            discountPercent={product.discount_percent}
+            image={product.images[0].url}
+            name={product.product.name}
+            rating={product.product.rating}
+            currPrice={product.prices.now}
+            oldPrice={product.prices.old}
+          />
         ))}
       </div>
       {products.length > 4 && (

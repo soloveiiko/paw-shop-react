@@ -6,7 +6,7 @@ const ForPetLongButton = ({ isCat, isDog }) => {
   return (
     <div className="product-for-pets-btn-container product-for-pets">
       {isCat && (
-        <Link to="#" className="product-for-pets__btn cat-btn">
+        <Link to="/catalog/cat" className="product-for-pets__btn cat-btn">
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker cat">cat</b>
           </span>
@@ -22,7 +22,7 @@ const ForPetLongButton = ({ isCat, isDog }) => {
         </Link>
       )}
       {isDog && (
-        <Link to="#" className="product-for-pets__btn dog-btn">
+        <Link to="/catalog/dog" className="product-for-pets__btn dog-btn">
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker dog">dog</b>
           </span>

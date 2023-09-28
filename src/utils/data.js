@@ -1,8 +1,8 @@
 import { spCart, prToy1, prToy2, prToy3, prToy4, review } from '@static';
 
 export const catalogList = [
-  { id: '1', name: 'For cat', code: 'forCat' },
-  { id: '2', name: 'For dog', code: 'forDog' },
+  { id: 'cat', name: 'For cat', code: 'forCat' },
+  { id: 'dog', name: 'For dog', code: 'forDog' },
 ];
 
 export const products = [

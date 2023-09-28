@@ -6,10 +6,10 @@ export const productApi = createApi({
   baseQuery: baseQuery,
   endpoints: (builder) => ({
     catalog: builder.query({
-      query(data) {
-        console.log('catalog data', data);
+      query(slug) {
+        console.log('catalog data', slug);
         return {
-          url: `variations`,
+          url: `variations/${slug}`,
           method: 'GET',
         };
       },
