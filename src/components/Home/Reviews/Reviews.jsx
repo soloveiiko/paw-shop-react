@@ -7,26 +7,26 @@ import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
 import { useReviewQuery } from '../../../services/reviewApi';
 import Preloader from '@components/Base/Preloader/Preloader';
 
-register();
 const Reviews = () => {
   const swiperReviewRef = useRef(null);
   const [randomReviews, setRandomReviews] = useState([]);
   const { data } = useReviewQuery({ limit: 10 });
   console.log('data', randomReviews);
+  register();
 
   useEffect(() => {
     if (data) {
       setRandomReviews(data.data);
     }
   }, [data]);
+
   useEffect(() => {
     const swiperContainer = swiperReviewRef.current;
-    Object.assign(swiperContainer, {});
     const params = {
       loop: true,
       navigation: {
-        nextEl: '.next-arrow',
-        prevEl: '.prev-arrow',
+        nextEl: '.next-arrow-review',
+        prevEl: '.prev-arrow-review',
       },
       pagination: {
         el: '.swiper-pagination',
@@ -81,6 +81,7 @@ const Reviews = () => {
     Object.assign(swiperContainer, params);
     swiperContainer.initialize();
   }, []);
+
   return (
     <section className="main-page__reviews reviews">
       <div className="reviews__container container">
@@ -105,8 +106,8 @@ const Reviews = () => {
             </swiper-slide>
           ))}
         </swiper-container>
-        <PrevArrow onClick={() => swiperReviewRef.current?.slideNext()} />
-        <NextArrow onClick={() => swiperReviewRef.current?.slidePrev()} />
+        <PrevArrow className="prev-arrow-review" />
+        <NextArrow className="next-arrow-review" />
       </div>
     </section>
   );

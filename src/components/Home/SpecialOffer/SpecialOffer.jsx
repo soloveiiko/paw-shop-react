@@ -5,18 +5,18 @@ import SpecialOfferItem from '@components/Home/SpecialOffer/SpecialOfferItem/Spe
 import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
 import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
 
-register();
-
 const SpecialOffer = () => {
-  const swiperElRef = useRef(null);
-
+  const swipeOfferRef = useRef(null);
   useEffect(() => {
-    const swiperContainer = swiperElRef.current;
+    register();
+  }, []);
+  useEffect(() => {
+    const swiperContainer = swipeOfferRef.current;
     const params = {
       slidesPerView: 1,
       navigation: {
-        nextEl: '.next-arrow',
-        prevEl: '.prev-arrow',
+        nextEl: '.next-arrow-offer',
+        prevEl: '.prev-arrow-offer',
       },
       pagination: {
         el: '.swiper-pagination',
@@ -56,15 +56,15 @@ const SpecialOffer = () => {
   return (
     <section className="main-page__special-offer special-offer">
       <div className="special-offer__container container">
-        <swiper-container ref={swiperElRef} init="false">
+        <swiper-container ref={swipeOfferRef} init="false">
           {specialOffer.map((slide) => (
             <swiper-slide key={slide.id}>
               <SpecialOfferItem slide={slide} />
             </swiper-slide>
           ))}
         </swiper-container>
-        <PrevArrow onClick={() => swiperElRef.current?.slideNext()} />
-        <NextArrow onClick={() => swiperElRef.current?.slidePrev()} />
+        <PrevArrow className="prev-arrow-offer" />
+        <NextArrow className="next-arrow-offer" />
       </div>
     </section>
   );
