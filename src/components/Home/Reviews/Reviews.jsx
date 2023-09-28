@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { register } from 'swiper/element/bundle';
-import { reviewsList } from '@utils/data';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
 import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
 import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
@@ -11,7 +10,7 @@ const Reviews = () => {
   const swiperReviewRef = useRef(null);
   const [randomReviews, setRandomReviews] = useState([]);
   const { data } = useReviewQuery({ limit: 10 });
-  console.log('data', randomReviews);
+  console.log('randomReviews', randomReviews);
   register();
 
   useEffect(() => {
@@ -19,6 +18,15 @@ const Reviews = () => {
       setRandomReviews(data.data);
     }
   }, [data]);
+  const changeDateFormat = (date) => {
+    const inputDate = new Date(date);
+
+    const year = inputDate.getFullYear();
+    const month = String(inputDate.getMonth() + 1).padStart(2, '0');
+    const day = String(inputDate.getDate()).padStart(2, '0');
+
+    return `${day}.${month}.${year}`;
+  };
 
   useEffect(() => {
     const swiperContainer = swiperReviewRef.current;
@@ -80,20 +88,19 @@ const Reviews = () => {
     };
     Object.assign(swiperContainer, params);
     swiperContainer.initialize();
-  }, []);
+  }, [data]);
 
   return (
     <section className="main-page__reviews reviews">
       <div className="reviews__container container">
         <h2 className="reviews__headline headline">Reviews</h2>
         <swiper-container ref={swiperReviewRef} init="false">
-          {reviewsList.map((review) => (
+          {randomReviews.map((review) => (
             <swiper-slide key={review.id}>
               {randomReviews.length > 0 ? (
                 <>
                   <ReviewsItem
-                    review={review}
-                    date={review.created_at}
+                    date={changeDateFormat(review.created_at)}
                     username={review.name}
                     rating={review.rating}
                     body={review.body}

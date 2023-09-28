@@ -7,9 +7,8 @@ import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
 
 const SpecialOffer = () => {
   const swipeOfferRef = useRef(null);
-  useEffect(() => {
-    register();
-  }, []);
+  register();
+
   useEffect(() => {
     const swiperContainer = swipeOfferRef.current;
     const params = {

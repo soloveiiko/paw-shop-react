@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { icoArrowAccent } from '@static';
-import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Image from '@components/Base/Image/Image';
 
 const ReviewsItem = (props) => {
@@ -30,19 +29,25 @@ const ReviewsItem = (props) => {
     setMaxVisibleImages(props.images.length);
   };
   const displayedImages = showAllImages ? props.images : props.images.slice(0, maxVisibleImages);
-
   return (
     <div className="reviews-item">
       <div className="reviews-item__date">{props.date}</div>
       <div className="reviews-item__user">
-        <div className="reviews-item__username">{props.username}</div>
+        <div className="reviews-item__username">{props.username ? props.username : 'User'}</div>
         {/*<StarsRange item={props.rating} />*/}
       </div>
       <div className="reviews-item__body">{props.body}</div>
       <div className="reviews-item__images">
         {displayedImages.map((img, index) => (
           <div key={index} className="reviews-item__img-container">
-            <Image className="reviews-item__image" src={img} width="64" height="66" loading="lazy" alt="Review" />
+            <Image
+              className="reviews-item__image"
+              src={img.conversions.thumb.url}
+              width="64"
+              height="66"
+              loading="lazy"
+              alt="Review"
+            />
           </div>
         ))}
         {props.images.length > maxVisibleImages && displayedImages.length < props.images.length && (
