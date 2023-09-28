@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ProductItem from '@components/ProductItem/ProductItem';
 import Pagination from '@components/Base/Pagination/Pagination';
 
-const ProductList = ({ products }) => {
-  const [itemOffset, setItemOffset] = useState(0);
-  const itemsPerPage = 4;
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = products.slice(itemOffset, endOffset);
-
+const ProductList = ({
+  products,
+  setItemOffset,
+  itemOffset,
+  currentItems,
+  itemsPerPage,
+  handlePagination,
+  selectedPage,
+}) => {
   return (
     <div className="product-list">
       <div className="product-list__wrapper">
@@ -20,18 +23,21 @@ const ProductList = ({ products }) => {
             image={product.images[0].url}
             name={product.product.name}
             rating={product.product.rating}
+            commentsCount={product.product.comments_count}
             currPrice={product.prices.now}
             oldPrice={product.prices.old}
           />
         ))}
       </div>
-      {products.length > 4 && (
+      {products.length > itemsPerPage && (
         <Pagination
           items={products}
           itemsPerPage={itemsPerPage}
           pageRangeDisplayed={5}
           itemOffset={itemOffset}
           setItemOffset={setItemOffset}
+          handlePagination={handlePagination}
+          selectedPage={selectedPage}
         />
       )}
     </div>

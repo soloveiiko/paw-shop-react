@@ -19,27 +19,23 @@ const CatalogPage = () => {
   const [randomProducts, setRandomProducts] = useState([]);
   const [sortItem, setSortItem] = useState(sortByList[0].sort);
   const [orderItem, setOrderItem] = useState(sortByList[0].order);
+  const [itemOffset, setItemOffset] = useState(0);
+  const [selectedPage, setSelectedPage] = useState(0);
 
-  // const selectedSort = sortByList.map((el) => el.sort);
-  // const selectedOrder = sortByList.map((el) => el.order);
-  const handleSort = (sort, order) => {
-    setSortItem(sort);
-    setOrderItem(order);
-    debugger;
-  };
+  const { slug } = useParams();
+  const catalogId = slug;
   const { data } = useProductsQuery({
     per_page: 10,
     sort: sortItem,
     order: orderItem,
   });
-  const { slug } = useParams();
-  const catalogId = slug;
+  const itemsPerPage = 1;
 
   useEffect(() => {
     if (data) {
       setRandomProducts(data.data);
     }
-  }, [data]);
+  }, [data, sortItem, orderItem, itemOffset, selectedPage]);
 
   const selectedCatalog = catalogList.find(
     (catalog) => catalog.id === catalogId
@@ -47,6 +43,21 @@ const CatalogPage = () => {
   const catalogProducts = randomProducts.filter(
     (product) => product.product.category.slug === selectedCatalog.id
   );
+
+  const handleSort = (sort, order) => {
+    setSortItem(sort);
+    setOrderItem(order);
+    setItemOffset(0);
+    setSelectedPage(0);
+    console.log('itemOffset', itemOffset);
+  };
+
+  const endOffset = itemOffset + itemsPerPage;
+  const paginateItems = catalogProducts.slice(itemOffset, endOffset);
+  const handlePagination = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % catalogProducts.length;
+    setItemOffset(newOffset);
+  };
 
   return (
     <div className="page catalog-page">
@@ -65,7 +76,15 @@ const CatalogPage = () => {
         </div>
       </section>
       <section className="container catalog-page__product-container">
-        <ProductList products={catalogProducts} />
+        <ProductList
+          currentItems={paginateItems}
+          products={catalogProducts}
+          itemOffset={itemOffset}
+          setItemOffset={setItemOffset}
+          itemsPerPage={itemsPerPage}
+          handlePagination={handlePagination}
+          selectedPage={selectedPage}
+        />
       </section>
     </div>
   );

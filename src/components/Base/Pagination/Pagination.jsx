@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-import { popularProducts } from '@utils/data';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
-const Pagination = ({ pageRangeDisplayed, itemsPerPage, items, setItemOffset }) => {
+const Pagination = ({
+  pageRangeDisplayed,
+  itemsPerPage,
+  items,
+  setItemOffset,
+  handlePagination,
+  selectedPage,
+}) => {
   const pageCount = Math.ceil(items.length / itemsPerPage);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % popularProducts.length;
-    console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
+    const newOffset = (event.selected * itemsPerPage) % items.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
     setItemOffset(newOffset);
+    handlePagination(event);
   };
   return (
     <ReactPaginate
@@ -26,6 +35,7 @@ const Pagination = ({ pageRangeDisplayed, itemsPerPage, items, setItemOffset }) 
       pageCount={pageCount}
       previousLabel={<SlArrowLeft />}
       renderOnZeroPageCount={null}
+      forcePage={selectedPage}
     />
   );
 };

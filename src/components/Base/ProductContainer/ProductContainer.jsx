@@ -14,6 +14,7 @@ const ProductContainer = ({ products }) => {
           image={product.images[0].url}
           name={product.product.name}
           rating={product.product.rating}
+          commentsCount={product.product.comments_count}
           currPrice={product.prices.now}
           oldPrice={product.prices.old}
         />

@@ -9,7 +9,11 @@ const ProductItem = (props) => {
     <div className="products-item">
       <div className="products-item__additions">
         {/*{product.isNew && <div className="products-item__new">New</div>}*/}
-        {props.isDiscount === 1 && <div className="products-item__discount">-{props.discountPercent}%</div>}
+        {props.isDiscount === 1 && (
+          <div className="products-item__discount">
+            -{props.discountPercent}%
+          </div>
+        )}
       </div>
       <Link to="/catalog/2/product/3">
         <div className="products-item__img-container">
@@ -29,20 +33,31 @@ const ProductItem = (props) => {
         </Link>
         <div className="products-item__stars-container stars-range">
           <StarsRange item={props.rating} />
-          <div className="products-item__reviews">{props.rating}</div>
+          <div className="products-item__reviews">{props.commentsCount}</div>
         </div>
         <div className="products-item__price-container">
           {props.isDiscount === 1 ? (
             <div className="products-item__price-wrapper">
-              <div className="products-item__curr-price">{props.currPrice} UAH</div>
-              <div className="products-item__prev-price">{props.oldPrice} UAH</div>
+              <div className="products-item__curr-price">
+                {props.currPrice} UAH
+              </div>
+              <div className="products-item__prev-price">
+                {props.oldPrice} UAH
+              </div>
             </div>
           ) : (
             <div className="products-item__price">{props.currPrice} UAH</div>
           )}
           <div className="products-item__in-basket-container in-basket">
             <button className="in-basket__btn">
-              +<img src={icoBasket} width="20" height="20" loading="lazy" alt="In Basket" />
+              +
+              <img
+                src={icoBasket}
+                width="20"
+                height="20"
+                loading="lazy"
+                alt="In Basket"
+              />
             </button>
           </div>
         </div>
