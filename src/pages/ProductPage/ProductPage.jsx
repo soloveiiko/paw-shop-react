@@ -8,12 +8,15 @@ const ProductPage = () => {
   const { slug } = useParams();
   const [catalogItemGet, { data }] = useLazyProductItemQuery();
   console.log('randomProducts', data);
+
   useEffect(() => {
     catalogItemGet(slug);
   }, [data, slug]);
+
   if (!data || !data.data) {
     return <Preloader />;
   }
+
   return (
     <div className="page product-page">
       <Breadcrumbs name={catalogItemGet.name} />
@@ -31,11 +34,7 @@ const ProductPage = () => {
         minQty={data.data.min_qty}
         discount={data.data.prices.discount}
       />
-      <Switch
-        description={data.data.product.body}
-        commentsCount={data.data.product.comments_count}
-        productId={data.data.product.id}
-      />
+      <Switch product={data.data} />
       <SimilarProducts />
     </div>
   );

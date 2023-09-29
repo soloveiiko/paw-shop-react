@@ -3,7 +3,7 @@ import AddReview from '@components/Product/AddReview/AddReview';
 import ProductCharacteristics from '@components/Product/ProductCharacteristics/ProductCharacteristics';
 import ProductReview from '@components/Product/ProductReview/ProductReview';
 
-const Switch = ({ description, commentsCount, productId }) => {
+const Switch = ({ product }) => {
   const [activeTab, setActiveTab] = useState('description');
 
   const handleTabClick = (tabName) => {
@@ -27,7 +27,7 @@ const Switch = ({ description, commentsCount, productId }) => {
           }`}
           onClick={() => handleTabClick('reviews')}
         >
-          Reviews({commentsCount})
+          Reviews({product.product.comments_count})
         </button>
         <button
           className={`tabs__add-review ${
@@ -40,10 +40,12 @@ const Switch = ({ description, commentsCount, productId }) => {
       </div>
       <div className="container switch__container">
         {activeTab === 'description' && (
-          <ProductCharacteristics description={description} />
+          <ProductCharacteristics description={product.body} />
         )}
-        {activeTab === 'reviews' && <ProductReview productId={productId} />}
-        {activeTab === 'addReview' && <AddReview productId={productId} />}
+        {activeTab === 'reviews' && (
+          <ProductReview productId={product.product.id} />
+        )}
+        {activeTab === 'addReview' && <AddReview product={product} />}
       </div>
     </section>
   );

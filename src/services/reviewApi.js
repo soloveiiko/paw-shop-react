@@ -16,7 +16,7 @@ export const reviewApi = createApi({
       },
     }),
     productReviews: builder.query({
-      query(id, body) {
+      query({ body, id }) {
         return {
           url: `comments/products/${id}`,
           method: 'GET',
@@ -25,11 +25,11 @@ export const reviewApi = createApi({
       },
     }),
     addReviews: builder.mutation({
-      query(id, reviewData) {
+      query({ data, id }) {
         return {
           url: `comments/products/${id}`,
           method: 'POST',
-          body: reviewData,
+          body: data,
         };
       },
     }),

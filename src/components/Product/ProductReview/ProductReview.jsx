@@ -6,16 +6,16 @@ import Preloader from '@components/Base/Preloader/Preloader';
 const ProductReview = ({ productId }) => {
   const itemsPerPage = 3;
   const [itemOffset, setItemOffset] = useState(0);
-  const [reviewItemGet, { data }] = useLazyProductReviewsQuery({
-    per_page: itemsPerPage,
-  });
+  const [reviewItemGet, { data }] = useLazyProductReviewsQuery();
+
   useEffect(() => {
-    reviewItemGet(productId);
+    reviewItemGet({ id: productId });
   }, [data, productId]);
+
   if (!data || !data.data) {
     return <Preloader />;
   }
-  console.log('reviewsList', data);
+
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = data.data.slice(itemOffset, endOffset);
   return (
@@ -36,13 +36,15 @@ const ProductReview = ({ productId }) => {
             />
           ))}
         </div>
-        <Pagination
-          items={data.data}
-          itemsPerPage={itemsPerPage}
-          pageRangeDisplayed={5}
-          itemOffset={itemOffset}
-          setItemOffset={setItemOffset}
-        />
+        {data.data.length > 3 && (
+          <Pagination
+            items={data.data}
+            itemsPerPage={itemsPerPage}
+            pageRangeDisplayed={5}
+            itemOffset={itemOffset}
+            setItemOffset={setItemOffset}
+          />
+        )}
       </div>
     </div>
   );
