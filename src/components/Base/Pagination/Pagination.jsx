@@ -7,7 +7,6 @@ const Pagination = ({
   itemsPerPage,
   items,
   setItemOffset,
-  handlePagination,
   selectedPage,
 }) => {
   const pageCount = Math.ceil(items.length / itemsPerPage);
@@ -18,7 +17,6 @@ const Pagination = ({
       `User requested page number ${event.selected}, which is offset ${newOffset}`
     );
     setItemOffset(newOffset);
-    handlePagination(event);
   };
   return (
     <ReactPaginate
