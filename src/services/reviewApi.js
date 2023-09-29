@@ -24,6 +24,19 @@ export const reviewApi = createApi({
         };
       },
     }),
+    addReviews: builder.mutation({
+      query(id, reviewData) {
+        return {
+          url: `comments/products/${id}`,
+          method: 'POST',
+          body: reviewData,
+        };
+      },
+    }),
   }),
 });
-export const { useReviewsQuery, useLazyProductReviewsQuery } = reviewApi;
+export const {
+  useReviewsQuery,
+  useLazyProductReviewsQuery,
+  useAddReviewsMutation,
+} = reviewApi;

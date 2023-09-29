@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { icoAddImage } from '@static';
 
-const AddImageField = () => {
-  const [images, setImages] = useState([]);
-  const [imageURLs, setImageURLs] = useState([]);
+const AddImageField = ({ images, setImages, imageURLs, setImageURLs }) => {
+  // const [images, setImages] = useState([]);
+  // const [imageURLs, setImageURLs] = useState([]);
 
   useEffect(() => {
     const newImageUrls = images.map((image) => URL.createObjectURL(image));
@@ -43,7 +43,13 @@ const AddImageField = () => {
           <img src={icoAddImage} alt="Add" />
         </span>
         <span className="images-field__text">Choose images</span>
-        <input className="images-field__input" type="file" multiple accept="image/*" onChange={handleChange} />
+        <input
+          className="images-field__input"
+          type="file"
+          multiple
+          accept="image/*"
+          onChange={handleChange}
+        />
       </label>
     </div>
   );

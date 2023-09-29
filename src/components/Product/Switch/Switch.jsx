@@ -43,7 +43,7 @@ const Switch = ({ description, commentsCount, productId }) => {
           <ProductCharacteristics description={description} />
         )}
         {activeTab === 'reviews' && <ProductReview productId={productId} />}
-        {activeTab === 'addReview' && <AddReview />}
+        {activeTab === 'addReview' && <AddReview productId={productId} />}
       </div>
     </section>
   );

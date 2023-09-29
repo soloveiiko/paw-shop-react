@@ -23,7 +23,6 @@ const ProductReview = ({ productId }) => {
       <div className="container product-review__container">
         <div className="product-review__stars-range">
           <div className="product-review__range">{data.total.avg}</div>
-          <div className="product-review__count">{data.total.total}</div>
         </div>
         <div className="product-review__list">
           {currentItems.map((review) => (
