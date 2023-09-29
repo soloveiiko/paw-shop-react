@@ -5,7 +5,7 @@ export const reviewApi = createApi({
   reducerPath: 'reviewApi',
   baseQuery: baseQuery,
   endpoints: (builder) => ({
-    review: builder.query({
+    reviews: builder.query({
       query(body) {
         console.log('review body', body);
         return {
@@ -15,6 +15,15 @@ export const reviewApi = createApi({
         };
       },
     }),
+    productReviews: builder.query({
+      query(id, body) {
+        return {
+          url: `comments/products/${id}`,
+          method: 'GET',
+          params: body,
+        };
+      },
+    }),
   }),
 });
-export const { useReviewQuery } = reviewApi;
+export const { useReviewsQuery, useLazyProductReviewsQuery } = reviewApi;

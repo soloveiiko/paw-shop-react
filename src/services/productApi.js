@@ -5,15 +5,6 @@ export const productApi = createApi({
   reducerPath: 'catalogApi',
   baseQuery: baseQuery,
   endpoints: (builder) => ({
-    catalog: builder.query({
-      query(slug) {
-        console.log('catalog data', slug);
-        return {
-          url: `variations/${slug}`,
-          method: 'GET',
-        };
-      },
-    }),
     products: builder.query({
       query(body) {
         return {
@@ -23,6 +14,14 @@ export const productApi = createApi({
         };
       },
     }),
+    productItem: builder.query({
+      query(slug) {
+        return {
+          url: `variation/${slug}`,
+          method: 'GET',
+        };
+      },
+    }),
   }),
 });
-export const { useCatalogQuery, useProductsQuery } = productApi;
+export const { useProductsQuery, useLazyProductItemQuery } = productApi;

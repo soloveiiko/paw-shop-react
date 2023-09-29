@@ -9,6 +9,8 @@ const ProductContainer = ({ products }) => {
         <ProductItem
           product={product}
           key={product.product.id}
+          id={product.slug}
+          category={product.product.category.slug}
           isDiscount={product.prices.discount}
           discountPercent={product.discount_percent}
           image={product.images[0].url}

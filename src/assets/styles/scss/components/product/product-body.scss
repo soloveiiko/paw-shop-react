@@ -13,7 +13,7 @@
     width: 100%;
   }
 
-  &__stars-range, &__size, &__color, &__quantity, &__size-item, &__buy, &__btn-container {
+  &__stars-range, &__size, &__color, &__gender, &__quantity, &__size-item, &__buy, &__btn-container {
     display: flex;
     align-items: center;
   }
@@ -34,26 +34,32 @@
 
   &__slider {
     width: calc(75% - 7.5rem);
+    height: 400rem;
+    overflow: hidden;
   }
 
   &__slider-item {
     width: 471rem;
   }
-
+  &__slider-img {
+    height: 400rem;
+  }
   &__slider-img, &__trumbs-img {
     object-fit: contain;
   }
 
   .swiper-slide-thumb-active {
-   img {
-     border: 1rem solid $accent;
-     border-radius: 20rem;
-   }
+    img {
+      border: 1rem solid $accent;
+      border-radius: 20rem;
+    }
   }
 
   &__slider-trumbs {
     width: calc(25% - 7.5rem);
     height: 470rem;
+    overflow-y: scroll;
+
     swiper-slide {
       width: 125rem;
     }
@@ -64,7 +70,7 @@
   }
 
   &__trumbs-img {
-
+    height: auto;
   }
 
   &__description {
@@ -79,7 +85,7 @@
     color: #181818;
   }
 
-  &__size, &__color, &__quantity {
+  &__size, &__color, &__quantity, &__gender {
     gap: 30rem;
   }
 
@@ -101,13 +107,13 @@
     }
   }
 
-  &__color {
+  &__color, &__gender {
     &.selected {
       border: 1rem solid $accent;
     }
   }
 
-  &__color-item {
+  &__color-item, &__gender-item {
     overflow: hidden;
     width: 60rem;
     height: 60rem;

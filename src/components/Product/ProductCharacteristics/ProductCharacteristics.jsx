@@ -1,11 +1,11 @@
 import React from 'react';
 import { products } from '@utils/data';
 
-const ProductCharacteristics = () => {
+const ProductCharacteristics = ({ description }) => {
   const product = products[0];
   return (
     <div className="product-characteristics">
-      <h2>Description</h2>
+      <div dangerouslySetInnerHTML={{ __html: description }} />
       {/*<div className="container product-characteristics__container">*/}
       {/*  <div className="product-characteristics__description">*/}
       {/*    <div className="product-characteristics__details">*/}

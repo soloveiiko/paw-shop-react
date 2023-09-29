@@ -15,7 +15,7 @@ const ProductItem = (props) => {
           </div>
         )}
       </div>
-      <Link to="/catalog/2/product/3">
+      <Link to={`/catalog/${props.category}/product/${props.id}`}>
         <div className="products-item__img-container">
           <Image
             className="products-item__image"
@@ -28,7 +28,10 @@ const ProductItem = (props) => {
         </div>
       </Link>
       <div className="products-item__information">
-        <Link to="/catalog/product/1" className="products-item__name">
+        <Link
+          to={`/catalog/${props.category}/product/${props.id}`}
+          className="products-item__name"
+        >
           {props.name}
         </Link>
         <div className="products-item__stars-container stars-range">

@@ -21,7 +21,6 @@ const CatalogPage = () => {
   const [orderItem, setOrderItem] = useState(sortByList[0].order);
   const [itemOffset, setItemOffset] = useState(0);
   const [selectedPage, setSelectedPage] = useState(0);
-
   const { slug } = useParams();
   const catalogId = slug;
   const { data } = useProductsQuery({
@@ -49,7 +48,6 @@ const CatalogPage = () => {
     setOrderItem(order);
     setItemOffset(0);
     setSelectedPage(0);
-    console.log('itemOffset', itemOffset);
   };
 
   const endOffset = itemOffset + itemsPerPage;
@@ -61,7 +59,7 @@ const CatalogPage = () => {
 
   return (
     <div className="page catalog-page">
-      <Breadcrumbs item={selectedCatalog} />
+      <Breadcrumbs />
       <h2>Catalog</h2>
       <section className="catalog-page__filters">
         <PetsFilter />

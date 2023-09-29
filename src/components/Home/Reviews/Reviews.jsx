@@ -3,14 +3,13 @@ import { register } from 'swiper/element/bundle';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
 import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
 import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
-import { useReviewQuery } from '../../../services/reviewApi';
+import { useReviewsQuery } from '../../../services/reviewApi';
 import Preloader from '@components/Base/Preloader/Preloader';
 
 const Reviews = () => {
   const swiperReviewRef = useRef(null);
   const [randomReviews, setRandomReviews] = useState([]);
-  const { data } = useReviewQuery({ limit: 10 });
-  console.log('randomReviews', randomReviews);
+  const { data } = useReviewsQuery({ limit: 10 });
   register();
 
   useEffect(() => {
@@ -18,15 +17,6 @@ const Reviews = () => {
       setRandomReviews(data.data);
     }
   }, [data]);
-  const changeDateFormat = (date) => {
-    const inputDate = new Date(date);
-
-    const year = inputDate.getFullYear();
-    const month = String(inputDate.getMonth() + 1).padStart(2, '0');
-    const day = String(inputDate.getDate()).padStart(2, '0');
-
-    return `${day}.${month}.${year}`;
-  };
 
   useEffect(() => {
     const swiperContainer = swiperReviewRef.current;
@@ -100,7 +90,7 @@ const Reviews = () => {
               {randomReviews.length > 0 ? (
                 <>
                   <ReviewsItem
-                    date={changeDateFormat(review.created_at)}
+                    date={review.created_at}
                     username={review.name}
                     rating={review.rating}
                     body={review.body}

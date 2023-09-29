@@ -6,6 +6,16 @@ import Image from '@components/Base/Image/Image';
 const ReviewsItem = (props) => {
   const [maxVisibleImages, setMaxVisibleImages] = useState(2);
   const [showAllImages, setShowAllImages] = useState(false);
+
+  const changeDateFormat = (date) => {
+    const inputDate = new Date(date);
+
+    const year = inputDate.getFullYear();
+    const month = String(inputDate.getMonth() + 1).padStart(2, '0');
+    const day = String(inputDate.getDate()).padStart(2, '0');
+
+    return `${day}.${month}.${year}`;
+  };
   useEffect(() => {
     const handleResize = () => {
       const windowWidth = window.innerWidth;
@@ -28,12 +38,16 @@ const ReviewsItem = (props) => {
     setShowAllImages(true);
     setMaxVisibleImages(props.images.length);
   };
-  const displayedImages = showAllImages ? props.images : props.images.slice(0, maxVisibleImages);
+  const displayedImages = showAllImages
+    ? props.images
+    : props.images.slice(0, maxVisibleImages);
   return (
     <div className="reviews-item">
-      <div className="reviews-item__date">{props.date}</div>
+      <div className="reviews-item__date">{changeDateFormat(props.date)}</div>
       <div className="reviews-item__user">
-        <div className="reviews-item__username">{props.username ? props.username : 'User'}</div>
+        <div className="reviews-item__username">
+          {props.username ? props.username : 'User'}
+        </div>
         {/*<StarsRange item={props.rating} />*/}
       </div>
       <div className="reviews-item__body">{props.body}</div>
@@ -50,15 +64,26 @@ const ReviewsItem = (props) => {
             />
           </div>
         ))}
-        {props.images.length > maxVisibleImages && displayedImages.length < props.images.length && (
-          <button className="reviews-item__show-more-image" onClick={toggleImageDisplay}>
-            {`+${props.images.length - displayedImages.length}`}
-          </button>
-        )}
+        {props.images.length > maxVisibleImages &&
+          displayedImages.length < props.images.length && (
+            <button
+              className="reviews-item__show-more-image"
+              onClick={toggleImageDisplay}
+            >
+              {`+${props.images.length - displayedImages.length}`}
+            </button>
+          )}
       </div>
       <Link to="#" className="reviews-item__link">
         See the product
-        <img className="reviews-item__arrow" src={icoArrowAccent} width="9.5" height="9.5" loading="lazy" alt="Arrow" />
+        <img
+          className="reviews-item__arrow"
+          src={icoArrowAccent}
+          width="9.5"
+          height="9.5"
+          loading="lazy"
+          alt="Arrow"
+        />
       </Link>
     </div>
   );
