@@ -2,10 +2,10 @@ import React from 'react';
 import ProductItem from '@components/ProductItem/ProductItem';
 
 const ProductContainer = ({ products }) => {
-  const lastFourProducts = products.slice(-4);
+  const productsList = products.slice(-4);
   return (
     <div className="products-container">
-      {lastFourProducts.map((product) => (
+      {productsList.map((product) => (
         <ProductItem
           product={product}
           key={product.product.id}

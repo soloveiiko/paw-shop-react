@@ -29,8 +29,8 @@ const AddImageField = ({ images, setImages, imageURLs, setImageURLs }) => {
       {imageURLs.length > 0 && (
         <div className="images-field__list">
           {imageURLs.map((image, index) => (
-            <div className="images-field__item">
-              <div className="images-field__img-container" key={index}>
+            <div key={index} className="images-field__item">
+              <div className="images-field__img-container">
                 <img src={image} alt="Upload file" />
               </div>
               <AiOutlineClose onClick={(e) => cancelImage(index, e)} />

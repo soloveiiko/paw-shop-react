@@ -95,6 +95,7 @@ const Reviews = () => {
                     rating={review.rating}
                     body={review.body}
                     images={review.images}
+                    isLink={true}
                   />
                 </>
               ) : (

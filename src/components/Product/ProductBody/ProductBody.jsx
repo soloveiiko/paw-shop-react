@@ -1,18 +1,53 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { facebookBlue, icoReturn, telegramBlue, twitterBlue } from '@static';
 import Amount from '@components/Base/Amount/Amount';
 import Image from '@components/Base/Image/Image';
+import { Form, Formik } from 'formik';
+import StarsRange from '@components/Base/StarsRange/StarsRange';
 
 const ProductBody = (props) => {
   const [totalPrice, setTotalPrice] = useState(props.currPrice);
   const [quantity, setQuantity] = useState(props.minQty);
+  const [selectedProperties, setSelectedProperties] = useState({});
+  useEffect(() => {
+    const initialProperties = {};
+    props.switching.forEach((el) => {
+      const selectedProperty = el.properties.find((item) => item.is_current);
+      if (selectedProperty) {
+        initialProperties[el.attribute.name] = {
+          id: selectedProperty.property.id,
+          value: selectedProperty.property.value,
+        };
+      }
+    });
+    setSelectedProperties(initialProperties);
+    console.log('initialProperties:', selectedProperties);
+  }, [props.switching]);
+
+  useEffect(() => {
+    console.log('selectedProperties updated:', selectedProperties);
+  }, [selectedProperties]);
+  const handlePropertyClick = (attributeName, propertyValue, propertyId) => {
+    setSelectedProperties((prev) => ({
+      ...prev,
+      [attributeName]: {
+        id: propertyId,
+        value: propertyValue,
+      },
+    }));
+  };
+
+  const handleBuy = () => {
+    // console.log('Selected properties:', selectedProperties);
+  };
+
   return (
     <section className="product-body">
       <div className="container product-body__container">
         <div className="product-body__top">
           {props.name && <h2>{props.name}</h2>}
           <div className="product-body__stars-range">
-            {/*<StarsRange item={product} />*/}
+            <StarsRange value={props.rating} />
             {props.commentsCount && (
               <span className="product-body__stars-count">
                 {props.commentsCount}
@@ -62,66 +97,79 @@ const ProductBody = (props) => {
             ))}
           </swiper-container>
         </div>
-        <div className="product-body__description">
-          {props.sizes && (
-            <div className="product-body__size">
-              <span className="product-body__subtitle">Size:</span>
-              {props.sizes.map((size, index) => (
-                <button key={index} className="product-body__size-item">
-                  {size}
-                </button>
-              ))}
-            </div>
-          )}
-          {props.colors && (
-            <div className="product-body__color">
-              <span className="product-body__subtitle">Color:</span>
-              {props.colors.map((color, index) => (
-                <button key={index} className="product-body__color-item">
-                  {color}
-                </button>
-              ))}
-            </div>
-          )}
-          {props.genders && (
-            <div className="product-body__gender">
-              <span className="product-body__subtitle">Gender:</span>
-              {props.genders.map((gender, index) => (
-                <button key={index} className="product-body__gender-item">
-                  {gender}
-                </button>
-              ))}
-            </div>
-          )}
-          <div className="product-body__quantity">
-            <span className="product-body__subtitle">Quantity:</span>
-            <Amount
-              price={props.currPrice}
-              quantity={quantity}
-              setQuantity={setQuantity}
-              setTotalPrice={setTotalPrice}
-            />
-          </div>
-          <div className="product-body__buy">
-            <div className="product-body__price-container">
-              {props.discount === 1 ? (
-                <>
-                  <div className="product-body__prev-price">
-                    {props.oldPrice}$
+        <div className="product-body__checkbox-list">
+          <Formik initialValues={''} onSubmit={handleBuy}>
+            {() => (
+              <Form className="product-body__form">
+                {props.switching.map((el) => (
+                  <div
+                    key={el.attribute.id}
+                    className="product-body__checkbox-item"
+                  >
+                    <span className="product-body__subtitle">
+                      {el.attribute.name}:
+                    </span>
+                    {el.properties.map((item) => (
+                      <button
+                        key={item.property.id}
+                        className={`product-body__checkbox-btn${
+                          selectedProperties[el.attribute.name]?.id ===
+                          item.property.id
+                            ? ' selected'
+                            : ''
+                        }`}
+                        type="button"
+                        onClick={() =>
+                          handlePropertyClick(
+                            el.attribute.name,
+                            item.property.value,
+                            item.property.id
+                          )
+                        }
+                      >
+                        {item.property.value}
+                      </button>
+                    ))}
                   </div>
-                  <div className="product-body__curr-price">
-                    {props.currPrice}$
+                ))}
+                <div className="product-body__quantity">
+                  <span className="product-body__subtitle">Quantity:</span>
+                  <Amount
+                    price={props.currPrice}
+                    quantity={quantity}
+                    setQuantity={setQuantity}
+                    setTotalPrice={setTotalPrice}
+                  />
+                </div>
+                <div className="product-body__buy">
+                  <div className="product-body__price-container">
+                    {props.discount === 1 ? (
+                      <>
+                        <div className="product-body__prev-price">
+                          {props.oldPrice}$
+                        </div>
+                        <div className="product-body__curr-price">
+                          {props.currPrice}$
+                        </div>
+                      </>
+                    ) : (
+                      <div className="product-body__price">
+                        {props.currPrice}$
+                      </div>
+                    )}
                   </div>
-                </>
-              ) : (
-                <div className="product-body__price">{props.currPrice}$</div>
-              )}
-            </div>
-            <div className="product-body__btn-container">
-              <button className="product-body__in-basket">Add to cart</button>
-              <button className="product-body__buy-btn">Buy 1 click</button>
-            </div>
-          </div>
+                  <div className="product-body__btn-container">
+                    <button className="product-body__in-basket">
+                      Add to cart
+                    </button>
+                    <button className="product-body__buy-btn">
+                      Buy 1 click
+                    </button>
+                  </div>
+                </div>
+              </Form>
+            )}
+          </Formik>
           <div className="product-body__return">
             <img
               className="product-body__return-img"

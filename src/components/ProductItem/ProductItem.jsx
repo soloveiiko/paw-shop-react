@@ -35,7 +35,7 @@ const ProductItem = (props) => {
           {props.name}
         </Link>
         <div className="products-item__stars-container stars-range">
-          <StarsRange item={props.rating} />
+          <StarsRange value={props.rating} />
           <div className="products-item__reviews">{props.commentsCount}</div>
         </div>
         <div className="products-item__price-container">

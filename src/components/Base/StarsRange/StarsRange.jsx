@@ -1,15 +1,30 @@
 import React from 'react';
-import { icoStars } from '@static';
+import { Rating } from 'react-simple-star-rating';
 
-const StarsRange = ({ item }) => {
-  const stars = item.stars
-    ? Array.from({ length: item.stars }).map((_, index) => (
-        <img key={index} src={icoStars} width="20" height="20" loading="lazy" alt="Star" />
-      ))
-    : Array.from({ length: 5 }).map((_, index) => (
-        <img key={index} src={icoStars} width="20" height="20" loading="lazy" alt="Star" />
-      ));
-  return <div className="stars-range__list">{item.stars ? item.stars : stars}</div>;
+const fillColorArray = [
+  '#f17a45',
+  '#f17a45',
+  '#f19745',
+  '#f19745',
+  '#f1a545',
+  '#f1a545',
+  '#f1b345',
+  '#f1b345',
+  '#f1d045',
+  '#f1d045',
+];
+
+const StarsRange = ({ value, size }) => {
+  return (
+    <Rating
+      initialValue={value}
+      readonly
+      size={size ? size : '19'}
+      transition
+      allowFraction
+      fillColorArray={fillColorArray}
+    />
+  );
 };
 
 export default StarsRange;

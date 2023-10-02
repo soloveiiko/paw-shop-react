@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { icoArrowAccent } from '@static';
 import Image from '@components/Base/Image/Image';
+import StarsRange from '@components/Base/StarsRange/StarsRange';
 
 const ReviewsItem = (props) => {
   const [maxVisibleImages, setMaxVisibleImages] = useState(2);
@@ -48,7 +49,7 @@ const ReviewsItem = (props) => {
         <div className="reviews-item__username">
           {props.username ? props.username : 'User'}
         </div>
-        {/*<StarsRange item={props.rating} />*/}
+        <StarsRange value={props.rating} />
       </div>
       <div className="reviews-item__body">{props.body}</div>
       <div className="reviews-item__images">
@@ -74,17 +75,19 @@ const ReviewsItem = (props) => {
             </button>
           )}
       </div>
-      <Link to="#" className="reviews-item__link">
-        See the product
-        <img
-          className="reviews-item__arrow"
-          src={icoArrowAccent}
-          width="9.5"
-          height="9.5"
-          loading="lazy"
-          alt="Arrow"
-        />
-      </Link>
+      {props.isLink && (
+        <Link to="#" className="reviews-item__link">
+          See the product
+          <img
+            className="reviews-item__arrow"
+            src={icoArrowAccent}
+            width="9.5"
+            height="9.5"
+            loading="lazy"
+            alt="Arrow"
+          />
+        </Link>
+      )}
     </div>
   );
 };

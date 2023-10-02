@@ -26,13 +26,11 @@ const ProductPage = () => {
         sku={data.data.sku}
         commentsCount={data.data.product.comments_count}
         images={data.data.images}
-        colors={data.specifications.Color}
-        genders={data.specifications.Gender}
-        sizes={data.specifications.Size}
         currPrice={data.data.price}
         oldPrice={data.data.price_old}
         minQty={data.data.min_qty}
         discount={data.data.prices.discount}
+        switching={data.switching}
       />
       <Switch product={data.data} />
       <SimilarProducts />

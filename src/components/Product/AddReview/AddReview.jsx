@@ -17,22 +17,33 @@ const AddReview = ({ product }) => {
   const validationSchema = Yup.object().shape({
     body: Yup.string().required('Required'),
   });
+
+  console.log(rating);
   const onSubmitHandler = async (values, { resetForm }) => {
-    console.log('productId', product.product.id);
-    console.log('Type of productId:', { id: product.product.id });
     const result = await addedReview({
       data: {
         body: values.body,
         rating: rating,
-        images: [],
+        images: images,
       },
       id: product?.product.id,
     });
 
     console.log('result:', result);
+    console.log('result:', {
+      data: {
+        body: values.body,
+        rating: rating,
+        images: images,
+      },
+      id: product?.product.id,
+    });
+    console.log('images:', images);
+    console.log('imageURLs:', setImageURLs);
     if (result.data) {
       setNewReview(result.data);
       resetForm({ values: { body: '' } });
+      setRating(0);
       return result;
     }
 
@@ -51,14 +62,17 @@ const AddReview = ({ product }) => {
             <Form className="add-review__form">
               <div className="add-review__range">
                 <Rating
-                  onClick={handleRating}
+                  className="stars-rating"
                   ratingValue={rating}
                   size={50}
                   label
                   transition
                   fillColor="orange"
                   emptyColor="gray"
-                  className="stars-rating"
+                  onClick={handleRating}
+                  onMouseLeave={() => {
+                    setRating((currentRating) => currentRating);
+                  }}
                 />
               </div>
               <div className="add-review__form-wrapper">
