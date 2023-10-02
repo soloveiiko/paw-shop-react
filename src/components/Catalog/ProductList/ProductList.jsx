@@ -1,6 +1,5 @@
 import React from 'react';
 import ProductItem from '@components/ProductItem/ProductItem';
-import Pagination from '@components/Base/Pagination/Pagination';
 
 const ProductList = ({ currentItems }) => {
   return (
