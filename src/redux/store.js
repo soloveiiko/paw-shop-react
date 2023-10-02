@@ -9,6 +9,7 @@ import authSlice from './auth/authSlice';
 import modalsSlice from './modals/modalsSlice';
 import subscribeSlice from './subscribe/subscribeSlice';
 import catalogSlice from './catalog/catalogSlice';
+import { cartApi } from '../services/cartApi';
 
 export const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ export const store = configureStore({
     [reviewApi.reducerPath]: reviewApi.reducer,
     [subscribeApi.reducerPath]: subscribeApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
+    [cartApi.reducerPath]: cartApi.reducer,
     modals: modalsSlice,
     auth: authSlice,
     subscribe: subscribeSlice,
@@ -30,6 +32,7 @@ export const store = configureStore({
       subscribeApi.middleware,
       productApi.middleware,
       reviewApi.middleware,
+      cartApi.middleware,
     ]),
 });
 

@@ -5,18 +5,16 @@ import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 const Pagination = ({
   pageRangeDisplayed,
   itemsPerPage,
-  items,
-  setItemOffset,
-  selectedPage,
+  setCurrentPage,
+  pageCount,
 }) => {
-  const pageCount = Math.ceil(items.length / itemsPerPage);
-
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
+    const selectedPage = event.selected + 1;
+    const newOffset = (selectedPage - 1) * itemsPerPage;
     console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
+      `User requested page number ${selectedPage}, which is offset ${newOffset}`
     );
-    setItemOffset(newOffset);
+    setCurrentPage(selectedPage);
   };
   return (
     <ReactPaginate
@@ -33,7 +31,6 @@ const Pagination = ({
       pageCount={pageCount}
       previousLabel={<SlArrowLeft />}
       renderOnZeroPageCount={null}
-      forcePage={selectedPage}
     />
   );
 };

@@ -1,22 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TfiClose } from 'react-icons/tfi';
 import CartItem from '@components/Modals/Cart/CartItem/CartItem';
 import { icoCart } from '@static';
-
-const cartList = [
-  { id: 1, name: 'KONG Squeezz Ball Dog Toy, Red', image: '', price: 3, number: 1 },
-  { id: 2, name: 'Interactive Stress Relief Dog Toy', image: '', price: 3, number: 1 },
-];
+import { useCartQuery } from '../../../services/cartApi';
 
 const Cart = ({ handleCart, isOpenCart }) => {
-  const [cart, setCartList] = useState(cartList);
+  const [cart, setCartList] = useState([]);
+
+  const { data, isLoading, isError } = useCartQuery();
+  console.log('cart data', data);
+  useEffect(() => {
+    if (!isLoading && !isError && data) {
+      setCartList(data.data);
+    }
+  }, [data]);
   const handleDelete = (itemId) => {
     const updatedCartList = cart.filter((item) => item.id !== itemId);
     setCartList(updatedCartList);
   };
-  const totalSum = () => {
-    return cart.reduce((acc, item) => acc + item.price * item.number, 0);
-  };
+  // const totalSum = () => {
+  //   return cart.reduce((acc, item) => acc + item.price * item.number, 0);
+  // };
   return (
     <div className={`cart-layout${isOpenCart ? ' open' : ''}`}>
       <div className="cart-layout_top">
@@ -29,10 +33,14 @@ const Cart = ({ handleCart, isOpenCart }) => {
         </button>
       </div>
       <div className="cart-layout_center">
-        {cart.length > 0 ? (
+        {data && data.data && cart.length > 0 ? (
           <>
             {cart.map((item) => (
-              <CartItem key={item.id} product={item} handleDelete={handleDelete} />
+              <CartItem
+                key={item.id}
+                product={item}
+                handleDelete={handleDelete}
+              />
             ))}
           </>
         ) : (
@@ -42,7 +50,7 @@ const Cart = ({ handleCart, isOpenCart }) => {
       <div className="cart-layout_bottom">
         <div className="cart-layout__subtotal">
           <span className="cart-layout__subtotal-title">Cart Subtotal: </span>
-          <b className="cart-layout__subtotal-price">${totalSum()}</b>
+          {/*<b className="cart-layout__subtotal-price">${totalSum()}</b>*/}
         </div>
         <div className="cart-layout__btn-container">
           <button className="cart-layout__shopping-btn">Keep shopping</button>

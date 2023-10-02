@@ -2,15 +2,7 @@ import React from 'react';
 import ProductItem from '@components/ProductItem/ProductItem';
 import Pagination from '@components/Base/Pagination/Pagination';
 
-const ProductList = ({
-  products,
-  setItemOffset,
-  itemOffset,
-  currentItems,
-  itemsPerPage,
-  handlePagination,
-  selectedPage,
-}) => {
+const ProductList = ({ currentItems }) => {
   return (
     <div className="product-list">
       <div className="product-list__wrapper">
@@ -31,17 +23,6 @@ const ProductList = ({
           />
         ))}
       </div>
-      {products.length > itemsPerPage && (
-        <Pagination
-          items={products}
-          itemsPerPage={itemsPerPage}
-          pageRangeDisplayed={5}
-          itemOffset={itemOffset}
-          setItemOffset={setItemOffset}
-          handlePagination={handlePagination}
-          selectedPage={selectedPage}
-        />
-      )}
     </div>
   );
 };

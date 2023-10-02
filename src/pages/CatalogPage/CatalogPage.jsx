@@ -6,55 +6,51 @@ import {
   ProductList,
   SortBy,
 } from '@components';
-import { catalogList } from '@utils/data';
-import { useParams } from 'react-router-dom';
-import { useProductsQuery } from '../../services/productApi';
-export const sortByList = [
-  { id: '1', name: 'Default', sort: 'default' },
+import { useNavigate, useParams } from 'react-router-dom';
+import { useLazyProductsQuery } from '../../services/productApi';
+import Pagination from '@components/Base/Pagination/Pagination';
+
+const sortByList = [
+  { id: '1', name: 'Default', sort: 'default', order: 'desc' },
   { id: '2', name: 'More expensive at first', sort: 'price', order: 'desc' },
   { id: '3', name: 'The cheapest first', sort: 'price', order: 'asc' },
   { id: '4', name: 'The most popular first', sort: 'rating', order: 'desc' },
 ];
 const CatalogPage = () => {
-  const [randomProducts, setRandomProducts] = useState([]);
   const [sortItem, setSortItem] = useState(sortByList[0].sort);
   const [orderItem, setOrderItem] = useState(sortByList[0].order);
-  const [itemOffset, setItemOffset] = useState(0);
-  const [selectedPage, setSelectedPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const { slug } = useParams();
-  const catalogId = slug;
-  const { data } = useProductsQuery({
-    per_page: 10,
-    sort: sortItem,
-    order: orderItem,
-  });
+  const [getCatalogList, { data }] = useLazyProductsQuery();
   const itemsPerPage = 1;
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (data) {
-      setRandomProducts(data.data);
-    }
-  }, [data, sortItem, orderItem, itemOffset, selectedPage]);
+    // const params = new URLSearchParams(window.location.search);
+    // const sortParam = params.get('sort') || sortByList[0].sort;
+    // const orderParam = params.get('order') || sortByList[0].order;
+    //
+    // setSortItem(sortParam);
+    // setOrderItem(orderParam);
+    // setCurrentPage(Number(params.get('page')) || 1);
 
-  const selectedCatalog = catalogList.find(
-    (catalog) => catalog.id === catalogId
-  );
-  const catalogProducts = randomProducts.filter(
-    (product) => product.product.category.slug === selectedCatalog.id
-  );
+    getCatalogList({
+      page: currentPage,
+      per_page: itemsPerPage,
+      sort: sortItem,
+      order: orderItem,
+      category: slug,
+    }).then(() => {
+      const url = `/catalog/${slug}?sort=${sortItem}&order=${orderItem}&page=${currentPage}`;
+      navigate(url);
+    });
+  }, [slug, currentPage, sortItem, orderItem, navigate]);
 
+  console.log('data', data);
   const handleSort = (sort, order) => {
     setSortItem(sort);
     setOrderItem(order);
-    setItemOffset(0);
-    setSelectedPage(0);
-  };
-
-  const endOffset = itemOffset + itemsPerPage;
-  const paginateItems = catalogProducts.slice(itemOffset, endOffset);
-  const handlePagination = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % catalogProducts.length;
-    setItemOffset(newOffset);
+    setCurrentPage(1);
   };
 
   return (
@@ -74,15 +70,16 @@ const CatalogPage = () => {
         </div>
       </section>
       <section className="container catalog-page__product-container">
-        <ProductList
-          currentItems={paginateItems}
-          products={catalogProducts}
-          itemOffset={itemOffset}
-          setItemOffset={setItemOffset}
-          itemsPerPage={itemsPerPage}
-          handlePagination={handlePagination}
-          selectedPage={selectedPage}
-        />
+        {data && <ProductList currentItems={data.data} />}
+        {data && data.meta && (
+          <Pagination
+            pageRangeDisplayed={5}
+            itemsPerPage={itemsPerPage}
+            items={data.meta.total}
+            setCurrentPage={setCurrentPage}
+            pageCount={data.meta.last_page}
+          />
+        )}
       </section>
     </div>
   );
