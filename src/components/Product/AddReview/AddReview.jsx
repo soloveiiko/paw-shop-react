@@ -18,36 +18,24 @@ const AddReview = ({ product }) => {
     body: Yup.string().required('Required'),
   });
 
-  console.log(rating);
   const onSubmitHandler = async (values, { resetForm }) => {
+    const formData = new FormData();
+    formData.append('images', images);
     const result = await addedReview({
       data: {
         body: values.body,
         rating: rating,
-        images: images,
+        images: formData,
       },
       id: product?.product.id,
     });
 
-    console.log('result:', result);
-    console.log('result:', {
-      data: {
-        body: values.body,
-        rating: rating,
-        images: images,
-      },
-      id: product?.product.id,
-    });
-    console.log('images:', images);
-    console.log('imageURLs:', setImageURLs);
     if (result.data) {
       setNewReview(result.data);
       resetForm({ values: { body: '' } });
       setRating(0);
-      return result;
+      setImages([]);
     }
-
-    return null;
   };
   return (
     <div className="add-review">
