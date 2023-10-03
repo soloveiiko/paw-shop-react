@@ -23,6 +23,7 @@ export const authApi = createApi({
           body: data,
         };
       },
+      invalidatesTags: ['User'],
     }),
     verifyEmail: builder.mutation({
       query() {
@@ -40,6 +41,7 @@ export const authApi = createApi({
           body: data,
         };
       },
+      invalidatesTags: ['User'],
     }),
   }),
 });

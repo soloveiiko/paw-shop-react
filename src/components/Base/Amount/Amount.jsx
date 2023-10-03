@@ -1,15 +1,13 @@
 import React from 'react';
 
-const Amount = ({ setQuantity, quantity, price, setTotalPrice }) => {
+const Amount = ({ setQuantity, quantity }) => {
   const handleIncrement = () => {
     setQuantity(quantity + 1);
-    setTotalPrice((quantity + 1) * price);
   };
 
   const handleDecrement = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
-      setTotalPrice((quantity - 1) * price);
     }
   };
   return (

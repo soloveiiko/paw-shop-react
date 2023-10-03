@@ -9,6 +9,7 @@ import authSlice from './auth/authSlice';
 import modalsSlice from './modals/modalsSlice';
 import subscribeSlice from './subscribe/subscribeSlice';
 import catalogSlice from './catalog/catalogSlice';
+import cartSlice from './cart/cartSlice';
 import { cartApi } from '../services/cartApi';
 
 export const store = configureStore({
@@ -23,6 +24,7 @@ export const store = configureStore({
     auth: authSlice,
     subscribe: subscribeSlice,
     catalog: catalogSlice,
+    cart: cartSlice,
   },
   devTools: process.env.NODE_ENV === 'development',
   middleware: (getDefaultMiddleware) =>

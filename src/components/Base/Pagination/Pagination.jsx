@@ -2,20 +2,13 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
-const Pagination = ({
-  pageRangeDisplayed,
-  itemsPerPage,
-  setCurrentPage,
-  pageCount,
-}) => {
-  const handlePageClick = (event) => {
-    const selectedPage = event.selected + 1;
-    const newOffset = (selectedPage - 1) * itemsPerPage;
-    console.log(
-      `User requested page number ${selectedPage}, which is offset ${newOffset}`
-    );
-    setCurrentPage(selectedPage);
+const Pagination = ({ pageRangeDisplayed, onPageChange, pageCount }) => {
+  const handlePageClick = (data) => {
+    const selectedPage = data.selected + 1;
+    console.log(`User requested page number ${selectedPage}`);
+    onPageChange(selectedPage);
   };
+
   return (
     <ReactPaginate
       className="pagination"

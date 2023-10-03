@@ -15,7 +15,8 @@ const SignInForm = ({ setSignIn, setResetPassword }) => {
   const navigate = useNavigate();
   const isOpenAuth = useSelector((state) => state.modals.authModal);
   const dispatch = useDispatch();
-  const [loginUser, { isLoading, isError, error, isSuccess }] = useLoginUserMutation();
+  const [loginUser, { isLoading, isError, error, isSuccess }] =
+    useLoginUserMutation();
 
   useEffect(() => {
     if (isSuccess) {
@@ -28,22 +29,30 @@ const SignInForm = ({ setSignIn, setResetPassword }) => {
     email: Yup.string()
       .required('Required')
       .matches(/@[^.]*\./, 'Not valid!'),
-    password: Yup.string().required('Password is required!').min(8, 'Too Short!').max(16, 'Too Long!'),
+    password: Yup.string()
+      .required('Password is required!')
+      .min(8, 'Too Short!')
+      .max(16, 'Too Long!'),
   });
   const onSubmitHandler = async (values, { resetForm }) => {
-    const result = await loginUser(values);
-
+    const result = await loginUser({
+      email: values.email,
+      password: values.password,
+    });
     if (result.data) {
       dispatch(setUser(result.data.data));
-      Cookies.set('access_token', JSON.stringify(result.data.data.access_token));
+      Cookies.set('access_token', result.data.data.access_token);
       resetForm({ values: { email: '', password: '' } });
-      return result;
     }
-    return null;
+    console.log('result login', result);
   };
 
   return (
-    <Formik initialValues={{ email: '', password: '' }} validationSchema={validationSchema} onSubmit={onSubmitHandler}>
+    <Formik
+      initialValues={{ email: '', password: '' }}
+      validationSchema={validationSchema}
+      onSubmit={onSubmitHandler}
+    >
       {({ errors }) => (
         <Form className="auth__form">
           {isLoading && <Preloader />}
@@ -60,15 +69,31 @@ const SignInForm = ({ setSignIn, setResetPassword }) => {
               />
             </div>
             <div className="auth__input-wrapper">
-              <InputField className="auth" type="password" name="password" placeholder="Password" errors={errors} />
+              <InputField
+                className="auth"
+                type="password"
+                name="password"
+                placeholder="Password"
+                errors={errors}
+              />
             </div>
           </div>
           <div className="auth__addition">
-            <input className="auth__remember-me" type="checkbox" id="remember-me-checkbox" />
-            <label className="auth__remember-me-title" htmlFor="remember-me-checkbox">
+            <input
+              className="auth__remember-me"
+              type="checkbox"
+              id="remember-me-checkbox"
+            />
+            <label
+              className="auth__remember-me-title"
+              htmlFor="remember-me-checkbox"
+            >
               Remember me
             </label>
-            <button className="auth__reset-password" onClick={() => setResetPassword(true)}>
+            <button
+              className="auth__reset-password"
+              onClick={() => setResetPassword(true)}
+            >
               I forgot password
             </button>
           </div>
@@ -76,9 +101,20 @@ const SignInForm = ({ setSignIn, setResetPassword }) => {
             <button className="auth__submit-btn" type="submit">
               Sing in
             </button>
-            <button className="auth__registration-btn" type="button" onClick={() => setSignIn(false)}>
-              <span className="auth__registration-btn-text"> I’m a new customer</span>
-              <img className="auth__btn-image" src={icoArrowAccent} alt="Register" />
+            <button
+              className="auth__registration-btn"
+              type="button"
+              onClick={() => setSignIn(false)}
+            >
+              <span className="auth__registration-btn-text">
+                {' '}
+                I’m a new customer
+              </span>
+              <img
+                className="auth__btn-image"
+                src={icoArrowAccent}
+                alt="Register"
+              />
             </button>
           </div>
         </Form>

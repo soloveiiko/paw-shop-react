@@ -4,16 +4,16 @@ import { baseQuery } from './configApi';
 export const cartApi = createApi({
   reducerPath: 'cartApi',
   baseQuery: baseQuery,
+  tagTypes: ['Cart'],
   endpoints: (builder) => ({
     cart: builder.query({
-      query(data) {
-        console.log('cart data', data);
+      query() {
         return {
           url: `carts`,
           method: 'GET',
-          body: data,
         };
       },
+      providesTags: ['Cart'],
     }),
     addToCart: builder.mutation({
       query({ data, id }) {
@@ -24,6 +24,7 @@ export const cartApi = createApi({
           body: data,
         };
       },
+      invalidatesTags: ['Cart'],
     }),
     removeFromCart: builder.mutation({
       query({ data, id }) {
@@ -34,6 +35,7 @@ export const cartApi = createApi({
           body: data,
         };
       },
+      invalidatesTags: ['Cart'],
     }),
   }),
 });

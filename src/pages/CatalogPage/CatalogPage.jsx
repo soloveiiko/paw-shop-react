@@ -26,26 +26,22 @@ const CatalogPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search);
     // const sortParam = params.get('sort') || sortByList[0].sort;
     // const orderParam = params.get('order') || sortByList[0].order;
-    //
+
     // setSortItem(sortParam);
     // setOrderItem(orderParam);
-    // setCurrentPage(Number(params.get('page')) || 1);
-
+    setCurrentPage(Number(params.get('page')) || 1);
     getCatalogList({
       page: currentPage,
       per_page: itemsPerPage,
       sort: sortItem,
       order: orderItem,
       category: slug,
-    }).then(() => {
-      const url = `/catalog/${slug}?sort=${sortItem}&order=${orderItem}&page=${currentPage}`;
-      navigate(url);
     });
+    console.log('currentPage', currentPage);
   }, [slug, currentPage, sortItem, orderItem, navigate]);
-
   console.log('data', data);
   const handleSort = (sort, order) => {
     setSortItem(sort);
@@ -53,6 +49,12 @@ const CatalogPage = () => {
     setCurrentPage(1);
   };
 
+  const handlePagination = (selectedPage) => {
+    setCurrentPage(selectedPage);
+    const url = `/catalog/${slug}?sort=${sortItem}&order=${orderItem}&page=${selectedPage}`;
+    navigate(url);
+    console.log('selectedPage', selectedPage);
+  };
   return (
     <div className="page catalog-page">
       <Breadcrumbs />
@@ -74,9 +76,7 @@ const CatalogPage = () => {
         {data && data.meta && (
           <Pagination
             pageRangeDisplayed={5}
-            itemsPerPage={itemsPerPage}
-            items={data.meta.total}
-            setCurrentPage={setCurrentPage}
+            onPageChange={handlePagination}
             pageCount={data.meta.last_page}
           />
         )}

@@ -24,10 +24,19 @@ const Layout = () => {
         <Outlet />
       </main>
       <Footer />
-      {isOpenAuth && <AuthContainer isOpenAuth={isOpenAuth} handleAuth={handleAuth} />}
-      <Cart isOpenCart={isOpenCart} handleCart={handleCart} />
-      {isOpenAuth || (isOpenCart && <div className={`overlayModal ${isOpenAuth || isOpenCart ? 'show' : ''}`}></div>)}
-      {isOpenSidebar && <div className={`overlay ${isOpenSidebar ? 'show' : ''}`}></div>}
+      {isOpenAuth && (
+        <AuthContainer isOpenAuth={isOpenAuth} handleAuth={handleAuth} />
+      )}
+      <Cart handleCart={handleCart} />
+      {isOpenAuth ||
+        (isOpenCart && (
+          <div
+            className={`overlayModal ${isOpenAuth || isOpenCart ? 'show' : ''}`}
+          ></div>
+        ))}
+      {isOpenSidebar && (
+        <div className={`overlay ${isOpenSidebar ? 'show' : ''}`}></div>
+      )}
     </div>
   );
 };

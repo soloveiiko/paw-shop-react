@@ -10,9 +10,9 @@ function App() {
 
   useEffect(() => {
     const userData = Cookies.get('access_token');
+    console.log('userData', userData);
     if (userData) {
-      const parsedUserData = JSON.parse(userData);
-      dispatch(setUser({ access_token: parsedUserData }));
+      dispatch(setUser({ access_token: userData }));
     }
   }, [dispatch]);
 

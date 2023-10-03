@@ -7,7 +7,6 @@ import Preloader from '@components/Base/Preloader/Preloader';
 const ProductPage = () => {
   const { slug } = useParams();
   const [catalogItemGet, { data }] = useLazyProductItemQuery();
-  console.log('randomProducts', data);
 
   useEffect(() => {
     catalogItemGet(slug);
@@ -17,9 +16,13 @@ const ProductPage = () => {
     return <Preloader />;
   }
 
+  const selectedVariation = data.variations
+    .filter((el) => el.slug === slug)
+    .map((el) => el.id);
+
   return (
     <div className="page product-page">
-      <Breadcrumbs name={catalogItemGet.name} />
+      <Breadcrumbs name={data.data.name} />
       <ProductBody
         name={data.data.name}
         rating={data.data.product.rating}
@@ -31,6 +34,7 @@ const ProductPage = () => {
         minQty={data.data.min_qty}
         discount={data.data.prices.discount}
         switching={data.switching}
+        variation={selectedVariation}
       />
       <Switch product={data.data} />
       <SimilarProducts />

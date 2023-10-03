@@ -3,17 +3,28 @@ import { TfiClose } from 'react-icons/tfi';
 import CartItem from '@components/Modals/Cart/CartItem/CartItem';
 import { icoCart } from '@static';
 import { useCartQuery } from '../../../services/cartApi';
-
-const Cart = ({ handleCart, isOpenCart }) => {
+import { useDispatch, useSelector } from 'react-redux';
+import { setCartCount, setCartId } from '../../../redux/cart/cartSlice';
+import Cookies from 'js-cookie';
+const Cart = ({ handleCart }) => {
+  const isOpenCart = useSelector((state) => state.modals.cartModal);
   const [cart, setCartList] = useState([]);
+  const dispatch = useDispatch();
+  const cartList = useSelector((state) => state.cart);
+  console.log('cart wdlwekd', cartList);
+  const { data } = useCartQuery();
 
-  const { data, isLoading, isError } = useCartQuery();
-  console.log('cart data', data);
   useEffect(() => {
-    if (!isLoading && !isError && data) {
-      setCartList(data.data);
+    if (data && data.data) {
+      console.log('Cart data:', data);
+      setCartList(data);
+      dispatch(setCartCount(data.data.purchases.length));
+      dispatch(setCartId(data.data.id));
+      Cookies.set('cart_id', data.data.id);
     }
   }, [data]);
+
+  console.log('cart data', data);
   const handleDelete = (itemId) => {
     const updatedCartList = cart.filter((item) => item.id !== itemId);
     setCartList(updatedCartList);
@@ -33,9 +44,9 @@ const Cart = ({ handleCart, isOpenCart }) => {
         </button>
       </div>
       <div className="cart-layout_center">
-        {data && data.data && cart.length > 0 ? (
+        {data && data.data ? (
           <>
-            {cart.map((item) => (
+            {data.data.purchases.map((item) => (
               <CartItem
                 key={item.id}
                 product={item}
