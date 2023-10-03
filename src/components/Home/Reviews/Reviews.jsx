@@ -3,7 +3,7 @@ import { register } from 'swiper/element/bundle';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
 import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
 import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
-import { useReviewsQuery } from '../../../services/reviewApi';
+import { useReviewsQuery } from '@services/reviewApi';
 import Preloader from '@components/Base/Preloader/Preloader';
 
 const Reviews = () => {

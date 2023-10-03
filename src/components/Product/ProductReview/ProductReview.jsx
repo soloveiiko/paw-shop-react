@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLazyProductReviewsQuery } from '../../../services/reviewApi';
+import { useLazyProductReviewsQuery } from '@services/reviewApi';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
 import Pagination from '@components/Base/Pagination/Pagination';
 import Preloader from '@components/Base/Preloader/Preloader';

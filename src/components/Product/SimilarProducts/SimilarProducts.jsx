@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProductContainer from '@components/Base/ProductContainer/ProductContainer';
-import { useProductsQuery } from '../../../services/productApi';
+import { useProductsQuery } from '@services/productApi';
 
 const SimilarProducts = () => {
   const [randomProducts, setRandomProducts] = useState([]);

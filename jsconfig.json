@@ -8,15 +8,21 @@
     "paths": {
       "@assets": ["assets"],
       "@components": ["components/index"],
+      "@layout": ["layout"],
       "@pages": ["pages/index"],
+      "@redux": ["redux"],
       "@routes": ["routes"],
+      "@services": ["services"],
       "@static": ["static"],
       "@utils": ["utils"],
 
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
+      "@layout/*": ["layout/*"],
       "@pages/*": ["pages/*"],
+      "@redux/*": ["redux/*"],
       "@routes/*": ["routes/*"],
+      "@services/*": ["services/*"],
       "@static/*": ["static/*"],
       "@utils/*": ["utils/*"]
     }

@@ -5,7 +5,7 @@ import Navbar from '@components/Base/Header/Navbar/Navbar';
 import Tools from '@components/Base/Header/Tools/Tools';
 import Sidebar from '@components/Base/Header/Sidebar/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import { openSidebar } from '../../../redux/modals/modalsSlice';
+import { openSidebar } from '@redux/modals/modalsSlice';
 
 const Header = ({ handleAuth, handleCart }) => {
   const [tablet, setTablet] = useState(false);
@@ -33,8 +33,14 @@ const Header = ({ handleAuth, handleCart }) => {
         <Link to="#" className="header__number" href="tel:1-800-055-5566">
           1-800-055-5566
         </Link>
-        <Tools toggleSidebar={toggleSidebar} handleAuth={handleAuth} handleCart={handleCart} />
-        {tablet && <Sidebar isOpen={isOpenSidebar} toggleSidebar={toggleSidebar} />}
+        <Tools
+          toggleSidebar={toggleSidebar}
+          handleAuth={handleAuth}
+          handleCart={handleCart}
+        />
+        {tablet && (
+          <Sidebar isOpen={isOpenSidebar} toggleSidebar={toggleSidebar} />
+        )}
       </div>
     </header>
   );

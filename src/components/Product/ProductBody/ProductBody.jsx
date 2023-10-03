@@ -3,10 +3,10 @@ import { facebookBlue, icoReturn, telegramBlue, twitterBlue } from '@static';
 import Amount from '@components/Base/Amount/Amount';
 import Image from '@components/Base/Image/Image';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
-import { useAddToCartMutation } from '../../../services/cartApi';
+import { useAddToCartMutation } from '@services/cartApi';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
-import { setCartId } from '../../../redux/cart/cartSlice';
+import { setCartId } from '@redux/cart/cartSlice';
 
 const ProductBody = (props) => {
   const [quantity, setQuantity] = useState(props.minQty);

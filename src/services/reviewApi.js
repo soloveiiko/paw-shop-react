@@ -7,7 +7,6 @@ export const reviewApi = createApi({
   endpoints: (builder) => ({
     reviews: builder.query({
       query(body) {
-        console.log('review body', body);
         return {
           url: 'comments/products/random',
           method: 'GET',

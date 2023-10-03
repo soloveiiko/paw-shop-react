@@ -3,13 +3,14 @@ import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
 import InputField from '@components/Modals/Auth/InputField/InputField';
 import { icoArrowAccent } from '@static';
-import { useLoginUserMutation } from '../../../../services/authApi';
+import { useLoginUserMutation } from '@services/authApi';
 import Cookies from 'js-cookie';
 import Preloader from '@components/Base/Preloader/Preloader';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { openAuthModal } from '../../../../redux/modals/modalsSlice';
-import { setUser } from '../../../../redux/auth/authSlice';
+import { openAuthModal } from '@redux/modals/modalsSlice';
+import { setUser } from '@redux/auth/authSlice';
+import { cartApi } from '@services/cartApi';
 
 const SignInForm = ({ setSignIn, setResetPassword }) => {
   const navigate = useNavigate();
@@ -43,8 +44,8 @@ const SignInForm = ({ setSignIn, setResetPassword }) => {
       dispatch(setUser(result.data.data));
       Cookies.set('access_token', result.data.data.access_token);
       resetForm({ values: { email: '', password: '' } });
+      dispatch(cartApi.util.invalidateTags(['Cart']));
     }
-    console.log('result login', result);
   };
 
   return (

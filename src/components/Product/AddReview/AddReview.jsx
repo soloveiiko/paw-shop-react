@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Field, Form, Formik } from 'formik';
 import AddImageField from '@components/Product/AddReview/AddImageField/AddImageField';
 import { Rating } from 'react-simple-star-rating';
-import { useAddReviewsMutation } from '../../../services/reviewApi';
+import { useAddReviewsMutation } from '@services/reviewApi';
 import * as Yup from 'yup';
 
 const AddReview = ({ product }) => {

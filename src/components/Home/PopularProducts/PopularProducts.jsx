@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ForPetLongButton from '@components/Base/Buttons/ForPetLongButton/ForPetLongButton';
 import ProductContainer from '@components/Base/ProductContainer/ProductContainer';
-import { useProductsQuery } from '../../../services/productApi';
+import { useProductsQuery } from '@services/productApi';
 import Preloader from '@components/Base/Preloader/Preloader';
 
 const PopularProducts = () => {
@@ -16,7 +16,11 @@ const PopularProducts = () => {
   return (
     <section className="main-page__popular-products popular-products">
       <h2 className="popular-products__headline headline">Popular products</h2>
-      {randomProducts.length > 0 ? <ProductContainer products={randomProducts} /> : <Preloader />}
+      {randomProducts.length > 0 ? (
+        <ProductContainer products={randomProducts} />
+      ) : (
+        <Preloader />
+      )}
       <div className="popular-products__for-pets">
         <ForPetLongButton isCat={true} />
         <ForPetLongButton isDog={true} />

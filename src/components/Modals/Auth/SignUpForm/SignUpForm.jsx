@@ -4,18 +4,19 @@ import InputField from '@components/Modals/Auth/InputField/InputField';
 import * as Yup from 'yup';
 import { icoArrowAccent } from '@static';
 import Cookies from 'js-cookie';
-import { useRegisterUserMutation } from '../../../../services/authApi';
+import { useRegisterUserMutation } from '@services/authApi';
 import Preloader from '@components/Base/Preloader/Preloader';
-import { openAuthModal } from '../../../../redux/modals/modalsSlice';
+import { openAuthModal } from '@redux/modals/modalsSlice';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUser } from '../../../../redux/auth/authSlice';
+import { setUser } from '@redux/auth/authSlice';
 
 const SignUpForm = ({ setSignIn }) => {
   const navigate = useNavigate();
   const isOpenAuth = useSelector((state) => state.modals.authModal);
   const dispatch = useDispatch();
-  const [registerUser, { isLoading, isSuccess, error, isError }] = useRegisterUserMutation();
+  const [registerUser, { isLoading, isSuccess, error, isError }] =
+    useRegisterUserMutation();
 
   useEffect(() => {
     if (isSuccess) {
@@ -25,11 +26,17 @@ const SignUpForm = ({ setSignIn }) => {
   }, [isLoading]);
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Required').min(8, 'Too Short!').max(16, 'Too Long!'),
+    name: Yup.string()
+      .required('Required')
+      .min(8, 'Too Short!')
+      .max(16, 'Too Long!'),
     email: Yup.string()
       .required('Required')
       .matches(/@[^.]*\./),
-    password: Yup.string().required('Password is required!').min(8, 'Too Short!').max(16, 'Too Long!'),
+    password: Yup.string()
+      .required('Password is required!')
+      .min(8, 'Too Short!')
+      .max(16, 'Too Long!'),
     password_confirmation: Yup.string()
       .required('Required')
       .oneOf([Yup.ref('password'), null], 'Passwords must match'),
@@ -39,8 +46,18 @@ const SignUpForm = ({ setSignIn }) => {
 
     if (result.data) {
       dispatch(setUser(result.data.data));
-      Cookies.set('access_token', JSON.stringify(result.data.data.access_token));
-      resetForm({ values: { name: '', email: '', password: '', password_confirmation: '' } });
+      Cookies.set(
+        'access_token',
+        JSON.stringify(result.data.data.access_token)
+      );
+      resetForm({
+        values: {
+          name: '',
+          email: '',
+          password: '',
+          password_confirmation: '',
+        },
+      });
       return result;
     }
     return null;
@@ -48,7 +65,12 @@ const SignUpForm = ({ setSignIn }) => {
 
   return (
     <Formik
-      initialValues={{ name: '', email: '', password: '', password_confirmation: '' }}
+      initialValues={{
+        name: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+      }}
       validationSchema={validationSchema}
       onSubmit={onSubmitHandler}
     >
@@ -78,7 +100,12 @@ const SignUpForm = ({ setSignIn }) => {
               />
             </div>
             <div className="auth__input-wrapper">
-              <InputField className="auth" type="password" name="password" placeholder="Password" />
+              <InputField
+                className="auth"
+                type="password"
+                name="password"
+                placeholder="Password"
+              />
             </div>
             <div className="auth__input-wrapper">
               <InputField
@@ -94,9 +121,17 @@ const SignUpForm = ({ setSignIn }) => {
           <button className="auth__submit-btn" type="submit">
             Register
           </button>
-          <button className="auth__registration-btn" type="button" onClick={() => setSignIn(true)}>
+          <button
+            className="auth__registration-btn"
+            type="button"
+            onClick={() => setSignIn(true)}
+          >
             <span className="auth__registration-btn-text">I have account</span>
-            <img className="auth__btn-image" src={icoArrowAccent} alt="Sign in" />
+            <img
+              className="auth__btn-image"
+              src={icoArrowAccent}
+              alt="Sign in"
+            />
           </button>
         </Form>
       )}

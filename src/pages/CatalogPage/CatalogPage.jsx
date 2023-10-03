@@ -7,7 +7,7 @@ import {
   SortBy,
 } from '@components';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useLazyProductsQuery } from '../../services/productApi';
+import { useLazyProductsQuery } from '@services/productApi';
 import Pagination from '@components/Base/Pagination/Pagination';
 
 const sortByList = [

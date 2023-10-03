@@ -1,37 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { TfiClose } from 'react-icons/tfi';
 import CartItem from '@components/Modals/Cart/CartItem/CartItem';
 import { icoCart } from '@static';
-import { useCartQuery } from '../../../services/cartApi';
+import { useCartQuery } from '@services/cartApi';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCartCount, setCartId } from '../../../redux/cart/cartSlice';
 import Cookies from 'js-cookie';
+import { setCartCount, setCartId, setTotalPrice } from '@redux/cart/cartSlice';
+
 const Cart = ({ handleCart }) => {
   const isOpenCart = useSelector((state) => state.modals.cartModal);
-  const [cart, setCartList] = useState([]);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const cartList = useSelector((state) => state.cart);
-  console.log('cart wdlwekd', cartList);
   const { data } = useCartQuery();
-
   useEffect(() => {
     if (data && data.data) {
       console.log('Cart data:', data);
-      setCartList(data);
       dispatch(setCartCount(data.data.purchases.length));
       dispatch(setCartId(data.data.id));
+      dispatch(setTotalPrice(data.total.total));
       Cookies.set('cart_id', data.data.id);
     }
   }, [data]);
 
-  console.log('cart data', data);
   const handleDelete = (itemId) => {
-    const updatedCartList = cart.filter((item) => item.id !== itemId);
-    setCartList(updatedCartList);
+    // const updatedCartList = cart.filter((item) => item.id !== itemId);
+    // setCartList(updatedCartList);
   };
-  // const totalSum = () => {
-  //   return cart.reduce((acc, item) => acc + item.price * item.number, 0);
-  // };
   return (
     <div className={`cart-layout${isOpenCart ? ' open' : ''}`}>
       <div className="cart-layout_top">
@@ -60,7 +54,9 @@ const Cart = ({ handleCart }) => {
       </div>
       <div className="cart-layout_bottom">
         <div className="cart-layout__subtotal">
-          <span className="cart-layout__subtotal-title">Cart Subtotal: </span>
+          <span className="cart-layout__subtotal-title">
+            Cart Subtotal: {cart.totalPrice}
+          </span>
           {/*<b className="cart-layout__subtotal-price">${totalSum()}</b>*/}
         </div>
         <div className="cart-layout__btn-container">

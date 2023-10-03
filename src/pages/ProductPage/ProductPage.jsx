@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Breadcrumbs, ProductBody, SimilarProducts, Switch } from '@components';
-import { useLazyProductItemQuery } from '../../services/productApi';
+import { useLazyProductItemQuery } from '@services/productApi';
 import Preloader from '@components/Base/Preloader/Preloader';
 
 const ProductPage = () => {
