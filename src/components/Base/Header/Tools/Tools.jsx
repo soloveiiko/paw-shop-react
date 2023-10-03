@@ -6,7 +6,7 @@ import { removeUser } from '@redux/auth/authSlice';
 import { useLogoutUserMutation } from '@services/authApi';
 import Cookies from 'js-cookie';
 import { cartApi } from '@services/cartApi';
-import { setCartCount, setCartId } from '@redux/cart/cartSlice';
+import { cleanCart } from '@redux/cart/cartSlice';
 
 const Tools = ({ toggleSidebar, handleAuth, handleCart }) => {
   const isAuth = useSelector((state) => state.auth.isAuth);
@@ -14,8 +14,7 @@ const Tools = ({ toggleSidebar, handleAuth, handleCart }) => {
   const dispatch = useDispatch();
   const [logoutUser] = useLogoutUserMutation();
   const onLogoutHandler = async () => {
-    dispatch(setCartCount(0));
-    dispatch(setCartId(null));
+    dispatch(cleanCart());
     Cookies.remove('cart_id');
     const result = await logoutUser();
     if (result.data) {

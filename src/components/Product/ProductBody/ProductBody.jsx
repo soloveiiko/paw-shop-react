@@ -11,8 +11,9 @@ import { setCartId } from '@redux/cart/cartSlice';
 const ProductBody = (props) => {
   const [quantity, setQuantity] = useState(props.minQty);
   const [selectedProperties, setSelectedProperties] = useState({});
-  const [addToCart, { data }] = useAddToCartMutation();
+  const [addToCart] = useAddToCartMutation();
   const dispatch = useDispatch();
+
   useEffect(() => {
     const initialProperties = {};
     props.switching.forEach((el) => {
@@ -25,7 +26,7 @@ const ProductBody = (props) => {
       }
     });
     setSelectedProperties(initialProperties);
-  }, [props.switching, data]);
+  }, [props.switching]);
 
   const handlePropertyClick = (attributeName, propertyValue, propertyId) => {
     setSelectedProperties((prev) => ({
@@ -37,7 +38,7 @@ const ProductBody = (props) => {
     }));
   };
 
-  const handleBuy = async (e) => {
+  const handleAddToCart = async (e) => {
     e.preventDefault();
     const result = await addToCart({
       data: {
@@ -49,9 +50,17 @@ const ProductBody = (props) => {
     if (result.data) {
       dispatch(setCartId(result.data.cart_id));
       Cookies.set('cart_id', result.data.cart_id);
+      setQuantity(props.minQty);
     }
   };
-
+  const handleIncrement = () => {
+    setQuantity(quantity + 1);
+  };
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
   return (
     <section className="product-body">
       <div className="container product-body__container">
@@ -109,7 +118,7 @@ const ProductBody = (props) => {
           </swiper-container>
         </div>
         <div className="product-body__checkbox-list">
-          <form className="product-body__form" onSubmit={handleBuy}>
+          <div className="product-body__form">
             {props.switching.map((el) => (
               <div
                 key={el.attribute.id}
@@ -143,7 +152,11 @@ const ProductBody = (props) => {
             ))}
             <div className="product-body__quantity">
               <span className="product-body__subtitle">Quantity:</span>
-              <Amount quantity={quantity} setQuantity={setQuantity} />
+              <Amount
+                quantity={quantity}
+                handleIncrement={handleIncrement}
+                handleDecrement={handleDecrement}
+              />
             </div>
             <div className="product-body__buy">
               <div className="product-body__price-container">
@@ -161,13 +174,16 @@ const ProductBody = (props) => {
                 )}
               </div>
               <div className="product-body__btn-container">
-                <button className="product-body__in-basket" type="submit">
+                <button
+                  className="product-body__in-basket"
+                  onClick={handleAddToCart}
+                >
                   Add to cart
                 </button>
                 <button className="product-body__buy-btn">Buy 1 click</button>
               </div>
             </div>
-          </form>
+          </div>
           <div className="product-body__return">
             <img
               className="product-body__return-img"

@@ -24,6 +24,7 @@ const ProductPage = () => {
     <div className="page product-page">
       <Breadcrumbs name={data.data.name} />
       <ProductBody
+        id={data.data.id}
         name={data.data.name}
         rating={data.data.product.rating}
         sku={data.data.sku}

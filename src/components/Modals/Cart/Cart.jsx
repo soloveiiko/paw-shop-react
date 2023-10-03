@@ -17,15 +17,11 @@ const Cart = ({ handleCart }) => {
       console.log('Cart data:', data);
       dispatch(setCartCount(data.data.purchases.length));
       dispatch(setCartId(data.data.id));
-      dispatch(setTotalPrice(data.total.total));
+      dispatch(setTotalPrice(data.total.purchases));
       Cookies.set('cart_id', data.data.id);
     }
   }, [data]);
 
-  const handleDelete = (itemId) => {
-    // const updatedCartList = cart.filter((item) => item.id !== itemId);
-    // setCartList(updatedCartList);
-  };
   return (
     <div className={`cart-layout${isOpenCart ? ' open' : ''}`}>
       <div className="cart-layout_top">
@@ -41,11 +37,7 @@ const Cart = ({ handleCart }) => {
         {data && data.data ? (
           <>
             {data.data.purchases.map((item) => (
-              <CartItem
-                key={item.id}
-                product={item}
-                handleDelete={handleDelete}
-              />
+              <CartItem key={item.id} product={item} />
             ))}
           </>
         ) : (

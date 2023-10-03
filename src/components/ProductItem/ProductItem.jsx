@@ -3,8 +3,25 @@ import { icoBasket } from '@static';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Image from '@components/Base/Image/Image';
 import { Link } from 'react-router-dom';
+import { useAddToCartMutation } from '@services/cartApi';
+import { setCartId } from '@redux/cart/cartSlice';
+import Cookies from 'js-cookie';
+import { useDispatch } from 'react-redux';
 
 const ProductItem = (props) => {
+  const [addToCart] = useAddToCartMutation();
+  const dispatch = useDispatch();
+  const handleAddToCart = async (e) => {
+    e.preventDefault();
+    const result = await addToCart({
+      id: props.product.id,
+      data: { quantity: 1 },
+    });
+    if (result.data) {
+      dispatch(setCartId(result.data.cart_id));
+      Cookies.set('cart_id', result.data.cart_id);
+    }
+  };
   return (
     <div className="products-item">
       <div className="products-item__additions">
@@ -52,7 +69,7 @@ const ProductItem = (props) => {
             <div className="products-item__price">{props.currPrice} UAH</div>
           )}
           <div className="products-item__in-basket-container in-basket">
-            <button className="in-basket__btn">
+            <button className="in-basket__btn" onClick={handleAddToCart}>
               +
               <img
                 src={icoBasket}

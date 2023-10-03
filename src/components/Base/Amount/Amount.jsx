@@ -1,15 +1,6 @@
 import React from 'react';
 
-const Amount = ({ setQuantity, quantity }) => {
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
+const Amount = ({ handleIncrement, handleDecrement, quantity }) => {
   return (
     <div className="amount">
       <button className="amount__minus" onClick={handleDecrement}>
