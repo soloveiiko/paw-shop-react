@@ -8,15 +8,20 @@ import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { setCartId } from '@redux/cart/cartSlice';
 
-const ProductBody = (props) => {
-  const [quantity, setQuantity] = useState(props.minQty);
+const ProductBody = ({
+  data,
+  switching,
+  selectedVariation,
+  handleChooseVariation,
+}) => {
+  const [quantity, setQuantity] = useState(data.min_qty);
   const [selectedProperties, setSelectedProperties] = useState({});
   const [addToCart] = useAddToCartMutation();
   const dispatch = useDispatch();
 
   useEffect(() => {
     const initialProperties = {};
-    props.switching.forEach((el) => {
+    switching.forEach((el) => {
       const selectedProperty = el.properties.find((item) => item.is_current);
       if (selectedProperty) {
         initialProperties[el.attribute.name] = {
@@ -26,18 +31,7 @@ const ProductBody = (props) => {
       }
     });
     setSelectedProperties(initialProperties);
-  }, [props.switching]);
-  console.log('selectedProperty', selectedProperties);
-
-  const handlePropertyClick = (attributeName, propertyValue, propertyId) => {
-    setSelectedProperties((prev) => ({
-      ...prev,
-      [attributeName]: {
-        id: propertyId,
-        value: propertyValue,
-      },
-    }));
-  };
+  }, [switching]);
 
   const handleAddToCart = async (e) => {
     e.preventDefault();
@@ -45,13 +39,13 @@ const ProductBody = (props) => {
       data: {
         quantity: quantity,
       },
-      id: props.variation,
+      id: selectedVariation,
     });
 
     if (result.data) {
       dispatch(setCartId(result.data.cart_id));
       Cookies.set('cart_id', result.data.cart_id);
-      setQuantity(props.minQty);
+      setQuantity(data.min_qty);
     }
   };
   const handleIncrement = () => {
@@ -62,22 +56,21 @@ const ProductBody = (props) => {
       setQuantity(quantity - 1);
     }
   };
+
   return (
     <section className="product-body">
       <div className="container product-body__container">
         <div className="product-body__top">
-          {props.name && <h2>{props.name}</h2>}
+          {data.name && <h2>{data.name}</h2>}
           <div className="product-body__stars-range">
-            <StarsRange value={props.rating} />
-            {props.commentsCount && (
+            <StarsRange value={data.product.rating} />
+            {data.product.comments_count && (
               <span className="product-body__stars-count">
-                {props.commentsCount}
+                {data.product.comments_count}
               </span>
             )}
           </div>
-          {props.sku && (
-            <div className="product-body__scu">SKU: {props.sku}</div>
-          )}
+          {data.sku && <div className="product-body__scu">SKU: {data.sku}</div>}
         </div>
         <div className="product-body__images">
           <swiper-container
@@ -86,7 +79,7 @@ const ProductBody = (props) => {
             thumbs-swiper=".product-body__slider-trumbs"
             navigation="true"
           >
-            {props.images.map((img) => (
+            {data.images.map((img) => (
               <swiper-slide key={img.id} className="product-body__slider-item">
                 <Image
                   className="product-body__slider-img"
@@ -105,7 +98,7 @@ const ProductBody = (props) => {
             free-mode="true"
             watch-slides-progress="true"
           >
-            {props.images.map((img) => (
+            {data.images.map((img) => (
               <swiper-slide key={img.id} className="product-body__trumbs-item">
                 <Image
                   className="product-body__trumbs-img"
@@ -120,7 +113,7 @@ const ProductBody = (props) => {
         </div>
         <div className="product-body__checkbox-list">
           <div className="product-body__form">
-            {props.switching.map((el) => (
+            {switching.map((el) => (
               <div
                 key={el.attribute.id}
                 className="product-body__checkbox-item"
@@ -138,7 +131,7 @@ const ProductBody = (props) => {
                         : ''
                     }`}
                     type="button"
-                    onClick={props.handleChooseVariation}
+                    onClick={() => handleChooseVariation(el, item)}
                   >
                     {item.property.value}
                   </button>
@@ -155,17 +148,17 @@ const ProductBody = (props) => {
             </div>
             <div className="product-body__buy">
               <div className="product-body__price-container">
-                {props.discount === 1 ? (
+                {data.prices.discount === 1 ? (
                   <>
                     <div className="product-body__prev-price">
-                      {props.oldPrice}$
+                      {data.price_old}$
                     </div>
                     <div className="product-body__curr-price">
-                      {props.currPrice}$
+                      {data.price}$
                     </div>
                   </>
                 ) : (
-                  <div className="product-body__price">{props.currPrice}$</div>
+                  <div className="product-body__price">{data.price}$</div>
                 )}
               </div>
               <div className="product-body__btn-container">

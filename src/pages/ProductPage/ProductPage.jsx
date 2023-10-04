@@ -8,7 +8,7 @@ const ProductPage = () => {
   const { slug } = useParams();
   const [catalogItemGet, { data }] = useLazyProductItemQuery();
   const navigate = useNavigate();
-  console.log('product data', data);
+
   useEffect(() => {
     catalogItemGet(slug);
   }, [data, slug]);
@@ -20,29 +20,25 @@ const ProductPage = () => {
   const selectedVariation = data.variations
     .filter((el) => el.slug === slug)
     .map((el) => el.id);
-  const handleChooseVariation = () => {
-    navigate(
-      `/catalog/${data.crumbs.map(
-        (el) => el.slug
-      )}/product/${data.variations.map((el) => el.slug)}`
-    );
+  // console.log('selectedVariation', selectedVariation);
+  const handleChooseVariation = (el, item) => {
+    const variation = data.switching
+      .find((switchingEl) => switchingEl.attribute.id === el.attribute.id)
+      .properties.find(
+        (propertyEl) => propertyEl.property.id === item.property.id
+      ).variation.slug;
+    const crumbs = data.crumbs.map((el) => el.slug).join('/');
+    const newPath = `/catalog/${crumbs}/product/${variation}`;
+    navigate(newPath);
   };
+
   return (
     <div className="page product-page">
       <Breadcrumbs name={data.data.name} />
       <ProductBody
-        id={data.data.id}
-        name={data.data.name}
-        rating={data.data.product.rating}
-        sku={data.data.sku}
-        commentsCount={data.data.product.comments_count}
-        images={data.data.images}
-        currPrice={data.data.price}
-        oldPrice={data.data.price_old}
-        minQty={data.data.min_qty}
-        discount={data.data.prices.discount}
+        data={data.data}
         switching={data.switching}
-        variation={selectedVariation}
+        selectedVariation={selectedVariation}
         handleChooseVariation={handleChooseVariation}
       />
       <Switch product={data.data} />
