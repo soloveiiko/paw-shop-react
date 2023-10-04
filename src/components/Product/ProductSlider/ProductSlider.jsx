@@ -1,14 +1,15 @@
 import React from 'react';
+import { register } from 'swiper/element';
 import Image from '@components/Base/Image/Image';
 
 const ProductSlider = ({ images }) => {
+  register();
   return (
     <div className="product-body__images">
       <swiper-container
-        className="product-body__slider"
-        slides-per-view="1"
+        class="product-body__slider"
+        slides-per-view={1}
         thumbs-swiper=".product-body__slider-trumbs"
-        navigation="true"
       >
         {images.map((img) => (
           <swiper-slide key={img.id} className="product-body__slider-item">
@@ -23,11 +24,11 @@ const ProductSlider = ({ images }) => {
         ))}
       </swiper-container>
       <swiper-container
-        className="product-body__slider-trumbs"
+        class="product-body__slider-trumbs"
         direction="vertical"
-        slides-per-view="4"
+        slides-per-view={4}
         free-mode="true"
-        watch-slides-progress="true"
+        watch-slides-progress={true}
       >
         {images.map((img) => (
           <swiper-slide key={img.id} className="product-body__trumbs-item">
