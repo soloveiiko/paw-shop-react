@@ -8,7 +8,7 @@ import {
 } from '@components';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useLazyProductsQuery } from '@services/productApi';
-import CustomPagination from '@components/Base/CustomPagination/CustomPagination';
+import Pagination from '@components/Base/Pagination/Pagination';
 
 const sortByList = [
   { id: '1', name: 'Default', sort: 'default', order: 'desc' },
@@ -47,20 +47,12 @@ const CatalogPage = () => {
     setCurrentPage(1);
   };
 
-  // const handlePagination = (selectedPage) => {
-  //   setCurrentPage(selectedPage);
-  //   const url = `/catalog/${slug}?sort=${sortItem}&order=${orderItem}&page=${selectedPage}`;
-  //   navigate(url);
-  //   console.log('selectedPage', selectedPage);
-  // };
-
   const handlePagination = (selectedPage) => {
     setCurrentPage(selectedPage);
     const url = `/catalog/${slug}?sort=${sortItem}&order=${orderItem}&page=${selectedPage}`;
     navigate(url);
     console.log('selectedPage', selectedPage);
   };
-
   return (
     <div className="page catalog-page">
       <Breadcrumbs />
@@ -79,19 +71,11 @@ const CatalogPage = () => {
       </section>
       <section className="container catalog-page__product-container">
         {data && <ProductList currentItems={data.data} />}
-        {data && data.meta && (
-          // <Pagination
-          //   pageRangeDisplayed={5}
-          //   onPageChange={handlePagination}
-          //   pageCount={data.meta.last_page}
-          //   currentPage={currentPage}
-          // />
-          <CustomPagination
-            totalItemsCount={data.meta.total}
-            pageSize={itemsPerPage}
-            currentPage={currentPage}
-            paginate={handlePagination}
-            setCurrentPage={setCurrentPage}
+        {data && data.meta && data.meta.last_page > 1 && (
+          <Pagination
+            pageCount={data.meta.last_page}
+            forcePage={data.meta.current_page}
+            onPageChange={handlePagination}
           />
         )}
       </section>

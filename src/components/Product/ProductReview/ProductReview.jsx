@@ -5,21 +5,24 @@ import Pagination from '@components/Base/Pagination/Pagination';
 import Preloader from '@components/Base/Preloader/Preloader';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
 const ProductReview = ({ productId }) => {
+  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
-  const [itemOffset, setItemOffset] = useState(0);
-  const [reviewItemGet, { data }] = useLazyProductReviewsQuery();
+  const [getReviewItem, { data }] = useLazyProductReviewsQuery();
 
   useEffect(() => {
-    reviewItemGet({ id: productId });
-  }, [data, productId]);
+    getReviewItem({
+      id: productId,
+      data: { page: currentPage, per_page: itemsPerPage },
+    });
+  }, [data, productId, currentPage]);
 
   if (!data || !data.data) {
     return <Preloader />;
   }
-
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = data.data.slice(itemOffset, endOffset);
-
+  const handlePagination = (selectedPage) => {
+    setCurrentPage(selectedPage);
+  };
+  console.log('review data', data);
   return (
     <div className="product-review">
       <div className="container product-review__container">
@@ -32,7 +35,7 @@ const ProductReview = ({ productId }) => {
           </div>
         </div>
         <div className="product-review__list">
-          {currentItems.map((review) => (
+          {data.data.map((review) => (
             <ReviewsItem
               key={review.id}
               date={review.created_at}
@@ -44,13 +47,11 @@ const ProductReview = ({ productId }) => {
             />
           ))}
         </div>
-        {data.data.length > 3 && (
+        {data.meta.last_page > 1 && (
           <Pagination
-            items={data.data}
-            itemsPerPage={itemsPerPage}
-            pageRangeDisplayed={5}
-            itemOffset={itemOffset}
-            setItemOffset={setItemOffset}
+            pageCount={data.meta.last_page}
+            forcePage={data.meta.current_page}
+            onPageChange={handlePagination}
           />
         )}
       </div>
