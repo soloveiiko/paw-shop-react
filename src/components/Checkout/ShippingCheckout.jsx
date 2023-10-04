@@ -1,12 +1,26 @@
 import React from 'react';
-import Order from '@components/Checkout/Order';
 
 const ShippingCheckout = () => {
   return (
-    <div className="shipping-checkout">
-      {' '}
-      <Order />
-    </div>
+    <form className="shipping-checkout">
+      <div className="shipping-checkout__choose-shipping">
+        <input type="radio" value="free" name="method" />
+        <label htmlFor="">
+          <span>Free US Shipping</span>
+          <span>Free</span>
+        </label>
+        <input type="radio" value="postal" name="method" />
+        <label htmlFor="">
+          <span>
+            US Shipping (Priority Processing - Skip The Queue & Save 24 Hours)
+          </span>
+          <span>Free</span>
+        </label>
+      </div>
+      <button className="shipping-checkout__submit" type="submit">
+        Continue to payment
+      </button>
+    </form>
   );
 };
 
