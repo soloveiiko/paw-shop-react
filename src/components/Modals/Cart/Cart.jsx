@@ -13,14 +13,14 @@ const Cart = ({ handleCart }) => {
   const dispatch = useDispatch();
   const { data } = useCartQuery();
   useEffect(() => {
-    if (data && data.data) {
+    if (data && data.data && data.data.purchases) {
       console.log('Cart data:', data);
       dispatch(setCartCount(data.data.purchases.length));
       dispatch(setCartId(data.data.id));
       dispatch(setTotalPrice(data.total.purchases));
       Cookies.set('cart_id', data.data.id);
     }
-  }, [data]);
+  }, [data, dispatch]);
 
   return (
     <div className={`cart-layout${isOpenCart ? ' open' : ''}`}>
@@ -37,7 +37,11 @@ const Cart = ({ handleCart }) => {
         {data && data.data ? (
           <>
             {data.data.purchases.map((item) => (
-              <CartItem key={item.id} product={item} />
+              <CartItem
+                key={item.id}
+                product={item}
+                purchases={data.data.purchases}
+              />
             ))}
           </>
         ) : (
@@ -49,7 +53,6 @@ const Cart = ({ handleCart }) => {
           <span className="cart-layout__subtotal-title">
             Cart Subtotal: {cart.totalPrice}
           </span>
-          {/*<b className="cart-layout__subtotal-price">${totalSum()}</b>*/}
         </div>
         <div className="cart-layout__btn-container">
           <button className="cart-layout__shopping-btn">Keep shopping</button>

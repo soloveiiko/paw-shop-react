@@ -6,10 +6,14 @@ import {
   useAddToCartMutation,
   useRemoveFromCartMutation,
 } from '@services/cartApi';
+import { cleanCart } from '@redux/cart/cartSlice';
+import { useDispatch } from 'react-redux';
 
-const CartItem = ({ product }) => {
+const CartItem = ({ product, purchases }) => {
   const [addToCart] = useAddToCartMutation();
   const [removeFromCart] = useRemoveFromCartMutation();
+  const dispatch = useDispatch();
+
   const handleIncrement = async () => {
     return await addToCart({
       id: product.id,
@@ -24,11 +28,16 @@ const CartItem = ({ product }) => {
       });
     }
   };
+
   const handleRemoveItem = async () => {
-    return await removeFromCart({
+    await removeFromCart({
       id: product.id,
       data: { quantity: product.quantity },
     });
+    const updatedCart = purchases.filter((item) => item.id !== product.id);
+    if (updatedCart.length === 0) {
+      dispatch(cleanCart());
+    }
   };
   return (
     <div className="cart-item">
