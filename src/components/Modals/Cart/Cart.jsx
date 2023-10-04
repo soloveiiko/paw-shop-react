@@ -8,10 +8,11 @@ import Cookies from 'js-cookie';
 import { setCartCount, setCartId, setTotalPrice } from '@redux/cart/cartSlice';
 
 const Cart = ({ handleCart }) => {
+  const { data } = useCartQuery();
   const isOpenCart = useSelector((state) => state.modals.cartModal);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const { data } = useCartQuery();
+
   useEffect(() => {
     if (data && data.data && data.data.purchases) {
       console.log('Cart data:', data);

@@ -2,7 +2,12 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
-const Pagination = ({ pageRangeDisplayed, onPageChange, pageCount }) => {
+const Pagination = ({
+  pageRangeDisplayed,
+  onPageChange,
+  pageCount,
+  currentPage,
+}) => {
   const handlePageClick = (data) => {
     const selectedPage = data.selected + 1;
     console.log(`User requested page number ${selectedPage}`);
@@ -24,6 +29,7 @@ const Pagination = ({ pageRangeDisplayed, onPageChange, pageCount }) => {
       pageCount={pageCount}
       previousLabel={<SlArrowLeft />}
       renderOnZeroPageCount={null}
+      // forcePage={currentPage}
     />
   );
 };

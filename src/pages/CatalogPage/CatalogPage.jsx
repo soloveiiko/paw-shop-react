@@ -8,7 +8,7 @@ import {
 } from '@components';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useLazyProductsQuery } from '@services/productApi';
-import Pagination from '@components/Base/Pagination/Pagination';
+import CustomPagination from '@components/Base/CustomPagination/CustomPagination';
 
 const sortByList = [
   { id: '1', name: 'Default', sort: 'default', order: 'desc' },
@@ -24,15 +24,12 @@ const CatalogPage = () => {
   const [getCatalogList, { data }] = useLazyProductsQuery();
   const itemsPerPage = 1;
   const navigate = useNavigate();
-
+  console.log('catalog data', data);
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    // const sortParam = params.get('sort') || sortByList[0].sort;
-    // const orderParam = params.get('order') || sortByList[0].order;
-
-    // setSortItem(sortParam);
-    // setOrderItem(orderParam);
     setCurrentPage(Number(params.get('page')) || 1);
+    setSortItem(params.get('sort') || sortByList[0].sort);
+    setOrderItem(params.get('order') || sortByList[0].order);
     getCatalogList({
       page: currentPage,
       per_page: itemsPerPage,
@@ -42,12 +39,20 @@ const CatalogPage = () => {
     });
     console.log('currentPage', currentPage);
   }, [slug, currentPage, sortItem, orderItem, navigate]);
-  console.log('data', data);
   const handleSort = (sort, order) => {
+    const url = `/catalog/${slug}?sort=${sort}&order=${order}&page=1`;
+    navigate(url);
     setSortItem(sort);
     setOrderItem(order);
     setCurrentPage(1);
   };
+
+  // const handlePagination = (selectedPage) => {
+  //   setCurrentPage(selectedPage);
+  //   const url = `/catalog/${slug}?sort=${sortItem}&order=${orderItem}&page=${selectedPage}`;
+  //   navigate(url);
+  //   console.log('selectedPage', selectedPage);
+  // };
 
   const handlePagination = (selectedPage) => {
     setCurrentPage(selectedPage);
@@ -55,6 +60,7 @@ const CatalogPage = () => {
     navigate(url);
     console.log('selectedPage', selectedPage);
   };
+
   return (
     <div className="page catalog-page">
       <Breadcrumbs />
@@ -74,10 +80,18 @@ const CatalogPage = () => {
       <section className="container catalog-page__product-container">
         {data && <ProductList currentItems={data.data} />}
         {data && data.meta && (
-          <Pagination
-            pageRangeDisplayed={5}
-            onPageChange={handlePagination}
-            pageCount={data.meta.last_page}
+          // <Pagination
+          //   pageRangeDisplayed={5}
+          //   onPageChange={handlePagination}
+          //   pageCount={data.meta.last_page}
+          //   currentPage={currentPage}
+          // />
+          <CustomPagination
+            totalItemsCount={data.meta.total}
+            pageSize={itemsPerPage}
+            currentPage={currentPage}
+            paginate={handlePagination}
+            setCurrentPage={setCurrentPage}
           />
         )}
       </section>

@@ -6,11 +6,21 @@ const ForPetLongButton = ({ isCat, isDog }) => {
   return (
     <div className="product-for-pets-btn-container product-for-pets">
       {isCat && (
-        <Link to="/catalog/cat" className="product-for-pets__btn cat-btn">
+        <Link
+          to="/catalog/cat?sort=default&order=desc&page=1"
+          className="product-for-pets__btn cat-btn"
+        >
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker cat">cat</b>
           </span>
-          <img className="product-for-pets__icon" src={icoCat} width="30" height="30" loading="lazy" alt="Cat" />
+          <img
+            className="product-for-pets__icon"
+            src={icoCat}
+            width="30"
+            height="30"
+            loading="lazy"
+            alt="Cat"
+          />
           <img
             className="product-for-pets__arrow"
             src={icoArrowRight}
@@ -22,11 +32,21 @@ const ForPetLongButton = ({ isCat, isDog }) => {
         </Link>
       )}
       {isDog && (
-        <Link to="/catalog/dog" className="product-for-pets__btn dog-btn">
+        <Link
+          to="/catalog/dog?sort=default&order=desc&page=1"
+          className="product-for-pets__btn dog-btn"
+        >
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker dog">dog</b>
           </span>
-          <img className="product-for-pets__icon" src={icoDog} width="30" height="30" loading="lazy" alt="Dog" />
+          <img
+            className="product-for-pets__icon"
+            src={icoDog}
+            width="30"
+            height="30"
+            loading="lazy"
+            alt="Dog"
+          />
           <img
             className="product-for-pets__arrow"
             src={icoArrowRight}
