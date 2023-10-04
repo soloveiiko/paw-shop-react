@@ -27,6 +27,7 @@ const ProductBody = (props) => {
     });
     setSelectedProperties(initialProperties);
   }, [props.switching]);
+  console.log('selectedProperty', selectedProperties);
 
   const handlePropertyClick = (attributeName, propertyValue, propertyId) => {
     setSelectedProperties((prev) => ({
@@ -137,13 +138,7 @@ const ProductBody = (props) => {
                         : ''
                     }`}
                     type="button"
-                    onClick={() =>
-                      handlePropertyClick(
-                        el.attribute.name,
-                        item.property.value,
-                        item.property.id
-                      )
-                    }
+                    onClick={props.handleChooseVariation}
                   >
                     {item.property.value}
                   </button>
