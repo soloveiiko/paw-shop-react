@@ -13,6 +13,9 @@ import SortBy from '@components/Catalog/SortBy/SortBy';
 import ProductBody from '@components/Product/ProductBody/ProductBody';
 import SimilarProducts from '@components/Product/SimilarProducts/SimilarProducts';
 import Switch from '@components/Product/Switch/Switch';
+import ContactCheckout from '@components/Checkout/ContactCheckout';
+import PaymentCheckout from '@components/Checkout/PaymentCheckout';
+import ShippingCheckout from '@components/Checkout/ShippingCheckout';
 export {
   AboutUs,
   Banner,
@@ -29,4 +32,7 @@ export {
   ProductBody,
   SimilarProducts,
   Switch,
+  ContactCheckout,
+  PaymentCheckout,
+  ShippingCheckout,
 };

@@ -6,7 +6,13 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-import { CatalogPage, HomePage, NotFoundPage, ProductPage } from '@pages';
+import {
+  CatalogPage,
+  CheckoutPage,
+  HomePage,
+  NotFoundPage,
+  ProductPage,
+} from '@pages';
 import Layout from '../layout/Layout';
 
 const PublicRoutes = () => {
@@ -36,6 +42,7 @@ const PublicRoutes = () => {
             }}
           />
         </Route>
+        <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     )

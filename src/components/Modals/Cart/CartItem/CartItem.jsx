@@ -13,10 +13,9 @@ const CartItem = ({ product, purchases }) => {
   const [addToCart] = useAddToCartMutation();
   const [removeFromCart] = useRemoveFromCartMutation();
   const dispatch = useDispatch();
-
   const handleIncrement = async () => {
     return await addToCart({
-      id: product.id,
+      id: product.variation.id,
       data: { quantity: 1 },
     });
   };

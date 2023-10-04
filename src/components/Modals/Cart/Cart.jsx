@@ -5,7 +5,12 @@ import { icoCart } from '@static';
 import { useCartQuery } from '@services/cartApi';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
-import { setCartCount, setCartId, setTotalPrice } from '@redux/cart/cartSlice';
+import {
+  setCart,
+  setCartCount,
+  setCartId,
+  setTotalPrice,
+} from '@redux/cart/cartSlice';
 
 const Cart = ({ handleCart }) => {
   const { data } = useCartQuery();
@@ -15,7 +20,7 @@ const Cart = ({ handleCart }) => {
 
   useEffect(() => {
     if (data && data.data && data.data.purchases) {
-      console.log('Cart data:', data);
+      dispatch(setCart(data));
       dispatch(setCartCount(data.data.purchases.length));
       dispatch(setCartId(data.data.id));
       dispatch(setTotalPrice(data.total.purchases));
