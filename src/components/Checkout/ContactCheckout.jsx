@@ -16,79 +16,83 @@ const ContactCheckout = ({ handleTabClick }) => {
           </button>
         </div>
         <div className="contact-checkout__input-container">
-          <label htmlFor="" className="contact-checkout__label">
+          <label className="contact-checkout__label">
             E-mail or mobile phone number
+            <input type="text" className="contact-checkout__input" />
           </label>
-          <input type="text" className="contact-checkout__input" />
         </div>
       </div>
       <div className="contact-checkout__address contact-checkout__item">
         <h3 className="contact-checkout__title">Shipping address</h3>
         <div className="contact-checkout__input-container">
-          <label htmlFor="" className="contact-checkout__label">
+          <label className="contact-checkout__label">
             Country
+            <CountrySelect />
           </label>
-          <CountrySelect />
         </div>
         <div className="contact-checkout__inputs-container">
           <div className="contact-checkout__input-container">
-            <label htmlFor="" className="contact-checkout__label">
+            <label className="contact-checkout__label">
               Name
+              <input
+                type="text"
+                className="contact-checkout__input"
+                name="name"
+              />
             </label>
-            <input
-              type="text"
-              className="contact-checkout__input"
-              name="name"
-            />
           </div>
           <div className="contact-checkout__input-container">
-            <label htmlFor="" className="contact-checkout__label">
+            <label className="contact-checkout__label">
               Surname
+              <input
+                type="text"
+                className="contact-checkout__input"
+                name="surname"
+              />
             </label>
-            <input
-              type="text"
-              className="contact-checkout__input"
-              name="surname"
-            />
           </div>
         </div>
         <div className="contact-checkout__input-container">
-          <label htmlFor="" className="contact-checkout__label">
+          <label className="contact-checkout__label">
             Address
+            <input
+              type="text"
+              className="contact-checkout__input"
+              name="address"
+            />
           </label>
-          <input
-            type="text"
-            className="contact-checkout__input"
-            name="address"
-          />
         </div>
         <div className="contact-checkout__inputs-container">
           <div className="contact-checkout__input-container">
-            <label htmlFor="" className="contact-checkout__label">
+            <label className="contact-checkout__label">
               City
+              <input
+                type="text"
+                className="contact-checkout__input"
+                name="city"
+              />
             </label>
-            <input
-              type="text"
-              className="contact-checkout__input"
-              name="city"
-            />
           </div>
           <div className="contact-checkout__input-container">
-            <label htmlFor="" className="contact-checkout__label">
+            <label className="contact-checkout__label">
               Zip code
+              <input
+                type="text"
+                className="contact-checkout__input"
+                name="zip-code"
+              />
             </label>
-            <input
-              type="text"
-              className="contact-checkout__input"
-              name="zip-code"
-            />
           </div>
         </div>
         <div className="contact-checkout__input-container">
-          <label htmlFor="" className="contact-checkout__label">
+          <label className="contact-checkout__label">
             House, apartment number
+            <input
+              type="text"
+              className="contact-checkout__input"
+              name="house"
+            />
           </label>
-          <input type="text" className="contact-checkout__input" name="house" />
         </div>
       </div>
       <button
