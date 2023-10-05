@@ -1,19 +1,36 @@
 import { ErrorMessage, Field, useFormikContext } from 'formik';
 
-const InputField = ({ className, name, placeholder, isErrorFromServer, errorFromServer }) => {
+const InputField = ({
+  className,
+  name,
+  placeholder,
+  isErrorFromServer,
+  errorFromServer,
+}) => {
   const { errors, touched } = useFormikContext();
   const isFieldError = errors[name] && touched[name];
   const inputStyle = {
-    borderColor: isFieldError ? 'red' : 'initial',
+    borderColor: isFieldError && 'red',
   };
 
   return (
     <>
-      <Field className={`${className}__input`} placeholder={placeholder} name={name} style={inputStyle} />
+      <Field
+        className={`${className}__input`}
+        placeholder={placeholder}
+        name={name}
+        style={inputStyle}
+      />
       {isErrorFromServer ? (
         <div className={`${className}__error`}>{errorFromServer}</div>
       ) : (
-        isFieldError && <ErrorMessage className={`${className}__error`} component="div" name={name} />
+        isFieldError && (
+          <ErrorMessage
+            className={`${className}__error`}
+            component="div"
+            name={name}
+          />
+        )
       )}
     </>
   );

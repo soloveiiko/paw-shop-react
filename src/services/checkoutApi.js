@@ -17,3 +17,4 @@ export const checkoutApi = createApi({
     }),
   }),
 });
+export const { useCheckoutMutation } = checkoutApi;
