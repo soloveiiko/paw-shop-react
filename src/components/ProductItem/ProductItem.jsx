@@ -11,8 +11,8 @@ import { useDispatch } from 'react-redux';
 const ProductItem = (props) => {
   const [addToCart] = useAddToCartMutation();
   const dispatch = useDispatch();
-  const handleAddToCart = async (e) => {
-    e.preventDefault();
+
+  const handleAddToCart = async () => {
     const result = await addToCart({
       id: props.product.id,
       data: { quantity: 1 },

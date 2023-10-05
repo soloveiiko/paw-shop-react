@@ -11,8 +11,8 @@ const Order = () => {
       {cart && cart.data ? (
         <div className="order">
           <div className="order__title-wrapper">
-            <h3 className="order__title"></h3>
-            <div className="order__edit-cart"></div>
+            <h3 className="order__title">My order</h3>
+            <div className="order__edit-cart">Edit cart</div>
           </div>
           <div className="order__items">
             {cart.data.purchases.map((purchase) => (

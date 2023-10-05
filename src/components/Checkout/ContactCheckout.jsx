@@ -1,11 +1,12 @@
 import React from 'react';
 import CountrySelect from '@components/Base/CountrySelect/CountrySelect';
 
-const ContactCheckout = () => {
+const ContactCheckout = ({ handleTabClick }) => {
   return (
     <div className="contact-checkout">
       <form className="contact-checkout__form">
         <div className="contact-checkout__details">
+          <h3 className="contact-checkout__title">Your contact details</h3>
           <div className="contact-checkout__btn-container">
             <button className="contact-checkout__new-customer-btn">
               I’m a new customer
@@ -23,6 +24,7 @@ const ContactCheckout = () => {
           </div>
         </div>
         <div className="contact-checkout__address">
+          <h3 className="contact-checkout__title">Shipping address</h3>
           <div className="contact-checkout__input-container">
             <label htmlFor="" className="contact-checkout__label">
               Country
@@ -94,7 +96,11 @@ const ContactCheckout = () => {
             />
           </div>
         </div>
-        <button className="contact-checkout__submit" type="submit">
+        <button
+          className="contact-checkout__submit"
+          type="submit"
+          onClick={() => handleTabClick('shipping')}
+        >
           Continue to shipping
         </button>
       </form>

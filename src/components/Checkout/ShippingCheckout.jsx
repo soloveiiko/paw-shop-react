@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShippingCheckout = () => {
+const ShippingCheckout = ({ handleTabClick }) => {
   return (
     <form className="shipping-checkout">
       <div className="shipping-checkout__choose-shipping">
@@ -17,7 +17,11 @@ const ShippingCheckout = () => {
           <span>Free</span>
         </label>
       </div>
-      <button className="shipping-checkout__submit" type="submit">
+      <button
+        className="shipping-checkout__submit"
+        type="submit"
+        onClick={() => handleTabClick('payment')}
+      >
         Continue to payment
       </button>
     </form>

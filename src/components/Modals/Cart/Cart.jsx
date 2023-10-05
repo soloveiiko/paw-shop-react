@@ -26,6 +26,7 @@ const Cart = ({ handleCart }) => {
       dispatch(setTotalPrice(data.total.purchases));
       Cookies.set('cart_id', data.data.id);
     }
+    console.log('cart', data);
   }, [data, dispatch]);
 
   return (

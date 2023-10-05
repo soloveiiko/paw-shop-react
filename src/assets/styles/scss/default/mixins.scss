@@ -58,7 +58,11 @@
     color: $accent;
   }
 }
-
+@mixin input {
+  border-radius: 20rem;
+  background-color: $white;
+  border: 1rem solid $input;
+}
 @mixin center {
   position: absolute;
   top: 50%;

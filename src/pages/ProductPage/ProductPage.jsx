@@ -20,7 +20,6 @@ const ProductPage = () => {
   const selectedVariation = data.variations
     .filter((el) => el.slug === slug)
     .map((el) => el.id);
-  // console.log('selectedVariation', selectedVariation);
   const handleChooseVariation = (el, item) => {
     const variation = data.switching
       .find((switchingEl) => switchingEl.attribute.id === el.attribute.id)

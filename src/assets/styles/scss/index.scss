@@ -45,6 +45,11 @@
 @import "components/product/similar-products";
 @import "components/product/product-characteristics";
 @import "components/product-item";
+@import "components/checkout/checkout-container";
+@import "components/checkout/contact-checkout";
+@import "components/checkout/shipping-checkout";
+@import "components/checkout/payment-checkout";
+@import "components/checkout/order";
 
 // Mobile styles for pages
 @import "pages/home-page";
