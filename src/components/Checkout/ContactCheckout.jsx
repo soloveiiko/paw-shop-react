@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CountrySelect from '@components/Base/CountrySelect/CountrySelect';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import InputField from '@components/Modals/Auth/InputField/InputField';
 import { useCheckoutMutation } from '@services/checkoutApi';
-
+import { setCheckoutData } from '@redux/checkout/checkoutSlice';
+import { useDispatch } from 'react-redux';
 const ContactCheckout = ({ handleTabClick }) => {
-  const [sendCheckout, { isLoading, isError, error, isSuccess }] =
-    useCheckoutMutation();
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [activeItem, setActiveItem] = useState('new-customer');
+  const dispatch = useDispatch();
+  const [{ isError, error }] = useCheckoutMutation();
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -21,28 +24,45 @@ const ContactCheckout = ({ handleTabClick }) => {
     apartment: Yup.string().required('Required'),
   });
 
-  const onSubmitHandler = async (values, { resetForm }) => {
-    const result = await sendCheckout({
-      email: values.email,
-      shipping: {
-        firstname: values.firstname,
-        lastname: values.lastname,
-        address: values.address,
-        city: values.city,
-        zipcode: values.zipcode,
-        apartment: values.apartment,
-      },
-    });
-    if (result.data) {
-      // resetForm({ values: { email: '', password: '' } });
-      // dispatch(cartApi.util.invalidateTags(['Cart']));
-      console.log('result.data', result.data);
-    }
+  const onSubmitHandler = async (values) => {
+    // const result = await sendCheckout({
+    //   email: values.email,
+    //   shipping: {
+    //     country: selectedCountry.value,
+    //     firstname: values.firstname,
+    //     lastname: values.lastname,
+    //     address: values.address,
+    //     city: values.city,
+    //     zipcode: values.zipcode,
+    //     apartment: values.apartment,
+    //   },
+    // });
+
+    dispatch(
+      setCheckoutData({
+        email: values.email,
+        shipping: {
+          country: selectedCountry.value,
+          firstname: values.firstname,
+          lastname: values.lastname,
+          address: values.address,
+          city: values.city,
+          zipcode: values.zipcode,
+          apartment: values.apartment,
+        },
+      })
+    );
+    handleTabClick('shipping');
   };
+
+  const isNewCustomerActive = activeItem === 'new-customer';
+  const isHaveAccountActive = activeItem === 'have-account';
+
   return (
     <Formik
       initialValues={{
         email: '',
+        country: '',
         firstname: '',
         lastname: '',
         address: '',
@@ -58,45 +78,59 @@ const ContactCheckout = ({ handleTabClick }) => {
           <div className="contact-checkout__details contact-checkout__item">
             <h3 className="contact-checkout__title">Your contact details</h3>
             <div className="contact-checkout__btn-container">
-              <button className="contact-checkout__customer-btn" type="button">
+              <button
+                className={`contact-checkout__customer-btn${
+                  isNewCustomerActive ? ' active' : ''
+                }`}
+                type="button"
+                onClick={() => setActiveItem('new-customer')}
+              >
                 I’m a new customer
               </button>
               or
-              <button className="contact-checkout__customer-btn" type="button">
+              <button
+                className={`contact-checkout__customer-btn${
+                  isHaveAccountActive ? ' active' : ''
+                }`}
+                type="button"
+                onClick={() => setActiveItem('have-account')}
+              >
                 I have an account
               </button>
             </div>
-            <div className="contact-checkout__input-container">
-              <label className="contact-checkout__label">
-                E-mail
-                <InputField
-                  type="email"
-                  name="email"
-                  errors={errors}
-                  isErrorFromServer={isError}
-                  errorFromServer={error?.data.errors.email}
-                  className="contact-checkout"
-                />
-              </label>
-            </div>
+            {activeItem === 'new-customer' ? (
+              <div className="contact-checkout__input-container">
+                <label className="contact-checkout__label">
+                  E-mail
+                  <InputField
+                    type="email"
+                    name="email"
+                    errors={errors}
+                    isErrorFromServer={isError}
+                    errorFromServer={error?.data.errors.email}
+                    className="contact-checkout"
+                  />
+                </label>
+              </div>
+            ) : (
+              ''
+            )}
           </div>
           <div className="contact-checkout__address contact-checkout__item">
             <h3 className="contact-checkout__title">Shipping address</h3>
             <div className="contact-checkout__input-container">
               <label className="contact-checkout__label">
                 Country
-                <CountrySelect />
+                <CountrySelect
+                  selectedCountry={selectedCountry}
+                  setSelectedCountry={setSelectedCountry}
+                />
               </label>
             </div>
             <div className="contact-checkout__inputs-container">
               <div className="contact-checkout__input-container">
                 <label className="contact-checkout__label">
                   Name
-                  {/*<input*/}
-                  {/*  type="text"*/}
-                  {/*  className="contact-checkout__input"*/}
-                  {/*  name="name"*/}
-                  {/*/>*/}
                   <InputField
                     type="text"
                     name="firstname"
@@ -110,11 +144,6 @@ const ContactCheckout = ({ handleTabClick }) => {
               <div className="contact-checkout__input-container">
                 <label className="contact-checkout__label">
                   Surname
-                  {/*<input*/}
-                  {/*  type="text"*/}
-                  {/*  className="contact-checkout__input"*/}
-                  {/*  name="surname"*/}
-                  {/*/>*/}
                   <InputField
                     type="text"
                     name="lastname"
@@ -129,11 +158,6 @@ const ContactCheckout = ({ handleTabClick }) => {
             <div className="contact-checkout__input-container">
               <label className="contact-checkout__label">
                 Address
-                {/*<input*/}
-                {/*  type="text"*/}
-                {/*  className="contact-checkout__input"*/}
-                {/*  name="address"*/}
-                {/*/>*/}
                 <InputField
                   type="text"
                   name="address"
@@ -148,11 +172,6 @@ const ContactCheckout = ({ handleTabClick }) => {
               <div className="contact-checkout__input-container">
                 <label className="contact-checkout__label">
                   City
-                  {/*<input*/}
-                  {/*  type="text"*/}
-                  {/*  className="contact-checkout__input"*/}
-                  {/*  name="city"*/}
-                  {/*/>*/}
                   <InputField
                     type="text"
                     name="city"
@@ -166,11 +185,6 @@ const ContactCheckout = ({ handleTabClick }) => {
               <div className="contact-checkout__input-container">
                 <label className="contact-checkout__label">
                   Zip code
-                  {/*<input*/}
-                  {/*  type="text"*/}
-                  {/*  className="contact-checkout__input"*/}
-                  {/*  name="zip-code"*/}
-                  {/*/>*/}
                   <InputField
                     type="text"
                     name="zipcode"
@@ -185,11 +199,6 @@ const ContactCheckout = ({ handleTabClick }) => {
             <div className="contact-checkout__input-container">
               <label className="contact-checkout__label">
                 House, apartment number
-                {/*<input*/}
-                {/*  type="text"*/}
-                {/*  className="contact-checkout__input"*/}
-                {/*  name="house"*/}
-                {/*/>*/}
                 <InputField
                   type="text"
                   name="apartment"
@@ -204,7 +213,7 @@ const ContactCheckout = ({ handleTabClick }) => {
           <button
             className="contact-checkout__submit"
             type="submit"
-            onClick={() => handleTabClick('shipping')}
+            // onClick={() => handleTabClick('shipping')}
           >
             Continue to shipping
           </button>
