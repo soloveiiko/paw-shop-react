@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useLazyProductsQuery } from '@services/productApi';
 import {
   Breadcrumbs,
   CategoryFilter,
+  Pagination,
   PetsFilter,
   ProductList,
   SortBy,
 } from '@components';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useLazyProductsQuery } from '@services/productApi';
-import Pagination from '@components/Base/Pagination/Pagination';
+import Preloader from '@components/Base/Preloader/Preloader';
 
 const sortByList = [
   { id: '1', name: 'Default', sort: 'default', order: 'desc' },
@@ -21,10 +22,11 @@ const CatalogPage = () => {
   const [orderItem, setOrderItem] = useState(sortByList[0].order);
   const [currentPage, setCurrentPage] = useState(1);
   const { slug } = useParams();
-  const [getCatalogList, { data }] = useLazyProductsQuery();
-  const itemsPerPage = 1;
   const navigate = useNavigate();
+  const [getCatalogList, { data, isLoading, isError, error }] =
+    useLazyProductsQuery();
   console.log('catalog data', data);
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setCurrentPage(Number(params.get('page')) || 1);
@@ -32,13 +34,14 @@ const CatalogPage = () => {
     setOrderItem(params.get('order') || sortByList[0].order);
     getCatalogList({
       page: currentPage,
-      per_page: itemsPerPage,
+      per_page: 1,
       sort: sortItem,
       order: orderItem,
       category: slug,
     });
     console.log('currentPage', currentPage);
   }, [slug, currentPage, sortItem, orderItem, navigate]);
+
   const handleSort = (sort, order) => {
     const url = `/catalog/${slug}?sort=${sort}&order=${order}&page=1`;
     navigate(url);
@@ -51,8 +54,8 @@ const CatalogPage = () => {
     setCurrentPage(selectedPage);
     const url = `/catalog/${slug}?sort=${sortItem}&order=${orderItem}&page=${selectedPage}`;
     navigate(url);
-    console.log('selectedPage', selectedPage);
   };
+
   return (
     <div className="page catalog-page">
       <Breadcrumbs />
@@ -70,8 +73,12 @@ const CatalogPage = () => {
         </div>
       </section>
       <section className="container catalog-page__product-container">
-        {data && <ProductList currentItems={data.data} />}
-        {data && data.meta && data.meta.last_page > 1 && (
+        {isLoading && <Preloader />}
+        {isError && (
+          <div className="not-found-message">{error.data.message}</div>
+        )}
+        {data && data.data && <ProductList currentItems={data.data} />}
+        {data && data.data && data.meta.last_page > 1 && (
           <Pagination
             pageCount={data.meta.last_page}
             forcePage={data.meta.current_page}

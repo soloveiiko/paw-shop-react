@@ -16,6 +16,7 @@ import Switch from '@components/Product/Switch/Switch';
 import ContactCheckout from '@components/Checkout/ContactCheckout';
 import PaymentCheckout from '@components/Checkout/PaymentCheckout';
 import ShippingCheckout from '@components/Checkout/ShippingCheckout';
+import Pagination from '@components/Base/Pagination/Pagination';
 export {
   AboutUs,
   Banner,
@@ -35,4 +36,5 @@ export {
   ContactCheckout,
   PaymentCheckout,
   ShippingCheckout,
+  Pagination,
 };
