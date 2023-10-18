@@ -13,9 +13,6 @@ const SpecialOfferItem = ({ slide }) => {
             <span className="special-offer__marker">{slide.title1} </span>
             {slide.title2}
           </span>
-          <span className="special-offer__duplicate-title">
-            {slide.title1} {slide.title2}
-          </span>
         </h2>
         <h3 className="special-offer__text">
           {slide.title3}{' '}

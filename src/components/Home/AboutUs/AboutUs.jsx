@@ -5,7 +5,7 @@ import Image from '@components/Base/Image/Image';
 const AboutUs = () => {
   return (
     <section className="main-page__about-us about-us">
-      <div className="about-us__container container">
+      <div className="container about-us__container">
         <h2 className="about-us__headline headline">About us</h2>
         <div className="about-us__list">
           <div className="about-us__item_dog">

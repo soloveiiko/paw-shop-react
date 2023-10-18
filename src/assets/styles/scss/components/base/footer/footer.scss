@@ -1,7 +1,7 @@
 .footer {
   background: $footer-bg;
-  grid-column: 1/2;
-  grid-row: 4/5;
+  flex-shrink: 0;
+
 
   &__top, &__bottom {
     display: flex;

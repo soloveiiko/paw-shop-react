@@ -12,7 +12,7 @@
     width: 100%;
     content: '';
     opacity: 0.3;
-    background-image: url("../../../../../static/images/background/pattern.webp");
+    //background-image: url("../../../../../../static/images/background/pattern.webp");
     background-repeat: repeat-x;
     background-size: auto 100%;
   }
@@ -80,15 +80,7 @@
     letter-spacing: 0.5rem;
     line-height: 115%;
     color: $accent;
-
-    &_duplicate {
-      font-size: $h1-size-mobile;
-      position: absolute;
-      z-index: -1;
-      top: 4rem;
-      left: 1rem;
-      color: $dark;
-    }
+    text-shadow: 0 5px 0 $dark;
 
     &::before, &::after {
       position: absolute;
@@ -103,7 +95,7 @@
       width: 136rem;
       height: 250rem;
       transform: rotate(256deg);
-      background-image: url("../../../../../static/images/background/ball.webp");
+      //background-image: url("../../../../../../static/images/background/ball.webp");
     }
 
     &::after {
@@ -112,7 +104,7 @@
       width: 230rem;
       height: 357rem;
       transform: rotate(1deg);
-      background-image: url("../../../../../static/images/background/bone.webp");
+      //background-image: url("../../../../../../static/images/background/bone.webp");
     }
   }
 

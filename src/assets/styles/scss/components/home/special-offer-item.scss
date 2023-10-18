@@ -57,17 +57,11 @@
   &__title-item {
     z-index: 1;
     color: $white;
+    text-shadow: 0 5px 0 $black;
   }
 
   &__marker {
     color: #FEB905;
-  }
-
-  &__duplicate-title {
-    position: absolute;
-    z-index: 0;
-    top: 3rem;
-    color: $black;
   }
 
   &__text {

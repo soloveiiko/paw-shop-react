@@ -81,7 +81,7 @@
   &__input {
     font-size: 14rem;
     width: 100%;
-    padding: 29rem 300rem 25rem 20rem;
+    padding: 29rem 130rem 25rem 20rem;
     border: 1rem solid;
     border-radius: $border-radius;
     outline: none;
@@ -96,8 +96,8 @@
   &__error {
     font-size: 14rem;
     position: absolute;
-    right: 200rem;
-    bottom: 32rem;
+    left: 15rem;
+    bottom: -25rem;
     color: $error;
   }
 

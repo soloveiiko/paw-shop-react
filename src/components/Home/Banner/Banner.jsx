@@ -17,10 +17,9 @@ const Banner = () => {
 
   return (
     <section className="main-page__banner banner">
-      <div className="banner__container container">
+      <div className="container banner__container">
         <h2 className="banner__title">
           Make your pet’s life better
-          <span className="banner__title_duplicate">Make your pet’s life better</span>
         </h2>
         <div className="banner__for-pets">
           <ForPetShortButton isCat={true} className={isCatHovered ? 'hover' : ''} />

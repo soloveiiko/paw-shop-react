@@ -6,7 +6,6 @@
   left: 0;
   max-width: 1205rem;
   margin: 0 auto;
-  transition: all 0.1s ease-in-out;
 
   &__container, &__tools {
     display: flex;
@@ -15,7 +14,6 @@
 
   &__container {
     position: relative;
-    z-index: 1001;
     justify-content: space-between;
     padding: 13rem 17rem;
   }

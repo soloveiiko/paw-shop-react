@@ -4,16 +4,17 @@
   padding-top: 54rem;
   padding-bottom: 125rem;
   background: linear-gradient(46deg, #964BFF 0%, #722AD8 100%);
+
   &::before {
-    content: '';
     position: absolute;
     top: 30rem;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../../../../../static/images/background/karsten.webp");
-    background-position: center;
+    content: '';
+    //background-image: url("../../../../../../static/images/background/karsten.webp");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
   }
 
@@ -52,7 +53,30 @@
     display: none;
   }
 
+  swiper-container::part(container) {
+    overflow-y: visible;
+  }
+
   swiper-container::part(pagination) {
+    position: absolute;
+    top: auto;
     bottom: -71rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  swiper-container::part(bullet), swiper-container::part(bullet-active) {
+    flex-shrink: 0;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+  }
+
+  swiper-container::part(bullet) {
+    background: $transparent-white;
+  }
+
+  swiper-container::part(bullet-active) {
+    background: $white;
   }
 }
