@@ -6,7 +6,10 @@ import Preloader from '@components/Base/Preloader/Preloader';
 
 const PopularProducts = () => {
   const [randomProducts, setRandomProducts] = useState([]);
-  const { data } = useProductsQuery({ per_page: 4, sort: 'random' });
+  const { data, isLoading, isError } = useProductsQuery({
+    per_page: 4,
+    sort: 'random',
+  });
   useEffect(() => {
     if (data) {
       setRandomProducts(data.data);
@@ -16,7 +19,9 @@ const PopularProducts = () => {
   return (
     <section className="main-page__popular-products popular-products">
       <h2 className="popular-products__headline headline">Popular products</h2>
-      {randomProducts.length > 0 ? (
+      {isError ? (
+        <div className="not-found-message">Not found popular product</div>
+      ) : isLoading ? (
         <ProductContainer products={randomProducts} />
       ) : (
         <Preloader />

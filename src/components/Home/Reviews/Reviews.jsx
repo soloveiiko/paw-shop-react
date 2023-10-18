@@ -1,14 +1,17 @@
 import React, {useEffect, useRef} from 'react';
+import {useReviewsQuery} from '@services/reviewApi';
 import {register} from 'swiper/element/bundle';
 import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
 import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
 import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
-import {useReviewsQuery} from '@services/reviewApi';
 import Preloader from '@components/Base/Preloader/Preloader';
 
 const Reviews = () => {
-  const {data, isLoading} = useReviewsQuery({limit: 7});
+  const {data, isLoading,isError ,error} = useReviewsQuery({limit: 10});
   const swiperReviewRef = useRef(null);
+  if (isError) {
+    console.log(error)
+  }
   register();
 
   useEffect(() => {

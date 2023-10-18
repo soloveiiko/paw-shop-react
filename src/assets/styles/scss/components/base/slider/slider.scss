@@ -1,0 +1,14 @@
+swiper-container::part(bullet), swiper-container::part(bullet-active) {
+  flex-shrink: 0;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+}
+
+swiper-container::part(bullet) {
+  background: $transparent-white;
+}
+
+swiper-container::part(bullet-active) {
+  background: $white;
+}

@@ -22,6 +22,7 @@
 @import "components/base/arrow";
 @import "components/base/pagination";
 @import "components/base/preloader";
+@import "components/base/slider/slider";
 @import "components/catalog/category-filter";
 @import "components/catalog/pets-filter";
 @import "components/catalog/product-list";
@@ -117,25 +118,37 @@ html {
 
 .error {
   font-size: 14rem;
-  border: 1rem solid $error;
   padding: 8rem 13rem;
   color: $error;
+  border: 1rem solid $error;
+}
+
+.not-found-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200rem;
+  padding: 15rem;
+  font-size: 40rem;
 }
 
 .overlay {
   z-index: 1000;
 }
+
 .overlayModal {
   z-index: 1001;
 }
+
 .overlay, .overlayModal {
   position: fixed;
   top: 0;
   left: 0;
+  display: none;
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
+
   &.show {
     display: block;
   }

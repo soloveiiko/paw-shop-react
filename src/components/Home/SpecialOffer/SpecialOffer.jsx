@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { register } from 'swiper/element/bundle';
-import { specialOffer } from '@utils/data';
 import SpecialOfferItem from '@components/Home/SpecialOffer/SpecialOfferItem/SpecialOfferItem';
 import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
 import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
+import { specialOffer } from '@utils/data';
 
 const SpecialOffer = () => {
   const swipeOfferRef = useRef(null);
@@ -18,34 +18,9 @@ const SpecialOffer = () => {
         prevEl: '.prev-arrow-offer',
       },
       pagination: {
-        el: '.swiper-pagination',
         clickable: true,
       },
       loop: true,
-      injectStyles: [
-        `
-          .swiper-pagination-bullets.swiper-pagination-horizontal {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 24rem;
-            top: auto;
-            left: 50%;
-            transform: translateX(-50%);
-          }
-          .swiper-pagination-bullet {
-            width: 16rem;
-            height: 16rem;
-            border-radius: 50rem;
-            background-color: rgba(255, 255, 255, 0.30);
-            cursor: pointer;
-          }
-          .swiper-pagination-bullet-active {
-            background-color: white;
-          }
-      `,
-      ],
     };
 
     Object.assign(swiperContainer, params);

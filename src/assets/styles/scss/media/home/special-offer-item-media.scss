@@ -104,22 +104,5 @@
         font-size: 19rem;
       }
     }
-
-    swiper-container::part(pagination) {
-      bottom: 38rem;
-      gap: 10rem;
-    }
-
-    .prev-arrow, .next-arrow {
-      top: 50%;
-    }
-
-    .prev-arrow {
-      left: -83rem;
-    }
-
-    .next-arrow {
-      right: -72rem;
-    }
   }
 }
