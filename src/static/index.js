@@ -49,7 +49,8 @@ import review from './images/reviews/review.webp';
 // Special offers
 import spCart from './images/special-offers/cart.webp';
 // Default
-import defaultImage from './images/default.webp';
+import defaultImage from './images/default/default.webp';
+import preloader from './images/default/preloader.gif';
 
 export {
   logoDark,
@@ -94,4 +95,5 @@ export {
   twitterBlue,
   telegramBlue,
   icoAddImage,
+  preloader,
 };
