@@ -2,7 +2,7 @@ import { createApi } from '@reduxjs/toolkit/dist/query/react';
 import { baseQuery } from './configApi';
 
 export const productApi = createApi({
-  reducerPath: 'catalogApi',
+  reducerPath: 'productApi',
   baseQuery: baseQuery,
   endpoints: (builder) => ({
     products: builder.query({

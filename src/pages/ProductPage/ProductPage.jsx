@@ -6,18 +6,22 @@ import Preloader from '@components/Base/Preloader/Preloader';
 
 const ProductPage = () => {
   const { slug } = useParams();
-  const [catalogItemGet, { data }] = useLazyProductItemQuery();
+  const [catalogItemGet, { data, isError, error, isLoading }] =
+    useLazyProductItemQuery();
   const navigate = useNavigate();
+  console.log(isError, error, isLoading);
 
   useEffect(() => {
     catalogItemGet(slug);
   }, [data, slug]);
-
-  if (!data || !data.data) {
-    return <Preloader />;
+  if (isError) {
+    return (
+      <div className="not-found-message">
+        {error.status} {error.data.message}
+      </div>
+    );
   }
-
-  const selectedVariation = data.variations
+  const selectedVariation = data?.variations
     .filter((el) => el.slug === slug)
     .map((el) => el.id);
   const handleChooseVariation = (el, item) => {
@@ -33,14 +37,19 @@ const ProductPage = () => {
 
   return (
     <div className="page product-page">
-      <Breadcrumbs name={data.data.name} />
-      <ProductBody
-        data={data.data}
-        switching={data.switching}
-        selectedVariation={selectedVariation}
-        handleChooseVariation={handleChooseVariation}
-      />
-      <Switch product={data.data} />
+      {isLoading && <Preloader />}
+      {data && data.data && (
+        <>
+          <Breadcrumbs name={data.data.name} />
+          <ProductBody
+            data={data.data}
+            switching={data.switching}
+            selectedVariation={selectedVariation}
+            handleChooseVariation={handleChooseVariation}
+          />
+          <Switch product={data.data} />
+        </>
+      )}
       <SimilarProducts />
     </div>
   );
