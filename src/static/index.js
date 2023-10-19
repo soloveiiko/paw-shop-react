@@ -39,13 +39,6 @@ import cardWayForPay from './images/cards/wayforpay.webp';
 // Pets
 import petCat from './images/pets/cat.webp';
 import petDog from './images/pets/dog.webp';
-// Products
-import prToy1 from './images/products/toy1.webp';
-import prToy2 from './images/products/toy2.webp';
-import prToy3 from './images/products/toy3.webp';
-import prToy4 from './images/products/toy4.webp';
-// Reviews
-import review from './images/reviews/review.webp';
 // Special offers
 import spCart from './images/special-offers/cart.webp';
 // Default
@@ -80,11 +73,6 @@ export {
   cardPayPal,
   cardFondy,
   cardCheque,
-  review,
-  prToy1,
-  prToy4,
-  prToy2,
-  prToy3,
   facebook,
   twitter,
   instagram,
