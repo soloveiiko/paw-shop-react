@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-import AddImg from '@static/images/svg-icons/icons/AddImg';
+import { AddImg } from '@static/images/icons';
 
 const AddImageField = ({ images, setImages, imageURLs, setImageURLs }) => {
   // const [images, setImages] = useState([]);

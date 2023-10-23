@@ -6,7 +6,12 @@ import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { setCartId } from '@redux/cart/cartSlice';
 import ProductSlider from '@components/Product/ProductSlider/ProductSlider';
-import { facebookBlue, icoReturn, telegramBlue, twitterBlue } from '@static';
+import {
+  FacebookBlue,
+  Return,
+  TelegramBlue,
+  TwitterBlue,
+} from '@static/images/icons';
 
 const ProductBody = ({
   data,
@@ -135,13 +140,7 @@ const ProductBody = ({
             </div>
           </div>
           <div className="product-body__return">
-            <img
-              className="product-body__return-img"
-              src={icoReturn}
-              alt="return"
-              width="30"
-              height="30"
-            />
+            <Return />
             <span className="product-body__return-text">
               Free return within 15 days
             </span>
@@ -150,31 +149,13 @@ const ProductBody = ({
             <span className="share__subtitle">Share:</span>
             <div className="share__list">
               <div className="share__item_telegram">
-                <img
-                  className="share__image"
-                  src={telegramBlue}
-                  alt="Telegram"
-                  width="18"
-                  height="15"
-                />
+                <TelegramBlue />
               </div>
               <div className="share__item_facebook">
-                <img
-                  className="share__image"
-                  src={facebookBlue}
-                  alt="Facebook"
-                  width="10"
-                  height="20"
-                />
+                <FacebookBlue />
               </div>
               <div className="share__item_twitter">
-                <img
-                  className="share__image"
-                  src={twitterBlue}
-                  alt="Twitter"
-                  width="20"
-                  height="17"
-                />
+                <TwitterBlue />
               </div>
             </div>
           </div>

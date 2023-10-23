@@ -1,5 +1,4 @@
 import React from 'react';
-import { icoBasket } from '@static';
 import StarsRange from '@components/Base/StarsRange/StarsRange';
 import Image from '@components/Base/Image/Image';
 import { Link } from 'react-router-dom';
@@ -7,6 +6,7 @@ import { useAddToCartMutation } from '@services/cartApi';
 import { setCartId } from '@redux/cart/cartSlice';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
+import { Basket } from '@static/images/icons';
 
 const ProductItem = (props) => {
   const [addToCart] = useAddToCartMutation();
@@ -71,13 +71,7 @@ const ProductItem = (props) => {
           <div className="products-item__in-basket-container in-basket">
             <button className="in-basket__btn" onClick={handleAddToCart}>
               +
-              <img
-                src={icoBasket}
-                width="20"
-                height="20"
-                loading="lazy"
-                alt="In Basket"
-              />
+              <Basket />
             </button>
           </div>
         </div>

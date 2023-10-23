@@ -35,7 +35,8 @@
     "test": "craco test",
     "eject": "craco eject",
     "build:icons": "node ./build-icons.mjs",
-    "icons": "npx @svgr/cli --out-dir src/static/images/svg-icons -- src/static/images"
+    "icons": "npx @svgr/cli --out-dir src/static/images/icons -- src/static/images/svg-icons",
+    "icons:watch": "npm-watch icons"
   },
   "watch": {
     "icons": {

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { TfiClose } from 'react-icons/tfi';
 import CartItem from '@components/Modals/Cart/CartItem/CartItem';
-import { icoCart } from '@static';
 import { useCartQuery } from '@services/cartApi';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
@@ -11,6 +10,7 @@ import {
   setCartId,
   setTotalPrice,
 } from '@redux/cart/cartSlice';
+import { Basket } from '@static/images/icons';
 
 const Cart = ({ handleCart }) => {
   const { data } = useCartQuery();
@@ -33,7 +33,7 @@ const Cart = ({ handleCart }) => {
     <div className={`cart-layout${isOpenCart ? ' open' : ''}`}>
       <div className="cart-layout_top">
         <h3 className="cart-layout__title-wrapper">
-          <img className="cart-layout__title-image" src={icoCart} alt="Cart" />
+          <Basket />
           <span className="cart-layout__title">Cart</span>
         </h3>
         <button className="cart-layout__close-btn" onClick={handleCart}>

@@ -1,10 +1,9 @@
 import React from 'react';
 import { Footer, Header } from '@components';
-import AuthContainer from '@components/Modals/Auth/AuthContainer';
 import { useDispatch, useSelector } from 'react-redux';
-import Cart from '@components/Modals/Cart/Cart';
 import { Outlet } from 'react-router-dom';
 import { openAuthModal, openCartModal } from '@redux/modals/modalsSlice';
+
 const Layout = () => {
   const isOpenAuth = useSelector((state) => state.modals.authModal);
   const isOpenCart = useSelector((state) => state.modals.cartModal);
@@ -24,10 +23,10 @@ const Layout = () => {
         <Outlet />
       </main>
       <Footer />
-      {isOpenAuth && (
-        <AuthContainer isOpenAuth={isOpenAuth} handleAuth={handleAuth} />
-      )}
-      <Cart handleCart={handleCart} />
+      {/*{isOpenAuth && (*/}
+      {/*  <AuthContainer isOpenAuth={isOpenAuth} handleAuth={handleAuth} />*/}
+      {/*)}*/}
+      {/*<Cart handleCart={handleCart} />*/}
       {isOpenAuth ||
         (isOpenCart && (
           <div

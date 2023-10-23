@@ -1,16 +1,15 @@
 import React from 'react';
-import Icon from '@components/Base/Icon/Icon';
-import { Star } from '@static/images/svg-icons/icons';
+import { Checkmark, Return, Star, Support } from '@static/images/icons';
 
 const benefitsList = [
-  { id: 1, name: '<b>Unique </b>products', image: 'stars' },
-  { id: 2, name: '<b>24/7 </b>support', image: 'support' },
+  { id: 1, name: '<b>Unique </b>products', image: <Star /> },
+  { id: 2, name: '<b>24/7 </b>support', image: <Support /> },
   {
     id: 3,
     name: '<b>Free return </b> within 15 days',
-    image: 'return',
+    image: <Return />,
   },
-  { id: 4, name: '<b>Happy </b>pet', image: 'checkmark' },
+  { id: 4, name: '<b>Happy </b>pet', image: <Checkmark /> },
 ];
 const Benefits = () => {
   return (
@@ -18,7 +17,7 @@ const Benefits = () => {
       <ul className="benefits__list">
         {benefitsList.map((el) => (
           <li key={el.id} className="benefits__item">
-            <Icon className="benefits__image" name={el.image} />
+            {el.image}
             <span
               className="benefits__text"
               dangerouslySetInnerHTML={{ __html: el.name }}

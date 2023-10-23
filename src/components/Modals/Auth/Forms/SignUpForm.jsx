@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Form, Formik } from 'formik';
 import InputField from '@components/Modals/Auth/InputField';
 import * as Yup from 'yup';
-import { icoArrowAccent } from '@static';
 import Cookies from 'js-cookie';
 import { useRegisterUserMutation } from '@services/authApi';
 import Preloader from '@components/Base/Preloader/Preloader';
@@ -10,6 +9,7 @@ import { openAuthModal } from '@redux/modals/modalsSlice';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '@redux/auth/authSlice';
+import { ArrowAccent } from '@static/images/icons';
 
 const SignUpForm = ({ setSignIn }) => {
   const navigate = useNavigate();
@@ -127,11 +127,7 @@ const SignUpForm = ({ setSignIn }) => {
             onClick={() => setSignIn(true)}
           >
             <span className="auth__registration-btn-text">I have account</span>
-            <img
-              className="auth__btn-image"
-              src={icoArrowAccent}
-              alt="Sign in"
-            />
+            <ArrowAccent />
           </button>
         </Form>
       )}
