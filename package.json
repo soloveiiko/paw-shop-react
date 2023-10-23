@@ -34,18 +34,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
-    "build:icons": "node ./build-icons.mjs",
-    "icons": "npx @svgr/cli --out-dir src/static/images/icons -- src/static/images/svg-icons",
-    "icons:watch": "npm-watch icons"
-  },
-  "watch": {
-    "icons": {
-      "patterns": [
-        "icons"
-      ],
-      "extensions": "svg",
-      "quiet": false
-    }
+    "icons": "npx @svgr/cli --out-dir src/static/images/icons -- src/static/images/svg-icons"
   },
   "eslintConfig": {
     "extends": [
