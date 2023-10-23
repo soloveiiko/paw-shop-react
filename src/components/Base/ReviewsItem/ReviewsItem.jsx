@@ -78,7 +78,7 @@ const ReviewsItem = (props) => {
       {props.isLink && (
         <Link to="#" className="reviews-item__link">
           See the product
-          <ArrowAccent />
+          <ArrowAccent className="reviews-item__arrow" />
         </Link>
       )}
     </div>

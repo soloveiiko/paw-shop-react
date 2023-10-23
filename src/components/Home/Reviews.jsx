@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useReviewsQuery } from '@services/reviewApi';
 import { register } from 'swiper/element/bundle';
-import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
+import ReviewsItem from '@components/Base/ReviewsItem/ReviewsItem';
 import PrevArrow from '@components/Base/Arrows/PrevArrow';
 import NextArrow from '@components/Base/Arrows/NextArrow';
 import Preloader from '@components/Base/Preloader/Preloader';

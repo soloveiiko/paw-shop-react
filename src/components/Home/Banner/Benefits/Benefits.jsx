@@ -1,12 +1,11 @@
 import React from 'react';
-import { Checkmark, Return, Support } from '@static/images/icons';
-import Star from '@static/images/icons/Star';
+import { Checkmark, Return, Star, Support } from '@static/images/icons';
 
 const benefitsList = [
   {
     id: 1,
     name: '<b>Unique </b>products',
-    image: <Star width="30" height="30" className="benefits__image" />,
+    image: <Star className="benefits__image" />,
   },
   {
     id: 2,
@@ -38,7 +37,6 @@ const Benefits = () => {
           </li>
         ))}
       </ul>
-      <Star width="30" height="30" className="benefits__image" />
     </div>
   );
 };

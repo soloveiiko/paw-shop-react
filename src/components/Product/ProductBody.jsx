@@ -5,7 +5,7 @@ import { useAddToCartMutation } from '@services/cartApi';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { setCartId } from '@redux/cart/cartSlice';
-import ProductSlider from '@components/Product/ProductSlider/ProductSlider';
+import ProductSlider from '@components/Product/ProductSlider';
 import {
   FacebookBlue,
   Return,
@@ -140,7 +140,7 @@ const ProductBody = ({
             </div>
           </div>
           <div className="product-body__return">
-            <Return />
+            <Return className="product-body__return-img" />
             <span className="product-body__return-text">
               Free return within 15 days
             </span>
@@ -149,13 +149,13 @@ const ProductBody = ({
             <span className="share__subtitle">Share:</span>
             <div className="share__list">
               <div className="share__item_telegram">
-                <TelegramBlue />
+                <TelegramBlue className="share__image" />
               </div>
               <div className="share__item_facebook">
-                <FacebookBlue />
+                <FacebookBlue className="share__image" />
               </div>
               <div className="share__item_twitter">
-                <TwitterBlue />
+                <TwitterBlue className="share__image" />
               </div>
             </div>
           </div>

@@ -127,7 +127,7 @@ const SignUpForm = ({ setSignIn }) => {
             onClick={() => setSignIn(true)}
           >
             <span className="auth__registration-btn-text">I have account</span>
-            <ArrowAccent />
+            <ArrowAccent className="auth__btn-image" />
           </button>
         </Form>
       )}

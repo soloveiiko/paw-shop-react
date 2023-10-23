@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductItem from '@components/ProductItem/ProductItem';
+import ProductItem from '@components/Base/ProductItem/ProductItem';
 
 const ProductContainer = ({ products }) => {
   const productsList = products.slice(-4);
