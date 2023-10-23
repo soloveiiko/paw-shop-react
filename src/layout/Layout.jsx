@@ -1,6 +1,6 @@
 import React from 'react';
 import { Footer, Header } from '@components';
-import AuthContainer from '@components/Modals/Auth/AuthContainer/AuthContainer';
+import AuthContainer from '@components/Modals/Auth/AuthContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import Cart from '@components/Modals/Cart/Cart';
 import { Outlet } from 'react-router-dom';

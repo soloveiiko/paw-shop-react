@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CountrySelect from '@components/Base/CountrySelect/CountrySelect';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import InputField from '@components/Modals/Auth/InputField/InputField';
+import InputField from '@components/Modals/Auth/InputField';
 import { useCheckoutMutation } from '@services/checkoutApi';
 import { setCheckoutData } from '@redux/checkout/checkoutSlice';
 import { useDispatch } from 'react-redux';

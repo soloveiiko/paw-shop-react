@@ -27,6 +27,42 @@ await writeIfChanged(path.join(outputDir, 'sprite.svg'), spritesheetContent);
 /**
  * Outputs an SVG string with all the icons as symbols
  */
+// async function generateSvgSprite({ files, inputDir }) {
+//   const symbols = await Promise.all(
+//     files.map(async (file) => {
+//       const input = await fs.readFile(path.join(inputDir, file), 'utf8');
+//       const root = parse(input);
+//       const svg = root.querySelector('svg');
+//       if (!svg) throw new Error('No SVG element found');
+//       svg.tagName = 'symbol';
+//       svg.setAttribute('id', file.replace(/\.svg$/, ''));
+//       svg.removeAttribute('xmlns');
+//       svg.removeAttribute('xmlns:xlink');
+//       svg.removeAttribute('version');
+//       svg.removeAttribute('width');
+//       svg.removeAttribute('height');
+//       return svg.toString().trim();
+//     })
+//   );
+//   return [
+//     `<?xml version="1.0" encoding="UTF-8"?>`,
+//     `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0">`,
+//     `<defs>`, // for semantics: https://developer.mozilla.org/en-US/docs/Web/SVG/Element/defs
+//     ...symbols,
+//     `</defs>`,
+//     `</svg>`,
+//   ].join('\n');
+// }
+/**
+ * Each write can trigger dev server reloads
+ * so only write if the content has changed
+ */
+async function writeIfChanged(filepath, newContent) {
+  const currentContent = await fs.readFile(filepath, 'utf8');
+  if (currentContent !== newContent) {
+    return fs.writeFile(filepath, newContent, 'utf8');
+  }
+}
 async function generateSvgSprite({ files, inputDir }) {
   const symbols = await Promise.all(
     files.map(async (file) => {
@@ -41,25 +77,21 @@ async function generateSvgSprite({ files, inputDir }) {
       svg.removeAttribute('version');
       svg.removeAttribute('width');
       svg.removeAttribute('height');
+
+      // Include the entire <defs> section
+      const defs = root.querySelector('defs');
+      if (defs) {
+        svg.appendChild(defs);
+      }
+
       return svg.toString().trim();
     })
   );
   return [
     `<?xml version="1.0" encoding="UTF-8"?>`,
     `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0">`,
-    `<defs>`, // for semantics: https://developer.mozilla.org/en-US/docs/Web/SVG/Element/defs
     ...symbols,
-    `</defs>`,
     `</svg>`,
   ].join('\n');
 }
-/**
- * Each write can trigger dev server reloads
- * so only write if the content has changed
- */
-async function writeIfChanged(filepath, newContent) {
-  const currentContent = await fs.readFile(filepath, 'utf8');
-  if (currentContent !== newContent) {
-    return fs.writeFile(filepath, newContent, 'utf8');
-  }
-}
+

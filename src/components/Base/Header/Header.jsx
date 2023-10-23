@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '@components/Base/Header/Logo/Logo';
-import Navbar from '@components/Base/Header/Navbar/Navbar';
-import Tools from '@components/Base/Header/Tools/Tools';
-import Sidebar from '@components/Base/Header/Sidebar/Sidebar';
+import Logo from '@components/Base/Header/Logo';
+import Navbar from '@components/Base/Header/Navbar';
+import Tools from '@components/Base/Header/Tools';
+import Sidebar from '@components/Base/Header/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { openSidebar } from '@redux/modals/modalsSlice';
 

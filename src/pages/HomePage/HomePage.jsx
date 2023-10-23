@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { AboutUs, Banner, PopularProducts, Reviews, SpecialOffer } from '@components';
+import {
+  AboutUs,
+  Banner,
+  PopularProducts,
+  Reviews,
+  SpecialOffer,
+} from '@components';
 
 const HomePage = () => {
   const [mobile, setMobile] = useState(false);
@@ -18,10 +24,10 @@ const HomePage = () => {
   return (
     <div className="main-page">
       <Banner />
-      <SpecialOffer isMobile={mobile} isTablet={tablet} />
-      <PopularProducts />
-      <Reviews />
-      <AboutUs />
+      {/*<SpecialOffer isMobile={mobile} isTablet={tablet} />*/}
+      {/*<PopularProducts />*/}
+      {/*<Reviews />*/}
+      {/*<AboutUs />*/}
     </div>
   );
 };

@@ -1,12 +1,16 @@
 import React from 'react';
-import { icoCheckmark, icoReturn, icoStar, icoSupport } from '@static';
-import Image from '@components/Base/Image/Image';
+import Icon from '@components/Base/Icon/Icon';
+import { Star } from '@static/images/svg-icons/icons';
 
 const benefitsList = [
-  { id: 1, name: '<b>Unique </b>products', alt: 'Unique', image: icoStar },
-  { id: 2, name: '<b>24/7 </b>support', alt: 'Support', image: icoSupport },
-  { id: 3, name: '<b>Free return </b> within 15 days', alt: 'Free return', image: icoReturn },
-  { id: 4, name: '<b>Happy </b>pet', alt: 'Happy pet', image: icoCheckmark },
+  { id: 1, name: '<b>Unique </b>products', image: 'stars' },
+  { id: 2, name: '<b>24/7 </b>support', image: 'support' },
+  {
+    id: 3,
+    name: '<b>Free return </b> within 15 days',
+    image: 'return',
+  },
+  { id: 4, name: '<b>Happy </b>pet', image: 'checkmark' },
 ];
 const Benefits = () => {
   return (
@@ -14,11 +18,15 @@ const Benefits = () => {
       <ul className="benefits__list">
         {benefitsList.map((el) => (
           <li key={el.id} className="benefits__item">
-            <Image className="benefits__image" src={el.image} width="30" height="30" loading="lazy" alt={el.alt} />
-            <span className="benefits__text" dangerouslySetInnerHTML={{ __html: el.name }} />
+            <Icon className="benefits__image" name={el.image} />
+            <span
+              className="benefits__text"
+              dangerouslySetInnerHTML={{ __html: el.name }}
+            />
           </li>
         ))}
       </ul>
+      <Star />
     </div>
   );
 };

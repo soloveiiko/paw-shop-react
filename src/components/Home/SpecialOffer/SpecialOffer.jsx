@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { register } from 'swiper/element/bundle';
 import SpecialOfferItem from '@components/Home/SpecialOffer/SpecialOfferItem/SpecialOfferItem';
-import NextArrow from '@components/Base/Arrows/NextArrow/NextArrow';
-import PrevArrow from '@components/Base/Arrows/PrevArrow/PrevArrow';
+import NextArrow from '@components/Base/Arrows/NextArrow';
+import PrevArrow from '@components/Base/Arrows/PrevArrow';
 import { specialOffer } from '@utils/data';
 
 const SpecialOffer = () => {

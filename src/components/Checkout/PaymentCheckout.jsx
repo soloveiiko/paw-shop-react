@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { setCheckoutData } from '@redux/checkout/checkoutSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useCheckoutMutation } from '@services/checkoutApi';
+import { setCheckoutData } from '@redux/checkout/checkoutSlice';
 import Preloader from '@components/Base/Preloader/Preloader';
 
 const PaymentCheckout = () => {
