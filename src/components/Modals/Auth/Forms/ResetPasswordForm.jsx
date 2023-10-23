@@ -2,7 +2,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import { Form, Formik } from 'formik';
 import InputField from '@components/Modals/Auth/InputField';
-import Icon from '@components/Base/Icon/Icon';
+import { ArrowAccent } from '@static/images/icons';
 
 const ResetPasswordForm = ({ setResetPassword }) => {
   const validationSchema = Yup.object().shape({
@@ -43,7 +43,7 @@ const ResetPasswordForm = ({ setResetPassword }) => {
             <span className="auth__registration-btn-text">
               I remember password
             </span>
-            <Icon className="auth__btn-image" name="arrow-accent" />
+            <ArrowAccent className="auth__btn-image" />
           </button>
         </Form>
       )}

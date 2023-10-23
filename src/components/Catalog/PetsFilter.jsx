@@ -1,7 +1,6 @@
 import React from 'react';
-import { icoCat, icoDog } from '@static';
 import { NavLink } from 'react-router-dom';
-import Icon from '@components/Base/Icon/Icon';
+import { Cat, Dog } from '@static/images/icons';
 
 const PetsFilter = () => {
   return (
@@ -13,7 +12,7 @@ const PetsFilter = () => {
         <span className="pets-filter__text">
           for<b className="pets-filter__marker cat">cat</b>
         </span>
-        <Icon className="pets-filter__icon" name="cat" />
+        <Cat className="pets-filter__icon" />
       </NavLink>
       <NavLink
         to="/catalog/dog?sort=default&order=desc&page=1"
@@ -22,7 +21,7 @@ const PetsFilter = () => {
         <span className="pets-filter__text">
           for<b className="pets-filter__marker dog">dog</b>
         </span>
-        <Icon className="pets-filter__icon" name="dog" />
+        <Dog className="pets-filter__icon" />
       </NavLink>
     </div>
   );

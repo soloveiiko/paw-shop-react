@@ -1,21 +1,27 @@
 import React from 'react';
-import { facebook, icoEmail, instagram, logoWhite, twitter } from '@static';
 import { Link } from 'react-router-dom';
-import Icon from '@components/Base/Icon/Icon';
+import {
+  Email,
+  FacebookWhite,
+  Instagram,
+  LogoWhite,
+  Twitter,
+} from '@static/images/icons';
 
 const socialNetworkList = [
-  { id: 1, name: 'Instagram', image: 'instagram', link: '#' },
-  { id: 2, name: 'Facebook', image: 'facebook-white', link: '#' },
-  { id: 3, name: 'Twitter', image: 'twitter', link: '#' },
+  { id: 1, name: 'Instagram', image: <Instagram />, link: '#' },
+  { id: 2, name: 'Facebook', image: <FacebookWhite />, link: '#' },
+  { id: 3, name: 'Twitter', image: <Twitter />, link: '#' },
 ];
 const InformationPanel = () => {
   return (
     <div className="footer__information information-panel">
       <div className="information-panel__logo logo">
-        <Icon className="logo__image" name="logo-white" /> PawShop
+        <LogoWhite />
+        PawShop
       </div>
       <div className="information-panel__number-wrapper">
-        <Icon className="information-panel__number-image" name="email" />
+        <Email />
         <a className="information-panel__number" href="tel:1-800-055-5566">
           1-800-055-5566
         </a>
@@ -25,7 +31,7 @@ const InformationPanel = () => {
           {socialNetworkList.map((el) => (
             <li key={el.id} className="social-network__item">
               <Link className="social-network__link" to={el.link}>
-                <Icon className="social-network__image" name={el.image} />
+                {el.image}
               </Link>
             </li>
           ))}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Icon from '@components/Base/Icon/Icon';
+import { ArrowRight, Cat, Dog } from '@static/images/icons';
 
 const ForPetLongButton = ({ isCat, isDog }) => {
   return (
@@ -13,8 +13,8 @@ const ForPetLongButton = ({ isCat, isDog }) => {
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker cat">cat</b>
           </span>
-          <Icon className="product-for-pets__icon" name="cat" />
-          <Icon className="product-for-pets__arrow" name="arrow-right" />
+          <Cat />
+          <ArrowRight />
         </Link>
       )}
       {isDog && (
@@ -25,8 +25,8 @@ const ForPetLongButton = ({ isCat, isDog }) => {
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker dog">dog</b>
           </span>
-          <Icon className="product-for-pets__icon" name="dog" />
-          <Icon className="product-for-pets__arrow" name="arrow-right" />
+          <Dog />
+          <ArrowRight />
         </Link>
       )}
     </div>

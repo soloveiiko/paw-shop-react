@@ -10,8 +10,7 @@ import { openAuthModal } from '@redux/modals/modalsSlice';
 import { setUser } from '@redux/auth/authSlice';
 import Preloader from '@components/Base/Preloader/Preloader';
 import InputField from '@components/Modals/Auth/InputField';
-import { icoArrowAccent } from '@static';
-import Icon from '@components/Base/Icon/Icon';
+import { ArrowAccent } from '@static/images/icons';
 
 const SignInForm = ({ setSignIn, setResetPassword }) => {
   const navigate = useNavigate();
@@ -111,7 +110,7 @@ const SignInForm = ({ setSignIn, setResetPassword }) => {
               <span className="auth__registration-btn-text">
                 I’m a new customer
               </span>
-              <Icon className="auth__btn-image" name="arrow-accent" />
+              <ArrowAccent className="auth__btn-image" />
             </button>
           </div>
         </Form>

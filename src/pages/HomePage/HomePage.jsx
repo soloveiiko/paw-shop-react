@@ -24,10 +24,10 @@ const HomePage = () => {
   return (
     <div className="main-page">
       <Banner />
-      {/*<SpecialOffer isMobile={mobile} isTablet={tablet} />*/}
-      {/*<PopularProducts />*/}
-      {/*<Reviews />*/}
-      {/*<AboutUs />*/}
+      <SpecialOffer isMobile={mobile} isTablet={tablet} />
+      <PopularProducts />
+      <Reviews />
+      <AboutUs />
     </div>
   );
 };

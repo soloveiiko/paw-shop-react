@@ -1,5 +1,4 @@
 import React from 'react';
-import { icoBasket, icoUser } from '@static';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeUser } from '@redux/auth/authSlice';
@@ -7,7 +6,7 @@ import { useLogoutUserMutation } from '@services/authApi';
 import Cookies from 'js-cookie';
 import { cartApi } from '@services/cartApi';
 import { cleanCart } from '@redux/cart/cartSlice';
-import Icon from '@components/Base/Icon/Icon';
+import { Basket, User } from '@static/images/icons';
 
 const Tools = ({ toggleSidebar, handleAuth, handleCart }) => {
   const isAuth = useSelector((state) => state.auth.isAuth);
@@ -33,16 +32,12 @@ const Tools = ({ toggleSidebar, handleAuth, handleCart }) => {
         {isAuth ? (
           <RiLogoutBoxRLine onClick={onLogoutHandler} />
         ) : (
-          <Icon
-            className="tools__profile-img"
-            name="user"
-            onClick={handleAuth}
-          />
+          <User onClick={handleAuth} />
         )}
       </button>
       <div className="tools__basket">
         <button className="tools__basket-img" onClick={handleCart}>
-          <Icon className="tools__image" name="basket" />
+          <Basket className="tools__image" />
         </button>
         <div className="tools__basket-counter">{cart.itemCount}</div>
         <div className="tools__basket-price">${cart.totalPrice}</div>

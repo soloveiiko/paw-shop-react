@@ -25,7 +25,6 @@ const Benefits = () => {
           </li>
         ))}
       </ul>
-      <Star />
     </div>
   );
 };
