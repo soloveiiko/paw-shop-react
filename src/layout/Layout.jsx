@@ -29,14 +29,12 @@ const Layout = () => {
         <AuthContainer isOpenAuth={isOpenAuth} handleAuth={handleAuth} />
       )}
       <Cart handleCart={handleCart} />
-      {isOpenAuth ||
-        (isOpenCart && (
-          <div
-            className={`overlayModal ${isOpenAuth || isOpenCart ? 'show' : ''}`}
-          ></div>
-        ))}
-      {isOpenSidebar && (
-        <div className={`overlay ${isOpenSidebar ? 'show' : ''}`}></div>
+      {isOpenAuth || isOpenCart || isOpenSidebar ? (
+        <div
+          className={`overlayModal show${isOpenSidebar ? ' sidebar-open' : ''}`}
+        ></div>
+      ) : (
+        ''
       )}
     </div>
   );
