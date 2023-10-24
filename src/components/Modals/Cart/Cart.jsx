@@ -33,7 +33,7 @@ const Cart = ({ handleCart }) => {
     <div className={`cart-layout${isOpenCart ? ' open' : ''}`}>
       <div className="cart-layout_top">
         <h3 className="cart-layout__title-wrapper">
-          <Basket />
+          <Basket className="cart-layout__title-image" />
           <span className="cart-layout__title">Cart</span>
         </h3>
         <button className="cart-layout__close-btn" onClick={handleCart}>

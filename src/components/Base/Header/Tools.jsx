@@ -32,7 +32,7 @@ const Tools = ({ toggleSidebar, handleAuth, handleCart }) => {
         {isAuth ? (
           <RiLogoutBoxRLine onClick={onLogoutHandler} />
         ) : (
-          <User onClick={handleAuth} />
+          <User className="tools__profile-img" onClick={handleAuth} />
         )}
       </button>
       <div className="tools__basket">

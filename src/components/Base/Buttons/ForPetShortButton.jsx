@@ -10,7 +10,7 @@ const ForPetShortButton = ({ isCat, isDog, className }) => {
           to="/catalog/cat?sort=default&order=desc&page=1"
           className={`for-pets__btn cat-btn ${className}`}
         >
-          <ArrowLeft />
+          <ArrowLeft className="for-pets__arrow" />
           <span className="for-pets__text">
             For <b className="for-pets__marker cat">cat</b>
           </span>
@@ -24,7 +24,7 @@ const ForPetShortButton = ({ isCat, isDog, className }) => {
           <span className="for-pets__text">
             For <b className="for-pets__marker dog">dog</b>
           </span>
-          <ArrowRight />
+          <ArrowRight className="for-pets__arrow" />
         </Link>
       )}
     </div>

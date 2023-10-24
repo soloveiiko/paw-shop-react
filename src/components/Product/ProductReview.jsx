@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLazyProductReviewsQuery } from '@services/reviewApi';
-import ReviewsItem from '@components/ReviewsItem/ReviewsItem';
+import ReviewsItem from '@components/Base/ReviewsItem/ReviewsItem';
 import Pagination from '@components/Base/Pagination/Pagination';
 import Preloader from '@components/Base/Preloader/Preloader';
 import StarsRange from '@components/Base/StarsRange/StarsRange';

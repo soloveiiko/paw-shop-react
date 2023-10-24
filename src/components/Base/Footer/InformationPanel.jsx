@@ -17,11 +17,11 @@ const InformationPanel = () => {
   return (
     <div className="footer__information information-panel">
       <div className="information-panel__logo logo">
-        <LogoWhite />
+        <LogoWhite className="logo__image" />
         PawShop
       </div>
       <div className="information-panel__number-wrapper">
-        <Email />
+        <Email className="information-panel__number-image" />
         <a className="information-panel__number" href="tel:1-800-055-5566">
           1-800-055-5566
         </a>

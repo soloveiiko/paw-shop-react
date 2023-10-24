@@ -13,8 +13,8 @@ const ForPetLongButton = ({ isCat, isDog }) => {
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker cat">cat</b>
           </span>
-          <Cat />
-          <ArrowRight />
+          <Cat className="product-for-pets__icon" />
+          <ArrowRight className="product-for-pets__arrow" />
         </Link>
       )}
       {isDog && (
@@ -25,8 +25,8 @@ const ForPetLongButton = ({ isCat, isDog }) => {
           <span className="product-for-pets__text">
             Products for <b className="product-for-pets__marker dog">dog</b>
           </span>
-          <Dog />
-          <ArrowRight />
+          <Dog className="product-for-pets__icon" />
+          <ArrowRight className="product-for-pets__arrow" />
         </Link>
       )}
     </div>
