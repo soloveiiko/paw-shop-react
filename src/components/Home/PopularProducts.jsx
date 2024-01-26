@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ForPetLongButton from '@components/Base/Buttons/ForPetLongButton';
 import ProductContainer from '@components/Base/ProductContainer/ProductContainer';
 import { useProductsQuery } from '@services/productApi';
-import Preloader from '@components/Base/Preloader/Preloader';
 
 const PopularProducts = () => {
   const [randomProducts, setRandomProducts] = useState([]);
-  const { data, isLoading, isError } = useProductsQuery({
+  const { data, isError } = useProductsQuery({
     per_page: 4,
     sort: 'random',
   });
@@ -21,10 +20,8 @@ const PopularProducts = () => {
       <h2 className="popular-products__headline headline">Popular products</h2>
       {isError ? (
         <div className="not-found-message">Not found popular product</div>
-      ) : isLoading ? (
-        <ProductContainer products={randomProducts} />
       ) : (
-        <Preloader />
+        <ProductContainer products={randomProducts} />
       )}
       <div className="popular-products__for-pets">
         <ForPetLongButton isCat={true} />
